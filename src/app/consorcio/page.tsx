@@ -42,8 +42,8 @@ export default function ConsorcioPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="Consórcio"
-        title="Realize o sonho com parcelas planejadas"
+        brand="Edias Consultoria"
+        title="Consórcio com parcelas planejadas para o seu sonho"
         description="Grupos Porto Bank para imóvel, veículo, pesados e soluções sustentáveis — com orientação da Edias em cada etapa."
         primaryCta={{ label: "Pedir cotação", href: "/contato" }}
         secondaryCta={{ label: "Ver tabelas", href: "/consorcio/tabelas" }}

@@ -42,8 +42,8 @@ export default function VidaPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="Seguro de Vida"
-        title="Proteção feita para você e sob medida"
+        brand="Edias Consultoria"
+        title="Seguro de vida sob medida para você e sua família"
         description="Planos SulAmérica com coberturas de renda, doenças graves e assistências que acompanham a rotina da família."
         primaryCta={{ label: "Simular agora", href: "/contato" }}
         secondaryCta={{ label: "Checklist Vida Flex", href: "/checklist" }}

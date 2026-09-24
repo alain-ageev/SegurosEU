@@ -52,8 +52,8 @@ export default function ViagemPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="Seguro Viagem"
-        title="Tranquilidade onde você estiver"
+        brand="Edias Consultoria"
+        title="Seguro viagem com tranquilidade onde você estiver"
         description="SulAmérica com contratação rápida, assistência 24h e condições especiais — inclusive opções com desconto e parcelamento."
         primaryCta={{ label: "Simular viagem", href: "/contato" }}
         secondaryCta={{ label: "Ver dúvidas", href: "#duvidas" }}

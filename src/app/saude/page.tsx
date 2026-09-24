@@ -18,8 +18,8 @@ export default function SaudePage() {
   return (
     <>
       <Hero
-        brand="Saúde"
-        title="A melhor escolha para a sua necessidade"
+        brand="Edias Consultoria"
+        title="Planos de saúde: a melhor escolha para a sua necessidade"
         description="Analisamos rede, coparticipação e reembolso para indicar a operadora certa — individual, familiar ou empresarial."
         primaryCta={{ label: "Pedir análise", href: "/contato" }}
         secondaryCta={{ label: "Checklist saúde", href: "/checklist/saude" }}
