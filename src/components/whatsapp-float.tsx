@@ -20,7 +20,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
-      className="fixed right-4 bottom-4 z-[60] flex size-14 items-center justify-center bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.45)] transition-transform hover:scale-105 hover:bg-[#1ebe57] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--edias-navy)] sm:right-6 sm:bottom-6 sm:size-16"
+      className="fixed right-4 bottom-4 z-[60] flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.45)] transition-transform hover:scale-105 hover:bg-[#1ebe57] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--edias-navy)] sm:right-6 sm:bottom-6 sm:size-16"
     >
       <WhatsAppIcon className="size-8 sm:size-9" />
     </a>
