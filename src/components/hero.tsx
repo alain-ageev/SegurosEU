@@ -54,7 +54,7 @@ export function Hero({
 
       <div
         className={`relative mx-auto flex max-w-6xl flex-col justify-end px-4 sm:px-6 lg:px-8 ${
-          compact ? "pb-14 pt-28 sm:pb-16 sm:pt-32" : "pb-20 pt-36 sm:pb-24 sm:pt-44"
+          compact ? "pb-14 pt-16 sm:pb-16 sm:pt-20" : "pb-20 pt-20 sm:pb-24 sm:pt-28"
         }`}
       >
         <p className="animate-rise font-[family-name:var(--font-raleway)] text-3xl font-semibold tracking-[0.02em] text-[var(--edias-gold)] sm:text-4xl md:text-5xl lg:text-6xl">

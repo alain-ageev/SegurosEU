@@ -24,30 +24,133 @@ export const siteConfig = {
   },
 } as const;
 
-export const navItems = [
+/** Menu no modelo Belz: pill nav + mega painéis */
+export type MegaColumn = {
+  title: string;
+  links: { label: string; href: string }[];
+};
+
+export type NavItem = {
+  label: string;
+  href: string;
+  mega?: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    cta: { label: string; href: string };
+    columns: MegaColumn[];
+  };
+};
+
+export const navItems: NavItem[] = [
+  {
+    label: "Soluções",
+    href: "/#solucoes",
+    mega: {
+      eyebrow: "Soluções",
+      title: "Encontre pelo seu cenário",
+      description:
+        "Consórcio, vida, viagem e saúde com orientação consultiva da Edias.",
+      cta: { label: "Ver soluções", href: "/#solucoes" },
+      columns: [
+        {
+          title: "Para você",
+          links: [
+            { label: "Consórcio", href: "/consorcio" },
+            { label: "Seguro de vida", href: "/vida" },
+            { label: "Seguro viagem", href: "/viagem" },
+            { label: "Planos de saúde", href: "/saude" },
+          ],
+        },
+        {
+          title: "Ferramentas",
+          links: [
+            { label: "Checklists", href: "/checklist" },
+            { label: "Contato", href: "/contato" },
+          ],
+        },
+        {
+          title: "Destaques",
+          links: [
+            { label: "Tabelas de consórcio", href: "/consorcio/tabelas" },
+            { label: "Dúvidas de consórcio", href: "/consorcio/duvidas" },
+            { label: "Parceiros", href: "/#parceiros" },
+          ],
+        },
+      ],
+    },
+  },
   {
     label: "Consórcio",
     href: "/consorcio",
-    children: [
-      { label: "Visão geral", href: "/consorcio" },
-      { label: "Tabelas", href: "/consorcio/tabelas" },
-      { label: "Dúvidas", href: "/consorcio/duvidas" },
-    ],
+    mega: {
+      eyebrow: "Consórcio",
+      title: "Realize o sonho com parcelas planejadas",
+      description:
+        "Grupos Porto Bank para imóvel, veículo, pesados e soluções sustentáveis.",
+      cta: { label: "Ver consórcio", href: "/consorcio" },
+      columns: [
+        {
+          title: "Comece aqui",
+          links: [
+            { label: "Visão geral", href: "/consorcio" },
+            { label: "Tabelas", href: "/consorcio/tabelas" },
+            { label: "Dúvidas frequentes", href: "/consorcio/duvidas" },
+          ],
+        },
+        {
+          title: "Modalidades",
+          links: [
+            { label: "Veículos", href: "/consorcio" },
+            { label: "Imóveis", href: "/consorcio" },
+            { label: "Pesados e solar", href: "/consorcio" },
+          ],
+        },
+        {
+          title: "Cotação",
+          links: [
+            { label: "Checklist consórcio", href: "/checklist/consorcio" },
+            { label: "Falar com especialista", href: "/contato" },
+          ],
+        },
+      ],
+    },
   },
-  { label: "Vida", href: "/vida" },
-  { label: "Viagem", href: "/viagem" },
   {
     label: "Saúde",
     href: "/saude",
-    children: [
-      { label: "Operadoras", href: "/saude" },
-      { label: "SulAmérica", href: "/saude/sulamerica" },
-      { label: "Bradesco", href: "/saude/bradesco" },
-      { label: "Amil", href: "/saude/amil" },
-    ],
+    mega: {
+      eyebrow: "Saúde",
+      title: "A melhor escolha para a sua necessidade",
+      description:
+        "Compare rede, coparticipação e reembolso entre as principais operadoras.",
+      cta: { label: "Ver operadoras", href: "/saude" },
+      columns: [
+        {
+          title: "Operadoras",
+          links: [
+            { label: "Todas as operadoras", href: "/saude" },
+            { label: "SulAmérica", href: "/saude/sulamerica" },
+            { label: "Bradesco", href: "/saude/bradesco" },
+            { label: "Amil", href: "/saude/amil" },
+          ],
+        },
+        {
+          title: "Também oferecemos",
+          links: [
+            { label: "Seguro de vida", href: "/vida" },
+            { label: "Seguro viagem", href: "/viagem" },
+            { label: "Checklist saúde", href: "/checklist/saude" },
+          ],
+        },
+      ],
+    },
   },
+  { label: "Vida", href: "/vida" },
+  { label: "Viagem", href: "/viagem" },
   { label: "Checklist", href: "/checklist" },
-] as const;
+  { label: "Contato", href: "/contato" },
+];
 
 export const services = [
   {

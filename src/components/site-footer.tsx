@@ -39,17 +39,12 @@ export function SiteFooter() {
           </h2>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li key={item.label}>
                 <Link href={item.href} className="hover:text-white">
                   {item.label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/contato" className="hover:text-white">
-                Contato
-              </Link>
-            </li>
           </ul>
         </div>
 
