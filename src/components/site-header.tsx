@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MenuIcon, PhoneIcon, XIcon } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 import { Button } from "@/components/ui/button";
 import { navItems, siteConfig } from "@/lib/site";
 
@@ -12,23 +13,7 @@ export function SiteHeader() {
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="group flex items-center gap-2.5 text-white"
-          aria-label={`${siteConfig.name} — página inicial`}
-        >
-          <span className="flex size-9 items-center justify-center rounded-sm bg-[var(--edias-gold)] font-[family-name:var(--font-raleway)] text-sm font-bold tracking-wide text-[var(--edias-navy)] transition-transform duration-300 group-hover:scale-105 sm:size-10 sm:text-base">
-            ED
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-[family-name:var(--font-raleway)] text-base font-semibold tracking-[0.04em] sm:text-lg">
-              Edias
-            </span>
-            <span className="text-[10px] font-medium tracking-[0.18em] text-white/70 uppercase sm:text-[11px]">
-              Consultoria
-            </span>
-          </span>
-        </Link>
+        <BrandLogo variant="light" />
 
         <nav
           className="hidden items-center gap-1 lg:flex"

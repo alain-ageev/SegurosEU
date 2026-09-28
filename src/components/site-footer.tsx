@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import { navItems, siteConfig } from "@/lib/site";
@@ -15,10 +16,14 @@ export function SiteFooter() {
       />
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr] lg:px-8 lg:py-16">
         <div>
-          <p className="font-[family-name:var(--font-raleway)] text-2xl font-semibold tracking-wide">
-            Edias Consultoria
-          </p>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
+          <Image
+            src="/images/logo-edias-mark.png"
+            alt="E Dias Corretora de Seguros"
+            width={182}
+            height={62}
+            className="h-10 w-auto brightness-0 invert"
+          />
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
             Corretora e consultoria de seguros em Recife. Proteção corporativa e
             familiar com análise de risco, parceiros sólidos e atendimento
             próximo.

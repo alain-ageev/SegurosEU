@@ -57,6 +57,8 @@ export const services = [
     summary:
       "Realize o sonho do imóvel, veículo ou equipamento com parcelas planejadas e grupos Porto Bank.",
     accent: "Planejamento sem juros bancários",
+    image: "/images/home/consorcio.jpg",
+    imageAlt: "Família conquistando o sonho do imóvel com consórcio",
   },
   {
     slug: "vida",
@@ -65,6 +67,8 @@ export const services = [
     summary:
       "Proteção sob medida para família e renda, com coberturas de doenças graves e assistências.",
     accent: "Tranquilidade para quem depende de você",
+    image: "/images/home/family.jpg",
+    imageAlt: "Proteção familiar com seguro de vida",
   },
   {
     slug: "viagem",
@@ -73,6 +77,8 @@ export const services = [
     summary:
       "Cobertura nacional e internacional com contratação rápida e suporte 24h no exterior.",
     accent: "Viaje com proteção e desconto",
+    image: "/images/home/travel.jpg",
+    imageAlt: "Viagem protegida com seguro viagem",
   },
   {
     slug: "saude",
@@ -81,6 +87,8 @@ export const services = [
     summary:
       "Orientação consultiva entre operadoras para encontrar rede, coparticipação e reembolso ideais.",
     accent: "Saúde alinhada ao seu perfil",
+    image: "/images/home/health.jpg",
+    imageAlt: "Cuidado com a saúde e planos adequados",
   },
 ] as const;
 
@@ -99,19 +107,37 @@ export const corporateHighlights = [
   },
 ] as const;
 
+/** Logos baixados do site antigo (Wix) — pasta /public/images/partners */
 export const partners = [
-  "Porto Seguro",
-  "SulAmérica",
-  "Bradesco Seguros",
-  "Amil",
-  "Allianz",
-  "Mapfre",
-  "Tokio Marine",
-  "Zurich",
-  "HDI",
-  "Sompo",
-  "Unimed",
-  "Hapvida",
+  { name: "Porto Seguro", logo: "/images/partners/porto.png" },
+  { name: "SulAmérica", logo: "/images/partners/sulamerica.png" },
+  { name: "Bradesco Seguros", logo: "/images/partners/bradesco.png" },
+  { name: "Allianz", logo: "/images/partners/allianz.png" },
+  { name: "Mapfre", logo: "/images/partners/mapfre.png" },
+  { name: "Tokio Marine", logo: "/images/partners/tokio.png" },
+  { name: "Zurich", logo: "/images/partners/zurich.png" },
+  { name: "HDI", logo: "/images/partners/hdi.png" },
+  { name: "Sompo", logo: "/images/partners/sompo.png" },
+  { name: "Unimed", logo: "/images/partners/unimed.webp" },
+  { name: "Sura", logo: "/images/partners/sura.png" },
+  { name: "AXA", logo: "/images/partners/axa.png" },
+  { name: "Azul Seguros", logo: "/images/partners/azul.png" },
+  { name: "Yelum", logo: "/images/partners/yelum.jpg" },
+  { name: "Essor", logo: "/images/partners/essor.png" },
+  { name: "Chubb", logo: "/images/partners/chubb.png" },
+  { name: "Mongeral Aegon", logo: "/images/partners/mongeral.png" },
+  { name: "Itaú Seguros", logo: "/images/partners/itau.jpg" },
+  { name: "Excelsior", logo: "/images/partners/excelsior.jpg" },
+  { name: "Liberty", logo: "/images/partners/liberty.png" },
+  { name: "Mitsui", logo: "/images/partners/mitsui.png" },
+  { name: "Alfa Seguros", logo: "/images/partners/alfa.png" },
+  { name: "Allseg", logo: "/images/partners/allseg.jpg" },
+  { name: "America", logo: "/images/partners/america.png" },
+] as const;
+
+export const institutionalPartners = [
+  { name: "APES", logo: "/images/partners/apes.avif" },
+  { name: "Sindvarejista PE", logo: "/images/partners/sindvarejista.jpg" },
 ] as const;
 
 export const checklistItems = [

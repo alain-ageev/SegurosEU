@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,8 @@ type HeroProps = {
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   compact?: boolean;
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 export function Hero({
@@ -19,6 +22,8 @@ export function Hero({
   primaryCta = { label: "Falar com especialista", href: "/contato" },
   secondaryCta = { label: "Ver soluções", href: "/#solucoes" },
   compact = false,
+  imageSrc = "/images/home/hero.jpg",
+  imageAlt = "Equipe e clientes em reunião de negócios",
 }: HeroProps) {
   return (
     <section
@@ -26,21 +31,25 @@ export function Hero({
         compact ? "min-h-[52vh]" : "min-h-[92vh]"
       }`}
     >
-      <div
-        aria-hidden
-        className="absolute inset-0 hero-atmosphere"
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        fill
+        priority={!compact}
+        sizes="100vw"
+        className="object-cover object-center"
       />
       <div
         aria-hidden
-        className="absolute inset-0 opacity-[0.35] mix-blend-soft-light hero-grain"
+        className="absolute inset-0 bg-gradient-to-r from-[var(--edias-deep)]/92 via-[var(--edias-navy)]/78 to-[var(--edias-navy)]/55"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.25] mix-blend-soft-light hero-grain"
       />
       <div
         aria-hidden
         className="absolute -right-24 top-1/4 h-[28rem] w-[28rem] rounded-full bg-[var(--edias-gold)]/15 blur-3xl animate-drift"
-      />
-      <div
-        aria-hidden
-        className="absolute -left-16 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl"
       />
 
       <div
