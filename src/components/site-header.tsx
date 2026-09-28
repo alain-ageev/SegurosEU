@@ -29,8 +29,8 @@ function MegaPanel({
           : "pointer-events-none opacity-0"
       )}
     >
-      <div className="grid gap-5 rounded-[1.5rem] border border-[var(--edias-navy)]/10 bg-white p-5 shadow-[0_24px_70px_rgba(0,48,91,0.16)] lg:grid-cols-[0.85fr_1.6fr]">
-        <div className="rounded-[1.1rem] bg-[var(--edias-canvas)] p-5">
+      <div className="grid gap-5 border border-[var(--edias-navy)]/10 bg-white p-5 shadow-[0_24px_70px_rgba(0,48,91,0.16)] lg:grid-cols-[0.85fr_1.6fr]">
+        <div className="bg-[var(--edias-canvas)] p-5">
           <p className="text-xs font-extrabold tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
             {mega.eyebrow}
           </p>
@@ -43,7 +43,7 @@ function MegaPanel({
           <Link
             href={mega.cta.href}
             onClick={onNavigate}
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--edias-navy)] px-5 py-2.5 text-xs font-extrabold text-white transition hover:bg-[var(--edias-deep)]"
+            className="mt-6 inline-flex items-center gap-2 bg-[var(--edias-navy)] px-5 py-2.5 text-xs font-extrabold text-white transition hover:bg-[var(--edias-deep)]"
           >
             {mega.cta.label}
             <ArrowRightIcon className="size-3.5" />
@@ -66,7 +66,7 @@ function MegaPanel({
                     key={link.href + link.label}
                     href={link.href}
                     onClick={onNavigate}
-                    className="block rounded-[0.9rem] px-3 py-2.5 text-sm font-bold leading-5 text-[var(--edias-navy)] transition hover:bg-[var(--edias-canvas)]"
+                    className="block px-3 py-2.5 text-sm font-bold leading-5 text-[var(--edias-navy)] transition hover:bg-[var(--edias-canvas)]"
                   >
                     {link.label}
                   </Link>
@@ -124,7 +124,7 @@ export function SiteHeader() {
         <BrandLogo variant="dark" />
 
         <nav
-          className="hidden items-center gap-1 rounded-full bg-white/80 p-1 shadow-[0_18px_45px_rgba(0,48,91,0.08)] lg:flex"
+          className="hidden items-center gap-1 bg-white/80 p-1 shadow-[0_18px_45px_rgba(0,48,91,0.08)] lg:flex"
           aria-label="Principal"
           onMouseLeave={scheduleClose}
         >
@@ -146,7 +146,7 @@ export function SiteHeader() {
                     aria-expanded={isOpen}
                     aria-haspopup="true"
                     className={cn(
-                      "inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition",
+                      "inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition",
                       "hover:bg-[var(--edias-navy)] hover:text-white focus:bg-[var(--edias-navy)] focus:text-white focus:outline-none",
                       isOpen && "bg-[var(--edias-navy)] text-white"
                     )}
@@ -165,7 +165,7 @@ export function SiteHeader() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="inline-flex items-center rounded-full px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition hover:bg-[var(--edias-navy)] hover:text-white"
+                    className="inline-flex items-center px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition hover:bg-[var(--edias-navy)] hover:text-white"
                     onClick={() => setOpenMega(null)}
                   >
                     {item.label}
@@ -188,7 +188,7 @@ export function SiteHeader() {
             nativeButton={false}
             render={<Link href="/contato" />}
             size="sm"
-            className="hidden h-10 rounded-full bg-[var(--edias-navy)] px-4 text-white hover:bg-[var(--edias-deep)] md:inline-flex"
+            className="hidden h-10 rounded-none bg-[var(--edias-navy)] px-4 text-white hover:bg-[var(--edias-deep)] md:inline-flex"
           >
             Fale com um especialista
             <ArrowRightIcon />
@@ -196,7 +196,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-[var(--edias-navy)]/15 text-[var(--edias-navy)] hover:bg-white lg:hidden"
+            className="inline-flex size-10 items-center justify-center border border-[var(--edias-navy)]/15 text-[var(--edias-navy)] hover:bg-white lg:hidden"
             aria-expanded={openMobile}
             aria-controls={menuId}
             aria-label={openMobile ? "Fechar menu" : "Abrir menu"}
@@ -216,7 +216,7 @@ export function SiteHeader() {
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className="rounded-[1rem] border border-[var(--edias-navy)]/10 bg-white p-3"
+                className="border border-[var(--edias-navy)]/10 bg-white p-3"
               >
                 <Link
                   href={item.href}
@@ -233,7 +233,7 @@ export function SiteHeader() {
                           key={item.label + link.href + link.label}
                           href={link.href}
                           onClick={() => setOpenMobile(false)}
-                          className="block rounded-lg px-3 py-2 text-sm font-medium text-[var(--edias-ink-muted)] hover:bg-[var(--edias-canvas)]"
+                          className="block px-3 py-2 text-sm font-medium text-[var(--edias-ink-muted)] hover:bg-[var(--edias-canvas)]"
                         >
                           {link.label}
                         </Link>
@@ -244,7 +244,7 @@ export function SiteHeader() {
             ))}
             <a
               href={siteConfig.phoneHref}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-[var(--edias-navy)] px-5 py-3 text-sm font-bold text-white"
+              className="mt-2 inline-flex items-center justify-center bg-[var(--edias-navy)] px-5 py-3 text-sm font-bold text-white"
             >
               {siteConfig.phone}
             </a>
