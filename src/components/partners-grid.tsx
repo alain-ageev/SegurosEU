@@ -26,21 +26,27 @@ export function PartnersGrid() {
           </Link>
         </div>
 
-        <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
           {partners.map((partner) => (
-            <li
-              key={partner.name}
-              className="flex h-20 items-center justify-center border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-3 transition-colors hover:bg-white"
-            >
-              <Image
-                src={partner.logo}
-                alt={`Logo ${partner.name}`}
-                width={140}
-                height={56}
-                className="max-h-10 w-auto object-contain"
-                loading="lazy"
-                sizes="(max-width: 640px) 40vw, 140px"
-              />
+            <li key={partner.name}>
+              <a
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={partner.name}
+                aria-label={`${partner.name} — abrir site oficial`}
+                className="flex h-28 items-center justify-center border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-4 transition-colors hover:border-[var(--edias-gold)] hover:bg-white sm:h-32"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={`Logo ${partner.name}`}
+                  width={220}
+                  height={96}
+                  className="max-h-16 w-auto object-contain sm:max-h-20"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 45vw, 220px"
+                />
+              </a>
             </li>
           ))}
         </ul>
@@ -49,20 +55,26 @@ export function PartnersGrid() {
           <p className="text-xs font-semibold tracking-[0.16em] text-[var(--edias-ink-muted)] uppercase">
             Apoio institucional
           </p>
-          <ul className="mt-4 flex flex-wrap gap-3">
+          <ul className="mt-4 flex flex-wrap gap-4">
             {institutionalPartners.map((partner) => (
-              <li
-                key={partner.name}
-                className="flex h-16 items-center justify-center border border-[var(--edias-line)] bg-white px-5"
-              >
-                <Image
-                  src={partner.logo}
-                  alt={`Logo ${partner.name}`}
-                  width={160}
-                  height={48}
-                  className="max-h-10 w-auto object-contain"
-                  loading="lazy"
-                />
+              <li key={partner.name}>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={partner.name}
+                  aria-label={`${partner.name} — abrir site oficial`}
+                  className="flex h-24 items-center justify-center border border-[var(--edias-line)] bg-white px-8 transition-colors hover:border-[var(--edias-gold)]"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={`Logo ${partner.name}`}
+                    width={200}
+                    height={72}
+                    className="max-h-14 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </a>
               </li>
             ))}
           </ul>

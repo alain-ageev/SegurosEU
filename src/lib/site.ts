@@ -212,35 +212,139 @@ export const corporateHighlights = [
 
 /** Logos baixados do site antigo (Wix) — pasta /public/images/partners */
 export const partners = [
-  { name: "Porto Seguro", logo: "/images/partners/porto.png" },
-  { name: "SulAmérica", logo: "/images/partners/sulamerica.png" },
-  { name: "Bradesco Seguros", logo: "/images/partners/bradesco.png" },
-  { name: "Allianz", logo: "/images/partners/allianz.png" },
-  { name: "Mapfre", logo: "/images/partners/mapfre.png" },
-  { name: "Tokio Marine", logo: "/images/partners/tokio.png" },
-  { name: "Zurich", logo: "/images/partners/zurich.png" },
-  { name: "HDI", logo: "/images/partners/hdi.png" },
-  { name: "Sompo", logo: "/images/partners/sompo.png" },
-  { name: "Unimed", logo: "/images/partners/unimed.webp" },
-  { name: "Sura", logo: "/images/partners/sura.png" },
-  { name: "AXA", logo: "/images/partners/axa.png" },
-  { name: "Azul Seguros", logo: "/images/partners/azul.png" },
-  { name: "Yelum", logo: "/images/partners/yelum.jpg" },
-  { name: "Essor", logo: "/images/partners/essor.png" },
-  { name: "Chubb", logo: "/images/partners/chubb.png" },
-  { name: "Mongeral Aegon", logo: "/images/partners/mongeral.png" },
-  { name: "Itaú Seguros", logo: "/images/partners/itau.jpg" },
-  { name: "Excelsior", logo: "/images/partners/excelsior.jpg" },
-  { name: "Liberty", logo: "/images/partners/liberty.png" },
-  { name: "Mitsui", logo: "/images/partners/mitsui.png" },
-  { name: "Alfa Seguros", logo: "/images/partners/alfa.png" },
-  { name: "Allseg", logo: "/images/partners/allseg.jpg" },
-  { name: "America", logo: "/images/partners/america.png" },
+  {
+    name: "Porto Seguro",
+    logo: "/images/partners/porto.png",
+    href: "https://www.portoseguro.com.br/",
+  },
+  {
+    name: "SulAmérica",
+    logo: "/images/partners/sulamerica.png",
+    href: "https://portal.sulamericaseguros.com.br/home.htm",
+  },
+  {
+    name: "Bradesco Seguros",
+    logo: "/images/partners/bradesco.png",
+    href: "https://www.bradescoseguros.com.br/clientes",
+  },
+  {
+    name: "Allianz",
+    logo: "/images/partners/allianz.png",
+    href: "https://www.allianz.com.br/",
+  },
+  {
+    name: "Mapfre",
+    logo: "/images/partners/mapfre.png",
+    href: "https://www.mapfre.com.br/para-voce/",
+  },
+  {
+    name: "Tokio Marine",
+    logo: "/images/partners/tokio.png",
+    href: "https://www.tokiomarine.com.br/",
+  },
+  {
+    name: "Zurich",
+    logo: "/images/partners/zurich.png",
+    href: "https://www.zurich.com.br/",
+  },
+  {
+    name: "HDI",
+    logo: "/images/partners/hdi.png",
+    href: "https://www.hdiseguros.com.br/",
+  },
+  {
+    name: "Sompo",
+    logo: "/images/partners/sompo.png",
+    href: "https://sompo.com.br/",
+  },
+  {
+    name: "Unimed",
+    logo: "/images/partners/unimed.webp",
+    href: "https://www.segurosunimed.com.br/",
+  },
+  {
+    name: "Sura",
+    logo: "/images/partners/sura.png",
+    href: "https://www.segurossura.com.br/home",
+  },
+  {
+    name: "AXA",
+    logo: "/images/partners/axa.png",
+    href: "https://axa.com.br/para-corretores",
+  },
+  {
+    name: "Azul Seguros",
+    logo: "/images/partners/azul.png",
+    href: "https://www.azulseguros.com.br/",
+  },
+  {
+    name: "Yelum",
+    logo: "/images/partners/yelum.jpg",
+    href: "https://www.yelumseguros.com.br/Pages/Home.aspx",
+  },
+  {
+    name: "Essor",
+    logo: "/images/partners/essor.png",
+    href: "https://www.essor.com.br/",
+  },
+  {
+    name: "Chubb",
+    logo: "/images/partners/chubb.png",
+    href: "https://www.chubb.com/br-pt/",
+  },
+  {
+    name: "Mongeral Aegon",
+    logo: "/images/partners/mongeral.png",
+    href: "https://mag.com.br/",
+  },
+  {
+    name: "Itaú Seguros",
+    logo: "/images/partners/itau.jpg",
+    href: "https://www.itau.com.br/seguros",
+  },
+  {
+    name: "Excelsior",
+    logo: "/images/partners/excelsior.jpg",
+    href: "https://www.excelsiorseguros.com.br/",
+  },
+  {
+    name: "Liberty",
+    logo: "/images/partners/liberty.png",
+    href: "https://www.libertyseguros.com.br/",
+  },
+  {
+    name: "Mitsui",
+    logo: "/images/partners/mitsui.png",
+    href: "https://www.mitsui-sumitomo.com.br/",
+  },
+  {
+    name: "Alfa Seguros",
+    logo: "/images/partners/alfa.png",
+    href: "https://www.alfaseguradora.com.br/",
+  },
+  {
+    name: "Allseg",
+    logo: "/images/partners/allseg.jpg",
+    href: "https://allsegseguradora.com.br/",
+  },
+  {
+    name: "America",
+    logo: "/images/partners/america.png",
+    href: "https://www.americaseguros.com.br/",
+  },
 ] as const;
 
 export const institutionalPartners = [
-  { name: "APES", logo: "/images/partners/apes.avif" },
-  { name: "Sindvarejista PE", logo: "/images/partners/sindvarejista.jpg" },
+  {
+    name: "APES",
+    logo: "/images/partners/apes.avif",
+    href: "https://www.apes.com.br/",
+  },
+  {
+    name: "Sindvarejista PE",
+    logo: "/images/partners/sindvarejista.jpg",
+    href: "http://www.sindvarejista-pe.com.br",
+  },
 ] as const;
 
 export const checklistItems = [
