@@ -112,143 +112,171 @@ export function SiteHeader() {
   };
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 border-b px-4 py-3 backdrop-blur-xl transition-colors",
-        scrolled
-          ? "border-[var(--edias-navy)]/10 bg-white/95"
-          : "border-[var(--edias-navy)]/10 bg-[var(--edias-canvas)]/90"
-      )}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
-        <BrandLogo variant="dark" />
+    <header className="sticky top-0 z-50">
+      {/* Blur only on the bar — keeps mobile drawer free of a fixed containing block */}
+      <div
+        className={cn(
+          "relative z-[80] border-b px-4 py-3 backdrop-blur-xl transition-colors",
+          scrolled
+            ? "border-[var(--edias-navy)]/10 bg-white/95"
+            : "border-[var(--edias-navy)]/10 bg-[var(--edias-canvas)]/90"
+        )}
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3">
+          <BrandLogo variant="dark" />
 
-        <nav
-          className="hidden items-center gap-1 bg-white/80 p-1 shadow-[0_18px_45px_rgba(0,48,91,0.08)] lg:flex"
-          aria-label="Principal"
-          onMouseLeave={scheduleClose}
-        >
-          {navItems.map((item) => {
-            const hasMega = Boolean(item.mega);
-            const isOpen = openMega === item.label;
+          <nav
+            className="hidden items-center gap-1 bg-white/80 p-1 shadow-[0_18px_45px_rgba(0,48,91,0.08)] lg:flex"
+            aria-label="Principal"
+            onMouseLeave={scheduleClose}
+          >
+            {navItems.map((item) => {
+              const hasMega = Boolean(item.mega);
+              const isOpen = openMega === item.label;
 
-            return (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() =>
-                  hasMega ? openPanel(item.label) : setOpenMega(null)
-                }
-              >
-                {hasMega ? (
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    aria-haspopup="true"
-                    className={cn(
-                      "inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition",
-                      "hover:bg-[var(--edias-navy)] hover:text-white focus:bg-[var(--edias-navy)] focus:text-white focus:outline-none",
-                      isOpen && "bg-[var(--edias-navy)] text-white"
-                    )}
-                    onClick={() =>
-                      setOpenMega(isOpen ? null : item.label)
-                    }
-                  >
-                    <span>{item.label}</span>
-                    <ChevronDownIcon
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={() =>
+                    hasMega ? openPanel(item.label) : setOpenMega(null)
+                  }
+                >
+                  {hasMega ? (
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
                       className={cn(
-                        "size-4 transition-transform duration-200",
-                        isOpen && "rotate-180"
+                        "inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition",
+                        "hover:bg-[var(--edias-navy)] hover:text-white focus:bg-[var(--edias-navy)] focus:text-white focus:outline-none",
+                        isOpen && "bg-[var(--edias-navy)] text-white"
                       )}
+                      onClick={() =>
+                        setOpenMega(isOpen ? null : item.label)
+                      }
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDownIcon
+                        className={cn(
+                          "size-4 transition-transform duration-200",
+                          isOpen && "rotate-180"
+                        )}
+                      />
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="inline-flex items-center px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition hover:bg-[var(--edias-navy)] hover:text-white"
+                      onClick={() => setOpenMega(null)}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                  {hasMega ? (
+                    <MegaPanel
+                      item={item}
+                      open={isOpen}
+                      onNavigate={() => setOpenMega(null)}
                     />
-                  </button>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center px-4 py-2.5 text-sm font-bold text-[var(--edias-navy)] transition hover:bg-[var(--edias-navy)] hover:text-white"
-                    onClick={() => setOpenMega(null)}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-                {hasMega ? (
-                  <MegaPanel
-                    item={item}
-                    open={isOpen}
-                    onNavigate={() => setOpenMega(null)}
-                  />
-                ) : null}
-              </div>
-            );
-          })}
-        </nav>
+                  ) : null}
+                </div>
+              );
+            })}
+          </nav>
 
-        <div className="flex items-center gap-2">
-          <Button
-            nativeButton={false}
-            render={<Link href="/contato" />}
-            size="sm"
-            className="hidden h-10 rounded-none bg-[var(--edias-navy)] px-4 text-white hover:bg-[var(--edias-deep)] md:inline-flex"
-          >
-            Fale com um especialista
-            <ArrowRightIcon />
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              nativeButton={false}
+              render={<Link href="/contato" />}
+              size="sm"
+              className="hidden h-10 rounded-none bg-[var(--edias-navy)] px-4 text-white hover:bg-[var(--edias-deep)] md:inline-flex"
+            >
+              Fale com um especialista
+              <ArrowRightIcon />
+            </Button>
 
-          <button
-            type="button"
-            className="inline-flex size-10 items-center justify-center border border-[var(--edias-navy)]/15 text-[var(--edias-navy)] hover:bg-white lg:hidden"
-            aria-expanded={openMobile}
-            aria-controls={menuId}
-            aria-label={openMobile ? "Fechar menu" : "Abrir menu"}
-            onClick={() => setOpenMobile((value) => !value)}
-          >
-            {openMobile ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
-          </button>
+            <button
+              type="button"
+              className="inline-flex size-11 items-center justify-center border border-[var(--edias-navy)]/25 bg-white text-[var(--edias-navy)] hover:bg-[var(--edias-canvas)] lg:hidden"
+              aria-expanded={openMobile}
+              aria-controls={menuId}
+              aria-label={openMobile ? "Fechar menu" : "Abrir menu"}
+              onClick={() => setOpenMobile((value) => !value)}
+            >
+              {openMobile ? (
+                <XIcon className="size-5" />
+              ) : (
+                <MenuIcon className="size-5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
       {openMobile ? (
         <div
           id={menuId}
-          className="fixed inset-x-0 top-[4.25rem] bottom-0 z-40 overflow-y-auto border-t border-[var(--edias-navy)]/10 bg-[var(--edias-canvas)] lg:hidden"
+          className="fixed inset-x-0 top-[4.75rem] bottom-0 z-[70] lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navegação"
         >
-          <nav className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5" aria-label="Mobile">
-            {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="border border-[var(--edias-navy)]/10 bg-white p-3"
-              >
-                <Link
-                  href={item.href}
-                  onClick={() => setOpenMobile(false)}
-                  className="flex items-center justify-between gap-3 px-1 py-2 text-base font-bold text-[var(--edias-navy)]"
-                >
-                  {item.label}
-                  <ArrowRightIcon className="size-4 opacity-50" />
-                </Link>
-                {item.mega
-                  ? item.mega.columns.flatMap((column) =>
-                      column.links.map((link) => (
-                        <Link
-                          key={item.label + link.href + link.label}
-                          href={link.href}
-                          onClick={() => setOpenMobile(false)}
-                          className="block px-3 py-2 text-sm font-medium text-[var(--edias-ink-muted)] hover:bg-[var(--edias-canvas)]"
-                        >
-                          {link.label}
-                        </Link>
-                      ))
-                    )
-                  : null}
-              </div>
-            ))}
-            <a
-              href={siteConfig.phoneHref}
-              className="mt-2 inline-flex items-center justify-center bg-[var(--edias-navy)] px-5 py-3 text-sm font-bold text-white"
+          <button
+            type="button"
+            className="absolute inset-0 bg-[var(--edias-deep)]/45"
+            aria-label="Fechar menu"
+            onClick={() => setOpenMobile(false)}
+          />
+          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--edias-navy)]/10 bg-[var(--edias-canvas)]">
+            <nav
+              className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 pb-28"
+              aria-label="Mobile"
             >
-              {siteConfig.phone}
-            </a>
-          </nav>
+              {navItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="border border-[var(--edias-navy)]/10 bg-white p-3"
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpenMobile(false)}
+                    className="flex items-center justify-between gap-3 px-1 py-2 text-base font-bold text-[var(--edias-navy)]"
+                  >
+                    {item.label}
+                    <ArrowRightIcon className="size-4 opacity-50" />
+                  </Link>
+                  {item.mega
+                    ? item.mega.columns.flatMap((column) =>
+                        column.links.map((link) => (
+                          <Link
+                            key={item.label + link.href + link.label}
+                            href={link.href}
+                            onClick={() => setOpenMobile(false)}
+                            className="block px-3 py-2 text-sm font-medium text-[var(--edias-ink-muted)] hover:bg-[var(--edias-canvas)]"
+                          >
+                            {link.label}
+                          </Link>
+                        ))
+                      )
+                    : null}
+                </div>
+              ))}
+              <Link
+                href="/contato"
+                onClick={() => setOpenMobile(false)}
+                className="mt-2 inline-flex items-center justify-center bg-[var(--edias-navy)] px-5 py-3 text-sm font-bold text-white"
+              >
+                Fale com um especialista
+              </Link>
+              <a
+                href={siteConfig.phoneHref}
+                className="inline-flex items-center justify-center border border-[var(--edias-navy)]/20 bg-white px-5 py-3 text-sm font-bold text-[var(--edias-navy)]"
+              >
+                {siteConfig.phone}
+              </a>
+            </nav>
+          </div>
         </div>
       ) : null}
     </header>
