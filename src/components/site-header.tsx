@@ -84,7 +84,9 @@ export function SiteHeader() {
   const [openMobile, setOpenMobile] = useState(false);
   const [openMega, setOpenMega] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [barHeight, setBarHeight] = useState(76);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const barRef = useRef<HTMLDivElement | null>(null);
   const menuId = useId();
 
   useEffect(() => {
@@ -92,6 +94,16 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const el = barRef.current;
+    if (!el) return;
+    const update = () => setBarHeight(el.getBoundingClientRect().height);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -115,6 +127,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50">
       {/* Blur only on the bar — keeps mobile drawer free of a fixed containing block */}
       <div
+        ref={barRef}
         className={cn(
           "relative z-[80] border-b px-4 py-3 backdrop-blur-xl transition-colors",
           scrolled
@@ -217,7 +230,8 @@ export function SiteHeader() {
       {openMobile ? (
         <div
           id={menuId}
-          className="fixed inset-x-0 top-[4.75rem] bottom-0 z-[70] lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-[70] lg:hidden"
+          style={{ top: barHeight }}
           role="dialog"
           aria-modal="true"
           aria-label="Menu de navegação"
