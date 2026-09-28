@@ -26,7 +26,7 @@ export function PartnersGrid() {
           </Link>
         </div>
 
-        <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
           {partners.map((partner) => (
             <li key={partner.name}>
               <a
@@ -35,43 +35,43 @@ export function PartnersGrid() {
                 rel="noopener noreferrer"
                 title={partner.name}
                 aria-label={`${partner.name} — abrir site oficial`}
-                className="flex h-28 items-center justify-center border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-4 transition-colors hover:border-[var(--edias-gold)] hover:bg-white sm:h-32"
+                className="flex h-24 items-center justify-center transition-opacity hover:opacity-80 sm:h-28"
               >
                 <Image
                   src={partner.logo}
                   alt={`Logo ${partner.name}`}
-                  width={220}
-                  height={96}
-                  className="max-h-16 w-auto object-contain sm:max-h-20"
+                  width={280}
+                  height={120}
+                  className="h-full w-full object-contain"
                   loading="lazy"
-                  sizes="(max-width: 640px) 45vw, 220px"
+                  sizes="(max-width: 640px) 45vw, 25vw"
                 />
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="mt-10">
+        <div className="mt-12">
           <p className="text-xs font-semibold tracking-[0.16em] text-[var(--edias-ink-muted)] uppercase">
             Apoio institucional
           </p>
-          <ul className="mt-4 flex flex-wrap gap-4">
+          <ul className="mt-4 flex flex-wrap gap-8">
             {institutionalPartners.map((partner) => (
-              <li key={partner.name}>
+              <li key={partner.name} className="h-20 w-44 sm:h-24 sm:w-56">
                 <a
                   href={partner.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   title={partner.name}
                   aria-label={`${partner.name} — abrir site oficial`}
-                  className="flex h-24 items-center justify-center border border-[var(--edias-line)] bg-white px-8 transition-colors hover:border-[var(--edias-gold)]"
+                  className="flex h-full w-full items-center justify-center transition-opacity hover:opacity-80"
                 >
                   <Image
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
-                    width={200}
-                    height={72}
-                    className="max-h-14 w-auto object-contain"
+                    width={240}
+                    height={96}
+                    className="h-full w-full object-contain"
                     loading="lazy"
                   />
                 </a>
