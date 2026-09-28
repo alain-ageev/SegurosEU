@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
+import { SocialLinks } from "@/components/social-links";
 import { navItems, siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
@@ -28,6 +29,7 @@ export function SiteFooter() {
             familiar com análise de risco, parceiros sólidos e atendimento
             próximo.
           </p>
+          <SocialLinks className="mt-5" />
           <p className="mt-4 text-xs tracking-wide text-white/50">
             {siteConfig.legalName} · CNPJ {siteConfig.cnpj}
           </p>
@@ -85,22 +87,6 @@ export function SiteFooter() {
               </span>
             </li>
             <li className="text-white/55">{siteConfig.hours}</li>
-            <li>
-              <a
-                href={siteConfig.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-white"
-              >
-                <span
-                  aria-hidden
-                  className="inline-flex size-4 items-center justify-center rounded-[3px] border border-[var(--edias-gold)] text-[9px] font-bold text-[var(--edias-gold)]"
-                >
-                  ig
-                </span>
-                @edias_seguros
-              </a>
-            </li>
           </ul>
         </div>
       </div>

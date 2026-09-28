@@ -13,7 +13,8 @@ export const siteConfig = {
   email: "ramoselementares@ediasconsultoria.com.br",
   hours: "Segunda a sexta, 08h30 às 17h30",
   cnpj: "27.380.353/0001-10",
-  instagram: "https://www.instagram.com/edias_seguros",
+  instagram: "https://www.instagram.com/edias_seguros/",
+  linkedin: "https://www.linkedin.com/company/edias-seguros/posts/?feedView=all",
   address: {
     street: "Rua Ribeiro de Brito — Empresarial Iberbras",
     neighborhood: "Boa Viagem",

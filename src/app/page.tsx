@@ -36,7 +36,7 @@ export default function HomePage() {
       opens: "08:30",
       closes: "17:30",
     },
-    sameAs: [siteConfig.instagram],
+    sameAs: [siteConfig.instagram, siteConfig.linkedin],
     areaServed: {
       "@type": "City",
       name: "Recife",
