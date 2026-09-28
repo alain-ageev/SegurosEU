@@ -337,12 +337,17 @@ export const partners = [
 export const institutionalPartners = [
   {
     name: "APES",
-    logo: "/images/partners/apes.avif",
+    logo: "/images/partners/apes-lg.avif",
     href: "https://www.apes.com.br/",
   },
   {
+    name: "Revista NE Super",
+    logo: "/images/partners/revista-ne-lg.avif",
+    href: "http://www.revistanesuper.com.br",
+  },
+  {
     name: "Sindvarejista PE",
-    logo: "/images/partners/sindvarejista.jpg",
+    logo: "/images/partners/sindvarejista-lg.jpg",
     href: "http://www.sindvarejista-pe.com.br",
   },
 ] as const;

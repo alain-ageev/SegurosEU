@@ -51,13 +51,13 @@ export function PartnersGrid() {
           ))}
         </ul>
 
-        <div className="mt-12">
+        <div className="mt-16 text-center">
           <p className="text-xs font-semibold tracking-[0.16em] text-[var(--edias-ink-muted)] uppercase">
             Apoio institucional
           </p>
-          <ul className="mt-4 flex flex-wrap gap-8">
+          <ul className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-14">
             {institutionalPartners.map((partner) => (
-              <li key={partner.name} className="h-20 w-44 sm:h-24 sm:w-56">
+              <li key={partner.name} className="h-36 w-56 sm:h-44 sm:w-64">
                 <a
                   href={partner.href}
                   target="_blank"
@@ -69,10 +69,11 @@ export function PartnersGrid() {
                   <Image
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
-                    width={240}
-                    height={96}
+                    width={320}
+                    height={220}
                     className="h-full w-full object-contain"
                     loading="lazy"
+                    sizes="(max-width: 640px) 60vw, 256px"
                   />
                 </a>
               </li>
