@@ -4,9 +4,25 @@ import { partners, siteConfig } from "@/lib/site";
 
 export const v2Nav = [
   { label: "Soluções", href: "/v2#solucoes" },
-  { label: "Segmentos", href: "/v2#segmentos" },
-  { label: "Conteúdos / Cases", href: "/v2#cases" },
+  { label: "Como funciona", href: "/v2#metodo" },
+  { label: "Cases", href: "/v2#cases" },
   { label: "Sobre", href: "/v2#sobre" },
+] as const;
+
+/** Credenciais públicas — trocar por números reais autorizados pelo cliente */
+export const v2Credentials = [
+  {
+    title: "Sinistros acompanhados",
+    body: "Suporte na documentação e acompanhamento até a regulação — com histórico sob demanda para clientes corporativos.",
+  },
+  {
+    title: "Parceiros nacionais",
+    body: "Acesso a seguradoras e operadoras para comparar coberturas, não apenas preço.",
+  },
+  {
+    title: "Foco corporativo",
+    body: "Linguagem e relatório pensados para diretoria, RH e compras — avaliação institucional inclusa.",
+  },
 ] as const;
 
 export const v2Hero = {

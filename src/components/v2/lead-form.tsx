@@ -111,7 +111,7 @@ export function V2LeadForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="v2-btn v2-btn-primary mt-6 w-full sm:w-auto"
+        className="v2-btn v2-btn-accent mt-6 w-full sm:w-auto"
       >
         {status === "sending" ? "Preparando…" : "Receber uma análise"}
       </button>

@@ -4,14 +4,20 @@ import Link from "next/link";
 type BrandLogoProps = {
   variant?: "light" | "dark";
   className?: string;
+  /** Destino do clique — útil na /v2 para não voltar ao site antigo */
+  href?: string;
 };
 
-export function BrandLogo({ variant = "light", className = "" }: BrandLogoProps) {
+export function BrandLogo({
+  variant = "light",
+  className = "",
+  href = "/",
+}: BrandLogoProps) {
   const isLight = variant === "light";
 
   return (
     <Link
-      href="/"
+      href={href}
       className={`inline-flex items-center gap-2 ${className}`}
       aria-label="E Dias Corretora de Seguros — página inicial"
     >

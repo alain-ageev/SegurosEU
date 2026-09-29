@@ -19,16 +19,16 @@ export function V2Header() {
 
   return (
     <>
-      <div className="bg-[var(--v2-carbon)] px-4 py-1.5 text-center text-[12px] font-medium tracking-[-0.01em] text-white">
+      <div className="bg-[var(--v2-abyss)] px-4 py-2 text-center text-[13px] font-semibold text-white">
         Consultoria B2B em seguros ·{" "}
-        <Link href="/v2#contato" className="text-[var(--v2-ember)] hover:underline">
+        <Link href="/v2#contato" className="text-[var(--v2-ember)] underline-offset-2 hover:underline">
           Solicitar diagnóstico
         </Link>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]">
+      <header className="sticky top-0 z-50 border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]/95 backdrop-blur">
         <div className="v2-container flex h-16 items-center justify-between gap-4">
-          <BrandLogo variant="dark" />
+          <BrandLogo variant="dark" href="/v2" />
 
           <nav
             className="hidden items-center gap-1 lg:flex"
@@ -38,7 +38,7 @@ export function V2Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 text-[14px] font-medium tracking-[-0.01em] text-[var(--v2-ink)] hover:text-[var(--v2-graphite)]"
+                className="rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-[var(--v2-fog)] hover:text-[var(--v2-abyss-soft)]"
               >
                 {item.label}
               </Link>
@@ -48,16 +48,16 @@ export function V2Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="hidden text-[14px] font-medium tracking-[-0.01em] text-[var(--v2-ink)] xl:inline"
+              className="hidden text-[13px] font-semibold text-[var(--v2-pewter)] underline-offset-2 hover:underline xl:inline"
             >
-              Site atual
+              Ver site institucional
             </Link>
             <Link href="/v2#contato" className="v2-btn v2-btn-primary hidden sm:inline-flex">
               Fale com um especialista
             </Link>
             <button
               type="button"
-              className="inline-flex size-10 items-center justify-center rounded-[12px] border border-[var(--v2-mist)] text-[var(--v2-ink)] lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-[16px] border border-[var(--v2-mist)] text-[var(--v2-ink)] lg:hidden"
               aria-expanded={open}
               aria-controls={menuId}
               aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -81,7 +81,7 @@ export function V2Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-[12px] px-3 py-3 text-[14px] font-medium text-[var(--v2-ink)] hover:bg-[var(--v2-fog)]"
+                  className="rounded-[16px] px-3 py-3 text-[15px] font-semibold text-[var(--v2-ink)] hover:bg-[var(--v2-fog)]"
                 >
                   {item.label}
                 </Link>
