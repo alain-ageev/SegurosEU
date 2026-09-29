@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon, CheckIcon } from "lucide-react";
+import { ArrowRightIcon, ArrowUpRightIcon, CheckIcon } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
 import { V2LeadForm } from "@/components/v2/lead-form";
-import { siteConfig } from "@/lib/site";
+import {
+  institutionalPartners,
+  partners,
+  services,
+  siteConfig,
+} from "@/lib/site";
 import {
   v2About,
   v2Authority,
@@ -11,34 +16,10 @@ import {
   v2Comparison,
   v2Credentials,
   v2Hero,
-  v2PartnerLogos,
   v2Process,
   v2Scenarios,
-  v2Solutions,
   v2TrustIndicators,
 } from "@/lib/v2-content";
-
-const solutionGroups = [
-  {
-    id: "empresarial",
-    title: "Empresa e patrimônio",
-    items: v2Solutions.filter((s) =>
-      ["Seguros empresariais", "Consultoria de riscos", "Consórcio Porto"].includes(s.title)
-    ),
-  },
-  {
-    id: "rh",
-    title: "RH e benefícios",
-    items: v2Solutions.filter((s) => s.title.includes("saúde") || s.title.includes("benefícios")),
-  },
-  {
-    id: "pessoal",
-    title: "Pessoas e família",
-    items: v2Solutions.filter((s) =>
-      ["Seguro de vida", "Seguro viagem"].includes(s.title)
-    ),
-  },
-] as const;
 
 export default function ConversionHomePage() {
   const ld = {
@@ -60,7 +41,7 @@ export default function ConversionHomePage() {
     <>
       <JsonLd data={ld} />
 
-      <section className="border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]">
+      <section className="border-b border-[var(--v2-mist)] bg-white">
         <div className="v2-container grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
           <div>
             <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
@@ -100,44 +81,99 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Prova social + logos */}
-      <section className="v2-section bg-[var(--v2-fog)]" aria-labelledby="prova-social">
+      {/* Indicadores */}
+      <section className="v2-section bg-[var(--v2-abyss)] text-white" aria-labelledby="prova-social">
         <div className="v2-container">
-          <h2 id="prova-social" className="v2-h2 text-center">
+          <h2 id="prova-social" className="v2-h2 text-center text-white">
             Organização e parceiros para avaliação corporativa
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {v2TrustIndicators.map((item) => (
-              <div key={item.label} className="v2-card text-center">
-                <p className="text-[32px] font-bold text-[var(--v2-ink)]">{item.value}</p>
-                <p className="v2-body-sm mt-1">{item.label}</p>
+              <div
+                key={item.label}
+                className="rounded-[20px] bg-white/10 px-5 py-6 text-center"
+              >
+                <p className="text-[32px] font-bold text-[var(--v2-ember)]">
+                  {item.value}
+                </p>
+                <p className="mt-1 text-[14px] text-white/80">{item.label}</p>
               </div>
             ))}
           </div>
-          <ul className="mt-10 grid grid-cols-2 items-center gap-x-8 gap-y-6 sm:grid-cols-5">
-            {v2PartnerLogos.map((partner) => (
-              <li key={partner.name} className="flex justify-center">
-                <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={140}
-                  height={40}
-                  className="h-8 w-auto max-w-[110px] object-contain opacity-70 grayscale"
-                  loading="lazy"
-                />
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
-      {/* Soluções unificadas: cenários + grupos */}
+      {/* Parceiros — todos, tamanho do site antigo + links */}
+      <section id="parceiros" className="v2-section bg-white">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Nossos parceiros</p>
+          <h2 className="v2-h2 mt-2">Principais seguradoras e operadoras</h2>
+
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
+            {partners.map((partner) => (
+              <li key={partner.name}>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={partner.name}
+                  aria-label={`${partner.name} — abrir site oficial`}
+                  className="flex h-24 items-center justify-center transition-opacity hover:opacity-80 sm:h-28"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={`Logo ${partner.name}`}
+                    width={280}
+                    height={120}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 45vw, 25vw"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.16em] text-[var(--v2-pewter)] uppercase">
+              Apoio institucional
+            </p>
+            <ul className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-14">
+              {institutionalPartners.map((partner) => (
+                <li key={partner.name} className="h-36 w-56 sm:h-44 sm:w-64">
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={partner.name}
+                    aria-label={`${partner.name} — abrir site oficial`}
+                    className="flex h-full w-full items-center justify-center transition-opacity hover:opacity-80"
+                  >
+                    <Image
+                      src={partner.logo}
+                      alt={`Logo ${partner.name}`}
+                      width={320}
+                      height={220}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 60vw, 256px"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Soluções — imagens de fundo como no site antigo */}
       <section id="solucoes" className="v2-section bg-[var(--v2-paper)]">
         <div className="v2-container">
-          <p className="v2-eyebrow">Soluções por necessidade</p>
-          <h2 className="v2-h2 mt-2">Empresa, RH e proteção pessoal — sem catálogo confuso</h2>
+          <p className="v2-eyebrow">Soluções</p>
+          <h2 className="v2-h2 mt-2">Um produto para cada necessidade</h2>
           <p className="v2-body mt-3 max-w-[640px]">
-            Blocos correlatos juntos: escolha o cenário e veja o que oferecemos na mesma seção.
+            Consórcio, vida, viagem e saúde com a mesma lógica: diagnóstico claro,
+            parceiros confiáveis e acompanhamento próximo.
           </p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -145,7 +181,7 @@ export default function ConversionHomePage() {
               <Link
                 key={item.id}
                 href={item.href}
-                className="v2-card !p-4 hover:border-[var(--v2-abyss)]"
+                className="rounded-[16px] bg-white px-4 py-4 shadow-none ring-1 ring-[var(--v2-mist)] transition hover:ring-[var(--v2-abyss)]"
               >
                 <h3 className="v2-h3 text-[16px]">{item.title}</h3>
                 <p className="v2-caption mt-2">{item.audience}</p>
@@ -153,55 +189,76 @@ export default function ConversionHomePage() {
             ))}
           </div>
 
-          <div className="mt-12 space-y-10">
-            {solutionGroups.map((group) => (
-              <div key={group.id}>
-                <h3 className="v2-h3 border-b border-[var(--v2-mist)] pb-3">{group.title}</h3>
-                <div className="mt-4 grid gap-4 md:grid-cols-3">
-                  {group.items.map((item) => (
-                    <article key={item.title} className="v2-card flex flex-col">
-                      <h4 className="text-[16px] font-bold text-[var(--v2-ink)]">{item.title}</h4>
-                      <p className="v2-body-sm mt-2">{item.benefit}</p>
-                      <Link
-                        href={item.href}
-                        className="mt-auto inline-flex items-center gap-2 pt-5 text-[14px] font-bold text-[var(--v2-abyss)]"
-                      >
-                        {item.cta}
-                        <ArrowRightIcon className="size-4 text-[var(--v2-ember)]" />
-                      </Link>
-                    </article>
-                  ))}
-                </div>
-              </div>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {services.map((service, index) => (
+              <li key={service.slug}>
+                <Link
+                  href={service.href}
+                  className="group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-[20px] bg-[var(--v2-abyss)] text-white"
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-[var(--v2-abyss)] via-[var(--v2-abyss)]/70 to-transparent"
+                  />
+                  <div className="relative z-10 flex flex-col gap-3 p-6 sm:p-8">
+                    <span className="text-xs font-bold tracking-[0.2em] text-[var(--v2-ember)]">
+                      0{index + 1}
+                    </span>
+                    <h3 className="text-2xl font-bold">{service.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/80">
+                      {service.summary}
+                    </p>
+                    <div className="mt-1 flex items-center justify-between text-sm font-semibold text-[var(--v2-ember)]">
+                      <span>{service.accent}</span>
+                      <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* Método */}
-      <section id="metodo" className="v2-section bg-[var(--v2-fog)]">
+      <section id="metodo" className="v2-section bg-[var(--v2-abyss)] text-white">
         <div className="v2-container">
-          <p className="v2-eyebrow">Método</p>
-          <h2 className="v2-h2 mt-2">Como a consultoria funciona</h2>
+          <p className="v2-eyebrow text-white/70">Método</p>
+          <h2 className="v2-h2 mt-2 text-white">Como a consultoria funciona</h2>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
-              <li key={item.step} className="v2-card">
-                <p className="text-[13px] font-bold text-[var(--v2-ember)]">{item.step}</p>
-                <h3 className="v2-h3 mt-2">{item.title}</h3>
-                <p className="v2-body-sm mt-2">{item.body}</p>
+              <li
+                key={item.step}
+                className="rounded-[20px] bg-white/10 p-6"
+              >
+                <p className="text-[13px] font-bold text-[var(--v2-ember)]">
+                  {item.step}
+                </p>
+                <h3 className="mt-2 text-[18px] font-bold">{item.title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-white/75">
+                  {item.body}
+                </p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      {/* Sobre + diferenciais + credenciais */}
-      <section id="sobre" className="v2-section bg-[var(--v2-paper)]">
+      {/* Sobre + diferenciais */}
+      <section id="sobre" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Por que a E DIAS</p>
           <h2 className="v2-h2 mt-2">{v2Comparison.title}</h2>
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            <div className="v2-card">
+            <div className="rounded-[20px] bg-[var(--v2-paper)] p-6 sm:p-8">
               <h3 className="v2-h3 text-[var(--v2-graphite)]">Abordagem tradicional</h3>
               <ul className="mt-4 space-y-3">
                 {v2Comparison.traditional.map((line) => (
@@ -229,7 +286,10 @@ export default function ConversionHomePage() {
 
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {v2Credentials.map((item) => (
-              <article key={item.title} className="v2-card">
+              <article
+                key={item.title}
+                className="rounded-[20px] bg-[var(--v2-paper)] p-6"
+              >
                 <h3 className="v2-h3">{item.title}</h3>
                 <p className="v2-body-sm mt-2">{item.body}</p>
               </article>
@@ -243,18 +303,21 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Cases */}
-      <section id="cases" className="v2-section bg-[var(--v2-fog)]">
+      {/* Cases — sem bordas cinzas */}
+      <section id="cases" className="v2-section bg-[var(--v2-paper)]">
         <div className="v2-container">
           <p className="v2-eyebrow">Cases</p>
           <h2 className="v2-h2 mt-2">Resultados relevantes para o público corporativo</h2>
           <p className="v2-body mt-3 max-w-[640px]">
-            Exemplos ilustrativos. Substituímos por cases nominados (valores de sinistro, economia
-            ou implantação) assim que houver autorização do cliente.
+            Exemplos ilustrativos. Substituímos por cases nominados assim que houver
+            autorização do cliente.
           </p>
-          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {v2Cases.map((item) => (
-              <article key={item.context} className="v2-card flex flex-col">
+              <article
+                key={item.context}
+                className="flex flex-col rounded-[20px] bg-white p-6 sm:p-8"
+              >
                 <p className="v2-tag w-fit">{item.context}</p>
                 <dl className="mt-4 space-y-3">
                   <div>
@@ -270,7 +333,7 @@ export default function ConversionHomePage() {
                     <dd className="v2-body-sm">{item.result}</dd>
                   </div>
                 </dl>
-                <blockquote className="mt-auto border-t border-[var(--v2-mist)] pt-4 text-[15px] font-semibold text-[var(--v2-ink)]">
+                <blockquote className="mt-auto pt-5 text-[15px] font-semibold text-[var(--v2-ink)]">
                   “{item.quote}”
                   <footer className="v2-caption mt-2">
                     {item.person} · {item.role}
@@ -280,12 +343,12 @@ export default function ConversionHomePage() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {v2Authority.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="v2-card flex items-start justify-between gap-3"
+                className="flex items-start justify-between gap-3 rounded-[20px] bg-white p-6 transition hover:bg-[var(--v2-fog)]"
               >
                 <div>
                   <p className="v2-tag w-fit">{item.type}</p>
@@ -300,14 +363,13 @@ export default function ConversionHomePage() {
       </section>
 
       {/* CTA */}
-      <section id="contato" className="v2-section bg-[var(--v2-paper)]">
+      <section id="contato" className="v2-section bg-white">
         <div className="v2-container grid gap-10 lg:grid-cols-[1fr_1.05fr]">
           <div>
             <p className="v2-eyebrow">Próximo passo</p>
             <h2 className="v2-h2 mt-2">Receba uma análise objetiva</h2>
             <p className="v2-body mt-3 max-w-[640px]">
-              Formulário curto para o primeiro contato. Relatórios formatados e gestão de
-              documentos de checklist entram na etapa seguinte (ferramentas ou sistema).
+              Formulário curto para o primeiro contato.
             </p>
             <ul className="mt-6 space-y-2">
               {[

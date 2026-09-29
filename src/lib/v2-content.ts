@@ -1,4 +1,4 @@
-import { partners, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 /** Conteúdo da homepage de conversão (/v2) — foco em receita e confiança */
 
@@ -249,8 +249,6 @@ export const v2About = {
     "Base em Boa Viagem, Recife/PE",
   ],
 } as const;
-
-export const v2PartnerLogos = partners.slice(0, 10);
 
 export const v2Form = {
   title: "Solicite um diagnóstico",
