@@ -88,7 +88,7 @@ export default async function SaudeBrandPage({ params }: PageProps) {
 
       <section className="bg-[var(--edias-canvas)] py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
+          <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
             O que avaliamos com você
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -102,7 +102,7 @@ export default async function SaudeBrandPage({ params }: PageProps) {
             ))}
           </ul>
 
-          <h3 className="mt-14 font-[family-name:var(--font-raleway)] text-xl font-semibold text-[var(--edias-navy)]">
+          <h3 className="mt-14 font-heading text-xl font-semibold text-[var(--edias-navy)]">
             Rede, coparticipação e reembolso
           </h3>
           <ul className="mt-6 grid gap-4 md:grid-cols-3">

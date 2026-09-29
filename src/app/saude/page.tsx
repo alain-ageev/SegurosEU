@@ -18,7 +18,7 @@ export default function SaudePage() {
   return (
     <>
       <Hero
-        brand="Edias Consultoria"
+        brand="E DIAS"
         title="Planos de saúde: a melhor escolha para a sua necessidade"
         description="Analisamos rede, coparticipação e reembolso para indicar a operadora certa — individual, familiar ou empresarial."
         primaryCta={{ label: "Pedir análise", href: "/contato" }}
@@ -28,7 +28,7 @@ export default function SaudePage() {
 
       <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Operadoras
           </h2>
           <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">
@@ -43,7 +43,7 @@ export default function SaudePage() {
                   className="group flex h-full flex-col justify-between gap-6 p-6 sm:p-8"
                 >
                   <div>
-                    <h3 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)]">
+                    <h3 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
                       {op.name}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">

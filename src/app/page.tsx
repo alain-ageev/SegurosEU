@@ -84,7 +84,7 @@ export default function HomePage() {
             <p className="text-xs font-semibold tracking-[0.18em] text-[var(--edias-gold-deep)] uppercase">
               Nossa visão
             </p>
-            <h2 className="mt-3 font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)] sm:text-4xl">
+            <h2 className="mt-3 font-heading text-3xl font-semibold text-[var(--edias-navy)] sm:text-4xl">
               Dissolver entraves de seguro antes do sinistro
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-[var(--edias-ink-muted)]">
@@ -107,7 +107,7 @@ export default function HomePage() {
 
       <section className="border-y border-[var(--edias-line)] bg-[var(--edias-canvas)] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Proteção com método consultivo
           </h2>
           <ul className="mt-10 grid gap-6 md:grid-cols-3">
@@ -130,7 +130,7 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-[family-name:var(--font-raleway)] text-xl font-semibold text-[var(--edias-navy)]">
+                    <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
                       {item.title}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">

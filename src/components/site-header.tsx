@@ -29,12 +29,12 @@ function MegaPanel({
           : "pointer-events-none opacity-0"
       )}
     >
-      <div className="grid gap-5 border border-[var(--edias-navy)]/10 bg-white p-5 shadow-[0_24px_70px_rgba(0,48,91,0.16)] lg:grid-cols-[0.85fr_1.6fr]">
+      <div className="grid gap-5 border border-[var(--edias-navy)]/10 bg-white p-5 shadow-[0_24px_70px_rgba(5,46,68,0.16)] lg:grid-cols-[0.85fr_1.6fr]">
         <div className="bg-[var(--edias-canvas)] p-5">
           <p className="text-xs font-extrabold tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
             {mega.eyebrow}
           </p>
-          <h2 className="mt-3 font-[family-name:var(--font-raleway)] text-2xl font-semibold leading-tight text-[var(--edias-navy)]">
+          <h2 className="mt-3 font-heading text-2xl font-semibold leading-tight text-[var(--edias-navy)]">
             {mega.title}
           </h2>
           <p className="mt-3 text-sm font-medium leading-6 text-[var(--edias-ink-muted)]">
@@ -139,7 +139,7 @@ export function SiteHeader() {
           <BrandLogo variant="dark" />
 
           <nav
-            className="hidden items-center gap-1 bg-white/80 p-1 shadow-[0_18px_45px_rgba(0,48,91,0.08)] lg:flex"
+            className="hidden items-center gap-1 bg-white/80 p-1 shadow-[0_18px_45px_rgba(5,46,68,0.08)] lg:flex"
             aria-label="Principal"
             onMouseLeave={scheduleClose}
           >

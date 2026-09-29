@@ -7,27 +7,27 @@ import { navItems, siteConfig } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden bg-[var(--edias-deep)] text-white">
+      <div aria-hidden className="pointer-events-none absolute inset-0 brand-pattern opacity-50" />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 10% 0%, rgba(182,165,113,0.18), transparent 55%), radial-gradient(ellipse 50% 40% at 90% 100%, rgba(0,48,91,0.9), transparent 60%)",
+            "radial-gradient(ellipse 60% 50% at 10% 0%, rgba(182,165,113,0.18), transparent 55%), linear-gradient(180deg, rgba(5,46,68,0.55), rgba(5,46,68,0.92))",
         }}
       />
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr] lg:px-8 lg:py-16">
         <div>
           <Image
             src="/images/logo-edias-mark.png"
-            alt="E Dias Corretora de Seguros"
+            alt="E DIAS Corretora de Seguros"
             width={182}
             height={62}
             className="h-10 w-auto brightness-0 invert"
           />
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
-            Corretora e consultoria de seguros em Recife. Proteção corporativa e
-            familiar com análise de risco, parceiros sólidos e atendimento
-            próximo.
+          <p className="font-description mt-4 max-w-sm text-base leading-relaxed text-white/75">
+            Soluções em proteção e segurança com compromisso de tranquilidade e
+            estabilidade — atendimento personalizado em Recife.
           </p>
           <SocialLinks className="mt-5" />
           <p className="mt-4 text-xs tracking-wide text-white/50">
@@ -36,7 +36,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="font-[family-name:var(--font-raleway)] text-sm font-semibold tracking-[0.14em] text-[var(--edias-gold)] uppercase">
+          <h2 className="font-heading text-sm font-semibold tracking-[0.14em] text-[var(--edias-gold)] uppercase">
             Navegação
           </h2>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h2 className="font-[family-name:var(--font-raleway)] text-sm font-semibold tracking-[0.14em] text-[var(--edias-gold)] uppercase">
+          <h2 className="font-heading text-sm font-semibold tracking-[0.14em] text-[var(--edias-gold)] uppercase">
             Contato
           </h2>
           <ul className="mt-4 space-y-3 text-sm text-white/80">

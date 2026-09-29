@@ -52,7 +52,7 @@ export default function ViagemPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="Edias Consultoria"
+        brand="E DIAS"
         title="Seguro viagem com tranquilidade onde você estiver"
         description="SulAmérica com contratação rápida, assistência 24h e condições especiais — inclusive opções com desconto e parcelamento."
         primaryCta={{ label: "Simular viagem", href: "/contato" }}
@@ -62,7 +62,7 @@ export default function ViagemPage() {
 
       <section className="bg-[var(--edias-canvas)] py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Contratação simples em poucos passos
           </h2>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -73,7 +73,7 @@ export default function ViagemPage() {
               "Receba a apólice digital",
             ].map((step, index) => (
               <li key={step} className="bg-white p-5">
-                <span className="font-[family-name:var(--font-raleway)] text-xs tracking-[0.18em] text-[var(--edias-gold-deep)]">
+                <span className="font-heading text-xs tracking-[0.18em] text-[var(--edias-gold-deep)]">
                   0{index + 1}
                 </span>
                 <p className="mt-3 text-sm font-medium text-[var(--edias-navy)]">
@@ -92,14 +92,14 @@ export default function ViagemPage() {
 
       <section id="duvidas" className="bg-white py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Dúvidas frequentes
           </h2>
           <div className="mt-8">
             <Accordion>
               {faqs.map((item, index) => (
                 <AccordionItem key={item.q} value={`v-${index}`}>
-                  <AccordionTrigger className="text-left font-[family-name:var(--font-raleway)] text-base text-[var(--edias-navy)]">
+                  <AccordionTrigger className="text-left font-heading text-base text-[var(--edias-navy)]">
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-[var(--edias-ink-muted)]">

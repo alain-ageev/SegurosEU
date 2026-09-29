@@ -42,7 +42,7 @@ export default function ConsorcioPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="Edias Consultoria"
+        brand="E DIAS"
         title="Consórcio com parcelas planejadas para o seu sonho"
         description="Grupos Porto Bank para imóvel, veículo, pesados e soluções sustentáveis — com orientação da Edias em cada etapa."
         primaryCta={{ label: "Pedir cotação", href: "/contato" }}
@@ -54,7 +54,7 @@ export default function ConsorcioPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+              <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
                 Conheça os planos Porto Bank
               </h2>
               <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">
@@ -76,9 +76,9 @@ export default function ConsorcioPage() {
             {consorcioPlans.map((plan) => (
               <li
                 key={plan.title}
-                className="border-l-2 border-[var(--edias-gold)] bg-white p-6 shadow-[0_1px_0_rgba(0,48,91,0.04)]"
+                className="border-l-2 border-[var(--edias-gold)] bg-white p-6 shadow-[0_1px_0_rgba(5,46,68,0.04)]"
               >
-                <h3 className="font-[family-name:var(--font-raleway)] text-xl font-semibold text-[var(--edias-navy)]">
+                <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
                   {plan.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
@@ -92,7 +92,7 @@ export default function ConsorcioPage() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
+          <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
             Benefícios para fechar com a Porto
           </h2>
           <ul className="mt-8 grid gap-4 text-sm text-[var(--edias-ink-muted)] sm:grid-cols-2">

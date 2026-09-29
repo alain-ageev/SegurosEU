@@ -41,7 +41,7 @@ export default function ConsorcioTabelasPage() {
         <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           {tables.map((item) => (
             <article key={item.title} className="bg-white p-6">
-              <h2 className="font-[family-name:var(--font-raleway)] text-xl font-semibold text-[var(--edias-navy)]">
+              <h2 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
                 {item.title}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">

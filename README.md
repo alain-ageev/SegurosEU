@@ -1,6 +1,6 @@
-# Edias Consultoria — site marketing
+# E DIAS Corretora de Seguros — site marketing
 
-Site moderno da **Edias Consultoria** (corretora/consultoria de seguros em Recife), reconstruído em Next.js a partir da IA do site atual e da linguagem visual da marca (azul + ouro, Raleway + Open Sans).
+Site da **E DIAS Corretora de Seguros** (Recife), alinhado ao Manual da Marca: azul `#052e44`, dourado `#b6a571`, tipografia Cinzel + Source Sans 3 (alternativa à Corbel) + Abhaya Libre.
 
 ## Stack
 
@@ -17,11 +17,9 @@ npm run dev
 
 Abre em [http://127.0.0.1:43127](http://127.0.0.1:43127) (porta configurada no script `dev`).
 
-Outros comandos:
-
 ```bash
 npm run build
-npm run start   # produção local (também na porta 43127)
+npm run start   # produção local (porta 43127)
 npm run lint
 ```
 
@@ -39,6 +37,9 @@ Redirects permanentes cobrem URLs antigas do site Wix (`/amil`, `/checklist-saud
 
 ## Marca
 
-- Azul `#00305B` / `#052E44`
+Ver `design.md` e `docs/Manual_da_Marca_E_Dias.pdf`.
+
+- Azul `#052E44`
 - Ouro `#B6A571`
-- Tipografia: Raleway (títulos) + Open Sans (corpo)
+- Tipografia: Cinzel (títulos) · Source Sans 3 (UI) · Abhaya Libre (descrições)
+- Pattern do escudo ED em superfícies escuras

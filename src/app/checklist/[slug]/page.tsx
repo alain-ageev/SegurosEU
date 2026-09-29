@@ -115,7 +115,7 @@ export default async function ChecklistDetailPage({ params }: PageProps) {
 
       <section className="bg-[var(--edias-canvas)] py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
             O que preparar
           </h2>
           <p className="mt-3 text-sm text-[var(--edias-ink-muted)]">
@@ -129,7 +129,7 @@ export default async function ChecklistDetailPage({ params }: PageProps) {
                 key={hint}
                 className="flex gap-3 bg-white p-4 text-sm text-[var(--edias-ink-muted)]"
               >
-                <span className="font-[family-name:var(--font-raleway)] font-semibold text-[var(--edias-gold-deep)]">
+                <span className="font-heading font-semibold text-[var(--edias-gold-deep)]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 {hint}

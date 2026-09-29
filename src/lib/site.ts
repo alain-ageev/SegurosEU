@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "Edias Consultoria",
+  name: "E DIAS Corretora de Seguros",
   legalName: "E Dias Corretora de Seguros",
-  shortName: "Edias",
+  shortName: "E DIAS",
   description:
-    "Consultoria em seguros corporativos e pessoais em Recife. Consórcio, vida, viagem, saúde e proteção patrimonial com atendimento próximo e assertivo.",
+    "E DIAS Corretora de Seguros em Recife. Soluções em proteção e segurança: consórcio, vida, viagem, saúde e patrimônio com atendimento personalizado.",
   url: "https://www.ediasconsultoria.com.br",
   locale: "pt_BR",
   phone: "(81) 3105.7588",
@@ -51,7 +51,7 @@ export const navItems: NavItem[] = [
       eyebrow: "Soluções",
       title: "Encontre pelo seu cenário",
       description:
-        "Consórcio, vida, viagem e saúde com orientação consultiva da Edias.",
+        "Consórcio, vida, viagem e saúde com orientação consultiva da E DIAS.",
       cta: { label: "Ver soluções", href: "/#solucoes" },
       columns: [
         {

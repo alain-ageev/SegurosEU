@@ -35,7 +35,7 @@ export default function ChecklistPage() {
                   className="group flex h-full flex-col justify-between gap-4 border border-[var(--edias-line)] bg-white p-5 transition-colors hover:border-[var(--edias-gold)]"
                 >
                   <div>
-                    <h2 className="font-[family-name:var(--font-raleway)] text-lg font-semibold text-[var(--edias-navy)]">
+                    <h2 className="font-heading text-lg font-semibold text-[var(--edias-navy)]">
                       {item.title}
                     </h2>
                     <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">

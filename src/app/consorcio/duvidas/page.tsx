@@ -63,7 +63,7 @@ export default function ConsorcioDuvidasPage() {
           <Accordion>
             {faqs.map((item, index) => (
               <AccordionItem key={item.q} value={`item-${index}`}>
-                <AccordionTrigger className="text-left font-[family-name:var(--font-raleway)] text-base text-[var(--edias-navy)]">
+                <AccordionTrigger className="text-left font-heading text-base text-[var(--edias-navy)]">
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-[var(--edias-ink-muted)]">

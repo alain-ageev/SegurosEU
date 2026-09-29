@@ -42,7 +42,7 @@ export default function VidaPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="Edias Consultoria"
+        brand="E DIAS"
         title="Seguro de vida sob medida para você e sua família"
         description="Planos SulAmérica com coberturas de renda, doenças graves e assistências que acompanham a rotina da família."
         primaryCta={{ label: "Simular agora", href: "/contato" }}
@@ -52,13 +52,13 @@ export default function VidaPage() {
 
       <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Linhas de produto
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {vidaPlans.map((plan) => (
               <li key={plan.title} className="bg-white p-6">
-                <h3 className="font-[family-name:var(--font-raleway)] text-lg font-semibold text-[var(--edias-navy)]">
+                <h3 className="font-heading text-lg font-semibold text-[var(--edias-navy)]">
                   {plan.title}
                 </h3>
                 <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">
@@ -72,7 +72,7 @@ export default function VidaPage() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)]">
+          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Coberturas e benefícios
           </h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">

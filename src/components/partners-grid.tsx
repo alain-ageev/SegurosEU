@@ -14,7 +14,7 @@ export function PartnersGrid() {
             <p className="text-xs font-semibold tracking-[0.18em] text-[var(--edias-gold-deep)] uppercase">
               Nossos parceiros
             </p>
-            <h2 className="mt-2 font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
+            <h2 className="mt-2 font-heading text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
               Principais seguradoras e operadoras
             </h2>
           </div>

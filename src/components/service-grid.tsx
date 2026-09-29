@@ -11,7 +11,7 @@ export function ServiceGrid() {
           <p className="text-xs font-semibold tracking-[0.18em] text-[var(--edias-gold-deep)] uppercase">
             Soluções
           </p>
-          <h2 className="mt-3 font-[family-name:var(--font-raleway)] text-3xl font-semibold text-[var(--edias-navy)] sm:text-4xl">
+          <h2 className="mt-3 font-heading text-3xl font-semibold text-[var(--edias-navy)] sm:text-4xl">
             Um produto para cada necessidade
           </h2>
           <p className="mt-4 text-base leading-relaxed text-[var(--edias-ink-muted)]">
@@ -40,10 +40,10 @@ export function ServiceGrid() {
                   className="absolute inset-0 bg-gradient-to-t from-[var(--edias-deep)] via-[var(--edias-deep)]/70 to-transparent"
                 />
                 <div className="relative z-10 flex flex-col gap-3 p-6 sm:p-8">
-                  <span className="font-[family-name:var(--font-raleway)] text-xs tracking-[0.2em] text-[var(--edias-gold)]">
+                  <span className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold)]">
                     0{index + 1}
                   </span>
-                  <h3 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold">
+                  <h3 className="font-heading text-2xl font-semibold">
                     {service.title}
                   </h3>
                   <p className="text-sm leading-relaxed text-white/75">

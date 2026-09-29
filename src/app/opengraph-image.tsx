@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Edias Consultoria — seguros e consultoria em Recife";
+export const alt = "E DIAS Corretora de Seguros — Recife";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,10 +14,10 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          background: "linear-gradient(145deg, #00305B 0%, #052E44 55%, #0a3a55 100%)",
+          background: "linear-gradient(145deg, #052E44 0%, #041f2f 55%, #052E44 100%)",
           padding: 72,
           color: "white",
-          fontFamily: "sans-serif",
+          fontFamily: "serif",
         }}
       >
         <div
@@ -31,18 +31,21 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#00305B",
+            color: "#052E44",
             fontSize: 28,
             fontWeight: 700,
           }}
         >
           ED
         </div>
-        <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: -1 }}>
-          Edias Consultoria
+        <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: 4 }}>
+          E DIAS
         </div>
-        <div style={{ marginTop: 16, fontSize: 28, color: "#d7e0e8" }}>
-          Seguros e consultoria em Recife
+        <div style={{ marginTop: 12, fontSize: 22, letterSpacing: 6, color: "#B6A571" }}>
+          CORRETORA DE SEGUROS
+        </div>
+        <div style={{ marginTop: 20, fontSize: 26, color: "#d7e0e8" }}>
+          Segurança, confiança e credibilidade em Recife
         </div>
         <div
           style={{

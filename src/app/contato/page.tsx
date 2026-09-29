@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: "Contato",
   description:
-    "Fale com a Edias Consultoria em Recife: telefone, WhatsApp, e-mail e endereço em Boa Viagem.",
+    "Fale com a E DIAS Corretora de Seguros em Recife: telefone, WhatsApp, e-mail e endereço em Boa Viagem.",
   path: "/contato",
 });
 
@@ -17,7 +17,7 @@ export default function ContatoPage() {
   const contactLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contato Edias Consultoria",
+    name: "Contato E DIAS Corretora de Seguros",
     url: `${siteConfig.url}/contato`,
     mainEntity: {
       "@type": "Organization",
@@ -42,7 +42,7 @@ export default function ContatoPage() {
       <section className="bg-[var(--edias-canvas)] py-16">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
-            <h2 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)]">
+            <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
               Canais
             </h2>
             <dl className="mt-6 space-y-4 text-sm text-[var(--edias-ink-muted)]">
@@ -86,7 +86,7 @@ export default function ContatoPage() {
           </div>
 
           <div className="bg-white p-6 sm:p-8">
-            <h2 className="font-[family-name:var(--font-raleway)] text-2xl font-semibold text-[var(--edias-navy)]">
+            <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
               Mensagem rápida
             </h2>
             <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">
