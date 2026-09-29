@@ -61,8 +61,7 @@ export default function HomePage() {
         primaryCta={{ label: "Falar com especialista", href: "/contato" }}
         secondaryCta={{ label: "Explorar soluções", href: "#solucoes" }}
         imageSrc="/images/home/hero.jpg"
-        imageAlt="Equipe E DIAS Corretora de Seguros em reunião de negócios"
-        preservePhotoEffects
+        imageAlt="Reunião de negócios com equipe Edias e clientes"
       />
 
       <PartnersGrid />
