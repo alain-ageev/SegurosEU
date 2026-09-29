@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site";
 
 export const v2Nav = [
   { label: "Soluções", href: "/v2#solucoes" },
-  { label: "Como funciona", href: "/v2#metodo" },
+  { label: "Nossa atuação", href: "/v2#atuacao" },
   { label: "Cases", href: "/v2#cases" },
   { label: "Sobre", href: "/v2#sobre" },
 ] as const;

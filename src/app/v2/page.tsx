@@ -41,7 +41,7 @@ export default function ConversionHomePage() {
     <>
       <JsonLd data={ld} />
 
-      <section className="border-b border-[var(--v2-mist)] bg-white">
+      <section className="border-b border-[var(--v2-mist)]/40 bg-white">
         <div className="v2-container grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
           <div>
             <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
@@ -81,11 +81,18 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Indicadores */}
-      <section className="v2-section bg-[var(--v2-abyss)] text-white" aria-labelledby="prova-social">
+      {/* Números — Avaliação corporativa */}
+      <section
+        className="v2-section bg-[var(--v2-abyss)] text-white"
+        aria-labelledby="avaliacao-corporativa"
+      >
         <div className="v2-container">
-          <h2 id="prova-social" className="v2-h2 text-center text-white">
-            Organização e parceiros para avaliação corporativa
+          <p className="v2-eyebrow text-center text-white/70">Indicadores</p>
+          <h2
+            id="avaliacao-corporativa"
+            className="v2-h2 mt-2 text-center text-white"
+          >
+            Avaliação corporativa
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {v2TrustIndicators.map((item) => (
@@ -93,81 +100,18 @@ export default function ConversionHomePage() {
                 key={item.label}
                 className="rounded-[20px] bg-white/10 px-5 py-6 text-center"
               >
-                <p className="text-[32px] font-bold text-[var(--v2-ember)]">
+                <p className="text-[36px] font-bold text-[var(--v2-ember)]">
                   {item.value}
                 </p>
-                <p className="mt-1 text-[14px] text-white/80">{item.label}</p>
+                <p className="mt-1 text-[14px] text-white/85">{item.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Parceiros — todos, tamanho do site antigo + links */}
-      <section id="parceiros" className="v2-section bg-white">
-        <div className="v2-container">
-          <p className="v2-eyebrow">Nossos parceiros</p>
-          <h2 className="v2-h2 mt-2">Principais seguradoras e operadoras</h2>
-
-          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
-            {partners.map((partner) => (
-              <li key={partner.name}>
-                <a
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={partner.name}
-                  aria-label={`${partner.name} — abrir site oficial`}
-                  className="flex h-24 items-center justify-center transition-opacity hover:opacity-80 sm:h-28"
-                >
-                  <Image
-                    src={partner.logo}
-                    alt={`Logo ${partner.name}`}
-                    width={280}
-                    height={120}
-                    className="h-full w-full object-contain"
-                    loading="lazy"
-                    sizes="(max-width: 640px) 45vw, 25vw"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-16 text-center">
-            <p className="text-xs font-semibold tracking-[0.16em] text-[var(--v2-pewter)] uppercase">
-              Apoio institucional
-            </p>
-            <ul className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-14">
-              {institutionalPartners.map((partner) => (
-                <li key={partner.name} className="h-36 w-56 sm:h-44 sm:w-64">
-                  <a
-                    href={partner.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={partner.name}
-                    aria-label={`${partner.name} — abrir site oficial`}
-                    className="flex h-full w-full items-center justify-center transition-opacity hover:opacity-80"
-                  >
-                    <Image
-                      src={partner.logo}
-                      alt={`Logo ${partner.name}`}
-                      width={320}
-                      height={220}
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                      sizes="(max-width: 640px) 60vw, 256px"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Soluções — imagens de fundo como no site antigo */}
-      <section id="solucoes" className="v2-section bg-[var(--v2-paper)]">
+      {/* Soluções */}
+      <section id="solucoes" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Soluções</p>
           <h2 className="v2-h2 mt-2">Um produto para cada necessidade</h2>
@@ -181,7 +125,7 @@ export default function ConversionHomePage() {
               <Link
                 key={item.id}
                 href={item.href}
-                className="rounded-[16px] bg-white px-4 py-4 shadow-none ring-1 ring-[var(--v2-mist)] transition hover:ring-[var(--v2-abyss)]"
+                className="rounded-[16px] bg-[var(--v2-paper)] px-4 py-4 transition hover:bg-[var(--v2-fog)]"
               >
                 <h3 className="v2-h3 text-[16px]">{item.title}</h3>
                 <p className="v2-caption mt-2">{item.audience}</p>
@@ -228,17 +172,14 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Método */}
-      <section id="metodo" className="v2-section bg-[var(--v2-abyss)] text-white">
+      {/* Nossa atuação */}
+      <section id="atuacao" className="v2-section bg-[var(--v2-abyss)] text-white">
         <div className="v2-container">
-          <p className="v2-eyebrow text-white/70">Método</p>
-          <h2 className="v2-h2 mt-2 text-white">Como a consultoria funciona</h2>
+          <p className="v2-eyebrow text-white/70">Como trabalhamos</p>
+          <h2 className="v2-h2 mt-2 text-white">Nossa atuação</h2>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
-              <li
-                key={item.step}
-                className="rounded-[20px] bg-white/10 p-6"
-              >
+              <li key={item.step} className="rounded-[20px] bg-white/10 p-6">
                 <p className="text-[13px] font-bold text-[var(--v2-ember)]">
                   {item.step}
                 </p>
@@ -252,7 +193,7 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Sobre + diferenciais */}
+      {/* Sobre */}
       <section id="sobre" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Por que a E DIAS</p>
@@ -303,12 +244,14 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Cases — sem bordas cinzas */}
-      <section id="cases" className="v2-section bg-[var(--v2-paper)]">
+      {/* Cases */}
+      <section id="cases" className="v2-section bg-[var(--v2-abyss)] text-white">
         <div className="v2-container">
-          <p className="v2-eyebrow">Cases</p>
-          <h2 className="v2-h2 mt-2">Resultados relevantes para o público corporativo</h2>
-          <p className="v2-body mt-3 max-w-[640px]">
+          <p className="v2-eyebrow text-white/70">Cases</p>
+          <h2 className="v2-h2 mt-2 text-white">
+            Resultados relevantes para o público corporativo
+          </h2>
+          <p className="mt-3 max-w-[640px] text-[16px] text-white/75">
             Exemplos ilustrativos. Substituímos por cases nominados assim que houver
             autorização do cliente.
           </p>
@@ -316,24 +259,24 @@ export default function ConversionHomePage() {
             {v2Cases.map((item) => (
               <article
                 key={item.context}
-                className="flex flex-col rounded-[20px] bg-white p-6 sm:p-8"
+                className="flex flex-col rounded-[20px] bg-white p-6 text-[var(--v2-ink)] sm:p-8"
               >
                 <p className="v2-tag w-fit">{item.context}</p>
                 <dl className="mt-4 space-y-3">
                   <div>
-                    <dt className="text-[13px] font-bold text-[var(--v2-ink)]">Problema</dt>
+                    <dt className="text-[13px] font-bold">Problema</dt>
                     <dd className="v2-body-sm">{item.problem}</dd>
                   </div>
                   <div>
-                    <dt className="text-[13px] font-bold text-[var(--v2-ink)]">Solução</dt>
+                    <dt className="text-[13px] font-bold">Solução</dt>
                     <dd className="v2-body-sm">{item.solution}</dd>
                   </div>
                   <div>
-                    <dt className="text-[13px] font-bold text-[var(--v2-ink)]">Resultado</dt>
+                    <dt className="text-[13px] font-bold">Resultado</dt>
                     <dd className="v2-body-sm">{item.result}</dd>
                   </div>
                 </dl>
-                <blockquote className="mt-auto pt-5 text-[15px] font-semibold text-[var(--v2-ink)]">
+                <blockquote className="mt-auto pt-5 text-[15px] font-semibold">
                   “{item.quote}”
                   <footer className="v2-caption mt-2">
                     {item.person} · {item.role}
@@ -348,12 +291,12 @@ export default function ConversionHomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-start justify-between gap-3 rounded-[20px] bg-white p-6 transition hover:bg-[var(--v2-fog)]"
+                className="flex items-start justify-between gap-3 rounded-[20px] bg-white/10 p-6 text-white transition hover:bg-white/15"
               >
                 <div>
-                  <p className="v2-tag w-fit">{item.type}</p>
-                  <h3 className="v2-h3 mt-2 text-[16px]">{item.title}</h3>
-                  <p className="v2-body-sm mt-1">{item.body}</p>
+                  <p className="v2-tag w-fit bg-white/15 text-white/80">{item.type}</p>
+                  <h3 className="mt-2 text-[16px] font-bold">{item.title}</h3>
+                  <p className="mt-1 text-[14px] text-white/75">{item.body}</p>
                 </div>
                 <ArrowRightIcon className="mt-1 size-4 shrink-0 text-[var(--v2-ember)]" />
               </Link>
@@ -398,6 +341,69 @@ export default function ConversionHomePage() {
             </div>
           </div>
           <V2LeadForm />
+        </div>
+      </section>
+
+      {/* Parceiros no final */}
+      <section id="parceiros" className="v2-section bg-[var(--v2-paper)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Nossos parceiros</p>
+          <h2 className="v2-h2 mt-2">Principais seguradoras e operadoras</h2>
+
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
+            {partners.map((partner) => (
+              <li key={partner.name}>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={partner.name}
+                  aria-label={`${partner.name} — abrir site oficial`}
+                  className="flex h-24 items-center justify-center rounded-[16px] bg-white px-3 transition-opacity hover:opacity-80 sm:h-28"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={`Logo ${partner.name}`}
+                    width={280}
+                    height={120}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 45vw, 25vw"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.16em] text-[var(--v2-pewter)] uppercase">
+              Apoio institucional
+            </p>
+            <ul className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-14">
+              {institutionalPartners.map((partner) => (
+                <li key={partner.name} className="h-36 w-56 sm:h-44 sm:w-64">
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={partner.name}
+                    aria-label={`${partner.name} — abrir site oficial`}
+                    className="flex h-full w-full items-center justify-center rounded-[16px] bg-white p-4 transition-opacity hover:opacity-80"
+                  >
+                    <Image
+                      src={partner.logo}
+                      alt={`Logo ${partner.name}`}
+                      width={320}
+                      height={220}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 60vw, 256px"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </>

@@ -8,12 +8,12 @@
   --v2-carbon: #052e44;
 
   --v2-ink: #052e44;
-  --v2-paper: #e8eef3;
-  --v2-fog: #dce6ee;
-  --v2-mist: #b7c5d1;
-  --v2-steel: #7a8794;
-  --v2-pewter: #5c6b78;
-  --v2-graphite: #4a5d6e;
+  --v2-paper: #d9e8f0;
+  --v2-fog: #c5dceb;
+  --v2-mist: #8eb0c4;
+  --v2-steel: #3d6a82;
+  --v2-pewter: #2f5a72;
+  --v2-graphite: #1e455a;
 
   --v2-radius-tag: 999px;
   --v2-radius: 16px;
@@ -23,7 +23,7 @@
   /* Lato ≈ Calibri: neutra, sem serifa pontiaguda */
   --v2-font: var(--font-lato), "Lato", "Calibri", "Segoe UI", sans-serif;
 
-  background: var(--v2-paper);
+  background: linear-gradient(180deg, #cfe0eb 0%, #b7d0e0 40%, #a8c6da 100%);
   color: var(--v2-ink);
   font-family: var(--v2-font);
   letter-spacing: 0;
