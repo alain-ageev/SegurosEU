@@ -5,6 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const staticRoutes = [
     "",
+    "/v2",
     "/consorcio",
     "/consorcio/tabelas",
     "/consorcio/duvidas",

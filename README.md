@@ -25,7 +25,8 @@ npm run lint
 
 ## Páginas principais
 
-- `/` — Home
+- `/` — Home (site atual)
+- `/v2` — **Versão paralela** focada em conversão B2B (receita e confiança). Ver `docs/conversao-v2.md`
 - `/consorcio`, `/consorcio/tabelas`, `/consorcio/duvidas`
 - `/vida`, `/viagem`
 - `/saude` e `/saude/[brand]` (sulamerica, bradesco, amil)

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Abhaya_Libre, Cinzel, Source_Sans_3 } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -77,9 +75,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Ir para o conteúdo
         </a>
-        <SiteHeader />
-        <main id="conteudo">{children}</main>
-        <SiteFooter />
+        {children}
         <WhatsAppFloat />
       </body>
     </html>

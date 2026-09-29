@@ -33,6 +33,14 @@ export function SiteFooter() {
           <p className="mt-4 text-xs tracking-wide text-white/50">
             {siteConfig.legalName} · CNPJ {siteConfig.cnpj}
           </p>
+          <p className="mt-3">
+            <Link
+              href="/v2"
+              className="text-xs font-semibold tracking-wide text-[var(--edias-gold)] underline-offset-2 hover:underline"
+            >
+              Ver versão focada em conversão (/v2)
+            </Link>
+          </p>
         </div>
 
         <div>
