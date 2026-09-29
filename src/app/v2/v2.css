@@ -1,0 +1,220 @@
+/* Brex-structure tokens scoped to /v2 — E DIAS palette */
+
+.v2-shell {
+  /* Brand accents (kept) */
+  --v2-ember: #b6a571;
+  --v2-ember-hover: #c9bc91;
+  --v2-abyss: #052e44;
+  --v2-carbon: #0a384f;
+
+  /* Surfaces & neutrals from DESIGN.md */
+  --v2-ink: #052e44;
+  --v2-paper: #ffffff;
+  --v2-fog: #f3f3f7;
+  --v2-mist: #b9bbc6;
+  --v2-steel: #8b8d98;
+  --v2-pewter: #6f737b;
+  --v2-graphite: #60646c;
+
+  --v2-radius-tag: 6px;
+  --v2-radius: 12px;
+  --v2-max: 1200px;
+
+  --v2-font: var(--font-source-sans), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --v2-display: var(--font-cinzel), Cinzel, ui-serif, serif;
+
+  background: var(--v2-paper);
+  color: var(--v2-ink);
+  font-family: var(--v2-font);
+  font-feature-settings: "calt" 0, "liga" 0;
+  letter-spacing: -0.01em;
+}
+
+.v2-shell * {
+  border-color: var(--v2-mist);
+}
+
+.v2-shell a:focus-visible,
+.v2-shell button:focus-visible,
+.v2-shell input:focus-visible,
+.v2-shell select:focus-visible {
+  outline: 2px solid var(--v2-ember);
+  outline-offset: 2px;
+}
+
+.v2-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--v2-max);
+  padding-inline: 24px;
+}
+
+@media (min-width: 1024px) {
+  .v2-container {
+    padding-inline: 32px;
+  }
+}
+
+.v2-section {
+  padding-block: 64px;
+}
+
+@media (min-width: 768px) {
+  .v2-section {
+    padding-block: 80px;
+  }
+}
+
+.v2-eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--v2-pewter);
+  text-transform: none;
+}
+
+.v2-display {
+  font-family: var(--v2-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.11;
+  color: var(--v2-ink);
+}
+
+.v2-h2 {
+  font-family: var(--v2-font);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.21;
+  color: var(--v2-ink);
+}
+
+.v2-h3 {
+  font-family: var(--v2-font);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--v2-ink);
+}
+
+.v2-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--v2-graphite);
+}
+
+.v2-body-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: -0.01em;
+  color: var(--v2-graphite);
+}
+
+.v2-caption {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--v2-pewter);
+}
+
+.v2-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: var(--v2-radius);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.v2-btn-primary {
+  background: var(--v2-ember);
+  color: var(--v2-abyss);
+  border: none;
+}
+
+.v2-btn-primary:hover {
+  background: var(--v2-ember-hover);
+}
+
+.v2-btn-ghost {
+  background: transparent;
+  color: var(--v2-ink);
+  border: none;
+  font-weight: 500;
+}
+
+.v2-btn-ghost:hover {
+  color: var(--v2-abyss);
+}
+
+.v2-btn-outline {
+  background: transparent;
+  color: var(--v2-ink);
+  border: 1px solid var(--v2-mist);
+}
+
+.v2-btn-outline:hover {
+  background: var(--v2-fog);
+}
+
+.v2-card {
+  background: var(--v2-paper);
+  border: 1px solid var(--v2-mist);
+  border-radius: var(--v2-radius);
+  padding: 24px;
+  box-shadow: none;
+}
+
+@media (min-width: 768px) {
+  .v2-card {
+    padding: 32px;
+  }
+}
+
+.v2-card-quiet {
+  background: var(--v2-paper);
+  border: none;
+  border-radius: var(--v2-radius);
+  padding: 24px;
+  box-shadow: none;
+}
+
+.v2-input,
+.v2-select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--v2-mist);
+  border-radius: var(--v2-radius);
+  background: var(--v2-paper);
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--v2-ink);
+}
+
+.v2-input::placeholder {
+  color: var(--v2-steel);
+}
+
+.v2-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--v2-radius-tag);
+  background: var(--v2-fog);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--v2-pewter);
+}

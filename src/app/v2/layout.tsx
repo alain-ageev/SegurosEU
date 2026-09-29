@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { V2Footer } from "@/components/v2/footer";
 import { V2Header } from "@/components/v2/header";
 import { createPageMetadata } from "@/lib/seo";
+import "./v2.css";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Consultoria de seguros B2B | E DIAS",
@@ -19,10 +20,10 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="v2-shell">
       <V2Header />
       <main id="conteudo">{children}</main>
       <V2Footer />
-    </>
+    </div>
   );
 }

@@ -37,80 +37,73 @@ export default function ConversionHomePage() {
     <>
       <JsonLd data={ld} />
 
-      {/* 2. Hero */}
-      <section className="relative overflow-hidden bg-[var(--edias-navy)] text-white">
-        <Image
-          src="/images/home/hero.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-40"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-[var(--edias-deep)] via-[var(--edias-navy)]/90 to-[var(--edias-navy)]/70"
-        />
-        <div aria-hidden className="absolute inset-0 brand-pattern opacity-30 mix-blend-soft-light" />
-
-        <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-20 lg:px-8 lg:pb-24">
-          <p className="animate-rise font-heading text-xs tracking-[0.22em] text-[var(--edias-gold)] uppercase">
-            {v2Hero.eyebrow}
-          </p>
-          <h1 className="animate-rise-delay mt-4 max-w-3xl font-heading text-3xl font-semibold leading-tight tracking-[0.02em] sm:text-4xl lg:text-5xl">
-            {v2Hero.title}
-          </h1>
-          <p className="animate-rise-delay-2 font-description mt-5 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl">
-            {v2Hero.subtitle}
-          </p>
-          <div className="animate-rise-delay-3 mt-8 flex flex-wrap gap-3">
-            <Link
-              href={v2Hero.primaryCta.href}
-              className="inline-flex h-12 items-center justify-center bg-[var(--edias-gold)] px-5 text-sm font-extrabold text-[var(--edias-navy)] transition hover:bg-[var(--edias-gold-soft)]"
-            >
-              {v2Hero.primaryCta.label}
-              <ArrowRightIcon className="ml-2 size-4" />
-            </Link>
-            <a
-              href={v2Hero.secondaryCta.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center border border-white/35 px-5 text-sm font-bold text-white transition hover:bg-white/10"
-            >
-              {v2Hero.secondaryCta.label}
-            </a>
+      {/* Hero — light instrument style */}
+      <section className="border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]">
+        <div className="v2-container grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+          <div>
+            <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
+            <h1 className="v2-display mt-4 text-[clamp(36px,6vw,56px)]">
+              {v2Hero.title}
+            </h1>
+            <p className="v2-body mt-5 max-w-xl text-[20px] leading-[1.4] text-[var(--v2-graphite)]">
+              {v2Hero.subtitle}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-primary">
+                {v2Hero.primaryCta.label}
+                <ArrowRightIcon className="size-4" />
+              </Link>
+              <a
+                href={v2Hero.secondaryCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-ghost"
+              >
+                <span className="inline-block size-1.5 rounded-full bg-[var(--v2-ember)]" />
+                {v2Hero.secondaryCta.label}
+              </a>
+            </div>
+            <p className="v2-caption mt-8">{v2Hero.trustLine}</p>
           </div>
-          <p className="mt-8 text-xs tracking-[0.14em] text-white/55 uppercase">
-            {v2Hero.trustLine}
-          </p>
+
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] bg-[var(--v2-fog)]">
+            <Image
+              src="/images/home/meeting.jpg"
+              alt="Consultoria E DIAS em reunião com clientes"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 
-      {/* 3. Prova social imediata */}
-      <section className="border-b border-[var(--edias-line)] bg-white py-10 sm:py-12" aria-labelledby="prova-social">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 id="prova-social" className="sr-only">
-            Prova social e parceiros
+      {/* Prova social — Fog band */}
+      <section className="v2-section bg-[var(--v2-fog)]" aria-labelledby="prova-social">
+        <div className="v2-container">
+          <h2 id="prova-social" className="v2-h2 text-center">
+            Confiança para decidir com clareza
           </h2>
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="mt-10 grid gap-8 sm:grid-cols-3">
             {v2TrustIndicators.map((item) => (
-              <div key={item.label} className="text-center sm:text-left">
-                <p className="font-heading text-3xl text-[var(--edias-navy)]">{item.value}</p>
-                <p className="mt-1 text-sm font-medium text-[var(--edias-ink-muted)]">
-                  {item.label}
+              <div key={item.label} className="text-center">
+                <p className="text-[36px] font-semibold tracking-[-0.02em] text-[var(--v2-ink)]">
+                  {item.value}
                 </p>
+                <p className="v2-body-sm mt-1">{item.label}</p>
               </div>
             ))}
           </div>
-          <ul className="mt-10 grid grid-cols-2 items-center gap-x-6 gap-y-5 sm:grid-cols-5">
+          <ul className="mt-12 grid grid-cols-2 items-center gap-x-8 gap-y-6 sm:grid-cols-5">
             {v2PartnerLogos.map((partner) => (
               <li key={partner.name} className="flex justify-center">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   width={140}
-                  height={48}
-                  className="h-9 w-auto max-w-[120px] object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0 sm:h-10"
+                  height={40}
+                  className="h-8 w-auto max-w-[110px] object-contain opacity-70 grayscale"
                   loading="lazy"
                 />
               </li>
@@ -119,42 +112,33 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* 4. Escolha pelo cenário */}
-      <section id="segmentos" className="bg-[var(--edias-canvas)] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
-            Por cenário
-          </p>
-          <h2 className="mt-2 font-heading text-3xl text-[var(--edias-navy)] sm:text-4xl">
-            Por onde você quer começar?
-          </h2>
-          <p className="font-description mt-3 max-w-2xl text-lg text-[var(--edias-ink-muted)]">
+      {/* Cenários */}
+      <section id="segmentos" className="v2-section bg-[var(--v2-paper)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Por cenário</p>
+          <h2 className="v2-h2 mt-2">Por onde você quer começar?</h2>
+          <p className="v2-body mt-3 max-w-[640px]">
             Escolha a intenção — montamos a conversa em cima do seu problema, não de um catálogo.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {v2Scenarios.map((item) => (
-              <article
-                key={item.id}
-                className="flex flex-col border border-[var(--edias-navy)]/10 bg-white p-5 transition hover:border-[var(--edias-gold)]"
-              >
-                <h3 className="font-heading text-xl text-[var(--edias-navy)]">{item.title}</h3>
-                <p className="mt-1 text-xs font-bold tracking-wide text-[var(--edias-gold-deep)] uppercase">
-                  {item.audience}
-                </p>
-                <p className="mt-3 text-sm text-[var(--edias-ink-muted)]">
-                  <span className="font-semibold text-[var(--edias-navy)]">Dor: </span>
+              <article key={item.id} className="v2-card flex flex-col">
+                <h3 className="v2-h3">{item.title}</h3>
+                <p className="v2-tag mt-3 w-fit">{item.audience}</p>
+                <p className="v2-body-sm mt-4">
+                  <span className="font-medium text-[var(--v2-ink)]">Dor: </span>
                   {item.pain}
                 </p>
-                <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">
-                  <span className="font-semibold text-[var(--edias-navy)]">Resultado: </span>
+                <p className="v2-body-sm mt-2">
+                  <span className="font-medium text-[var(--v2-ink)]">Resultado: </span>
                   {item.outcome}
                 </p>
                 <Link
                   href={item.href}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-[var(--edias-navy)] underline-offset-4 hover:underline"
+                  className="v2-btn v2-btn-ghost mt-auto justify-start px-0 pt-6 text-[var(--v2-ink)]"
                 >
+                  <span className="text-[var(--v2-ember)]">→</span>
                   {item.cta}
-                  <ArrowRightIcon className="size-4" />
                 </Link>
               </article>
             ))}
@@ -162,37 +146,26 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* 5. Soluções prioritárias */}
-      <section id="solucoes" className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
-            Soluções
-          </p>
-          <h2 className="mt-2 font-heading text-3xl text-[var(--edias-navy)] sm:text-4xl">
-            O que priorizamos para gerar resultado
-          </h2>
-          <p className="font-description mt-3 max-w-2xl text-lg text-[var(--edias-ink-muted)]">
+      {/* Soluções */}
+      <section id="solucoes" className="v2-section bg-[var(--v2-fog)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Soluções</p>
+          <h2 className="v2-h2 mt-2">O que priorizamos para gerar resultado</h2>
+          <p className="v2-body mt-3 max-w-[640px]">
             Cada solução responde para quem é, qual dor resolve e como iniciar.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {v2Solutions.map((item) => (
-              <article
-                key={item.title}
-                className="flex flex-col border border-[var(--edias-line)] bg-[var(--edias-canvas)] p-5"
-              >
-                <h3 className="font-heading text-lg text-[var(--edias-navy)]">{item.title}</h3>
-                <p className="mt-2 text-sm font-medium text-[var(--edias-ink-muted)]">
-                  {item.benefit}
-                </p>
-                <p className="mt-3 text-xs font-bold tracking-wide text-[var(--edias-gold-deep)] uppercase">
-                  Para: {item.forWho}
-                </p>
+              <article key={item.title} className="v2-card-quiet flex flex-col border border-[var(--v2-mist)]">
+                <h3 className="v2-h3">{item.title}</h3>
+                <p className="v2-body-sm mt-2">{item.benefit}</p>
+                <p className="v2-caption mt-3">Para: {item.forWho}</p>
                 <Link
                   href={item.href}
-                  className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-extrabold text-[var(--edias-navy)]"
+                  className="mt-auto inline-flex items-center gap-2 pt-6 text-[14px] font-semibold tracking-[-0.01em] text-[var(--v2-ink)]"
                 >
                   {item.cta}
-                  <ArrowRightIcon className="size-4" />
+                  <ArrowRightIcon className="size-4 text-[var(--v2-ember)]" />
                 </Link>
               </article>
             ))}
@@ -200,60 +173,50 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* 6. Como funciona */}
-      <section className="bg-[var(--edias-navy)] py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold)] uppercase">
-            Método
-          </p>
-          <h2 className="mt-2 font-heading text-3xl sm:text-4xl">
-            Como a consultoria funciona
-          </h2>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Método */}
+      <section className="v2-section bg-[var(--v2-paper)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Método</p>
+          <h2 className="v2-h2 mt-2">Como a consultoria funciona</h2>
+          <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
-              <li key={item.step} className="border border-white/15 p-5">
-                <p className="font-heading text-sm tracking-[0.2em] text-[var(--edias-gold)]">
+              <li key={item.step} className="v2-card">
+                <p className="text-[12px] font-semibold tracking-[-0.01em] text-[var(--v2-ember)]">
                   {item.step}
                 </p>
-                <h3 className="mt-2 font-heading text-xl">{item.title}</h3>
-                <p className="font-description mt-2 text-base text-white/75">{item.body}</p>
+                <h3 className="v2-h3 mt-2">{item.title}</h3>
+                <p className="v2-body-sm mt-2">{item.body}</p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      {/* 7. Diferenciais */}
-      <section id="sobre" className="bg-[var(--edias-canvas)] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
-            Diferenciais
-          </p>
-          <h2 className="mt-2 font-heading text-3xl text-[var(--edias-navy)] sm:text-4xl">
-            {v2Comparison.title}
-          </h2>
+      {/* Diferenciais */}
+      <section id="sobre" className="v2-section bg-[var(--v2-fog)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Diferenciais</p>
+          <h2 className="v2-h2 mt-2">{v2Comparison.title}</h2>
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
-            <div className="border border-[var(--edias-line)] bg-white p-6">
-              <h3 className="font-heading text-lg text-[var(--edias-ink-muted)]">
-                Abordagem tradicional
-              </h3>
-              <ul className="mt-4 space-y-3 text-sm text-[var(--edias-ink-muted)]">
+            <div className="v2-card">
+              <h3 className="v2-h3 text-[var(--v2-graphite)]">Abordagem tradicional</h3>
+              <ul className="mt-4 space-y-3">
                 {v2Comparison.traditional.map((line) => (
-                  <li key={line} className="flex gap-2">
-                    <span className="mt-1 size-1.5 shrink-0 bg-[var(--edias-line)]" />
+                  <li key={line} className="v2-body-sm flex gap-2">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--v2-mist)]" />
                     {line}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="border border-[var(--edias-navy)] bg-[var(--edias-navy)] p-6 text-white">
-              <h3 className="font-heading text-lg text-[var(--edias-gold)]">
+            <div className="rounded-[12px] bg-[var(--v2-abyss)] p-6 text-white sm:p-8">
+              <h3 className="text-[20px] font-semibold tracking-[-0.01em] text-[var(--v2-ember)]">
                 Abordagem consultiva E DIAS
               </h3>
-              <ul className="mt-4 space-y-3 text-sm text-white/85">
+              <ul className="mt-4 space-y-3">
                 {v2Comparison.consultive.map((line) => (
-                  <li key={line} className="flex gap-2">
-                    <CheckIcon className="mt-0.5 size-4 shrink-0 text-[var(--edias-gold)]" />
+                  <li key={line} className="flex gap-2 text-[14px] leading-[1.43] text-white/85">
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 text-[var(--v2-ember)]" />
                     {line}
                   </li>
                 ))}
@@ -261,15 +224,13 @@ export default function ConversionHomePage() {
             </div>
           </div>
 
-          <div className="mt-12 max-w-3xl">
-            <h3 className="font-heading text-2xl text-[var(--edias-navy)]">{v2About.title}</h3>
-            <p className="font-description mt-3 text-lg text-[var(--edias-ink-muted)]">
-              {v2About.body}
-            </p>
-            <ul className="mt-4 space-y-2 text-sm font-medium text-[var(--edias-navy)]">
+          <div className="mt-12 max-w-[640px]">
+            <h3 className="v2-h2 text-[24px]">{v2About.title}</h3>
+            <p className="v2-body mt-3">{v2About.body}</p>
+            <ul className="mt-4 space-y-2">
               {v2About.points.map((point) => (
-                <li key={point} className="flex gap-2">
-                  <CheckIcon className="mt-0.5 size-4 text-[var(--edias-gold-deep)]" />
+                <li key={point} className="flex gap-2 text-[14px] font-medium text-[var(--v2-ink)]">
+                  <CheckIcon className="mt-0.5 size-4 text-[var(--v2-ember)]" />
                   {point}
                 </li>
               ))}
@@ -278,44 +239,35 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* 8. Cases e depoimentos */}
-      <section id="cases" className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
-            Cases
+      {/* Cases */}
+      <section id="cases" className="v2-section bg-[var(--v2-paper)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Cases</p>
+          <h2 className="v2-h2 mt-2">Contexto, problema, solução e resultado</h2>
+          <p className="v2-body mt-3 max-w-[640px]">
+            Exemplos do tipo de trabalho consultivo. Substitua por cases nominados com autorização quando disponíveis.
           </p>
-          <h2 className="mt-2 font-heading text-3xl text-[var(--edias-navy)] sm:text-4xl">
-            Contexto, problema, solução e resultado
-          </h2>
-          <p className="font-description mt-3 max-w-2xl text-lg text-[var(--edias-ink-muted)]">
-            Exemplos ilustrativos do tipo de trabalho consultivo. Substitua por cases nominados com autorização do cliente quando disponíveis.
-          </p>
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
             {v2Cases.map((item) => (
-              <article
-                key={item.context}
-                className="flex flex-col border border-[var(--edias-line)] p-5"
-              >
-                <p className="text-xs font-extrabold tracking-wide text-[var(--edias-gold-deep)] uppercase">
-                  {item.context}
-                </p>
-                <dl className="mt-4 space-y-3 text-sm">
+              <article key={item.context} className="v2-card flex flex-col">
+                <p className="v2-tag w-fit">{item.context}</p>
+                <dl className="mt-4 space-y-3">
                   <div>
-                    <dt className="font-bold text-[var(--edias-navy)]">Problema</dt>
-                    <dd className="text-[var(--edias-ink-muted)]">{item.problem}</dd>
+                    <dt className="text-[14px] font-semibold text-[var(--v2-ink)]">Problema</dt>
+                    <dd className="v2-body-sm">{item.problem}</dd>
                   </div>
                   <div>
-                    <dt className="font-bold text-[var(--edias-navy)]">Solução</dt>
-                    <dd className="text-[var(--edias-ink-muted)]">{item.solution}</dd>
+                    <dt className="text-[14px] font-semibold text-[var(--v2-ink)]">Solução</dt>
+                    <dd className="v2-body-sm">{item.solution}</dd>
                   </div>
                   <div>
-                    <dt className="font-bold text-[var(--edias-navy)]">Resultado</dt>
-                    <dd className="text-[var(--edias-ink-muted)]">{item.result}</dd>
+                    <dt className="text-[14px] font-semibold text-[var(--v2-ink)]">Resultado</dt>
+                    <dd className="v2-body-sm">{item.result}</dd>
                   </div>
                 </dl>
-                <blockquote className="font-description mt-auto border-t border-[var(--edias-line)] pt-4 text-base text-[var(--edias-navy)]">
+                <blockquote className="mt-auto border-t border-[var(--v2-mist)] pt-4 text-[16px] font-medium tracking-[-0.01em] text-[var(--v2-ink)]">
                   “{item.quote}”
-                  <footer className="mt-2 text-xs font-bold tracking-wide text-[var(--edias-ink-muted)] uppercase">
+                  <footer className="v2-caption mt-2">
                     {item.person} · {item.role}
                   </footer>
                 </blockquote>
@@ -325,75 +277,54 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* 9. Conteúdo de autoridade */}
-      <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
-            Conteúdos
-          </p>
-          <h2 className="mt-2 font-heading text-3xl text-[var(--edias-navy)] sm:text-4xl">
-            Materiais para decidir com segurança
-          </h2>
+      {/* Conteúdos */}
+      <section className="v2-section bg-[var(--v2-fog)]">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Conteúdos</p>
+          <h2 className="v2-h2 mt-2">Materiais para decidir com segurança</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {v2Authority.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group border border-[var(--edias-navy)]/10 bg-white p-5 transition hover:border-[var(--edias-gold)]"
-              >
-                <p className="text-xs font-extrabold tracking-wide text-[var(--edias-gold-deep)] uppercase">
-                  {item.type}
-                </p>
-                <h3 className="mt-2 font-heading text-xl text-[var(--edias-navy)] group-hover:underline">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">{item.body}</p>
+              <Link key={item.href} href={item.href} className="v2-card-quiet border border-[var(--v2-mist)] transition hover:border-[var(--v2-ember)]">
+                <p className="v2-tag w-fit">{item.type}</p>
+                <h3 className="v2-h3 mt-3">{item.title}</h3>
+                <p className="v2-body-sm mt-2">{item.body}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 10. CTA final */}
-      <section id="contato" className="bg-white py-16 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
+      {/* CTA final */}
+      <section id="contato" className="v2-section bg-[var(--v2-paper)]">
+        <div className="v2-container grid gap-10 lg:grid-cols-[1fr_1.05fr]">
           <div>
-            <p className="font-heading text-xs tracking-[0.2em] text-[var(--edias-gold-deep)] uppercase">
-              Próximo passo
-            </p>
-            <h2 className="mt-2 font-heading text-3xl text-[var(--edias-navy)] sm:text-4xl">
-              Receba uma análise objetiva
-            </h2>
-            <p className="font-description mt-3 text-lg text-[var(--edias-ink-muted)]">
+            <p className="v2-eyebrow">Próximo passo</p>
+            <h2 className="v2-h2 mt-2">Receba uma análise objetiva</h2>
+            <p className="v2-body mt-3 max-w-[640px]">
               Formulário curto: só o necessário para o primeiro contato. Preferir WhatsApp ou telefone também funciona.
             </p>
-            <ul className="mt-6 space-y-2 text-sm font-medium text-[var(--edias-navy)]">
-              <li className="flex gap-2">
-                <CheckIcon className="size-4 text-[var(--edias-gold-deep)]" />
-                Retorno em até 1 dia útil
-              </li>
-              <li className="flex gap-2">
-                <CheckIcon className="size-4 text-[var(--edias-gold-deep)]" />
-                Sem compromisso de contratação
-              </li>
-              <li className="flex gap-2">
-                <CheckIcon className="size-4 text-[var(--edias-gold-deep)]" />
-                Dados usados só para atendimento
-              </li>
+            <ul className="mt-6 space-y-2">
+              {[
+                "Retorno em até 1 dia útil",
+                "Sem compromisso de contratação",
+                "Dados usados só para atendimento",
+              ].map((line) => (
+                <li key={line} className="flex gap-2 text-[14px] font-medium text-[var(--v2-ink)]">
+                  <CheckIcon className="size-4 text-[var(--v2-ember)]" />
+                  {line}
+                </li>
+              ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={siteConfig.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-11 items-center bg-[#25D366] px-4 text-sm font-bold text-white"
+                className="v2-btn v2-btn-outline"
               >
                 WhatsApp direto
               </a>
-              <a
-                href={siteConfig.phoneHref}
-                className="inline-flex h-11 items-center border border-[var(--edias-navy)] px-4 text-sm font-bold text-[var(--edias-navy)]"
-              >
+              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-ghost">
                 {siteConfig.phone}
               </a>
             </div>

@@ -2,6 +2,8 @@
 
 Homepage focada em **receita e confiança** para consultoria/corretora B2B. O site atual permanece em `/`.
 
+Visual da `/v2`: estrutura do `DESIGN.md` (Brex — canvas branco, cards 12px, um único accent, tipografia comprimida), com **paleta E DIAS** (`#052e44` + `#b6a571`). Ver `docs/DESIGN-v2.md`.
+
 ## O que a `/v2` deixa claro
 
 1. **Para quem é** — empresas, RH, PME e famílias patrimoniais (cenários por intenção).

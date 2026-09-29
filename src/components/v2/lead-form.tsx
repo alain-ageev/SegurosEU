@@ -46,36 +46,28 @@ export function V2LeadForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="border border-[var(--edias-navy)]/10 bg-white p-5 sm:p-6"
+      className="v2-card"
       noValidate
       aria-describedby="v2-form-privacy"
     >
-      <h3 className="font-heading text-xl text-[var(--edias-navy)]">{v2Form.title}</h3>
-      <p className="font-description mt-2 text-base text-[var(--edias-ink-muted)]">
-        {v2Form.description}
-      </p>
+      <h3 className="v2-h3">{v2Form.title}</h3>
+      <p className="v2-body mt-2">{v2Form.description}</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-[var(--edias-navy)]">
+        <label className="block text-[14px] font-medium tracking-[-0.01em] text-[var(--v2-ink)]">
           Nome*
-          <input
-            name="name"
-            type="text"
-            autoComplete="name"
-            required
-            className="mt-1.5 h-11 w-full border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-3 text-base outline-none focus-visible:border-[var(--edias-gold)] focus-visible:ring-2 focus-visible:ring-[var(--edias-gold)]/40"
-          />
+          <input name="name" type="text" autoComplete="name" required className="v2-input mt-1.5" />
         </label>
-        <label className="block text-sm font-semibold text-[var(--edias-navy)]">
+        <label className="block text-[14px] font-medium tracking-[-0.01em] text-[var(--v2-ink)]">
           Empresa
           <input
             name="company"
             type="text"
             autoComplete="organization"
-            className="mt-1.5 h-11 w-full border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-3 text-base outline-none focus-visible:border-[var(--edias-gold)] focus-visible:ring-2 focus-visible:ring-[var(--edias-gold)]/40"
+            className="v2-input mt-1.5"
           />
         </label>
-        <label className="block text-sm font-semibold text-[var(--edias-navy)] sm:col-span-2">
+        <label className="block text-[14px] font-medium tracking-[-0.01em] text-[var(--v2-ink)] sm:col-span-2">
           WhatsApp*
           <input
             name="phone"
@@ -84,17 +76,12 @@ export function V2LeadForm() {
             inputMode="tel"
             required
             placeholder="(81) 9xxxx-xxxx"
-            className="mt-1.5 h-11 w-full border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-3 text-base outline-none focus-visible:border-[var(--edias-gold)] focus-visible:ring-2 focus-visible:ring-[var(--edias-gold)]/40"
+            className="v2-input mt-1.5"
           />
         </label>
-        <label className="block text-sm font-semibold text-[var(--edias-navy)] sm:col-span-2">
+        <label className="block text-[14px] font-medium tracking-[-0.01em] text-[var(--v2-ink)] sm:col-span-2">
           O que você precisa?*
-          <select
-            name="need"
-            required
-            defaultValue=""
-            className="mt-1.5 h-11 w-full border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-3 text-base outline-none focus-visible:border-[var(--edias-gold)] focus-visible:ring-2 focus-visible:ring-[var(--edias-gold)]/40"
-          >
+          <select name="need" required defaultValue="" className="v2-select mt-1.5">
             <option value="" disabled>
               Selecione
             </option>
@@ -111,12 +98,12 @@ export function V2LeadForm() {
       </div>
 
       {status === "error" ? (
-        <p className="mt-4 text-sm font-semibold text-red-700" role="alert">
+        <p className="mt-4 text-[14px] font-medium text-red-700" role="alert">
           {error}
         </p>
       ) : null}
       {status === "done" ? (
-        <p className="mt-4 text-sm font-semibold text-[var(--edias-navy)]" role="status">
+        <p className="mt-4 text-[14px] font-medium text-[var(--v2-ink)]" role="status">
           Abrimos o WhatsApp com sua mensagem. Se não abriu, use o botão flutuante.
         </p>
       ) : null}
@@ -124,12 +111,12 @@ export function V2LeadForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-6 inline-flex h-12 w-full items-center justify-center bg-[var(--edias-gold)] px-5 text-sm font-extrabold text-[var(--edias-navy)] transition hover:bg-[var(--edias-gold-soft)] disabled:opacity-60 sm:w-auto"
+        className="v2-btn v2-btn-primary mt-6 w-full sm:w-auto"
       >
         {status === "sending" ? "Preparando…" : "Receber uma análise"}
       </button>
 
-      <p id="v2-form-privacy" className="mt-4 text-xs leading-relaxed text-[var(--edias-ink-muted)]">
+      <p id="v2-form-privacy" className="v2-caption mt-4">
         {v2Form.privacy}
       </p>
     </form>
