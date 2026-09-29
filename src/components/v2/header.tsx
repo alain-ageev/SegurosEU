@@ -1,102 +1,348 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useState } from "react";
-import { MenuIcon, XIcon } from "lucide-react";
+import { useEffect, useId, useRef, useState } from "react";
+import { ArrowRightIcon, ChevronDownIcon, MenuIcon, XIcon } from "lucide-react";
 import { BrandLogo } from "@/components/brand-logo";
-import { v2Nav } from "@/lib/v2-content";
+import { navItems, siteConfig, type NavItem } from "@/lib/site";
+import { cn } from "@/lib/utils";
+
+function v2Href(href: string) {
+  if (href === "/#solucoes") return "/v2#solucoes";
+  if (href === "/#parceiros") return "/v2#prova-social";
+  return href;
+}
+
+function MegaPanel({
+  item,
+  open,
+  onNavigate,
+}: {
+  item: NavItem;
+  open: boolean;
+  onNavigate: () => void;
+}) {
+  if (!item.mega) return null;
+  const { mega } = item;
+
+  return (
+    <div
+      className={cn(
+        "absolute left-1/2 top-full z-50 w-[min(52rem,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition duration-200",
+        open
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0"
+      )}
+    >
+      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-[var(--v2-paper)] p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
+        <div className="rounded-[16px] bg-[var(--v2-fog)] p-5">
+          <p className="text-xs font-bold tracking-[0.16em] text-[var(--v2-ember)] uppercase">
+            {mega.eyebrow}
+          </p>
+          <h2 className="mt-3 text-2xl font-bold leading-tight text-[var(--v2-ink)]">
+            {mega.title}
+          </h2>
+          <p className="mt-3 text-sm font-medium leading-6 text-[var(--v2-graphite)]">
+            {mega.description}
+          </p>
+          <Link
+            href={v2Href(mega.cta.href)}
+            onClick={onNavigate}
+            className="v2-btn v2-btn-primary mt-6"
+          >
+            {mega.cta.label}
+            <ArrowRightIcon className="size-3.5" />
+          </Link>
+        </div>
+        <div
+          className={cn(
+            "grid gap-4 sm:grid-cols-2",
+            mega.columns.length > 2 && "lg:grid-cols-3"
+          )}
+        >
+          {mega.columns.map((column) => (
+            <div key={column.title} className="min-w-0">
+              <p className="px-3 text-xs font-bold tracking-[0.14em] text-[var(--v2-pewter)] uppercase">
+                {column.title}
+              </p>
+              <div className="mt-2 space-y-1">
+                {column.links.map((link) => (
+                  <Link
+                    key={link.href + link.label}
+                    href={v2Href(link.href)}
+                    onClick={onNavigate}
+                    className="block rounded-[12px] px-3 py-2.5 text-sm font-bold leading-5 text-[var(--v2-ink)] transition hover:bg-[var(--v2-fog)]"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function V2Header() {
-  const [open, setOpen] = useState(false);
+  const [openMobile, setOpenMobile] = useState(false);
+  const [openMega, setOpenMega] = useState<string | null>(null);
+  const [openMobileTab, setOpenMobileTab] = useState<string | null>("Soluções");
+  const [barHeight, setBarHeight] = useState(100);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const barRef = useRef<HTMLDivElement | null>(null);
   const menuId = useId();
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    const el = barRef.current;
+    if (!el) return;
+    const update = () => setBarHeight(el.getBoundingClientRect().height);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = openMobile ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [openMobile]);
+
+  const openPanel = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenMega(label);
+  };
+
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenMega(null), 120);
+  };
 
   return (
-    <>
-      <div className="bg-[var(--v2-abyss)] px-4 py-2 text-center text-[13px] font-semibold text-white">
-        Consultoria B2B em seguros ·{" "}
-        <Link href="/v2#contato" className="text-[var(--v2-ember)] underline-offset-2 hover:underline">
-          Solicitar diagnóstico
-        </Link>
-      </div>
-
-      <header className="sticky top-0 z-50 border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]/95 backdrop-blur">
-        <div className="v2-container flex h-16 items-center justify-between gap-4">
-          <BrandLogo variant="dark" href="/v2" />
-
-          <nav
-            className="hidden items-center gap-1 lg:flex"
-            aria-label="Principal versão conversão"
+    <header className="sticky top-0 z-50">
+      <div ref={barRef}>
+        <div className="bg-[var(--v2-abyss)] px-4 py-2 text-center text-[13px] font-semibold text-white">
+          Consultoria B2B em seguros ·{" "}
+          <Link
+            href="/v2#contato"
+            className="text-[var(--v2-ember)] underline-offset-2 hover:underline"
           >
-            {v2Nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-[var(--v2-fog)] hover:text-[var(--v2-abyss-soft)]"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="hidden text-[13px] font-semibold text-[var(--v2-pewter)] underline-offset-2 hover:underline xl:inline"
-            >
-              Ver site institucional
-            </Link>
-            <Link href="/v2#contato" className="v2-btn v2-btn-primary hidden sm:inline-flex">
-              Fale com um especialista
-            </Link>
-            <button
-              type="button"
-              className="inline-flex size-11 items-center justify-center rounded-[16px] border border-[var(--v2-mist)] text-[var(--v2-ink)] lg:hidden"
-              aria-expanded={open}
-              aria-controls={menuId}
-              aria-label={open ? "Fechar menu" : "Abrir menu"}
-              onClick={() => setOpen((v) => !v)}
-            >
-              {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
-            </button>
-          </div>
+            Solicitar diagnóstico
+          </Link>
         </div>
 
-        {open ? (
-          <div
-            id={menuId}
-            className="border-t border-[var(--v2-mist)] bg-[var(--v2-paper)] px-4 py-4 lg:hidden"
-            role="dialog"
-            aria-label="Menu"
-          >
-            <nav className="mx-auto flex max-w-[1200px] flex-col gap-1" aria-label="Mobile">
-              {v2Nav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-[16px] px-3 py-3 text-[15px] font-semibold text-[var(--v2-ink)] hover:bg-[var(--v2-fog)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
+        <div className="border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]/95 backdrop-blur">
+          <div className="v2-container flex h-16 items-center justify-between gap-4">
+            <BrandLogo variant="dark" href="/v2" />
+
+            <nav
+              className="hidden items-center gap-1 lg:flex"
+              aria-label="Principal com abas"
+              onMouseLeave={scheduleClose}
+            >
+              {navItems.map((item) => {
+                const hasMega = Boolean(item.mega);
+                const isOpen = openMega === item.label;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() =>
+                      hasMega ? openPanel(item.label) : setOpenMega(null)
+                    }
+                  >
+                    {hasMega ? (
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-haspopup="true"
+                        className={cn(
+                          "inline-flex items-center gap-1.5 rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition",
+                          "hover:bg-[var(--v2-fog)] focus:bg-[var(--v2-fog)] focus:outline-none",
+                          isOpen && "bg-[var(--v2-fog)]"
+                        )}
+                        onClick={() => setOpenMega(isOpen ? null : item.label)}
+                      >
+                        <span>{item.label}</span>
+                        <ChevronDownIcon
+                          className={cn(
+                            "size-4 transition-transform duration-200",
+                            isOpen && "rotate-180"
+                          )}
+                        />
+                      </button>
+                    ) : (
+                      <Link
+                        href={v2Href(item.href)}
+                        className="inline-flex items-center rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-[var(--v2-fog)]"
+                        onClick={() => setOpenMega(null)}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                    {hasMega ? (
+                      <MegaPanel
+                        item={item}
+                        open={isOpen}
+                        onNavigate={() => setOpenMega(null)}
+                      />
+                    ) : null}
+                  </div>
+                );
+              })}
+            </nav>
+
+            <div className="flex items-center gap-3">
+              <Link
+                href="/"
+                className="hidden text-[13px] font-semibold text-[var(--v2-pewter)] underline-offset-2 hover:underline xl:inline"
+              >
+                Site institucional
+              </Link>
               <Link
                 href="/v2#contato"
-                onClick={() => setOpen(false)}
+                className="v2-btn v2-btn-primary hidden sm:inline-flex"
+              >
+                Fale com um especialista
+              </Link>
+              <button
+                type="button"
+                className="inline-flex size-11 items-center justify-center rounded-[16px] border border-[var(--v2-mist)] text-[var(--v2-ink)] lg:hidden"
+                aria-expanded={openMobile}
+                aria-controls={menuId}
+                aria-label={openMobile ? "Fechar menu" : "Abrir menu"}
+                onClick={() => setOpenMobile((value) => !value)}
+              >
+                {openMobile ? (
+                  <XIcon className="size-5" />
+                ) : (
+                  <MenuIcon className="size-5" />
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {openMobile ? (
+        <div
+          id={menuId}
+          className="fixed inset-x-0 bottom-0 z-[70] lg:hidden"
+          style={{ top: barHeight }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navegação"
+        >
+          <button
+            type="button"
+            className="absolute inset-0 bg-[var(--v2-abyss)]/45"
+            aria-label="Fechar menu"
+            onClick={() => setOpenMobile(false)}
+          />
+          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-[var(--v2-fog)]">
+            <nav
+              className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 pb-28"
+              aria-label="Mobile"
+            >
+              {navItems.map((item) => {
+                const isTabOpen = openMobileTab === item.label;
+                const mega = item.mega;
+
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-[16px] border border-[var(--v2-mist)] bg-[var(--v2-paper)] p-3"
+                  >
+                    {mega ? (
+                      <>
+                        <button
+                          type="button"
+                          aria-expanded={isTabOpen}
+                          className="flex w-full items-center justify-between gap-3 px-1 py-2 text-left text-base font-bold text-[var(--v2-ink)]"
+                          onClick={() =>
+                            setOpenMobileTab(isTabOpen ? null : item.label)
+                          }
+                        >
+                          {item.label}
+                          <ChevronDownIcon
+                            className={cn(
+                              "size-4 opacity-60 transition-transform",
+                              isTabOpen && "rotate-180"
+                            )}
+                          />
+                        </button>
+
+                        {isTabOpen ? (
+                          <div className="mt-2 space-y-3 border-t border-[var(--v2-mist)] pt-3">
+                            <div className="rounded-[12px] bg-[var(--v2-fog)] p-4">
+                              <p className="text-xs font-bold tracking-[0.14em] text-[var(--v2-ember)] uppercase">
+                                {mega.eyebrow}
+                              </p>
+                              <p className="mt-2 text-lg font-bold text-[var(--v2-ink)]">
+                                {mega.title}
+                              </p>
+                              <p className="mt-2 text-sm text-[var(--v2-graphite)]">
+                                {mega.description}
+                              </p>
+                              <Link
+                                href={v2Href(mega.cta.href)}
+                                onClick={() => setOpenMobile(false)}
+                                className="v2-btn v2-btn-primary mt-4"
+                              >
+                                {mega.cta.label}
+                                <ArrowRightIcon className="size-3.5" />
+                              </Link>
+                            </div>
+                            {mega.columns.flatMap((column) =>
+                              column.links.map((link) => (
+                                <Link
+                                  key={item.label + link.href + link.label}
+                                  href={v2Href(link.href)}
+                                  onClick={() => setOpenMobile(false)}
+                                  className="block rounded-[12px] px-3 py-2 text-sm font-medium text-[var(--v2-graphite)] hover:bg-[var(--v2-fog)]"
+                                >
+                                  {link.label}
+                                </Link>
+                              ))
+                            )}
+                          </div>
+                        ) : null}
+                      </>
+                    ) : (
+                      <Link
+                        href={v2Href(item.href)}
+                        onClick={() => setOpenMobile(false)}
+                        className="flex items-center justify-between gap-3 px-1 py-2 text-base font-bold text-[var(--v2-ink)]"
+                      >
+                        {item.label}
+                        <ArrowRightIcon className="size-4 opacity-50" />
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
+
+              <Link
+                href="/v2#contato"
+                onClick={() => setOpenMobile(false)}
                 className="v2-btn v2-btn-primary mt-2"
               >
                 Fale com um especialista
               </Link>
+              <a
+                href={siteConfig.phoneHref}
+                className="v2-btn v2-btn-outline"
+              >
+                {siteConfig.phone}
+              </a>
             </nav>
           </div>
-        ) : null}
-      </header>
-    </>
+        </div>
+      ) : null}
+    </header>
   );
 }
