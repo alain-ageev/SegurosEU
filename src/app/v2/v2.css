@@ -1,4 +1,4 @@
-/* /v2 — feedback Emmanuel: tipografia neutra (Calibri-like), cantos arredondados, azul único */
+/* Site principal (conversão) — branco + azul da paleta, sem cinza/azul claro */
 
 .v2-shell {
   --v2-ember: #b6a571;
@@ -8,9 +8,9 @@
   --v2-carbon: #052e44;
 
   --v2-ink: #052e44;
-  --v2-paper: #d9e8f0;
-  --v2-fog: #c5dceb;
-  --v2-mist: #8eb0c4;
+  --v2-paper: #ffffff;
+  --v2-fog: #ffffff;
+  --v2-mist: #9eb6c7;
   --v2-steel: #3d6a82;
   --v2-pewter: #2f5a72;
   --v2-graphite: #1e455a;
@@ -20,10 +20,9 @@
   --v2-radius-lg: 20px;
   --v2-max: 1200px;
 
-  /* Lato ≈ Calibri: neutra, sem serifa pontiaguda */
   --v2-font: var(--font-lato), "Lato", "Calibri", "Segoe UI", sans-serif;
 
-  background: linear-gradient(180deg, #cfe0eb 0%, #b7d0e0 40%, #a8c6da 100%);
+  background: #ffffff;
   color: var(--v2-ink);
   font-family: var(--v2-font);
   letter-spacing: 0;
@@ -164,7 +163,7 @@
 
 .v2-btn-outline:hover {
   border-color: var(--v2-abyss);
-  background: var(--v2-fog);
+  background: color-mix(in srgb, var(--v2-abyss) 6%, white);
 }
 
 .v2-card {
@@ -194,7 +193,7 @@
   display: inline-flex;
   align-items: center;
   border-radius: var(--v2-radius-tag);
-  background: var(--v2-fog);
+  background: color-mix(in srgb, var(--v2-abyss) 8%, white);
   padding: 4px 10px;
   font-size: 12px;
   font-weight: 600;
@@ -217,12 +216,11 @@
   color: var(--v2-steel);
 }
 
-/* Imagem com recorte/zoom suave */
 .v2-media {
   position: relative;
   overflow: hidden;
   border-radius: var(--v2-radius-lg);
-  background: var(--v2-fog);
+  background: color-mix(in srgb, var(--v2-abyss) 8%, white);
 }
 
 .v2-media img {

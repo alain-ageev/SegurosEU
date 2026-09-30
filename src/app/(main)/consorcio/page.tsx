@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
 import { createPageMetadata } from "@/lib/seo";
-import { consorcioPlans } from "@/lib/site";
+import { consorcioPlans, consorcioTables } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Consórcio",
@@ -13,6 +14,24 @@ export const metadata: Metadata = createPageMetadata({
   path: "/consorcio",
   keywords: ["consórcio Recife", "consórcio Porto Bank", "consórcio imóvel", "consórcio veículo"],
 });
+
+const tabelaShortcuts = [
+  {
+    title: "Automóvel",
+    body: "Tabelas PF e PJ para carros, motos e veículos da empresa.",
+    href: "/consorcio/tabelas#auto-pf",
+  },
+  {
+    title: "Imóvel",
+    body: "Tabelas PF e PJ para casa, apartamento, terreno e reforma.",
+    href: "/consorcio/tabelas#imovel-pf",
+  },
+  {
+    title: "Pesados",
+    body: "Tabelas PF e PJ para caminhões, ônibus, tratores e linha amarela.",
+    href: "/consorcio/tabelas#pesados-pf",
+  },
+] as const;
 
 export default function ConsorcioPage() {
   const faqLd = {
@@ -50,7 +69,69 @@ export default function ConsorcioPage() {
         compact
       />
 
-      <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
+      <section id="tabelas" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs font-bold tracking-[0.16em] text-[var(--edias-gold)] uppercase">
+            Tabelas
+          </p>
+          <h2 className="mt-2 font-heading text-3xl font-semibold text-[var(--edias-navy)]">
+            Consulte as tabelas do Consórcio Porto Bank
+          </h2>
+          <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">
+            Como no site anterior: automóvel, imóvel e pesados — com todas as
+            tabelas PF/PJ, solar e bike em um só lugar.
+          </p>
+
+          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+            {tabelaShortcuts.map((item) => (
+              <li key={item.title}>
+                <Link
+                  href={item.href}
+                  className="group flex h-full flex-col justify-between rounded-[16px] border border-[var(--edias-line)] bg-white p-6 transition hover:border-[var(--edias-navy)]"
+                >
+                  <div>
+                    <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                      {item.body}
+                    </p>
+                  </div>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)]">
+                    Ver tabelas
+                    <ArrowRightIcon className="size-4 transition group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[var(--edias-navy)]">
+            {consorcioTables.map((table) => (
+              <li key={table.id}>
+                <Link
+                  href={`/consorcio/tabelas#${table.id}`}
+                  className="underline-offset-4 hover:underline"
+                >
+                  {table.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8">
+            <Link
+              href="/consorcio/tabelas"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[var(--edias-navy)] underline-offset-4 hover:underline"
+            >
+              Todas as tabelas de consórcio
+              <ArrowRightIcon className="size-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[var(--edias-line)] bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -76,7 +157,7 @@ export default function ConsorcioPage() {
             {consorcioPlans.map((plan) => (
               <li
                 key={plan.title}
-                className="border-l-2 border-[var(--edias-gold)] bg-white p-6 shadow-[0_1px_0_rgba(5,46,68,0.04)]"
+                className="border-l-2 border-[var(--edias-gold)] bg-[#f4f4f4] p-6"
               >
                 <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
                   {plan.title}
@@ -90,7 +171,7 @@ export default function ConsorcioPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="border-t border-[var(--edias-line)] bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)] sm:text-3xl">
             Benefícios para fechar com a Porto

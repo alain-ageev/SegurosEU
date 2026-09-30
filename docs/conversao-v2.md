@@ -1,10 +1,10 @@
-# Versão paralela de conversão (`/v2`)
+# Homepage de conversão (`/`)
 
-Homepage focada em **receita e confiança** para consultoria/corretora B2B. O site atual permanece em `/`.
+A experiência de conversão B2B é a **home principal** em `/`. O caminho `/v2` redireciona para `/` por compatibilidade.
 
-Visual da `/v2`: estrutura do `DESIGN.md` (Brex — canvas branco, cards 12px, um único accent, tipografia comprimida), com **paleta E DIAS** (`#052e44` + `#b6a571`). Ver `docs/DESIGN-v2.md`.
+Visual: estrutura do `DESIGN.md` (Brex — canvas branco, cards arredondados, um único accent), com **paleta E DIAS** (`#052e44` + `#b6a571`). Ver `docs/DESIGN-v2.md`.
 
-## O que a `/v2` deixa claro
+## O que a home deixa claro
 
 1. **Para quem é** — empresas, RH, PME e famílias patrimoniais (cenários por intenção).
 2. **Qual problema resolve** — custo, patrimônio, benefícios e proteção integrada.
@@ -13,21 +13,20 @@ Visual da `/v2`: estrutura do `DESIGN.md` (Brex — canvas branco, cards 12px, u
 
 ## Estrutura da homepage
 
-1. Header (Soluções · Segmentos · Cases · Sobre · CTA)
+1. Header (mega Soluções · Consórcio · Saúde · Odonto · Contato)
 2. Hero com proposta de valor + CTAs
-3. Prova social (indicadores + logos)
-4. Escolha por cenário
-5. Soluções prioritárias (benefício, não só produto)
-6. Como funciona (diagnóstico → acompanhamento)
-7. Diferenciais (tradicional × consultivo)
-8. Cases / depoimentos
-9. Conteúdo de autoridade
-10. CTA final + formulário progressivo
-11. Rodapé
+3. Números de confiança (sem título “Indicadores”)
+4. Escolha por cenário + soluções com imagem
+5. Nossa atuação (diagnóstico → acompanhamento)
+6. Diferenciais (tradicional × consultivo) + sobre
+7. Cases / autoridade
+8. CTA final + formulário
+9. Parceiros e apoio institucional
+10. Rodapé
 
 ## Dados ainda necessários (diagnóstico)
 
-Antes de tratar a `/v2` como versão definitiva, preencher com dados reais:
+Antes de tratar métricas como definitivas, preencher com dados reais:
 
 - Analytics / Search Console / CRM (canais, conversão por CTA, termos, CWV mobile)
 - Definição da conversão principal (cotação, WhatsApp, diagnóstico, briefing)
@@ -38,4 +37,3 @@ Antes de tratar a `/v2` como versão definitiva, preencher com dados reais:
 
 - Contraste marca, foco visível, labels no formulário, skip link
 - Imagens com `sizes` / lazy onde aplicável; tipografia via `next/font`
-- Formulário pede só nome, WhatsApp e necessidade no primeiro contato

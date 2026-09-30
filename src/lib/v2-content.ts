@@ -1,12 +1,12 @@
-import { siteConfig } from "@/lib/site";
+import { odontoHref, siteConfig } from "@/lib/site";
 
-/** Conteúdo da homepage de conversão (/v2) — foco em receita e confiança */
+/** Conteúdo da homepage de conversão (/) — foco em receita e confiança */
 
 export const v2Nav = [
-  { label: "Soluções", href: "/v2#solucoes" },
-  { label: "Nossa atuação", href: "/v2#atuacao" },
-  { label: "Cases", href: "/v2#cases" },
-  { label: "Sobre", href: "/v2#sobre" },
+  { label: "Soluções", href: "/#solucoes" },
+  { label: "Nossa atuação", href: "/#atuacao" },
+  { label: "Cases", href: "/#cases" },
+  { label: "Sobre", href: "/#sobre" },
 ] as const;
 
 /** Credenciais públicas — trocar por números reais autorizados pelo cliente */
@@ -32,7 +32,7 @@ export const v2Hero = {
     "Diagnóstico objetivo de riscos e benefícios para reduzir custo, fechar lacunas de cobertura e dar clareza ao RH e à diretoria.",
   primaryCta: {
     label: "Solicitar diagnóstico gratuito",
-    href: "/v2#contato",
+    href: "/#contato",
   },
   secondaryCta: {
     label: "Falar no WhatsApp",
@@ -64,7 +64,7 @@ export const v2Scenarios = [
     audience: "Diretoria financeira e gestores",
     pain: "Prêmios altos, coberturas sobrepostas ou desatualizadas.",
     outcome: "Revisão comparativa e proposta com economia ou melhor relação custo-benefício.",
-    href: "/v2#contato",
+    href: "/#contato",
     cta: "Pedir revisão de custos",
   },
   {
@@ -73,7 +73,7 @@ export const v2Scenarios = [
     audience: "Empresas e famílias patrimoniais",
     pain: "Riscos de propriedade, RC, frota ou interrupção sem mapa claro.",
     outcome: "Mapa de riscos prioritários e programa de seguros alinhado ao negócio.",
-    href: "/v2#contato",
+    href: "/#contato",
     cta: "Mapear riscos",
   },
   {
@@ -91,7 +91,7 @@ export const v2Scenarios = [
     audience: "PME e sócios-operadores",
     pain: "Pouco tempo para cotar e medo de contratar errado.",
     outcome: "Pacote essencial sob medida, com orientação em linguagem simples.",
-    href: "/v2#contato",
+    href: "/#contato",
     cta: "Começar pelo essencial",
   },
 ] as const;
@@ -136,8 +136,15 @@ export const v2Solutions = [
     title: "Consultoria de riscos",
     benefit: "Visão integrada: o que manter, ajustar ou eliminar no programa atual.",
     forWho: "Empresas com múltiplas apólices",
-    href: "/v2#contato",
+    href: "/#contato",
     cta: "Agendar diagnóstico",
+  },
+  {
+    title: "Odonto SulAmérica",
+    benefit: "Plano odontológico com a corretora E DIAS — contratação no portal SulAmérica.",
+    forWho: "Pessoas e empresas",
+    href: odontoHref,
+    cta: "Acessar Odonto",
   },
 ] as const;
 

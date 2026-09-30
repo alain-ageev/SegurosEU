@@ -73,6 +73,8 @@ const nextConfig: NextConfig = {
       },
       { source: "/cadastro", destination: "/contato", permanent: false },
       { source: "/vidaflex", destination: "/vida", permanent: false },
+      { source: "/v2", destination: "/", permanent: false },
+      { source: "/v2/:path*", destination: "/:path*", permanent: false },
     ];
   },
 };

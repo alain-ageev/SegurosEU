@@ -1,7 +1,34 @@
 import Link from "next/link";
 import { SocialLinks } from "@/components/social-links";
-import { siteConfig } from "@/lib/site";
+import { odontoHref, siteConfig } from "@/lib/site";
 import { v2Nav, v2Solutions } from "@/lib/v2-content";
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  const external = href.startsWith("http://") || href.startsWith("https://");
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-white"
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className="hover:text-white">
+      {children}
+    </Link>
+  );
+}
 
 export function V2Footer() {
   return (
@@ -23,11 +50,15 @@ export function V2Footer() {
           <ul className="mt-4 space-y-2 text-[14px] text-white/75">
             {v2Solutions.slice(0, 5).map((item) => (
               <li key={item.title}>
-                <Link href={item.href} className="hover:text-white">
-                  {item.title}
-                </Link>
+                <FooterLink href={item.href}>{item.title}</FooterLink>
               </li>
             ))}
+            <li>
+              <FooterLink href={odontoHref}>Odonto SulAmérica</FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/consorcio/tabelas">Tabelas de consórcio</FooterLink>
+            </li>
           </ul>
         </div>
 
@@ -42,8 +73,8 @@ export function V2Footer() {
               </li>
             ))}
             <li>
-              <Link href="/" className="hover:text-white">
-                Site institucional
+              <Link href="/#parceiros" className="hover:text-white">
+                Parceiros
               </Link>
             </li>
           </ul>
@@ -76,7 +107,7 @@ export function V2Footer() {
           <p>
             © {new Date().getFullYear()} {siteConfig.legalName}. CNPJ {siteConfig.cnpj}.
           </p>
-          <p>Versão conversão · /v2</p>
+          <p>Recife · Boa Viagem</p>
         </div>
       </div>
     </footer>

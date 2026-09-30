@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Abhaya_Libre, Cinzel, Source_Sans_3 } from "next/font/google";
+import { Abhaya_Libre, Cinzel, Lato, Source_Sans_3 } from "next/font/google";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -27,6 +27,14 @@ const abhayaLibre = Abhaya_Libre({
   variable: "--font-abhaya",
   weight: ["400", "600", "700"],
   subsets: ["latin"],
+  display: "swap",
+});
+
+/** Neutra (estilo Calibri) — UI da home de conversão */
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -66,7 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${cinzel.variable} ${sourceSans.variable} ${abhayaLibre.variable}`}
+      className={`${cinzel.variable} ${sourceSans.variable} ${abhayaLibre.variable} ${lato.variable}`}
     >
       <body className="min-h-dvh font-sans">
         <a

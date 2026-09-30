@@ -7,10 +7,39 @@ import { BrandLogo } from "@/components/brand-logo";
 import { navItems, siteConfig, type NavItem } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-function v2Href(href: string) {
-  if (href === "/#solucoes") return "/v2#solucoes";
-  if (href === "/#parceiros") return "/v2#prova-social";
-  return href;
+function isExternal(href: string) {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
+function NavAnchor({
+  href,
+  onClick,
+  className,
+  children,
+}: {
+  href: string;
+  onClick?: () => void;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  if (isExternal(href)) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} onClick={onClick} className={className}>
+      {children}
+    </Link>
+  );
 }
 
 function MegaPanel({
@@ -34,8 +63,8 @@ function MegaPanel({
           : "pointer-events-none opacity-0"
       )}
     >
-      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-[var(--v2-paper)] p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
-        <div className="rounded-[16px] bg-[var(--v2-fog)] p-5">
+      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-white p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
+        <div className="rounded-[16px] bg-[#f4f4f4] p-5">
           <p className="text-xs font-bold tracking-[0.16em] text-[var(--v2-ember)] uppercase">
             {mega.eyebrow}
           </p>
@@ -45,14 +74,14 @@ function MegaPanel({
           <p className="mt-3 text-sm font-medium leading-6 text-[var(--v2-graphite)]">
             {mega.description}
           </p>
-          <Link
-            href={v2Href(mega.cta.href)}
+          <NavAnchor
+            href={mega.cta.href}
             onClick={onNavigate}
             className="v2-btn v2-btn-primary mt-6"
           >
             {mega.cta.label}
             <ArrowRightIcon className="size-3.5" />
-          </Link>
+          </NavAnchor>
         </div>
         <div
           className={cn(
@@ -67,14 +96,14 @@ function MegaPanel({
               </p>
               <div className="mt-2 space-y-1">
                 {column.links.map((link) => (
-                  <Link
+                  <NavAnchor
                     key={link.href + link.label}
-                    href={v2Href(link.href)}
+                    href={link.href}
                     onClick={onNavigate}
-                    className="block rounded-[12px] px-3 py-2.5 text-sm font-bold leading-5 text-[var(--v2-ink)] transition hover:bg-[var(--v2-fog)]"
+                    className="block rounded-[12px] px-3 py-2.5 text-sm font-bold leading-5 text-[var(--v2-ink)] transition hover:bg-[#f4f4f4]"
                   >
                     {link.label}
-                  </Link>
+                  </NavAnchor>
                 ))}
               </div>
             </div>
@@ -127,16 +156,16 @@ export function V2Header() {
         <div className="bg-[var(--v2-abyss)] px-4 py-2 text-center text-[13px] font-semibold text-white">
           Consultoria B2B em seguros ·{" "}
           <Link
-            href="/v2#contato"
+            href="/#contato"
             className="text-[var(--v2-ember)] underline-offset-2 hover:underline"
           >
             Solicitar diagnóstico
           </Link>
         </div>
 
-        <div className="border-b border-[var(--v2-mist)] bg-[var(--v2-paper)]/95 backdrop-blur">
+        <div className="border-b border-[var(--v2-mist)] bg-white/95 backdrop-blur">
           <div className="v2-container flex h-16 items-center justify-between gap-4">
-            <BrandLogo variant="dark" href="/v2" />
+            <BrandLogo variant="dark" href="/" />
 
             <nav
               className="hidden items-center gap-1 lg:flex"
@@ -162,8 +191,8 @@ export function V2Header() {
                         aria-haspopup="true"
                         className={cn(
                           "inline-flex items-center gap-1.5 rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition",
-                          "hover:bg-[var(--v2-fog)] focus:bg-[var(--v2-fog)] focus:outline-none",
-                          isOpen && "bg-[var(--v2-fog)]"
+                          "hover:bg-[#f4f4f4] focus:bg-[#f4f4f4] focus:outline-none",
+                          isOpen && "bg-[#f4f4f4]"
                         )}
                         onClick={() => setOpenMega(isOpen ? null : item.label)}
                       >
@@ -176,13 +205,13 @@ export function V2Header() {
                         />
                       </button>
                     ) : (
-                      <Link
-                        href={v2Href(item.href)}
-                        className="inline-flex items-center rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-[var(--v2-fog)]"
+                      <NavAnchor
+                        href={item.href}
+                        className="inline-flex items-center rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-[#f4f4f4]"
                         onClick={() => setOpenMega(null)}
                       >
                         {item.label}
-                      </Link>
+                      </NavAnchor>
                     )}
                     {hasMega ? (
                       <MegaPanel
@@ -198,13 +227,7 @@ export function V2Header() {
 
             <div className="flex items-center gap-3">
               <Link
-                href="/"
-                className="hidden text-[13px] font-semibold text-[var(--v2-pewter)] underline-offset-2 hover:underline xl:inline"
-              >
-                Site institucional
-              </Link>
-              <Link
-                href="/v2#contato"
+                href="/#contato"
                 className="v2-btn v2-btn-primary hidden sm:inline-flex"
               >
                 Fale com um especialista
@@ -243,7 +266,7 @@ export function V2Header() {
             aria-label="Fechar menu"
             onClick={() => setOpenMobile(false)}
           />
-          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-[var(--v2-fog)]">
+          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-white">
             <nav
               className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 pb-28"
               aria-label="Mobile"
@@ -255,7 +278,7 @@ export function V2Header() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[16px] border border-[var(--v2-mist)] bg-[var(--v2-paper)] p-3"
+                    className="rounded-[16px] border border-[var(--v2-mist)] bg-white p-3"
                   >
                     {mega ? (
                       <>
@@ -278,7 +301,7 @@ export function V2Header() {
 
                         {isTabOpen ? (
                           <div className="mt-2 space-y-3 border-t border-[var(--v2-mist)] pt-3">
-                            <div className="rounded-[12px] bg-[var(--v2-fog)] p-4">
+                            <div className="rounded-[12px] bg-[#f4f4f4] p-4">
                               <p className="text-xs font-bold tracking-[0.14em] text-[var(--v2-ember)] uppercase">
                                 {mega.eyebrow}
                               </p>
@@ -288,55 +311,52 @@ export function V2Header() {
                               <p className="mt-2 text-sm text-[var(--v2-graphite)]">
                                 {mega.description}
                               </p>
-                              <Link
-                                href={v2Href(mega.cta.href)}
+                              <NavAnchor
+                                href={mega.cta.href}
                                 onClick={() => setOpenMobile(false)}
                                 className="v2-btn v2-btn-primary mt-4"
                               >
                                 {mega.cta.label}
                                 <ArrowRightIcon className="size-3.5" />
-                              </Link>
+                              </NavAnchor>
                             </div>
                             {mega.columns.flatMap((column) =>
                               column.links.map((link) => (
-                                <Link
+                                <NavAnchor
                                   key={item.label + link.href + link.label}
-                                  href={v2Href(link.href)}
+                                  href={link.href}
                                   onClick={() => setOpenMobile(false)}
-                                  className="block rounded-[12px] px-3 py-2 text-sm font-medium text-[var(--v2-graphite)] hover:bg-[var(--v2-fog)]"
+                                  className="block rounded-[12px] px-3 py-2 text-sm font-medium text-[var(--v2-graphite)] hover:bg-[#f4f4f4]"
                                 >
                                   {link.label}
-                                </Link>
+                                </NavAnchor>
                               ))
                             )}
                           </div>
                         ) : null}
                       </>
                     ) : (
-                      <Link
-                        href={v2Href(item.href)}
+                      <NavAnchor
+                        href={item.href}
                         onClick={() => setOpenMobile(false)}
                         className="flex items-center justify-between gap-3 px-1 py-2 text-base font-bold text-[var(--v2-ink)]"
                       >
                         {item.label}
                         <ArrowRightIcon className="size-4 opacity-50" />
-                      </Link>
+                      </NavAnchor>
                     )}
                   </div>
                 );
               })}
 
               <Link
-                href="/v2#contato"
+                href="/#contato"
                 onClick={() => setOpenMobile(false)}
                 className="v2-btn v2-btn-primary mt-2"
               >
                 Fale com um especialista
               </Link>
-              <a
-                href={siteConfig.phoneHref}
-                className="v2-btn v2-btn-outline"
-              >
+              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-outline">
                 {siteConfig.phone}
               </a>
             </nav>

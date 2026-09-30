@@ -1,153 +1,401 @@
 import Image from "next/image";
-import { CtaBand } from "@/components/cta-band";
-import { Hero } from "@/components/hero";
+import Link from "next/link";
+import { ArrowRightIcon, ArrowUpRightIcon, CheckIcon } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
-import { PartnersGrid } from "@/components/partners-grid";
-import { ServiceGrid } from "@/components/service-grid";
-import { corporateHighlights, siteConfig } from "@/lib/site";
+import { V2LeadForm } from "@/components/v2/lead-form";
+import {
+  institutionalPartners,
+  partners,
+  services,
+  siteConfig,
+} from "@/lib/site";
+import {
+  v2About,
+  v2Authority,
+  v2Cases,
+  v2Comparison,
+  v2Credentials,
+  v2Hero,
+  v2Process,
+  v2Scenarios,
+  v2TrustIndicators,
+} from "@/lib/v2-content";
 
-export default function HomePage() {
-  const organizationLd = {
+export default function ConversionHomePage() {
+  const ld = {
     "@context": "https://schema.org",
-    "@type": ["Organization", "InsuranceAgency", "LocalBusiness"],
+    "@type": ["InsuranceAgency", "LocalBusiness"],
     name: siteConfig.name,
-    legalName: siteConfig.legalName,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo-edias.png`,
-    email: siteConfig.email,
-    telephone: ["+55-81-3105-7588", "+55-11-97715-7588"],
-    taxID: siteConfig.cnpj,
+    description: v2Hero.subtitle,
+    telephone: siteConfig.phoneHref.replace("tel:", ""),
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.state,
-      postalCode: siteConfig.address.postalCode,
-      addressCountry: siteConfig.address.country,
+      addressCountry: "BR",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -8.1315,
-      longitude: -34.9015,
-    },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:30",
-      closes: "17:30",
-    },
-    sameAs: [siteConfig.instagram, siteConfig.linkedin],
-    areaServed: {
-      "@type": "City",
-      name: "Recife",
-    },
-  };
-
-  const websiteLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    inLanguage: "pt-BR",
-    publisher: { "@type": "Organization", name: siteConfig.name },
   };
 
   return (
     <>
-      <JsonLd data={[organizationLd, websiteLd]} />
-      <Hero
-        title="Consultoria em seguros que protege o negócio e a família"
-        description="Diagnóstico de riscos, escolha de coberturas e acompanhamento próximo — em Recife e para clientes em todo o Brasil."
-        primaryCta={{ label: "Falar com especialista", href: "/contato" }}
-        secondaryCta={{ label: "Explorar soluções", href: "#solucoes" }}
-        imageSrc="/images/home/hero.jpg"
-        imageAlt="Reunião de negócios com equipe Edias e clientes"
-      />
+      <JsonLd data={ld} />
 
-      <PartnersGrid />
+      <section className="border-b border-[var(--v2-mist)]/40 bg-white">
+        <div className="v2-container grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+          <div>
+            <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
+            <h1 className="v2-display mt-3 text-[clamp(32px,5vw,48px)]">
+              {v2Hero.title}
+            </h1>
+            <p className="v2-body mt-4 max-w-xl text-[18px]">
+              {v2Hero.subtitle}
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-primary">
+                {v2Hero.primaryCta.label}
+                <ArrowRightIcon className="size-4" />
+              </Link>
+              <a
+                href={v2Hero.secondaryCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-outline"
+              >
+                {v2Hero.secondaryCta.label}
+              </a>
+            </div>
+            <p className="v2-caption mt-6">{v2Hero.trustLine}</p>
+          </div>
 
-      <ServiceGrid />
-
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[360px]">
+          <div className="v2-media aspect-[4/3]">
             <Image
               src="/images/home/meeting.jpg"
-              alt="Reunião de negócios e consultoria de riscos"
+              alt="Consultoria E DIAS em reunião com clientes"
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+              sizes="(max-width: 1024px) 100vw, 560px"
               className="object-cover"
-              loading="lazy"
             />
-          </div>
-          <div>
-            <p className="text-xs font-semibold tracking-[0.18em] text-[var(--edias-gold-deep)] uppercase">
-              Nossa visão
-            </p>
-            <h2 className="mt-3 font-heading text-3xl font-semibold text-[var(--edias-navy)] sm:text-4xl">
-              Dissolver entraves de seguro antes do sinistro
-            </h2>
-            <div className="mt-5 space-y-4 text-base leading-relaxed text-[var(--edias-ink-muted)]">
-              <p>
-                A rotina das empresas arrasta sócios a decisões operacionais
-                exaustivas. Erros de declaração e cálculos incorretos viram
-                lacunas de cobertura, perda proporcional e rateios — riscos que
-                poderiam ser evitados.
-              </p>
-              <p>
-                A experiência mostra que mais de 60% das demandas envolvendo o
-                negócio nascem de inconformidade corporativa. Nossa consultoria
-                confere exatidão nos cálculos de risco e aumenta a assertividade
-                para preservar a saúde financeira da empresa.
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-[var(--edias-line)] bg-[var(--edias-canvas)] py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
-            Proteção com método consultivo
-          </h2>
-          <ul className="mt-10 grid gap-6 md:grid-cols-3">
-            {corporateHighlights.map((item, index) => {
-              const images = [
-                "/images/home/finance.jpg",
-                "/images/home/truck.jpg",
-                "/images/home/clients.jpg",
-              ];
-              return (
-                <li key={item.title} className="overflow-hidden bg-white">
-                  <div className="relative h-40">
-                    <Image
-                      src={images[index] ?? images[0]}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                      {item.body}
+      {/* Números de confiança — sem título INDICADORES */}
+      <section
+        className="border-b border-[var(--v2-mist)]/30 bg-white py-10"
+        aria-label="Indicadores de confiança"
+      >
+        <div className="v2-container grid gap-6 sm:grid-cols-3">
+          {v2TrustIndicators.map((item) => (
+            <div key={item.label} className="px-2 text-center sm:px-4">
+              <p className="text-[36px] font-bold text-[var(--v2-abyss)]">
+                {item.value}
+              </p>
+              <p className="mt-1 text-[14px] text-[var(--v2-pewter)]">
+                {item.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Soluções */}
+      <section id="solucoes" className="v2-section bg-white">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Soluções</p>
+          <h2 className="v2-h2 mt-2">Um produto para cada necessidade</h2>
+          <p className="v2-body mt-3 max-w-[640px]">
+            Consórcio, vida, viagem e saúde com a mesma lógica: diagnóstico claro,
+            parceiros confiáveis e acompanhamento próximo.
+          </p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {v2Scenarios.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="rounded-[16px] bg-[#f4f4f4] px-4 py-4 transition hover:bg-[#ebebeb]"
+              >
+                <h3 className="v2-h3 text-[16px]">{item.title}</h3>
+                <p className="v2-caption mt-2">{item.audience}</p>
+              </Link>
+            ))}
+          </div>
+
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {services.map((service, index) => (
+              <li key={service.slug}>
+                <Link
+                  href={service.href}
+                  className="group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-[20px] bg-[var(--v2-abyss)] text-white"
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-[var(--v2-abyss)] via-[var(--v2-abyss)]/70 to-transparent"
+                  />
+                  <div className="relative z-10 flex flex-col gap-3 p-6 sm:p-8">
+                    <span className="text-xs font-bold tracking-[0.2em] text-[var(--v2-ember)]">
+                      0{index + 1}
+                    </span>
+                    <h3 className="text-2xl font-bold">{service.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/80">
+                      {service.summary}
                     </p>
+                    <div className="mt-1 flex items-center justify-between text-sm font-semibold text-[var(--v2-ember)]">
+                      <span>{service.accent}</span>
+                      <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </div>
                   </div>
-                </li>
-              );
-            })}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
 
-      <CtaBand
-        title="Pronto para revisar suas coberturas?"
-        description="Converse com a equipe Edias e receba orientação objetiva para consórcio, vida, viagem, saúde e riscos empresariais."
-      />
+      {/* Nossa atuação */}
+      <section id="atuacao" className="v2-section bg-[var(--v2-abyss)] text-white">
+        <div className="v2-container">
+          <p className="v2-eyebrow text-white/70">Como trabalhamos</p>
+          <h2 className="v2-h2 mt-2 text-white">Nossa atuação</h2>
+          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {v2Process.map((item) => (
+              <li key={item.step} className="rounded-[20px] bg-white/10 p-6">
+                <p className="text-[13px] font-bold text-[var(--v2-ember)]">
+                  {item.step}
+                </p>
+                <h3 className="mt-2 text-[18px] font-bold">{item.title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-white/75">
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Sobre */}
+      <section id="sobre" className="v2-section bg-white">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Por que a E DIAS</p>
+          <h2 className="v2-h2 mt-2">{v2Comparison.title}</h2>
+          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            <div className="rounded-[20px] bg-[#f4f4f4] p-6 sm:p-8">
+              <h3 className="v2-h3 text-[var(--v2-graphite)]">Abordagem tradicional</h3>
+              <ul className="mt-4 space-y-3">
+                {v2Comparison.traditional.map((line) => (
+                  <li key={line} className="v2-body-sm flex gap-2">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--v2-mist)]" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-[20px] bg-[var(--v2-abyss)] p-6 text-white sm:p-8">
+              <h3 className="text-[18px] font-bold text-[var(--v2-ember)]">
+                Abordagem consultiva E DIAS
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {v2Comparison.consultive.map((line) => (
+                  <li key={line} className="flex gap-2 text-[14px] leading-relaxed text-white/85">
+                    <CheckIcon className="mt-0.5 size-4 shrink-0 text-[var(--v2-ember)]" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {v2Credentials.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-[20px] bg-[#f4f4f4] p-6"
+              >
+                <h3 className="v2-h3">{item.title}</h3>
+                <p className="v2-body-sm mt-2">{item.body}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 max-w-[640px]">
+            <h3 className="v2-h2 text-[24px]">{v2About.title}</h3>
+            <p className="v2-body mt-3">{v2About.body}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Cases */}
+      <section id="cases" className="v2-section bg-[var(--v2-abyss)] text-white">
+        <div className="v2-container">
+          <p className="v2-eyebrow text-white/70">Cases</p>
+          <h2 className="v2-h2 mt-2 text-white">
+            Resultados relevantes para o público corporativo
+          </h2>
+          <p className="mt-3 max-w-[640px] text-[16px] text-white/75">
+            Exemplos ilustrativos. Substituímos por cases nominados assim que houver
+            autorização do cliente.
+          </p>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {v2Cases.map((item) => (
+              <article
+                key={item.context}
+                className="flex flex-col rounded-[20px] bg-white p-6 text-[var(--v2-ink)] sm:p-8"
+              >
+                <p className="v2-tag w-fit">{item.context}</p>
+                <dl className="mt-4 space-y-3">
+                  <div>
+                    <dt className="text-[13px] font-bold">Problema</dt>
+                    <dd className="v2-body-sm">{item.problem}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[13px] font-bold">Solução</dt>
+                    <dd className="v2-body-sm">{item.solution}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[13px] font-bold">Resultado</dt>
+                    <dd className="v2-body-sm">{item.result}</dd>
+                  </div>
+                </dl>
+                <blockquote className="mt-auto pt-5 text-[15px] font-semibold">
+                  “{item.quote}”
+                  <footer className="v2-caption mt-2">
+                    {item.person} · {item.role}
+                  </footer>
+                </blockquote>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {v2Authority.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-start justify-between gap-3 rounded-[20px] bg-white/10 p-6 text-white transition hover:bg-white/15"
+              >
+                <div>
+                  <p className="v2-tag w-fit bg-white/15 text-white/80">{item.type}</p>
+                  <h3 className="mt-2 text-[16px] font-bold">{item.title}</h3>
+                  <p className="mt-1 text-[14px] text-white/75">{item.body}</p>
+                </div>
+                <ArrowRightIcon className="mt-1 size-4 shrink-0 text-[var(--v2-ember)]" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="contato" className="v2-section bg-white">
+        <div className="v2-container grid gap-10 lg:grid-cols-[1fr_1.05fr]">
+          <div>
+            <p className="v2-eyebrow">Próximo passo</p>
+            <h2 className="v2-h2 mt-2">Receba uma análise objetiva</h2>
+            <p className="v2-body mt-3 max-w-[640px]">
+              Formulário curto para o primeiro contato.
+            </p>
+            <ul className="mt-6 space-y-2">
+              {[
+                "Retorno em até 1 dia útil",
+                "Sem compromisso de contratação",
+                "Dados usados só para atendimento",
+              ].map((line) => (
+                <li key={line} className="flex gap-2 text-[14px] font-semibold text-[var(--v2-ink)]">
+                  <CheckIcon className="size-4 text-[var(--v2-ember)]" />
+                  {line}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-outline"
+              >
+                WhatsApp direto
+              </a>
+              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-ghost">
+                {siteConfig.phone}
+              </a>
+            </div>
+          </div>
+          <V2LeadForm />
+        </div>
+      </section>
+
+      {/* Parceiros no final */}
+      <section id="parceiros" className="v2-section bg-white">
+        <div className="v2-container">
+          <p className="v2-eyebrow">Nossos parceiros</p>
+          <h2 className="v2-h2 mt-2">Principais seguradoras e operadoras</h2>
+
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
+            {partners.map((partner) => (
+              <li key={partner.name}>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={partner.name}
+                  aria-label={`${partner.name} — abrir site oficial`}
+                  className="flex h-24 items-center justify-center rounded-[16px] bg-[#f4f4f4] px-3 transition-opacity hover:opacity-80 sm:h-28"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={`Logo ${partner.name}`}
+                    width={280}
+                    height={120}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 45vw, 25vw"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-16 text-center">
+            <p className="text-xs font-semibold tracking-[0.16em] text-[var(--v2-pewter)] uppercase">
+              Apoio institucional
+            </p>
+            <ul className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-14">
+              {institutionalPartners.map((partner) => (
+                <li key={partner.name} className="h-36 w-56 sm:h-44 sm:w-64">
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={partner.name}
+                    aria-label={`${partner.name} — abrir site oficial`}
+                    className="flex h-full w-full items-center justify-center rounded-[16px] bg-[#f4f4f4] p-4 transition-opacity hover:opacity-80"
+                  >
+                    <Image
+                      src={partner.logo}
+                      alt={`Logo ${partner.name}`}
+                      width={320}
+                      height={220}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                      sizes="(max-width: 640px) 60vw, 256px"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

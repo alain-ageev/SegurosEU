@@ -28,8 +28,54 @@ export const siteConfig = {
 /** Menu no modelo Belz: pill nav + mega painéis */
 export type MegaColumn = {
   title: string;
-  links: { label: string; href: string }[];
+  links: { label: string; href: string; external?: boolean }[];
 };
+
+export const odontoHref =
+  "https://sulamericaodonto.com.br/?corretora=emmanueldias";
+
+export const consorcioTables = [
+  {
+    id: "auto-pf",
+    title: "Tabela Automóvel PF",
+    body: "Planos para pessoa física — carros e motos com diferentes prazos e créditos. Solicite a tabela atualizada.",
+  },
+  {
+    id: "auto-pj",
+    title: "Tabela Automóvel PJ",
+    body: "Planos para pessoa jurídica — frota e veículos da empresa com condições por grupo vigente.",
+  },
+  {
+    id: "imovel-pf",
+    title: "Tabela Imóvel PF",
+    body: "Faixas de crédito para casa, apartamento, terreno, construção e reforma (pessoa física).",
+  },
+  {
+    id: "imovel-pj",
+    title: "Tabela Imóvel PJ",
+    body: "Crédito imobiliário para pessoa jurídica — campanhas e grupos sob consulta.",
+  },
+  {
+    id: "pesados-pf",
+    title: "Tabela Pesados PF",
+    body: "Caminhões, ônibus, tratores e equipamentos para pessoa física — conforme grupo disponível.",
+  },
+  {
+    id: "pesados-pj",
+    title: "Tabela Pesados PJ",
+    body: "Pesados para pessoa jurídica — tabelas sob demanda conforme disponibilidade do grupo.",
+  },
+  {
+    id: "solar",
+    title: "Solar",
+    body: "Consórcio para energia solar e soluções sustentáveis — simulação com o consultor.",
+  },
+  {
+    id: "bike",
+    title: "Bike",
+    body: "Modalidade bike / mobilidade — consulte grupos e valores atualizados.",
+  },
+] as const;
 
 export type NavItem = {
   label: string;
@@ -51,7 +97,7 @@ export const navItems: NavItem[] = [
       eyebrow: "Soluções",
       title: "Encontre pelo seu cenário",
       description:
-        "Consórcio, vida, viagem e saúde com orientação consultiva da E DIAS.",
+        "Consórcio, vida, viagem, saúde e odonto com orientação consultiva da E DIAS.",
       cta: { label: "Ver soluções", href: "/#solucoes" },
       columns: [
         {
@@ -61,6 +107,11 @@ export const navItems: NavItem[] = [
             { label: "Seguro de vida", href: "/vida" },
             { label: "Seguro viagem", href: "/viagem" },
             { label: "Planos de saúde", href: "/saude" },
+            {
+              label: "Odonto",
+              href: odontoHref,
+              external: true,
+            },
           ],
         },
         {
@@ -95,22 +146,32 @@ export const navItems: NavItem[] = [
           title: "Comece aqui",
           links: [
             { label: "Visão geral", href: "/consorcio" },
-            { label: "Tabelas", href: "/consorcio/tabelas" },
             { label: "Dúvidas frequentes", href: "/consorcio/duvidas" },
+            { label: "Checklist consórcio", href: "/checklist/consorcio" },
+          ],
+        },
+        {
+          title: "Tabelas",
+          links: [
+            { label: "Todas as tabelas", href: "/consorcio/tabelas" },
+            { label: "Automóvel PF", href: "/consorcio/tabelas#auto-pf" },
+            { label: "Automóvel PJ", href: "/consorcio/tabelas#auto-pj" },
+            { label: "Imóvel PF", href: "/consorcio/tabelas#imovel-pf" },
+            { label: "Imóvel PJ", href: "/consorcio/tabelas#imovel-pj" },
+            { label: "Pesados PF", href: "/consorcio/tabelas#pesados-pf" },
+            { label: "Pesados PJ", href: "/consorcio/tabelas#pesados-pj" },
+            { label: "Solar", href: "/consorcio/tabelas#solar" },
+            { label: "Bike", href: "/consorcio/tabelas#bike" },
           ],
         },
         {
           title: "Modalidades",
           links: [
-            { label: "Veículos", href: "/consorcio" },
-            { label: "Imóveis", href: "/consorcio" },
-            { label: "Pesados e solar", href: "/consorcio" },
-          ],
-        },
-        {
-          title: "Cotação",
-          links: [
-            { label: "Checklist consórcio", href: "/checklist/consorcio" },
+            { label: "Automóvel", href: "/consorcio" },
+            { label: "Imóvel", href: "/consorcio" },
+            { label: "Pesados", href: "/consorcio" },
+            { label: "Solar", href: "/consorcio" },
+            { label: "Bike", href: "/consorcio" },
             { label: "Falar com especialista", href: "/contato" },
           ],
         },
@@ -139,6 +200,11 @@ export const navItems: NavItem[] = [
         {
           title: "Também oferecemos",
           links: [
+            {
+              label: "Odonto SulAmérica",
+              href: odontoHref,
+              external: true,
+            },
             { label: "Seguro de vida", href: "/vida" },
             { label: "Seguro viagem", href: "/viagem" },
             { label: "Checklist saúde", href: "/checklist/saude" },
@@ -149,6 +215,10 @@ export const navItems: NavItem[] = [
   },
   { label: "Vida", href: "/vida" },
   { label: "Viagem", href: "/viagem" },
+  {
+    label: "Odonto",
+    href: odontoHref,
+  },
   { label: "Checklist", href: "/checklist" },
   { label: "Contato", href: "/contato" },
 ];

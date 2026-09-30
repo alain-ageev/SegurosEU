@@ -1,5 +1,6 @@
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { V2Footer } from "@/components/v2/footer";
+import { V2Header } from "@/components/v2/header";
+import "../v2/v2.css";
 
 export default function MainSiteLayout({
   children,
@@ -7,10 +8,10 @@ export default function MainSiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <SiteHeader />
+    <div className="v2-shell">
+      <V2Header />
       <main id="conteudo">{children}</main>
-      <SiteFooter />
-    </>
+      <V2Footer />
+    </div>
   );
 }
