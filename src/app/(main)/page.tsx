@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, ArrowUpRightIcon, CheckIcon } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
+import { PartnersCarousel } from "@/components/v2/partners-carousel";
 import { V2LeadForm } from "@/components/v2/lead-form";
 import {
   institutionalPartners,
-  partners,
   services,
   siteConfig,
 } from "@/lib/site";
@@ -317,67 +317,60 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Parceiros */}
+      {/* Parceiros — carrossel sem links */}
       <section id="parceiros" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Nossos parceiros</p>
           <h2 className="v2-h2 mt-1">Principais seguradoras e operadoras</h2>
-
-          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-3 md:grid-cols-4">
-            {partners.map((partner) => (
-              <li key={partner.name}>
-                <a
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={partner.name}
-                  aria-label={`${partner.name} — abrir site oficial`}
-                  className="flex h-20 items-center justify-center rounded-[12px] bg-white px-3 transition-opacity hover:opacity-80 sm:h-24"
-                >
-                  <Image
-                    src={partner.logo}
-                    alt={`Logo ${partner.name}`}
-                    width={280}
-                    height={120}
-                    className="h-full w-full object-contain"
-                    loading="lazy"
-                    sizes="(max-width: 640px) 45vw, 25vw"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p className="v2-body mt-2 max-w-[640px]">
+            Rede de seguradoras e operadoras com as quais trabalhamos no dia a dia.
+          </p>
+        </div>
+        <div className="mt-4">
+          <PartnersCarousel />
         </div>
       </section>
 
-      {/* Apoio institucional — fundo azul padrão do site */}
+      {/* Apoio institucional — tom executivo */}
       <section
         id="apoio"
         className="v2-section v2-section-compact bg-[var(--v2-abyss)]"
       >
-        <div className="v2-container text-center">
-          <h2 className="v2-h2 v2-h2-on-blue">Apoio institucional</h2>
-          <ul className="mx-auto mt-4 flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10">
+        <div className="v2-container">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="v2-eyebrow text-white/90">Institucional</p>
+            <h2 className="v2-h2 v2-h2-on-blue mt-1">Apoio institucional</h2>
+            <p className="mt-2 text-[16px] leading-snug text-white/90">
+              Referências de mercado que sustentam nossa atuação consultiva e a
+              credibilidade junto a clientes e parceiros.
+            </p>
+          </div>
+
+          <ul className="mx-auto mt-5 grid max-w-4xl gap-3 sm:grid-cols-3 sm:gap-4">
             {institutionalPartners.map((partner) => (
-              <li key={partner.name} className="h-32 w-52 sm:h-40 sm:w-60">
-                <a
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={partner.name}
-                  aria-label={`${partner.name} — abrir site oficial`}
-                  className="flex h-full w-full items-center justify-center rounded-[12px] bg-white p-3 transition-opacity hover:opacity-90"
-                >
+              <li
+                key={partner.name}
+                className="flex flex-col items-center gap-3 rounded-[14px] border border-white/15 bg-white/10 px-5 py-5"
+              >
+                <div className="flex h-[72px] w-full items-center justify-center rounded-[10px] bg-white px-4 py-3">
                   <Image
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
-                    width={320}
-                    height={220}
-                    className="h-full w-full object-contain"
+                    width={240}
+                    height={100}
+                    className="h-12 w-full object-contain"
                     loading="lazy"
-                    sizes="(max-width: 640px) 60vw, 256px"
+                    sizes="200px"
                   />
-                </a>
+                </div>
+                <div className="text-center">
+                  <p className="text-[14px] font-bold tracking-[0.06em] text-white uppercase">
+                    {partner.name}
+                  </p>
+                  <p className="mt-1 text-[13px] font-medium text-white/75">
+                    {partner.role}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>

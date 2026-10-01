@@ -205,16 +205,12 @@ export const navItems: NavItem[] = [
               href: odontoHref,
               external: true,
             },
-            { label: "Seguro de vida", href: "/vida" },
-            { label: "Seguro viagem", href: "/viagem" },
             { label: "Checklist saúde", href: "/checklist/saude" },
           ],
         },
       ],
     },
   },
-  { label: "Vida", href: "/vida" },
-  { label: "Viagem", href: "/viagem" },
   {
     label: "Odonto",
     href: odontoHref,
@@ -436,16 +432,19 @@ export const partners = [
 export const institutionalPartners = [
   {
     name: "APES",
+    role: "Associação dos Corretores",
     logo: "/images/partners/apes.avif",
     href: "https://www.apes.com.br/",
   },
   {
     name: "Revista NE Super",
+    role: "Imprensa especializada",
     logo: "/images/partners/revista-ne.avif",
     href: "http://www.revistanesuper.com.br",
   },
   {
     name: "Sindvarejista PE",
+    role: "Entidade setorial",
     logo: "/images/partners/sindvarejista.jpg",
     href: "http://www.sindvarejista-pe.com.br",
   },
