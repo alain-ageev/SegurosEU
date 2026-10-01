@@ -3,17 +3,20 @@
 .v2-shell {
   --v2-ember: #b6a571;
   --v2-ember-hover: #c9bc91;
-  --v2-abyss: #052e44;
-  --v2-abyss-soft: #0a4a6a;
-  --v2-carbon: #052e44;
+  /* Cabeçalho / rodapé — Opção 1 Marinho vibrante */
+  --v2-chrome: #0a4f73;
+  /* Corpo — Opção 2 Oceano */
+  --v2-abyss: #0b5c8c;
+  --v2-abyss-soft: #0e6fa3;
+  --v2-carbon: #0b5c8c;
 
-  --v2-ink: #052e44;
+  --v2-ink: #0b5c8c;
   --v2-paper: #ffffff;
   --v2-fog: #ffffff;
   --v2-mist: #9eb6c7;
-  --v2-steel: #3d6a82;
-  --v2-pewter: #2f5a72;
-  --v2-graphite: #1e455a;
+  --v2-steel: #3d7a9a;
+  --v2-pewter: #2f6a88;
+  --v2-graphite: #1e5570;
 
   --v2-radius-tag: 999px;
   --v2-radius: 16px;

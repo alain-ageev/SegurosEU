@@ -32,7 +32,7 @@ function FooterLink({
 
 export function V2Footer() {
   return (
-    <footer className="bg-[var(--v2-abyss)] text-white">
+    <footer className="bg-[var(--v2-chrome)] text-white">
       <div className="v2-container grid gap-10 py-14 lg:grid-cols-4">
         <div>
           <p className="text-[17px] font-bold">E DIAS</p>

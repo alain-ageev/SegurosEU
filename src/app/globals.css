@@ -50,48 +50,49 @@
 }
 
 :root {
-  /* Manual da Marca E DIAS — cores oficiais */
-  --edias-navy: #052e44;
-  --edias-deep: #052e44;
+  /* Paleta E DIAS — Marinho no chrome, Oceano no corpo */
+  --edias-chrome: #0a4f73; /* cabeçalho / rodapé — Opção 1 */
+  --edias-navy: #0b5c8c; /* corpo — Opção 2 Oceano */
+  --edias-deep: #0a4f73;
   --edias-gold: #b6a571;
   --edias-gold-soft: #c9bc91;
   --edias-gold-deep: #8f8156;
   /* Canvas branco — sem azul claro de fundo */
   --edias-canvas: #ffffff;
-  --edias-ink: #052e44;
+  --edias-ink: #0b5c8c;
   --edias-ink-muted: #4a5d6e;
   --edias-line: #e5e5e5;
 
   --background: #ffffff;
-  --foreground: #052e44;
+  --foreground: #0b5c8c;
   --card: #ffffff;
-  --card-foreground: #052e44;
+  --card-foreground: #0b5c8c;
   --popover: #ffffff;
-  --popover-foreground: #052e44;
-  --primary: #052e44;
+  --popover-foreground: #0b5c8c;
+  --primary: #0b5c8c;
   --primary-foreground: #ffffff;
   --secondary: #f4f4f4;
-  --secondary-foreground: #052e44;
+  --secondary-foreground: #0b5c8c;
   --muted: #f4f4f4;
   --muted-foreground: #4a5d6e;
   --accent: #b6a571;
-  --accent-foreground: #052e44;
+  --accent-foreground: #0a4f73;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #e5e5e5;
   --input: #e5e5e5;
   --ring: #b6a571;
-  --chart-1: #052e44;
+  --chart-1: #0b5c8c;
   --chart-2: #b6a571;
-  --chart-3: #052e44;
+  --chart-3: #0a4f73;
   --chart-4: #4a5d6e;
   --chart-5: #8f8156;
   --radius: 0.25rem;
   --sidebar: #ffffff;
-  --sidebar-foreground: #052e44;
-  --sidebar-primary: #052e44;
+  --sidebar-foreground: #0b5c8c;
+  --sidebar-primary: #0b5c8c;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f4f4f4;
-  --sidebar-accent-foreground: #052e44;
+  --sidebar-accent-foreground: #0b5c8c;
   --sidebar-border: #e5e5e5;
   --sidebar-ring: #b6a571;
 }
