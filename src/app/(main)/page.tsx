@@ -302,6 +302,18 @@ export default function ConversionHomePage() {
               </Link>
             ))}
           </div>
+
+          <div className="mt-5 flex justify-center">
+            <a
+              href={siteConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="v2-btn v2-btn-primary"
+            >
+              Quero esse Atendimento
+              <ArrowRightIcon className="size-4" />
+            </a>
+          </div>
         </div>
       </section>
 
