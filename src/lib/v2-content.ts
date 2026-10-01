@@ -7,6 +7,7 @@ export const v2Nav = [
   { label: "Nossa atuação", href: "/#atuacao" },
   { label: "Cases", href: "/#cases" },
   { label: "Sobre", href: "/sobre" },
+  { label: "Contatos", href: "/sobre#contatos" },
 ] as const;
 
 /** Credenciais públicas — trocar por números reais autorizados pelo cliente */

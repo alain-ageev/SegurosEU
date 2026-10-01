@@ -118,7 +118,7 @@ export const navItems: NavItem[] = [
           title: "Ferramentas",
           links: [
             { label: "Checklists", href: "/checklist" },
-            { label: "Contato", href: "/contato" },
+            { label: "Tabelas de consórcio", href: "/consorcio/tabelas" },
           ],
         },
         {
@@ -219,9 +219,36 @@ export const navItems: NavItem[] = [
     label: "Odonto",
     href: odontoHref,
   },
-  { label: "Sobre", href: "/sobre" },
   { label: "Checklist", href: "/checklist" },
-  { label: "Contato", href: "/contato" },
+  {
+    label: "Sobre",
+    href: "/sobre",
+    mega: {
+      eyebrow: "Institucional",
+      title: "Sobre a E DIAS",
+      description:
+        "Conheça a corretora, nossa missão e os canais de atendimento em Recife.",
+      cta: { label: "Ir para Sobre", href: "/sobre" },
+      columns: [
+        {
+          title: "Institucional",
+          links: [
+            { label: "Sobre a E DIAS", href: "/sobre" },
+            { label: "Nossa missão", href: "/sobre#missao" },
+            { label: "Contatos", href: "/sobre#contatos" },
+          ],
+        },
+        {
+          title: "Atendimento",
+          links: [
+            { label: "Formulário de contato", href: "/contato" },
+            { label: "Diagnóstico na home", href: "/#contato" },
+            { label: "WhatsApp", href: siteConfig.whatsappHref, external: true },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 export const services = [

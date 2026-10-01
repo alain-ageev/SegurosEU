@@ -55,11 +55,10 @@ export default function SobrePage() {
         compact
       />
 
-      <section id="sobre" className="v2-section bg-white">
+      <section id="quem-somos" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Quem somos</p>
-          <h2 className="v2-h2 mt-1.5">{v2About.title}</h2>
-          <p className="v2-body mt-3 max-w-[720px]">{v2About.body}</p>
+          <h2 className="v2-h2 mt-1.5">Consultoria com base em Recife</h2>
           <ul className="mt-5 grid gap-2.5 sm:grid-cols-3">
             {v2About.points.map((point) => (
               <li
