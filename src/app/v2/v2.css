@@ -137,7 +137,7 @@
 }
 
 .v2-btn-primary:hover {
-  background: linear-gradient(180deg, #0d5a80 0%, var(--v2-abyss-soft) 100%);
+  background: linear-gradient(180deg, #1480bd 0%, var(--v2-abyss-soft) 100%);
   transform: translateY(-1px);
 }
 

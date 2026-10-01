@@ -1,36 +1,11 @@
 import type { Metadata } from "next";
-import { Abhaya_Libre, Cinzel, Lato, Source_Sans_3 } from "next/font/google";
+import { Lato } from "next/font/google";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-/** Manual da Marca — tipografia principal */
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-/**
- * Corbel (manual) não está no Google Fonts.
- * Source Sans 3 é a alternativa web humanista mais próxima.
- */
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-/** Manual da Marca — fonte de descrição */
-const abhayaLibre = Abhaya_Libre({
-  variable: "--font-abhaya",
-  weight: ["400", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-/** Neutra (estilo Calibri) — UI da home de conversão */
+/** Neutra estilo Calibri — tipografia única do site */
 const lato = Lato({
   variable: "--font-lato",
   subsets: ["latin"],
@@ -72,10 +47,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${cinzel.variable} ${sourceSans.variable} ${abhayaLibre.variable} ${lato.variable}`}
-    >
+    <html lang="pt-BR" className={lato.variable}>
       <body className="min-h-dvh font-sans">
         <a
           href="#conteudo"

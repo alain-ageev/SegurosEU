@@ -153,7 +153,7 @@ export function V2Header() {
   return (
     <header className="sticky top-0 z-50">
       <div ref={barRef}>
-        <div className="bg-[var(--v2-chrome)] px-4 py-2 text-center text-[13px] font-semibold text-white">
+        <div className="bg-[var(--v2-abyss)] px-4 py-2 text-center text-[13px] font-semibold text-white">
           Consultoria B2B em seguros ·{" "}
           <Link
             href="/#contato"
@@ -262,7 +262,7 @@ export function V2Header() {
         >
           <button
             type="button"
-            className="absolute inset-0 bg-[var(--v2-chrome)]/45"
+            className="absolute inset-0 bg-[var(--v2-abyss)]/45"
             aria-label="Fechar menu"
             onClick={() => setOpenMobile(false)}
           />
