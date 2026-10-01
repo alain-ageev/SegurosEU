@@ -63,8 +63,8 @@ function MegaPanel({
           : "pointer-events-none opacity-0"
       )}
     >
-      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-white p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
-        <div className="rounded-[16px] bg-[#f4f4f4] p-5">
+      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-[#e9e9e9] p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
+        <div className="rounded-[16px] bg-[#dedede] p-5">
           <p className="text-xs font-bold tracking-[0.16em] text-[var(--v2-ember)] uppercase">
             {mega.eyebrow}
           </p>
@@ -77,7 +77,7 @@ function MegaPanel({
           <NavAnchor
             href={mega.cta.href}
             onClick={onNavigate}
-            className="v2-btn v2-btn-primary mt-6"
+            className="v2-btn v2-btn-menu mt-6"
           >
             {mega.cta.label}
             <ArrowRightIcon className="size-3.5" />
@@ -100,7 +100,7 @@ function MegaPanel({
                     key={link.href + link.label}
                     href={link.href}
                     onClick={onNavigate}
-                    className="block rounded-[12px] px-3 py-2.5 text-sm font-bold leading-5 text-[var(--v2-ink)] transition hover:bg-[#f4f4f4]"
+                    className="block rounded-[12px] px-3 py-2.5 text-sm font-bold leading-5 text-[var(--v2-ink)] transition hover:bg-white"
                   >
                     {link.label}
                   </NavAnchor>
@@ -163,7 +163,7 @@ export function V2Header() {
           </Link>
         </div>
 
-        <div className="border-b border-[var(--v2-mist)] bg-white/95 backdrop-blur">
+        <div className="border-b border-[var(--v2-mist)] bg-[#e9e9e9]">
           <div className="v2-container flex h-16 items-center justify-between gap-4">
             <BrandLogo variant="dark" href="/" />
 
@@ -191,8 +191,8 @@ export function V2Header() {
                         aria-haspopup="true"
                         className={cn(
                           "inline-flex items-center gap-1.5 rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition",
-                          "hover:bg-[#f4f4f4] focus:bg-[#f4f4f4] focus:outline-none",
-                          isOpen && "bg-[#f4f4f4]"
+                          "hover:bg-white focus:bg-white focus:outline-none",
+                          isOpen && "bg-white"
                         )}
                         onClick={() => setOpenMega(isOpen ? null : item.label)}
                       >
@@ -207,7 +207,7 @@ export function V2Header() {
                     ) : (
                       <NavAnchor
                         href={item.href}
-                        className="inline-flex items-center rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-[#f4f4f4]"
+                        className="inline-flex items-center rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-white"
                         onClick={() => setOpenMega(null)}
                       >
                         {item.label}
@@ -228,13 +228,13 @@ export function V2Header() {
             <div className="flex items-center gap-3">
               <Link
                 href="/#contato"
-                className="v2-btn v2-btn-primary hidden sm:inline-flex"
+                className="v2-btn v2-btn-menu hidden sm:inline-flex"
               >
                 Fale com um especialista
               </Link>
               <button
                 type="button"
-                className="inline-flex size-11 items-center justify-center rounded-[16px] border border-[var(--v2-mist)] text-[var(--v2-ink)] lg:hidden"
+                className="inline-flex size-11 items-center justify-center rounded-[16px] border border-[var(--v2-mist)] bg-white text-[var(--v2-ink)] lg:hidden"
                 aria-expanded={openMobile}
                 aria-controls={menuId}
                 aria-label={openMobile ? "Fechar menu" : "Abrir menu"}
@@ -266,7 +266,7 @@ export function V2Header() {
             aria-label="Fechar menu"
             onClick={() => setOpenMobile(false)}
           />
-          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-white">
+          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-[#e9e9e9]">
             <nav
               className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 pb-28"
               aria-label="Mobile"
@@ -278,7 +278,7 @@ export function V2Header() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[16px] border border-[var(--v2-mist)] bg-white p-3"
+                    className="rounded-[16px] border border-[var(--v2-mist)] bg-[#dedede] p-3"
                   >
                     {mega ? (
                       <>
@@ -301,7 +301,7 @@ export function V2Header() {
 
                         {isTabOpen ? (
                           <div className="mt-2 space-y-3 border-t border-[var(--v2-mist)] pt-3">
-                            <div className="rounded-[12px] bg-[#f4f4f4] p-4">
+                            <div className="rounded-[12px] bg-white p-4">
                               <p className="text-xs font-bold tracking-[0.14em] text-[var(--v2-ember)] uppercase">
                                 {mega.eyebrow}
                               </p>
@@ -314,7 +314,7 @@ export function V2Header() {
                               <NavAnchor
                                 href={mega.cta.href}
                                 onClick={() => setOpenMobile(false)}
-                                className="v2-btn v2-btn-primary mt-4"
+                                className="v2-btn v2-btn-menu mt-4"
                               >
                                 {mega.cta.label}
                                 <ArrowRightIcon className="size-3.5" />
@@ -326,7 +326,7 @@ export function V2Header() {
                                   key={item.label + link.href + link.label}
                                   href={link.href}
                                   onClick={() => setOpenMobile(false)}
-                                  className="block rounded-[12px] px-3 py-2 text-sm font-medium text-[var(--v2-graphite)] hover:bg-[#f4f4f4]"
+                                  className="block rounded-[12px] bg-white/70 px-3 py-2 text-sm font-medium text-[var(--v2-graphite)] hover:bg-white"
                                 >
                                   {link.label}
                                 </NavAnchor>
@@ -352,11 +352,11 @@ export function V2Header() {
               <Link
                 href="/#contato"
                 onClick={() => setOpenMobile(false)}
-                className="v2-btn v2-btn-primary mt-2"
+                className="v2-btn v2-btn-menu mt-2"
               >
                 Fale com um especialista
               </Link>
-              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-outline">
+              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-menu">
                 {siteConfig.phone}
               </a>
             </nav>
