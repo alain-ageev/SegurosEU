@@ -95,6 +95,11 @@
   font-size: clamp(28px, 3.8vw, 36px);
   font-weight: 700;
   line-height: 1.2;
+  color: var(--v2-ink);
+}
+
+/* Títulos sobre faixas azuis */
+.v2-h2-on-blue {
   color: var(--v2-title);
 }
 
