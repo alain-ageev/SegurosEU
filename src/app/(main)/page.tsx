@@ -83,16 +83,16 @@ export default function ConversionHomePage() {
 
       {/* Números de confiança — sem título INDICADORES */}
       <section
-        className="border-b border-[var(--v2-mist)]/30 bg-white py-10"
+        className="border-b border-[var(--v2-mist)]/40 bg-white py-6"
         aria-label="Indicadores de confiança"
       >
-        <div className="v2-container grid gap-6 sm:grid-cols-3">
+        <div className="v2-container grid gap-4 sm:grid-cols-3">
           {v2TrustIndicators.map((item) => (
             <div key={item.label} className="px-2 text-center sm:px-4">
-              <p className="text-[36px] font-bold text-[var(--v2-abyss)]">
+              <p className="text-[40px] font-bold text-[var(--v2-ink)] sm:text-[44px]">
                 {item.value}
               </p>
-              <p className="mt-1 text-[14px] text-[var(--v2-pewter)]">
+              <p className="mt-1 text-[16px] font-semibold text-[var(--v2-ink)]">
                 {item.label}
               </p>
             </div>
@@ -110,25 +110,25 @@ export default function ConversionHomePage() {
             parceiros confiáveis e acompanhamento próximo.
           </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
             {v2Scenarios.map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
-                className="rounded-[16px] bg-[#f4f4f4] px-4 py-4 transition hover:bg-[#ebebeb]"
+                className="rounded-[16px] bg-[#f4f4f4] px-4 py-3.5 transition hover:bg-[#ebebeb]"
               >
-                <h3 className="v2-h3 text-[16px]">{item.title}</h3>
-                <p className="v2-caption mt-2">{item.audience}</p>
+                <h3 className="v2-h3 text-[18px]">{item.title}</h3>
+                <p className="v2-caption mt-1.5">{item.audience}</p>
               </Link>
             ))}
           </div>
 
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {services.map((service, index) => (
               <li key={service.slug}>
                 <Link
                   href={service.href}
-                  className="group relative flex min-h-[280px] flex-col justify-end overflow-hidden rounded-[20px] bg-[var(--v2-abyss)] text-white"
+                  className="group relative flex min-h-[240px] flex-col justify-end overflow-hidden rounded-[16px] bg-[var(--v2-abyss)] text-white"
                 >
                   <Image
                     src={service.image}
@@ -140,17 +140,17 @@ export default function ConversionHomePage() {
                   />
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-[var(--v2-abyss)] via-[var(--v2-abyss)]/70 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-[var(--v2-abyss)] via-[var(--v2-abyss)]/80 to-transparent"
                   />
-                  <div className="relative z-10 flex flex-col gap-3 p-6 sm:p-8">
-                    <span className="text-xs font-bold tracking-[0.2em] text-[var(--v2-ember)]">
+                  <div className="relative z-10 flex flex-col gap-2 p-5 sm:p-6">
+                    <span className="text-sm font-bold tracking-[0.16em] text-[var(--v2-ember)]">
                       0{index + 1}
                     </span>
-                    <h3 className="text-2xl font-bold">{service.title}</h3>
-                    <p className="text-sm leading-relaxed text-white/80">
+                    <h3 className="text-[26px] font-bold leading-tight">{service.title}</h3>
+                    <p className="text-[16px] leading-relaxed text-white">
                       {service.summary}
                     </p>
-                    <div className="mt-1 flex items-center justify-between text-sm font-semibold text-[var(--v2-ember)]">
+                    <div className="mt-1 flex items-center justify-between text-[15px] font-bold text-[var(--v2-ember)]">
                       <span>{service.accent}</span>
                       <ArrowUpRightIcon className="size-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </div>
@@ -168,16 +168,16 @@ export default function ConversionHomePage() {
         className="v2-section v2-section-compact bg-[var(--v2-abyss)] text-white"
       >
         <div className="v2-container">
-          <p className="v2-eyebrow text-white/70">Como trabalhamos</p>
-          <h2 className="v2-h2 mt-1.5 text-white">Nossa atuação</h2>
-          <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <p className="v2-eyebrow text-white">Como trabalhamos</p>
+          <h2 className="v2-h2 mt-1 text-white">Nossa atuação</h2>
+          <ol className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
-              <li key={item.step} className="rounded-[16px] bg-white/10 p-4 sm:p-5">
-                <p className="text-[13px] font-bold text-[var(--v2-ember)]">
+              <li key={item.step} className="rounded-[14px] bg-white/15 p-3.5 sm:p-4">
+                <p className="text-[14px] font-bold text-[var(--v2-ember)]">
                   {item.step}
                 </p>
-                <h3 className="mt-1.5 text-[18px] font-bold">{item.title}</h3>
-                <p className="mt-1.5 text-[14px] leading-relaxed text-white/75">
+                <h3 className="mt-1 text-[20px] font-bold text-white">{item.title}</h3>
+                <p className="mt-1 text-[16px] leading-snug text-white">
                   {item.body}
                 </p>
               </li>
@@ -190,26 +190,26 @@ export default function ConversionHomePage() {
       <section id="sobre" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Por que a E DIAS</p>
-          <h2 className="v2-h2 mt-2">{v2Comparison.title}</h2>
-          <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            <div className="rounded-[20px] bg-[#f4f4f4] p-6 sm:p-8">
-              <h3 className="v2-h3 text-[var(--v2-graphite)]">Abordagem tradicional</h3>
-              <ul className="mt-4 space-y-3">
+          <h2 className="v2-h2 mt-1.5">{v2Comparison.title}</h2>
+          <div className="mt-4 grid gap-3 lg:grid-cols-2">
+            <div className="rounded-[16px] bg-[#f4f4f4] p-5">
+              <h3 className="v2-h3 text-[var(--v2-ink)]">Abordagem tradicional</h3>
+              <ul className="mt-3 space-y-2.5">
                 {v2Comparison.traditional.map((line) => (
-                  <li key={line} className="v2-body-sm flex gap-2">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--v2-mist)]" />
+                  <li key={line} className="v2-body-sm flex gap-2 text-[var(--v2-ink)]">
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[var(--v2-abyss)]" />
                     {line}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-[20px] bg-[var(--v2-abyss)] p-6 text-white sm:p-8">
-              <h3 className="text-[18px] font-bold text-[var(--v2-ember)]">
+            <div className="rounded-[16px] bg-[var(--v2-abyss)] p-5 text-white">
+              <h3 className="text-[20px] font-bold text-[var(--v2-ember)]">
                 Abordagem consultiva E DIAS
               </h3>
-              <ul className="mt-4 space-y-3">
+              <ul className="mt-3 space-y-2.5">
                 {v2Comparison.consultive.map((line) => (
-                  <li key={line} className="flex gap-2 text-[14px] leading-relaxed text-white/85">
+                  <li key={line} className="flex gap-2 text-[16px] leading-snug text-white">
                     <CheckIcon className="mt-0.5 size-4 shrink-0 text-[var(--v2-ember)]" />
                     {line}
                   </li>
@@ -218,21 +218,21 @@ export default function ConversionHomePage() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
             {v2Credentials.map((item) => (
               <article
                 key={item.title}
-                className="rounded-[20px] bg-[#f4f4f4] p-6"
+                className="rounded-[16px] bg-[#f4f4f4] p-5"
               >
                 <h3 className="v2-h3">{item.title}</h3>
-                <p className="v2-body-sm mt-2">{item.body}</p>
+                <p className="v2-body-sm mt-1.5 text-[var(--v2-ink)]">{item.body}</p>
               </article>
             ))}
           </div>
 
-          <div className="mt-10 max-w-[640px]">
-            <h3 className="v2-h2 text-[24px]">{v2About.title}</h3>
-            <p className="v2-body mt-3">{v2About.body}</p>
+          <div className="mt-5 max-w-[640px]">
+            <h3 className="v2-h2 text-[28px]">{v2About.title}</h3>
+            <p className="v2-body mt-2">{v2About.body}</p>
           </div>
         </div>
       </section>
@@ -243,38 +243,38 @@ export default function ConversionHomePage() {
         className="v2-section v2-section-compact bg-[var(--v2-abyss)] text-white"
       >
         <div className="v2-container">
-          <p className="v2-eyebrow text-white/70">Cases</p>
-          <h2 className="v2-h2 mt-1.5 text-white">
+          <p className="v2-eyebrow text-white">Cases</p>
+          <h2 className="v2-h2 mt-1 text-white">
             Resultados relevantes para o público corporativo
           </h2>
-          <p className="mt-2 max-w-[640px] text-[16px] text-white/75">
+          <p className="mt-1.5 max-w-[640px] text-[17px] font-medium text-white">
             Exemplos ilustrativos. Substituímos por cases nominados assim que houver
             autorização do cliente.
           </p>
-          <div className="mt-5 grid gap-4 lg:grid-cols-3">
+          <div className="mt-3 grid gap-2.5 lg:grid-cols-3">
             {v2Cases.map((item) => (
               <article
                 key={item.context}
-                className="flex flex-col rounded-[16px] bg-white p-5 text-[var(--v2-ink)] sm:p-6"
+                className="flex flex-col rounded-[14px] bg-white p-4 text-[var(--v2-ink)] sm:p-5"
               >
                 <p className="v2-tag w-fit">{item.context}</p>
-                <dl className="mt-4 space-y-3">
+                <dl className="mt-3 space-y-2">
                   <div>
-                    <dt className="text-[13px] font-bold">Problema</dt>
-                    <dd className="v2-body-sm">{item.problem}</dd>
+                    <dt className="text-[15px] font-bold text-[var(--v2-ink)]">Problema</dt>
+                    <dd className="v2-body-sm text-[var(--v2-ink)]">{item.problem}</dd>
                   </div>
                   <div>
-                    <dt className="text-[13px] font-bold">Solução</dt>
-                    <dd className="v2-body-sm">{item.solution}</dd>
+                    <dt className="text-[15px] font-bold text-[var(--v2-ink)]">Solução</dt>
+                    <dd className="v2-body-sm text-[var(--v2-ink)]">{item.solution}</dd>
                   </div>
                   <div>
-                    <dt className="text-[13px] font-bold">Resultado</dt>
-                    <dd className="v2-body-sm">{item.result}</dd>
+                    <dt className="text-[15px] font-bold text-[var(--v2-ink)]">Resultado</dt>
+                    <dd className="v2-body-sm text-[var(--v2-ink)]">{item.result}</dd>
                   </div>
                 </dl>
-                <blockquote className="mt-auto pt-5 text-[15px] font-semibold">
+                <blockquote className="mt-auto pt-3 text-[16px] font-bold text-[var(--v2-ink)]">
                   “{item.quote}”
-                  <footer className="v2-caption mt-2">
+                  <footer className="v2-caption mt-1.5 text-[var(--v2-abyss)]">
                     {item.person} · {item.role}
                   </footer>
                 </blockquote>
@@ -282,17 +282,17 @@ export default function ConversionHomePage() {
             ))}
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
             {v2Authority.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-start justify-between gap-3 rounded-[20px] bg-white/10 p-6 text-white transition hover:bg-white/15"
+                className="flex items-start justify-between gap-3 rounded-[14px] bg-white/15 p-3.5 text-white transition hover:bg-white/20 sm:p-4"
               >
                 <div>
-                  <p className="v2-tag w-fit bg-white/15 text-white/80">{item.type}</p>
-                  <h3 className="mt-2 text-[16px] font-bold">{item.title}</h3>
-                  <p className="mt-1 text-[14px] text-white/75">{item.body}</p>
+                  <p className="v2-tag w-fit bg-white/20 text-white">{item.type}</p>
+                  <h3 className="mt-1.5 text-[18px] font-bold text-white">{item.title}</h3>
+                  <p className="mt-1 text-[16px] text-white">{item.body}</p>
                 </div>
                 <ArrowRightIcon className="mt-1 size-4 shrink-0 text-[var(--v2-ember)]" />
               </Link>
