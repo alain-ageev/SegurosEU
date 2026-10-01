@@ -189,11 +189,7 @@ export function V2Header() {
                         type="button"
                         aria-expanded={isOpen}
                         aria-haspopup="true"
-                        className={cn(
-                          "inline-flex items-center gap-1.5 rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition",
-                          "hover:bg-white focus:bg-white focus:outline-none",
-                          isOpen && "bg-white"
-                        )}
+                        className={cn("v2-nav-btn", isOpen && "is-active")}
                         onClick={() => setOpenMega(isOpen ? null : item.label)}
                       >
                         <span>{item.label}</span>
@@ -207,7 +203,7 @@ export function V2Header() {
                     ) : (
                       <NavAnchor
                         href={item.href}
-                        className="inline-flex items-center rounded-[16px] px-3 py-2 text-[14px] font-semibold text-[var(--v2-ink)] transition hover:bg-white"
+                        className="v2-nav-btn"
                         onClick={() => setOpenMega(null)}
                       >
                         {item.label}
@@ -234,7 +230,12 @@ export function V2Header() {
               </Link>
               <button
                 type="button"
-                className="inline-flex size-11 items-center justify-center rounded-[16px] border border-[var(--v2-mist)] bg-white text-[var(--v2-ink)] lg:hidden"
+                className={cn(
+                  "inline-flex size-11 items-center justify-center rounded-[16px] border lg:hidden",
+                  openMobile
+                    ? "border-[var(--v2-abyss)] bg-[var(--v2-abyss)] text-white"
+                    : "border-[var(--v2-mist)] bg-white text-[var(--v2-ink)]"
+                )}
                 aria-expanded={openMobile}
                 aria-controls={menuId}
                 aria-label={openMobile ? "Fechar menu" : "Abrir menu"}

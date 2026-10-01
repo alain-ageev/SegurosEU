@@ -188,18 +188,48 @@
   background: color-mix(in srgb, var(--v2-abyss) 6%, white);
 }
 
-/* Botões do menu — fundo branco */
+/* Botões do menu — branco; selecionado/hover → azul padrão */
 .v2-btn-menu {
   background: #ffffff;
   color: var(--v2-ink);
-  border: 1px solid color-mix(in srgb, var(--v2-ink) 25%, #ffffff);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid color-mix(in srgb, var(--v2-ink) 20%, #ffffff);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.v2-btn-menu:hover {
-  background: #ffffff;
-  border-color: var(--v2-ink);
+.v2-btn-menu:hover,
+.v2-btn-menu:focus-visible,
+.v2-btn-menu[aria-expanded="true"],
+.v2-btn-menu.is-active {
+  background: var(--v2-abyss);
+  color: #ffffff;
+  border-color: var(--v2-abyss);
   transform: translateY(-1px);
+}
+
+.v2-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 16px;
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ffffff;
+  color: var(--v2-ink);
+  border: 1px solid transparent;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.v2-nav-btn:hover,
+.v2-nav-btn:focus-visible,
+.v2-nav-btn[aria-expanded="true"],
+.v2-nav-btn.is-active {
+  background: var(--v2-abyss);
+  color: #ffffff;
+  outline: none;
 }
 
 .v2-card {
