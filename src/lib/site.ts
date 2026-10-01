@@ -118,14 +118,14 @@ export const navItems: NavItem[] = [
           title: "Ferramentas",
           links: [
             { label: "Checklists", href: "/checklist" },
-            { label: "Tabelas de consórcio", href: "/consorcio/tabelas" },
+            { label: "Dúvidas de consórcio", href: "/consorcio/duvidas" },
           ],
         },
         {
           title: "Destaques",
           links: [
             { label: "Tabelas de consórcio", href: "/consorcio/tabelas" },
-            { label: "Dúvidas de consórcio", href: "/consorcio/duvidas" },
+            { label: "Sobre a E DIAS", href: "/sobre" },
             { label: "Parceiros", href: "/#parceiros" },
           ],
         },

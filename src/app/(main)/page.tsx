@@ -168,7 +168,7 @@ export default function ConversionHomePage() {
       >
         <div className="v2-container">
           <p className="v2-eyebrow text-white">Como trabalhamos</p>
-          <h2 className="v2-h2 mt-1">Nossa atuação</h2>
+          <h2 className="v2-h2 v2-h2-on-blue mt-1">Nossa atuação</h2>
           <ol className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
               <li key={item.step} className="rounded-[14px] bg-white/15 p-3.5 sm:p-4">
@@ -248,7 +248,7 @@ export default function ConversionHomePage() {
       >
         <div className="v2-container">
           <p className="v2-eyebrow text-white">Cases</p>
-          <h2 className="v2-h2 mt-1">
+          <h2 className="v2-h2 v2-h2-on-blue mt-1">
             Resultados relevantes para o público corporativo
           </h2>
           <p className="mt-1.5 max-w-[640px] text-[17px] font-medium text-white">
@@ -344,7 +344,7 @@ export default function ConversionHomePage() {
         className="v2-section v2-section-compact bg-[var(--v2-abyss)]"
       >
         <div className="v2-container text-center">
-          <h2 className="v2-h2">Apoio institucional</h2>
+          <h2 className="v2-h2 v2-h2-on-blue">Apoio institucional</h2>
           <ul className="mx-auto mt-4 flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10">
             {institutionalPartners.map((partner) => (
               <li key={partner.name} className="h-32 w-52 sm:h-40 sm:w-60">

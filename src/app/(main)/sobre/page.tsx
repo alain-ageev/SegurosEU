@@ -78,7 +78,7 @@ export default function SobrePage() {
       >
         <div className="v2-container">
           <p className="v2-eyebrow text-white">Propósito</p>
-          <h2 className="v2-h2 mt-1">{v2About.missionTitle}</h2>
+          <h2 className="v2-h2 v2-h2-on-blue mt-1">{v2About.missionTitle}</h2>
           <p className="mt-3 max-w-[760px] text-[18px] font-semibold leading-snug text-[var(--v2-ember)]">
             {v2About.missionLead}
           </p>
