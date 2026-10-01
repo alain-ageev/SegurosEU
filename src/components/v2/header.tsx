@@ -352,13 +352,15 @@ export function V2Header() {
                 );
               })}
 
-              <Link
-                href="/#contato"
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpenMobile(false)}
-                className="v2-btn v2-btn-menu mt-2"
+                className="v2-btn v2-btn-primary mt-2"
               >
                 Fale com um especialista
-              </Link>
+              </a>
               <a href={siteConfig.phoneHref} className="v2-btn v2-btn-menu">
                 {siteConfig.phone}
               </a>
