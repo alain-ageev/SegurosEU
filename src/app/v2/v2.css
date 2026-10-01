@@ -53,12 +53,23 @@
 }
 
 .v2-section {
-  padding-block: 56px;
+  padding-block: 40px;
 }
 
 @media (min-width: 768px) {
   .v2-section {
-    padding-block: 72px;
+    padding-block: 56px;
+  }
+}
+
+/* Faixas densas da home (Como trabalhamos / Cases) */
+.v2-section-compact {
+  padding-block: 28px;
+}
+
+@media (min-width: 768px) {
+  .v2-section-compact {
+    padding-block: 36px;
   }
 }
 

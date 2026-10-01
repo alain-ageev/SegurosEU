@@ -163,18 +163,21 @@ export default function ConversionHomePage() {
       </section>
 
       {/* Nossa atuação */}
-      <section id="atuacao" className="v2-section bg-[var(--v2-abyss)] text-white">
+      <section
+        id="atuacao"
+        className="v2-section v2-section-compact bg-[var(--v2-abyss)] text-white"
+      >
         <div className="v2-container">
           <p className="v2-eyebrow text-white/70">Como trabalhamos</p>
-          <h2 className="v2-h2 mt-2 text-white">Nossa atuação</h2>
-          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <h2 className="v2-h2 mt-1.5 text-white">Nossa atuação</h2>
+          <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
-              <li key={item.step} className="rounded-[20px] bg-white/10 p-6">
+              <li key={item.step} className="rounded-[16px] bg-white/10 p-4 sm:p-5">
                 <p className="text-[13px] font-bold text-[var(--v2-ember)]">
                   {item.step}
                 </p>
-                <h3 className="mt-2 text-[18px] font-bold">{item.title}</h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-white/75">
+                <h3 className="mt-1.5 text-[18px] font-bold">{item.title}</h3>
+                <p className="mt-1.5 text-[14px] leading-relaxed text-white/75">
                   {item.body}
                 </p>
               </li>
@@ -235,21 +238,24 @@ export default function ConversionHomePage() {
       </section>
 
       {/* Cases */}
-      <section id="cases" className="v2-section bg-[var(--v2-abyss)] text-white">
+      <section
+        id="cases"
+        className="v2-section v2-section-compact bg-[var(--v2-abyss)] text-white"
+      >
         <div className="v2-container">
           <p className="v2-eyebrow text-white/70">Cases</p>
-          <h2 className="v2-h2 mt-2 text-white">
+          <h2 className="v2-h2 mt-1.5 text-white">
             Resultados relevantes para o público corporativo
           </h2>
-          <p className="mt-3 max-w-[640px] text-[16px] text-white/75">
+          <p className="mt-2 max-w-[640px] text-[16px] text-white/75">
             Exemplos ilustrativos. Substituímos por cases nominados assim que houver
             autorização do cliente.
           </p>
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          <div className="mt-5 grid gap-4 lg:grid-cols-3">
             {v2Cases.map((item) => (
               <article
                 key={item.context}
-                className="flex flex-col rounded-[20px] bg-white p-6 text-[var(--v2-ink)] sm:p-8"
+                className="flex flex-col rounded-[16px] bg-white p-5 text-[var(--v2-ink)] sm:p-6"
               >
                 <p className="v2-tag w-fit">{item.context}</p>
                 <dl className="mt-4 space-y-3">
