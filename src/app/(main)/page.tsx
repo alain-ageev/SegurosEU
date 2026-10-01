@@ -255,6 +255,17 @@ export default function ConversionHomePage() {
             Exemplos ilustrativos. Substituímos por cases nominados assim que houver
             autorização do cliente.
           </p>
+          <div className="mt-3">
+            <a
+              href={siteConfig.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="v2-btn v2-btn-primary"
+            >
+              Quero esse Atendimento
+              <ArrowRightIcon className="size-4" />
+            </a>
+          </div>
           <div className="mt-3 grid gap-2.5 lg:grid-cols-3">
             {v2Cases.map((item) => (
               <article
@@ -301,18 +312,6 @@ export default function ConversionHomePage() {
                 <ArrowRightIcon className="mt-1 size-4 shrink-0 text-[var(--v2-ember)]" />
               </Link>
             ))}
-          </div>
-
-          <div className="mt-5 flex justify-center">
-            <a
-              href={siteConfig.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="v2-btn v2-btn-primary"
-            >
-              Quero esse Atendimento
-              <ArrowRightIcon className="size-4" />
-            </a>
           </div>
         </div>
       </section>
