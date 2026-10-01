@@ -349,7 +349,7 @@ export default function ConversionHomePage() {
                   rel="noopener noreferrer"
                   title={partner.name}
                   aria-label={`${partner.name} — abrir site oficial`}
-                  className="flex h-24 items-center justify-center rounded-[16px] bg-[#f4f4f4] px-3 transition-opacity hover:opacity-80 sm:h-28"
+                  className="flex h-24 items-center justify-center rounded-[16px] bg-white px-3 transition-opacity hover:opacity-80 sm:h-28"
                 >
                   <Image
                     src={partner.logo}
@@ -378,7 +378,7 @@ export default function ConversionHomePage() {
                     rel="noopener noreferrer"
                     title={partner.name}
                     aria-label={`${partner.name} — abrir site oficial`}
-                    className="flex h-full w-full items-center justify-center rounded-[16px] bg-[#f4f4f4] p-4 transition-opacity hover:opacity-80"
+                    className="flex h-full w-full items-center justify-center rounded-[16px] bg-white p-4 transition-opacity hover:opacity-80"
                   >
                     <Image
                       src={partner.logo}
