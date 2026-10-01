@@ -82,16 +82,16 @@ export default function ConversionHomePage() {
 
       {/* Números de confiança — sem título INDICADORES */}
       <section
-        className="border-b border-[var(--v2-mist)]/40 bg-white py-4"
+        className="v2-section v2-section-compact bg-[var(--v2-abyss)]"
         aria-label="Indicadores de confiança"
       >
         <div className="v2-container grid gap-3 sm:grid-cols-3">
           {v2TrustIndicators.map((item) => (
             <div key={item.label} className="px-2 text-center sm:px-4">
-              <p className="text-[40px] font-bold text-[var(--v2-ink)] sm:text-[44px]">
+              <p className="text-[40px] font-bold text-[var(--v2-title)] sm:text-[44px]">
                 {item.value}
               </p>
-              <p className="mt-1 text-[16px] font-semibold text-[var(--v2-ink)]">
+              <p className="mt-1 text-[16px] font-semibold text-[var(--v2-title)]">
                 {item.label}
               </p>
             </div>
