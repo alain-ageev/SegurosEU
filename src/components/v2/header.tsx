@@ -168,7 +168,7 @@ export function V2Header() {
             <BrandLogo variant="dark" href="/" />
 
             <nav
-              className="hidden items-center gap-1 lg:flex"
+              className="v2-nav-shell hidden lg:flex"
               aria-label="Principal com abas"
               onMouseLeave={scheduleClose}
             >
@@ -222,12 +222,14 @@ export function V2Header() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <Link
-                href="/#contato"
-                className="v2-btn v2-btn-menu hidden sm:inline-flex"
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-primary hidden sm:inline-flex"
               >
                 Fale com um especialista
-              </Link>
+              </a>
               <button
                 type="button"
                 className={cn(
