@@ -6,7 +6,7 @@ export const v2Nav = [
   { label: "Soluções", href: "/#solucoes" },
   { label: "Nossa atuação", href: "/#atuacao" },
   { label: "Cases", href: "/#cases" },
-  { label: "Sobre", href: "/#sobre" },
+  { label: "Sobre", href: "/sobre" },
 ] as const;
 
 /** Credenciais públicas — trocar por números reais autorizados pelo cliente */
@@ -254,6 +254,15 @@ export const v2About = {
     "Atuação consultiva B2B e personalizada",
     "Parceiros nacionais de seguros e saúde",
     "Base em Boa Viagem, Recife/PE",
+  ],
+  missionTitle: "Nossa missão",
+  missionLead:
+    "Dissolver os entraves de seguro que atrapalham a saúde financeira da empresa — com cálculo assertivo, cobertura adequada e menos risco de rateio no sinistro.",
+  missionBody: [
+    "É impossível para os sócios conhecerem todas as questões que envolvem a empresa. Sabemos que não é falta de vontade: mergulhar só no operacional é deixar ao acaso os rumos do negócio.",
+    "A rotina frenética das empresas, por vezes, arrasta gestores a jornadas exaustivas. Por isso é comum encontrar erros de declaração e cálculos incorretos nas avaliações de seguros.",
+    "A consequência é falta de cobertura adicional, perda proporcional e rateios em que a empresa participa do dano junto à seguradora — situações que poderiam ser evitadas.",
+    "A experiência mostra que grande parte das demandas nasce de inconformidade corporativa. Por isso dedicamos nosso trabalho a reduzir esses riscos com consultoria objetiva.",
   ],
 } as const;
 

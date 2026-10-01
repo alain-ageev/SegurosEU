@@ -219,6 +219,7 @@ export const navItems: NavItem[] = [
     label: "Odonto",
     href: odontoHref,
   },
+  { label: "Sobre", href: "/sobre" },
   { label: "Checklist", href: "/checklist" },
   { label: "Contato", href: "/contato" },
 ];

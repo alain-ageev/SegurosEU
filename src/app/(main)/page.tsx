@@ -10,7 +10,6 @@ import {
   siteConfig,
 } from "@/lib/site";
 import {
-  v2About,
   v2Authority,
   v2Cases,
   v2Comparison,
@@ -186,8 +185,8 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Sobre */}
-      <section id="sobre" className="v2-section bg-white">
+      {/* Diferenciais */}
+      <section id="diferenciais" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Por que a E DIAS</p>
           <h2 className="v2-h2 mt-1.5">{v2Comparison.title}</h2>
@@ -230,10 +229,15 @@ export default function ConversionHomePage() {
             ))}
           </div>
 
-          <div className="mt-5 max-w-[640px]">
-            <h3 className="v2-h2 text-[28px]">{v2About.title}</h3>
-            <p className="v2-body mt-2">{v2About.body}</p>
-          </div>
+          <p className="mt-5">
+            <Link
+              href="/sobre"
+              className="inline-flex items-center gap-2 text-[16px] font-bold text-[var(--v2-abyss)] underline-offset-4 hover:underline"
+            >
+              Conheça a E DIAS — missão e contatos
+              <ArrowRightIcon className="size-4" />
+            </Link>
+          </p>
         </div>
       </section>
 

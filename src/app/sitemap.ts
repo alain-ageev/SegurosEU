@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/saude",
     "/checklist",
     "/contato",
+    "/sobre",
   ];
 
   const saudeRoutes = saudeOperators.map((op) => `/saude/${op.slug}`);
