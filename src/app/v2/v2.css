@@ -3,6 +3,8 @@
 .v2-shell {
   --v2-ember: #c4b47a;
   --v2-ember-hover: #d4c89a;
+  /* Títulos de seção */
+  --v2-title: #0cc0df;
   /* Rodapé — Opção 1 Marinho vibrante */
   --v2-chrome: #0a4f73;
   /* Cabeçalho + faixas — Opção 2 Oceano */
@@ -54,23 +56,23 @@
 }
 
 .v2-section {
-  padding-block: 28px;
+  padding-block: 16px;
 }
 
 @media (min-width: 768px) {
   .v2-section {
-    padding-block: 40px;
+    padding-block: 22px;
   }
 }
 
 /* Faixas densas da home (Como trabalhamos / Cases) */
 .v2-section-compact {
-  padding-block: 18px;
+  padding-block: 12px;
 }
 
 @media (min-width: 768px) {
   .v2-section-compact {
-    padding-block: 24px;
+    padding-block: 16px;
   }
 }
 
@@ -90,10 +92,10 @@
 
 .v2-h2 {
   font-family: var(--v2-font);
-  font-size: clamp(30px, 4vw, 38px);
+  font-size: clamp(28px, 3.8vw, 36px);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--v2-ink);
+  color: var(--v2-title);
 }
 
 .v2-h3 {

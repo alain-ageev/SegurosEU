@@ -41,16 +41,16 @@ export default function ConversionHomePage() {
       <JsonLd data={ld} />
 
       <section className="border-b border-[var(--v2-mist)]/40 bg-white">
-        <div className="v2-container grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+        <div className="v2-container grid items-center gap-6 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-12">
           <div>
             <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
-            <h1 className="v2-display mt-3 text-[clamp(32px,5vw,48px)]">
+            <h1 className="v2-display mt-2 text-[clamp(30px,4.5vw,44px)]">
               {v2Hero.title}
             </h1>
-            <p className="v2-body mt-4 max-w-xl text-[18px]">
+            <p className="v2-body mt-3 max-w-xl text-[18px]">
               {v2Hero.subtitle}
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
+            <div className="mt-5 flex flex-wrap items-center gap-3">
               <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-primary">
                 {v2Hero.primaryCta.label}
                 <ArrowRightIcon className="size-4" />
@@ -82,10 +82,10 @@ export default function ConversionHomePage() {
 
       {/* Números de confiança — sem título INDICADORES */}
       <section
-        className="border-b border-[var(--v2-mist)]/40 bg-white py-6"
+        className="border-b border-[var(--v2-mist)]/40 bg-white py-4"
         aria-label="Indicadores de confiança"
       >
-        <div className="v2-container grid gap-4 sm:grid-cols-3">
+        <div className="v2-container grid gap-3 sm:grid-cols-3">
           {v2TrustIndicators.map((item) => (
             <div key={item.label} className="px-2 text-center sm:px-4">
               <p className="text-[40px] font-bold text-[var(--v2-ink)] sm:text-[44px]">
@@ -168,7 +168,7 @@ export default function ConversionHomePage() {
       >
         <div className="v2-container">
           <p className="v2-eyebrow text-white">Como trabalhamos</p>
-          <h2 className="v2-h2 mt-1 text-white">Nossa atuação</h2>
+          <h2 className="v2-h2 mt-1">Nossa atuação</h2>
           <ol className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
               <li key={item.step} className="rounded-[14px] bg-white/15 p-3.5 sm:p-4">
@@ -248,7 +248,7 @@ export default function ConversionHomePage() {
       >
         <div className="v2-container">
           <p className="v2-eyebrow text-white">Cases</p>
-          <h2 className="v2-h2 mt-1 text-white">
+          <h2 className="v2-h2 mt-1">
             Resultados relevantes para o público corporativo
           </h2>
           <p className="mt-1.5 max-w-[640px] text-[17px] font-medium text-white">
@@ -309,9 +309,9 @@ export default function ConversionHomePage() {
       <section id="parceiros" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Nossos parceiros</p>
-          <h2 className="v2-h2 mt-2">Principais seguradoras e operadoras</h2>
+          <h2 className="v2-h2 mt-1">Principais seguradoras e operadoras</h2>
 
-          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 md:grid-cols-4">
+          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-3 md:grid-cols-4">
             {partners.map((partner) => (
               <li key={partner.name}>
                 <a
@@ -320,7 +320,7 @@ export default function ConversionHomePage() {
                   rel="noopener noreferrer"
                   title={partner.name}
                   aria-label={`${partner.name} — abrir site oficial`}
-                  className="flex h-24 items-center justify-center rounded-[16px] bg-white px-3 transition-opacity hover:opacity-80 sm:h-28"
+                  className="flex h-20 items-center justify-center rounded-[12px] bg-white px-3 transition-opacity hover:opacity-80 sm:h-24"
                 >
                   <Image
                     src={partner.logo}
@@ -335,49 +335,53 @@ export default function ConversionHomePage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
 
-          <div className="mt-16 text-center">
-            <p className="text-xs font-semibold tracking-[0.16em] text-[var(--v2-pewter)] uppercase">
-              Apoio institucional
-            </p>
-            <ul className="mx-auto mt-8 flex max-w-4xl flex-col items-center justify-center gap-10 sm:flex-row sm:gap-14">
-              {institutionalPartners.map((partner) => (
-                <li key={partner.name} className="h-36 w-56 sm:h-44 sm:w-64">
-                  <a
-                    href={partner.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title={partner.name}
-                    aria-label={`${partner.name} — abrir site oficial`}
-                    className="flex h-full w-full items-center justify-center rounded-[16px] bg-white p-4 transition-opacity hover:opacity-80"
-                  >
-                    <Image
-                      src={partner.logo}
-                      alt={`Logo ${partner.name}`}
-                      width={320}
-                      height={220}
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                      sizes="(max-width: 640px) 60vw, 256px"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Apoio institucional — fundo azul padrão do site */}
+      <section
+        id="apoio"
+        className="v2-section v2-section-compact bg-[var(--v2-abyss)]"
+      >
+        <div className="v2-container text-center">
+          <h2 className="v2-h2">Apoio institucional</h2>
+          <ul className="mx-auto mt-4 flex max-w-4xl flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10">
+            {institutionalPartners.map((partner) => (
+              <li key={partner.name} className="h-32 w-52 sm:h-40 sm:w-60">
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={partner.name}
+                  aria-label={`${partner.name} — abrir site oficial`}
+                  className="flex h-full w-full items-center justify-center rounded-[12px] bg-white p-3 transition-opacity hover:opacity-90"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={`Logo ${partner.name}`}
+                    width={320}
+                    height={220}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 60vw, 256px"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       {/* Próximo passo — último bloco antes do rodapé */}
       <section id="contato" className="v2-section bg-white">
-        <div className="v2-container grid gap-10 lg:grid-cols-[1fr_1.05fr]">
+        <div className="v2-container grid gap-6 lg:grid-cols-[1fr_1.05fr]">
           <div>
             <p className="v2-eyebrow">Próximo passo</p>
-            <h2 className="v2-h2 mt-2">Receba uma análise objetiva</h2>
-            <p className="v2-body mt-3 max-w-[640px]">
+            <h2 className="v2-h2 mt-1">Receba uma análise objetiva</h2>
+            <p className="v2-body mt-2 max-w-[640px]">
               Formulário curto para o primeiro contato.
             </p>
-            <ul className="mt-6 space-y-2">
+            <ul className="mt-4 space-y-2">
               {[
                 "Retorno em até 1 dia útil",
                 "Sem compromisso de contratação",
@@ -389,7 +393,7 @@ export default function ConversionHomePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <a
                 href={siteConfig.whatsappHref}
                 target="_blank"

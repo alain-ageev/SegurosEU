@@ -58,7 +58,7 @@ export default function SobrePage() {
       <section id="quem-somos" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Quem somos</p>
-          <h2 className="v2-h2 mt-1.5">Consultoria com base em Recife</h2>
+          <h2 className="v2-h2 mt-1">Consultoria com base em Recife</h2>
           <ul className="mt-5 grid gap-2.5 sm:grid-cols-3">
             {v2About.points.map((point) => (
               <li
@@ -78,7 +78,7 @@ export default function SobrePage() {
       >
         <div className="v2-container">
           <p className="v2-eyebrow text-white">Propósito</p>
-          <h2 className="v2-h2 mt-1 text-white">{v2About.missionTitle}</h2>
+          <h2 className="v2-h2 mt-1">{v2About.missionTitle}</h2>
           <p className="mt-3 max-w-[760px] text-[18px] font-semibold leading-snug text-[var(--v2-ember)]">
             {v2About.missionLead}
           </p>
@@ -98,7 +98,7 @@ export default function SobrePage() {
       <section id="contatos" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Fale conosco</p>
-          <h2 className="v2-h2 mt-1.5">Contatos</h2>
+          <h2 className="v2-h2 mt-1">Contatos</h2>
           <p className="v2-body mt-2 max-w-[640px]">
             Atendimento consultivo em Recife · Boa Viagem — e remoto para outras praças.
           </p>
