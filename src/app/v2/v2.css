@@ -321,62 +321,88 @@
   pointer-events: none;
 }
 
-/* Carrossel contínuo — seguradoras e operadoras (sem links) */
+/* Marquee de seguradoras — padrão Belz (logos livres, fade, 40s) */
+.v2-partners-panel {
+  margin-inline: auto;
+  max-width: min(86rem, calc(100% - 32px));
+  border-radius: 2rem;
+  border: 1px solid color-mix(in srgb, var(--v2-abyss) 12%, transparent);
+  background: #ffffff;
+  padding: 32px 24px;
+  box-shadow: 0 18px 50px color-mix(in srgb, var(--v2-abyss) 8%, transparent);
+}
+
+@media (min-width: 640px) {
+  .v2-partners-panel {
+    padding: 32px 40px;
+  }
+}
+
+.v2-partners-label {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--v2-steel);
+}
+
+@media (min-width: 640px) {
+  .v2-partners-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.48em;
+  }
+}
+
 .v2-partners-carousel {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-block: 8px 4px;
   mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 4%,
-    #000 96%,
-    transparent 100%
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
   );
   -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 4%,
-    #000 96%,
-    transparent 100%
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
   );
 }
 
 .v2-partners-track {
   display: flex;
   width: max-content;
-  gap: 16px;
-  animation: v2-partners-marquee 55s linear infinite;
+  align-items: center;
+  gap: 2.5rem;
+  will-change: transform;
+  animation: v2-partners-marquee 40s linear infinite;
 }
 
 .v2-partners-carousel:hover .v2-partners-track {
   animation-play-state: paused;
 }
 
-.v2-partners-slide {
-  display: flex;
+.v2-partners-logo {
   flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 168px;
-  height: 88px;
-  padding: 14px 18px;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid color-mix(in srgb, var(--v2-abyss) 12%, #e8eef2);
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--v2-abyss) 6%, transparent);
+  width: auto;
+  height: 2rem;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
 }
 
 @media (min-width: 640px) {
-  .v2-partners-slide {
-    width: 196px;
-    height: 96px;
-    padding: 16px 22px;
+  .v2-partners-track {
+    gap: 4rem;
   }
 
-  .v2-partners-track {
-    gap: 20px;
+  .v2-partners-logo {
+    height: 2.5rem;
   }
 }
 
@@ -394,9 +420,7 @@
     animation: none;
     flex-wrap: wrap;
     width: 100%;
-    max-width: var(--v2-max);
-    margin-inline: auto;
     justify-content: center;
-    padding-inline: 24px;
+    row-gap: 1.5rem;
   }
 }

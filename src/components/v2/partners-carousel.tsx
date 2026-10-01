@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { partners } from "@/lib/site";
 
-/** Carrossel contínuo das seguradoras — sem links */
+/** Marquee estilo Belz — logos contínuos, sem links */
 export function PartnersCarousel() {
   const track = [...partners, ...partners];
 
@@ -15,22 +15,18 @@ export function PartnersCarousel() {
     >
       <div className="v2-partners-track">
         {track.map((partner, index) => (
-          <div
+          <Image
             key={`${partner.name}-${index}`}
-            className="v2-partners-slide"
+            src={partner.logo}
+            alt={index < partners.length ? partner.name : ""}
             title={partner.name}
+            width={140}
+            height={60}
+            className="v2-partners-logo"
+            loading="lazy"
+            sizes="140px"
             aria-hidden={index >= partners.length ? true : undefined}
-          >
-            <Image
-              src={partner.logo}
-              alt={index < partners.length ? partner.name : ""}
-              width={200}
-              height={80}
-              className="h-12 w-auto max-w-[140px] object-contain sm:h-14 sm:max-w-[160px]"
-              loading="lazy"
-              sizes="160px"
-            />
-          </div>
+          />
         ))}
       </div>
     </div>

@@ -317,16 +317,12 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* Parceiros — carrossel sem links */}
-      <section id="parceiros" className="v2-section bg-white">
-        <div className="v2-container">
-          <p className="v2-eyebrow">Nossos parceiros</p>
-          <h2 className="v2-h2 mt-1">Principais seguradoras e operadoras</h2>
-          <p className="v2-body mt-2 max-w-[640px]">
-            Rede de seguradoras e operadoras com as quais trabalhamos no dia a dia.
+      {/* Parceiros — marquee estilo Belz, sem links */}
+      <section id="parceiros" className="v2-section bg-white px-0">
+        <div className="v2-partners-panel">
+          <p className="v2-partners-label">
+            Principais seguradoras e operadoras
           </p>
-        </div>
-        <div className="mt-4">
           <PartnersCarousel />
         </div>
       </section>
