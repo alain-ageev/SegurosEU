@@ -63,8 +63,8 @@ function MegaPanel({
           : "pointer-events-none opacity-0"
       )}
     >
-      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-[#e9e9e9] p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
-        <div className="rounded-[16px] bg-[#dedede] p-5">
+      <div className="grid gap-5 rounded-[20px] border border-[var(--v2-mist)] bg-[#f4f4f4] p-5 shadow-[0_24px_70px_rgba(5,46,68,0.12)] lg:grid-cols-[0.85fr_1.6fr]">
+        <div className="rounded-[16px] bg-[#ececec] p-5">
           <p className="text-xs font-bold tracking-[0.16em] text-[var(--v2-ember)] uppercase">
             {mega.eyebrow}
           </p>
@@ -163,7 +163,7 @@ export function V2Header() {
           </Link>
         </div>
 
-        <div className="border-b border-[var(--v2-mist)] bg-[#e9e9e9]">
+        <div className="border-b border-[var(--v2-mist)] bg-[#f4f4f4]">
           <div className="v2-container flex h-16 items-center justify-between gap-4">
             <BrandLogo variant="dark" href="/" />
 
@@ -266,7 +266,7 @@ export function V2Header() {
             aria-label="Fechar menu"
             onClick={() => setOpenMobile(false)}
           />
-          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-[#e9e9e9]">
+          <div className="absolute inset-x-0 top-0 bottom-0 overflow-y-auto border-t border-[var(--v2-mist)] bg-[#f4f4f4]">
             <nav
               className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 pb-28"
               aria-label="Mobile"
@@ -278,7 +278,7 @@ export function V2Header() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[16px] border border-[var(--v2-mist)] bg-[#dedede] p-3"
+                    className="rounded-[16px] border border-[var(--v2-mist)] bg-[#ececec] p-3"
                   >
                     {mega ? (
                       <>
