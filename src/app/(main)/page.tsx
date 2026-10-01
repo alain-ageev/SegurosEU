@@ -295,46 +295,7 @@ export default function ConversionHomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contato" className="v2-section bg-white">
-        <div className="v2-container grid gap-10 lg:grid-cols-[1fr_1.05fr]">
-          <div>
-            <p className="v2-eyebrow">Próximo passo</p>
-            <h2 className="v2-h2 mt-2">Receba uma análise objetiva</h2>
-            <p className="v2-body mt-3 max-w-[640px]">
-              Formulário curto para o primeiro contato.
-            </p>
-            <ul className="mt-6 space-y-2">
-              {[
-                "Retorno em até 1 dia útil",
-                "Sem compromisso de contratação",
-                "Dados usados só para atendimento",
-              ].map((line) => (
-                <li key={line} className="flex gap-2 text-[14px] font-semibold text-[var(--v2-ink)]">
-                  <CheckIcon className="size-4 text-[var(--v2-ember)]" />
-                  {line}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={siteConfig.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="v2-btn v2-btn-outline"
-              >
-                WhatsApp direto
-              </a>
-              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-ghost">
-                {siteConfig.phone}
-              </a>
-            </div>
-          </div>
-          <V2LeadForm />
-        </div>
-      </section>
-
-      {/* Parceiros no final */}
+      {/* Parceiros */}
       <section id="parceiros" className="v2-section bg-white">
         <div className="v2-container">
           <p className="v2-eyebrow">Nossos parceiros</p>
@@ -394,6 +355,45 @@ export default function ConversionHomePage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* Próximo passo — último bloco antes do rodapé */}
+      <section id="contato" className="v2-section bg-white">
+        <div className="v2-container grid gap-10 lg:grid-cols-[1fr_1.05fr]">
+          <div>
+            <p className="v2-eyebrow">Próximo passo</p>
+            <h2 className="v2-h2 mt-2">Receba uma análise objetiva</h2>
+            <p className="v2-body mt-3 max-w-[640px]">
+              Formulário curto para o primeiro contato.
+            </p>
+            <ul className="mt-6 space-y-2">
+              {[
+                "Retorno em até 1 dia útil",
+                "Sem compromisso de contratação",
+                "Dados usados só para atendimento",
+              ].map((line) => (
+                <li key={line} className="flex gap-2 text-[14px] font-semibold text-[var(--v2-ink)]">
+                  <CheckIcon className="size-4 text-[var(--v2-ember)]" />
+                  {line}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-outline"
+              >
+                WhatsApp direto
+              </a>
+              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-ghost">
+                {siteConfig.phone}
+              </a>
+            </div>
+          </div>
+          <V2LeadForm />
         </div>
       </section>
     </>

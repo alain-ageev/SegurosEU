@@ -3,9 +3,9 @@
 .v2-shell {
   --v2-ember: #b6a571;
   --v2-ember-hover: #c9bc91;
-  /* Cabeçalho / rodapé — Opção 1 Marinho vibrante */
+  /* Rodapé — Opção 1 Marinho vibrante */
   --v2-chrome: #0a4f73;
-  /* Corpo — Opção 2 Oceano */
+  /* Cabeçalho + corpo — Opção 2 Oceano */
   --v2-abyss: #0b5c8c;
   --v2-abyss-soft: #0e6fa3;
   --v2-carbon: #0b5c8c;
