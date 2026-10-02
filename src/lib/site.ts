@@ -433,19 +433,19 @@ export const institutionalPartners = [
   {
     name: "APES",
     role: "Associação Pernambucana de Supermercados",
-    logo: "/images/partners/apes.avif",
+    logo: "/images/partners/apoio-apes.png",
     href: "https://www.apes.com.br/",
   },
   {
     name: "Revista NE Super",
     role: "Imprensa especializada",
-    logo: "/images/partners/revista-ne.avif",
+    logo: "/images/partners/apoio-revista-ne.png",
     href: "http://www.revistanesuper.com.br",
   },
   {
     name: "Sindvarejista PE",
     role: "Entidade setorial",
-    logo: "/images/partners/sindvarejista.jpg",
+    logo: "/images/partners/apoio-sindvarejista.png",
     href: "http://www.sindvarejista-pe.com.br",
   },
 ] as const;

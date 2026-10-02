@@ -387,19 +387,25 @@ export default function ConversionHomePage() {
             {institutionalPartners.map((partner) => (
               <li
                 key={partner.name}
-                className="flex flex-col items-center gap-3 rounded-[14px] border border-white/15 bg-white/10 px-5 py-5"
+                className="flex flex-col gap-3 rounded-[14px] border border-white/15 bg-white/10 px-5 py-5"
               >
-                <div className="v2-apoio-logo-frame">
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={partner.name}
+                  aria-label={`${partner.name} — abrir site oficial`}
+                  className="v2-apoio-logo-frame"
+                >
                   <Image
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
-                    width={240}
-                    height={100}
+                    fill
                     className="v2-apoio-logo"
                     loading="lazy"
-                    sizes="160px"
+                    sizes="(max-width: 640px) 80vw, 280px"
                   />
-                </div>
+                </a>
                 <div className="text-center">
                   <p className="text-[14px] font-bold tracking-[0.06em] text-white uppercase">
                     {partner.name}

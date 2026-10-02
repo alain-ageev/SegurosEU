@@ -425,23 +425,23 @@
   }
 }
 
-/* Apoio institucional — mesmo quadro visual (referência APES) */
+/* Apoio institucional — mesmo quadro e mesma altura visual */
 .v2-apoio-logo-frame {
-  display: flex;
-  height: 96px;
+  position: relative;
+  display: block;
   width: 100%;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 480 / 360;
+  overflow: hidden;
   border-radius: 10px;
   background: #ffffff;
-  padding: 16px 20px;
+  transition: opacity 0.2s ease;
+}
+
+.v2-apoio-logo-frame:hover {
+  opacity: 0.9;
 }
 
 .v2-apoio-logo {
-  display: block;
-  width: 100%;
-  max-width: 200px;
-  height: 64px;
   object-fit: contain;
   object-position: center;
 }
