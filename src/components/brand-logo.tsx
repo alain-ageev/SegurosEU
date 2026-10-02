@@ -18,7 +18,7 @@ export function BrandLogo({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-2 ${className}`}
+      className={`inline-flex items-center ${className}`}
       aria-label="E Dias Corretora de Seguros — página inicial"
     >
       {isLight ? (
@@ -31,17 +31,15 @@ export function BrandLogo({
           priority
         />
       ) : (
-        <span className="v2-brand-logo-shell inline-flex items-center rounded-[12px] px-1.5 py-1 sm:px-2 sm:py-1.5">
-          <Image
-            src="/images/logo-edias-3d.png"
-            alt="E DIAS Corretora de Seguros"
-            width={720}
-            height={360}
-            className="h-14 w-auto max-w-[220px] object-contain object-left sm:h-16 sm:max-w-[280px] lg:h-[4.25rem] lg:max-w-[320px]"
-            priority
-            sizes="(max-width: 640px) 220px, 320px"
-          />
-        </span>
+        <Image
+          src="/images/logo-edias-3d.png"
+          alt="E DIAS Corretora de Seguros"
+          width={800}
+          height={320}
+          className="h-14 w-auto max-w-[240px] object-contain object-left sm:h-16 sm:max-w-[300px] lg:h-[4.5rem] lg:max-w-[340px]"
+          priority
+          sizes="(max-width: 640px) 240px, 340px"
+        />
       )}
     </Link>
   );

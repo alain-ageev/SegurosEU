@@ -79,20 +79,6 @@
   overflow-x: clip;
 }
 
-/* Logo do menu — maior, com toque do azul padrão */
-.v2-brand-logo-shell {
-  background: color-mix(in srgb, var(--v2-abyss) 8%, #ffffff);
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--v2-abyss) 22%, transparent),
-    0 6px 18px color-mix(in srgb, var(--v2-abyss) 14%, transparent);
-}
-
-.v2-brand-logo-shell:hover {
-  background: color-mix(in srgb, var(--v2-abyss) 12%, #ffffff);
-  box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--v2-abyss) 32%, transparent),
-    0 8px 22px color-mix(in srgb, var(--v2-abyss) 18%, transparent);
-}
 
 @media (min-width: 1024px) {
   .v2-container {
