@@ -67,7 +67,7 @@ export default function ConversionHomePage() {
               {v2Hero.subtitle}
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-primary">
+              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-accent">
                 {v2Hero.primaryCta.label}
                 <ArrowRightIcon className="size-4" />
               </Link>
