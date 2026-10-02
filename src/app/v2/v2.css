@@ -3,23 +3,23 @@
 .v2-shell {
   --v2-ember: #c4b47a;
   --v2-ember-hover: #d4c89a;
-  /* Títulos de seção */
-  --v2-title: #0cc0df;
-  /* Rodapé — Opção 1 Marinho vibrante */
-  --v2-chrome: #0a4f73;
-  /* Cabeçalho + faixas — Opção 2 Oceano */
-  --v2-abyss: #0b5c8c;
-  --v2-abyss-soft: #0e6fa3;
-  --v2-carbon: #0b5c8c;
+  /* Ciano dos indicadores / H2 em faixa azul — mais vibrante */
+  --v2-title: #1ad4f0;
+  /* Rodapé — marinho profundo */
+  --v2-chrome: #083a56;
+  /* Faixas azuis — marinho saturado (mais contraste com branco) */
+  --v2-abyss: #0a4f73;
+  --v2-abyss-soft: #0c5f8a;
+  --v2-carbon: #0a4f73;
 
   /* Texto com mais contraste no branco */
-  --v2-ink: #063a56;
+  --v2-ink: #042f45;
   --v2-paper: #ffffff;
   --v2-fog: #ffffff;
-  --v2-mist: #6a8fa8;
-  --v2-steel: #24586f;
+  --v2-mist: #5a7f96;
+  --v2-steel: #1c4d64;
   --v2-pewter: #0a4f73;
-  --v2-graphite: #0a3d56;
+  --v2-graphite: #052a3d;
 
   --v2-radius-tag: 999px;
   --v2-radius: 16px;
@@ -446,41 +446,47 @@
   object-position: center;
 }
 
-/* Indicadores — atenção suave no ciano (--v2-title) */
+/* Indicadores — pulse vibrante no ciano (--v2-title) */
 .v2-indicator-value {
   color: var(--v2-title);
-  animation: v2-indicator-pulse 2.8s ease-in-out infinite;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--v2-title) 45%, transparent);
+  animation: v2-indicator-pulse 1.8s ease-in-out infinite;
 }
 
 .v2-indicator-label {
-  color: var(--v2-title);
-  animation: v2-indicator-pulse 2.8s ease-in-out infinite;
-  animation-delay: 0.15s;
+  color: #e8faff;
+  animation: v2-indicator-pulse 1.8s ease-in-out infinite;
+  animation-delay: 0.12s;
 }
 
 .v2-indicator-item:nth-child(2) .v2-indicator-value,
 .v2-indicator-item:nth-child(2) .v2-indicator-label {
-  animation-delay: 0.35s;
+  animation-delay: 0.3s;
 }
 
 .v2-indicator-item:nth-child(3) .v2-indicator-value,
 .v2-indicator-item:nth-child(3) .v2-indicator-label {
-  animation-delay: 0.7s;
+  animation-delay: 0.6s;
 }
 
 @keyframes v2-indicator-pulse {
   0%,
   100% {
-    opacity: 0.82;
-    text-shadow: 0 0 0 transparent;
-    transform: translateY(0);
+    opacity: 0.88;
+    filter: brightness(1);
+    text-shadow:
+      0 0 8px color-mix(in srgb, var(--v2-title) 40%, transparent),
+      0 0 18px color-mix(in srgb, var(--v2-title) 18%, transparent);
+    transform: translateY(0) scale(1);
   }
   50% {
     opacity: 1;
+    filter: brightness(1.2);
     text-shadow:
-      0 0 12px color-mix(in srgb, var(--v2-title) 55%, transparent),
-      0 0 28px color-mix(in srgb, var(--v2-title) 28%, transparent);
-    transform: translateY(-1px);
+      0 0 16px color-mix(in srgb, var(--v2-title) 85%, transparent),
+      0 0 36px color-mix(in srgb, var(--v2-title) 55%, transparent),
+      0 0 56px color-mix(in srgb, var(--v2-title) 30%, transparent);
+    transform: translateY(-2px) scale(1.04);
   }
 }
 
@@ -489,7 +495,8 @@
   .v2-indicator-label {
     animation: none;
     opacity: 1;
-    text-shadow: none;
+    filter: none;
+    text-shadow: 0 0 12px color-mix(in srgb, var(--v2-title) 50%, transparent);
     transform: none;
   }
 }

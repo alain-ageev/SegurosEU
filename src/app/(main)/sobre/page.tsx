@@ -88,7 +88,7 @@ export default function SobrePage() {
             {v2About.missionBody.map((paragraph) => (
               <p
                 key={paragraph.slice(0, 40)}
-                className="rounded-[14px] bg-white/15 p-4 text-[16px] leading-snug text-white"
+                className="rounded-[14px] bg-white p-4 text-[16px] leading-snug text-[var(--v2-ink)] shadow-sm"
               >
                 {paragraph}
               </p>

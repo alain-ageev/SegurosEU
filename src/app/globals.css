@@ -51,9 +51,9 @@
 
 :root {
   /* Paleta E DIAS — Marinho no chrome, Oceano no corpo */
-  --edias-chrome: #0a4f73; /* cabeçalho / rodapé — Opção 1 */
-  --edias-navy: #0b5c8c; /* corpo — Opção 2 Oceano */
-  --edias-deep: #0a4f73;
+  --edias-chrome: #083a56; /* rodapé — marinho profundo */
+  --edias-navy: #0a4f73; /* faixas — marinho saturado */
+  --edias-deep: #083a56;
   --edias-gold: #b6a571;
   --edias-gold-soft: #c9bc91;
   --edias-gold-deep: #8f8156;

@@ -192,12 +192,12 @@ export default function ConversionHomePage() {
           <h2 className="v2-h2 v2-h2-on-blue mt-1">Nossa atuação</h2>
           <ol className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
-              <li key={item.step} className="rounded-[14px] bg-white/15 p-3.5 sm:p-4">
-                <p className="text-[14px] font-bold text-[var(--v2-ember)]">
+              <li key={item.step} className="rounded-[14px] bg-white p-3.5 text-[var(--v2-ink)] shadow-sm sm:p-4">
+                <p className="text-[14px] font-bold text-[var(--v2-abyss)]">
                   {item.step}
                 </p>
-                <h3 className="mt-1 text-[20px] font-bold text-white">{item.title}</h3>
-                <p className="mt-1 text-[16px] leading-snug text-white">
+                <h3 className="mt-1 text-[20px] font-bold text-[var(--v2-ink)]">{item.title}</h3>
+                <p className="mt-1 text-[16px] leading-snug text-[var(--v2-graphite)]">
                   {item.body}
                 </p>
               </li>
@@ -344,14 +344,16 @@ export default function ConversionHomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-start justify-between gap-3 rounded-[14px] bg-white/15 p-3.5 text-white transition hover:bg-white/20 sm:p-4"
+                className="flex items-start justify-between gap-3 rounded-[14px] bg-white p-3.5 text-[var(--v2-ink)] shadow-sm transition hover:bg-[#f7fafc] sm:p-4"
               >
                 <div>
-                  <p className="v2-tag w-fit bg-white/20 text-white">{item.type}</p>
-                  <h3 className="mt-1.5 text-[18px] font-bold text-white">{item.title}</h3>
-                  <p className="mt-1 text-[16px] text-white">{item.body}</p>
+                  <p className="v2-tag w-fit">{item.type}</p>
+                  <h3 className="mt-1.5 text-[18px] font-bold text-[var(--v2-ink)]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-[16px] text-[var(--v2-graphite)]">{item.body}</p>
                 </div>
-                <ArrowRightIcon className="mt-1 size-4 shrink-0 text-[var(--v2-ember)]" />
+                <ArrowRightIcon className="mt-1 size-4 shrink-0 text-[var(--v2-abyss)]" />
               </Link>
             ))}
           </div>
@@ -387,7 +389,7 @@ export default function ConversionHomePage() {
             {institutionalPartners.map((partner) => (
               <li
                 key={partner.name}
-                className="flex flex-col gap-3 rounded-[14px] border border-white/15 bg-white/10 px-5 py-5"
+                className="flex flex-col gap-3 rounded-[14px] bg-white px-5 py-5 shadow-sm"
               >
                 <a
                   href={partner.href}
@@ -395,7 +397,7 @@ export default function ConversionHomePage() {
                   rel="noopener noreferrer"
                   title={partner.name}
                   aria-label={`${partner.name} — abrir site oficial`}
-                  className="v2-apoio-logo-frame"
+                  className="v2-apoio-logo-frame border border-black/5"
                 >
                   <Image
                     src={partner.logo}
@@ -407,10 +409,10 @@ export default function ConversionHomePage() {
                   />
                 </a>
                 <div className="text-center">
-                  <p className="text-[14px] font-bold tracking-[0.06em] text-white uppercase">
+                  <p className="text-[14px] font-bold tracking-[0.06em] text-[var(--v2-ink)] uppercase">
                     {partner.name}
                   </p>
-                  <p className="mt-1 text-[13px] font-medium text-white/75">
+                  <p className="mt-1 text-[13px] font-medium text-[var(--v2-steel)]">
                     {partner.role}
                   </p>
                 </div>
