@@ -41,7 +41,14 @@ export const v2Hero = {
   },
   trustLine:
     "Atendimento consultivo · Parceiros nacionais · Resposta em até 1 dia útil",
-} as const;
+  /**
+   * Vídeo no slot da imagem principal.
+   * Envie o MP4 e coloque em public/videos/hero.mp4 (ou atualize este path).
+   * Enquanto estiver vazio/null, a imagem posterSrc permanece.
+   */
+  videoSrc: "/videos/hero.mp4" as string | null,
+  posterSrc: "/images/home/brand-hero.jpg",
+};
 
 export const v2TrustIndicators = [
   {

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, ArrowUpRightIcon, CheckIcon } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
+import { HeroMedia } from "@/components/v2/hero-media";
 import { PartnersCarousel } from "@/components/v2/partners-carousel";
 import { V2LeadForm } from "@/components/v2/lead-form";
 import {
@@ -68,16 +69,11 @@ export default function ConversionHomePage() {
             <p className="v2-caption mt-6">{v2Hero.trustLine}</p>
           </div>
 
-          <div className="v2-hero-media relative aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[var(--v2-abyss)] shadow-[0_20px_50px_rgba(8,58,86,0.22)]">
-            <Image
-              src="/images/home/brand-hero.jpg"
-              alt="Identidade visual E DIAS Corretora de Seguros"
-              fill
-              priority
-              sizes="(max-width: 1024px) 92vw, 520px"
-              className="object-cover object-center"
-            />
-          </div>
+          <HeroMedia
+            videoSrc={v2Hero.videoSrc}
+            posterSrc={v2Hero.posterSrc}
+            alt="Identidade visual E DIAS Corretora de Seguros"
+          />
         </div>
       </section>
 
