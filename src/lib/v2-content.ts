@@ -46,7 +46,7 @@ export const v2Hero = {
    * Envie o MP4 e coloque em public/videos/hero.mp4 (ou atualize este path).
    * Enquanto estiver vazio/null, a imagem posterSrc permanece.
    */
-  videoSrc: "/videos/hero.mp4" as string | null,
+  videoSrc: null as string | null,
   posterSrc: "/images/home/brand-hero.jpg",
 };
 
