@@ -98,9 +98,9 @@
   color: var(--v2-ink);
 }
 
-/* Títulos sobre faixas azuis */
+/* Títulos sobre faixas azuis — dourado da marca */
 .v2-h2-on-blue {
-  color: var(--v2-title);
+  color: var(--v2-ember);
 }
 
 .v2-h3 {
