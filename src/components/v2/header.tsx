@@ -153,7 +153,7 @@ export function V2Header() {
   return (
     <header className="sticky top-0 z-50">
       <div ref={barRef}>
-        <div className="bg-[var(--v2-abyss)] px-3 py-2 text-center text-[12px] font-semibold leading-snug text-white sm:px-4 sm:text-[13px]">
+        <div className="bg-[var(--v2-abyss)] px-3 py-1.5 text-center text-[11px] font-semibold leading-none text-white sm:px-4 sm:text-[12px]">
           <span className="hidden sm:inline">Consultoria B2B em seguros · </span>
           <Link
             href="/#contato"
@@ -164,7 +164,7 @@ export function V2Header() {
         </div>
 
         <div className="border-b border-[var(--v2-mist)] bg-[#f4f4f4]">
-          <div className="v2-container flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] sm:gap-4">
+          <div className="v2-container flex h-12 items-center justify-between gap-2 sm:h-14 sm:gap-3">
             <div className="min-w-0 shrink">
               <BrandLogo variant="dark" href="/" />
             </div>
@@ -223,19 +223,19 @@ export function V2Header() {
               })}
             </nav>
 
-            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
               <a
                 href={siteConfig.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="v2-btn v2-btn-primary !hidden lg:!inline-flex"
+                className="v2-btn v2-btn-primary v2-btn-nav !hidden lg:!inline-flex"
               >
                 Fale com um especialista
               </a>
               <button
                 type="button"
                 className={cn(
-                  "inline-flex size-11 items-center justify-center rounded-[16px] border lg:!hidden",
+                  "inline-flex size-9 items-center justify-center rounded-[12px] border lg:!hidden",
                   openMobile
                     ? "border-[var(--v2-abyss)] bg-[var(--v2-abyss)] text-white"
                     : "border-[var(--v2-mist)] bg-white text-[var(--v2-ink)]"
@@ -246,9 +246,9 @@ export function V2Header() {
                 onClick={() => setOpenMobile((value) => !value)}
               >
                 {openMobile ? (
-                  <XIcon className="size-5" />
+                  <XIcon className="size-4" />
                 ) : (
-                  <MenuIcon className="size-5" />
+                  <MenuIcon className="size-4" />
                 )}
               </button>
             </div>

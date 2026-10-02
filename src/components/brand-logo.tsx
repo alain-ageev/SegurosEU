@@ -36,9 +36,9 @@ export function BrandLogo({
           alt="E DIAS Corretora de Seguros"
           width={334}
           height={92}
-          className="h-8 w-auto max-w-[150px] object-contain object-left sm:h-9 sm:max-w-[170px] lg:h-10 lg:max-w-[190px]"
+          className="h-7 w-auto max-w-[132px] object-contain object-left sm:h-8 sm:max-w-[148px] lg:h-[2.125rem] lg:max-w-[160px]"
           priority
-          sizes="(max-width: 640px) 150px, 190px"
+          sizes="(max-width: 640px) 132px, 160px"
         />
       )}
     </Link>
