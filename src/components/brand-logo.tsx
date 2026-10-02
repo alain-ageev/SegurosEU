@@ -34,8 +34,8 @@ export function BrandLogo({
         <Image
           src="/images/logo-edias-menu.png"
           alt="E DIAS Corretora de Seguros"
-          width={1115}
-          height={444}
+          width={334}
+          height={92}
           className="h-11 w-auto max-w-[200px] object-contain object-left sm:h-12 sm:max-w-[240px] lg:h-[3.25rem] lg:max-w-[280px]"
           priority
           sizes="(max-width: 640px) 200px, 280px"
