@@ -153,8 +153,8 @@ export function V2Header() {
   return (
     <header className="sticky top-0 z-50">
       <div ref={barRef}>
-        <div className="bg-[var(--v2-abyss)] px-4 py-2 text-center text-[13px] font-semibold text-white">
-          Consultoria B2B em seguros ·{" "}
+        <div className="bg-[var(--v2-abyss)] px-3 py-2 text-center text-[12px] font-semibold leading-snug text-white sm:px-4 sm:text-[13px]">
+          <span className="hidden sm:inline">Consultoria B2B em seguros · </span>
           <Link
             href="/#contato"
             className="text-[var(--v2-ember)] underline-offset-2 hover:underline"
@@ -164,11 +164,13 @@ export function V2Header() {
         </div>
 
         <div className="border-b border-[var(--v2-mist)] bg-[#f4f4f4]">
-          <div className="v2-container flex h-16 items-center justify-between gap-4">
-            <BrandLogo variant="dark" href="/" />
+          <div className="v2-container flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
+            <div className="min-w-0 shrink">
+              <BrandLogo variant="dark" href="/" />
+            </div>
 
             <nav
-              className="v2-nav-shell hidden lg:flex"
+              className="v2-nav-shell !hidden lg:!inline-flex"
               aria-label="Principal com abas"
               onMouseLeave={scheduleClose}
             >
@@ -221,19 +223,19 @@ export function V2Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
               <a
                 href={siteConfig.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="v2-btn v2-btn-primary hidden sm:inline-flex"
+                className="v2-btn v2-btn-primary !hidden lg:!inline-flex"
               >
                 Fale com um especialista
               </a>
               <button
                 type="button"
                 className={cn(
-                  "inline-flex size-11 items-center justify-center rounded-[16px] border lg:hidden",
+                  "inline-flex size-11 items-center justify-center rounded-[16px] border lg:!hidden",
                   openMobile
                     ? "border-[var(--v2-abyss)] bg-[var(--v2-abyss)] text-white"
                     : "border-[var(--v2-mist)] bg-white text-[var(--v2-ink)]"

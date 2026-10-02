@@ -46,18 +46,37 @@
   margin-inline: auto;
   width: 100%;
   max-width: var(--v2-max);
-  padding-inline: 24px;
+  padding-inline: 16px;
+}
+
+@media (min-width: 640px) {
+  .v2-container {
+    padding-inline: 24px;
+  }
 }
 
 /* E-mail do rodapé — evita quebra letra a letra */
 .v2-footer-email {
   display: inline-block;
   max-width: 100%;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.35;
-  overflow-wrap: break-word;
-  word-break: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
   hyphens: none;
+}
+
+@media (min-width: 640px) {
+  .v2-footer-email {
+    font-size: 13px;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+}
+
+/* Mobile: evita overflow horizontal */
+.v2-shell {
+  overflow-x: clip;
 }
 
 @media (min-width: 1024px) {
@@ -218,8 +237,8 @@
 }
 
 /* Faixa branca que une o menu como um único botão */
+/* display vem das classes Tailwind (hidden lg:flex) — não forçar aqui */
 .v2-nav-shell {
-  display: inline-flex;
   align-items: center;
   gap: 2px;
   border-radius: 18px;
@@ -227,6 +246,12 @@
   padding: 4px;
   border: 1px solid color-mix(in srgb, var(--v2-ink) 10%, #ffffff);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 1024px) {
+  .v2-nav-shell {
+    display: inline-flex;
+  }
 }
 
 .v2-nav-btn {
@@ -348,16 +373,18 @@
 /* Marquee de seguradoras — padrão Belz (logos livres, fade, 40s) */
 .v2-partners-panel {
   margin-inline: auto;
-  max-width: min(86rem, calc(100% - 32px));
-  border-radius: 2rem;
+  max-width: min(86rem, calc(100% - 24px));
+  border-radius: 1.25rem;
   border: 1px solid color-mix(in srgb, var(--v2-abyss) 12%, transparent);
   background: #ffffff;
-  padding: 32px 24px;
+  padding: 24px 16px;
   box-shadow: 0 18px 50px color-mix(in srgb, var(--v2-abyss) 8%, transparent);
 }
 
 @media (min-width: 640px) {
   .v2-partners-panel {
+    max-width: min(86rem, calc(100% - 32px));
+    border-radius: 2rem;
     padding: 32px 40px;
   }
 }

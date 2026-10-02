@@ -81,19 +81,22 @@ export function Hero({
         <p className="mt-3 max-w-xl text-[18px] leading-snug text-white/92">
           {description}
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           {primaryExternal ? (
             <a
               href={primaryCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="v2-btn v2-btn-accent"
+              className="v2-btn v2-btn-accent w-full justify-center sm:w-auto"
             >
               {primaryCta.label}
               <ArrowRightIcon className="size-4" />
             </a>
           ) : (
-            <Link href={primaryCta.href} className="v2-btn v2-btn-accent">
+            <Link
+              href={primaryCta.href}
+              className="v2-btn v2-btn-accent w-full justify-center sm:w-auto"
+            >
               {primaryCta.label}
               <ArrowRightIcon className="size-4" />
             </Link>
@@ -103,14 +106,14 @@ export function Hero({
               href={secondaryCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
+              className="v2-btn w-full justify-center border border-white/45 bg-white/10 text-white hover:bg-white/18 sm:w-auto"
             >
               {secondaryCta.label}
             </a>
           ) : (
             <Link
               href={secondaryCta.href}
-              className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
+              className="v2-btn w-full justify-center border border-white/45 bg-white/10 text-white hover:bg-white/18 sm:w-auto"
             >
               {secondaryCta.label}
             </Link>

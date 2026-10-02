@@ -52,8 +52,11 @@ export default function ConversionHomePage() {
             <p className="v2-body mt-3 max-w-xl text-[18px]">
               {v2Hero.subtitle}
             </p>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-primary">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <Link
+                href={v2Hero.primaryCta.href}
+                className="v2-btn v2-btn-primary w-full justify-center sm:w-auto"
+              >
                 {v2Hero.primaryCta.label}
                 <ArrowRightIcon className="size-4" />
               </Link>
@@ -61,7 +64,7 @@ export default function ConversionHomePage() {
                 href={v2Hero.secondaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="v2-btn v2-btn-outline"
+                className="v2-btn v2-btn-outline w-full justify-center sm:w-auto"
               >
                 {v2Hero.secondaryCta.label}
               </a>
