@@ -53,6 +53,8 @@ export default function SobrePage() {
         primaryCta={{ label: "Falar no WhatsApp", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Solicitar diagnóstico", href: "/#contato" }}
         compact
+        imageSrc="/images/home/brand-facade-dark.jpg"
+        imageAlt="Identidade visual E DIAS em fachada institucional"
       />
 
       <section id="quem-somos" className="v2-section bg-white">

@@ -40,14 +40,30 @@ export default function ConversionHomePage() {
     <>
       <JsonLd data={ld} />
 
-      <section className="border-b border-[var(--v2-mist)]/40 bg-white">
-        <div className="v2-container grid items-center gap-6 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-12">
+      {/* Hero — fachadas da marca (vidro + placa) */}
+      <section className="relative overflow-hidden text-white">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/home/brand-facade-glass.jpg"
+            alt="Fachada com a marca E DIAS Corretora de Seguros"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[68%_center]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-r from-[var(--v2-abyss)] via-[var(--v2-abyss)]/88 to-[var(--v2-abyss)]/40"
+          />
+        </div>
+
+        <div className="v2-container relative grid items-center gap-8 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
           <div>
-            <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
-            <h1 className="v2-display mt-2 text-[clamp(30px,4.5vw,44px)]">
+            <p className="v2-eyebrow text-[var(--v2-ember)]">{v2Hero.eyebrow}</p>
+            <h1 className="v2-display mt-2 text-[clamp(30px,4.5vw,44px)] text-white">
               {v2Hero.title}
             </h1>
-            <p className="v2-body mt-3 max-w-xl text-[18px]">
+            <p className="mt-3 max-w-xl text-[18px] leading-snug text-white/92">
               {v2Hero.subtitle}
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
@@ -59,22 +75,24 @@ export default function ConversionHomePage() {
                 href={v2Hero.secondaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="v2-btn v2-btn-outline"
+                className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
               >
                 {v2Hero.secondaryCta.label}
               </a>
             </div>
-            <p className="v2-caption mt-6">{v2Hero.trustLine}</p>
+            <p className="mt-6 text-[14px] font-medium text-white/75">
+              {v2Hero.trustLine}
+            </p>
           </div>
 
-          <div className="v2-media aspect-[4/3]">
+          <div className="v2-media aspect-square max-w-[420px] justify-self-center shadow-[0_24px_60px_rgba(6,40,70,0.45)] lg:justify-self-end">
             <Image
-              src="/images/home/meeting.jpg"
-              alt="Consultoria E DIAS em reunião com clientes"
+              src="/images/home/brand-facade-dark.jpg"
+              alt="Identidade visual E DIAS em fachada institucional"
               fill
               priority
-              sizes="(max-width: 1024px) 100vw, 560px"
-              className="object-cover"
+              sizes="(max-width: 1024px) 80vw, 420px"
+              className="object-cover object-[18%_45%]"
             />
           </div>
         </div>
@@ -232,15 +250,35 @@ export default function ConversionHomePage() {
             ))}
           </div>
 
-          <p className="mt-5">
-            <Link
-              href="/sobre"
-              className="inline-flex items-center gap-2 text-[16px] font-bold text-[var(--v2-abyss)] underline-offset-4 hover:underline"
-            >
-              Conheça a E DIAS — missão e contatos
-              <ArrowRightIcon className="size-4" />
-            </Link>
-          </p>
+          <div className="mt-6 grid items-center gap-5 rounded-[20px] bg-[var(--v2-abyss)] p-4 sm:grid-cols-[0.9fr_1.1fr] sm:p-5">
+            <div className="v2-media aspect-[16/10] sm:aspect-[4/3]">
+              <Image
+                src="/images/home/brand-facade-dark.jpg"
+                alt="Marca E DIAS Corretora de Seguros em fachada"
+                fill
+                loading="lazy"
+                sizes="(max-width: 640px) 90vw, 360px"
+                className="object-cover object-[20%_40%]"
+              />
+            </div>
+            <div className="px-1 pb-1 sm:px-2">
+              <p className="v2-eyebrow text-[var(--v2-ember)]">Institucional</p>
+              <h3 className="mt-1 text-[22px] font-bold text-white">
+                Uma corretora com presença e identidade próprias
+              </h3>
+              <p className="mt-2 text-[16px] leading-snug text-white/90">
+                Conheça a missão, a base em Recife e os canais de atendimento da
+                E DIAS.
+              </p>
+              <Link
+                href="/sobre"
+                className="mt-4 inline-flex items-center gap-2 text-[16px] font-bold text-[var(--v2-ember)] underline-offset-4 hover:underline"
+              >
+                Conheça a E DIAS — missão e contatos
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

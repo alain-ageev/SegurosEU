@@ -22,8 +22,8 @@ export function Hero({
   primaryCta = { label: "Falar com especialista", href: "/contato" },
   secondaryCta = { label: "Ver soluções", href: "/#solucoes" },
   compact = false,
-  imageSrc = "/images/home/hero.jpg",
-  imageAlt = "Equipe e clientes em reunião de negócios",
+  imageSrc = "/images/home/brand-facade-glass.jpg",
+  imageAlt = "Fachada com a marca E DIAS Corretora de Seguros",
 }: HeroProps) {
   return (
     <section
