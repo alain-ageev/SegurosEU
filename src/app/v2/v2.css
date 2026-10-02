@@ -391,7 +391,7 @@
 .v2-partners-logo {
   flex-shrink: 0;
   width: auto;
-  height: 2rem;
+  height: 3.25rem;
   object-fit: contain;
   transition: opacity 0.3s ease;
 }
@@ -402,7 +402,7 @@
   }
 
   .v2-partners-logo {
-    height: 2.5rem;
+    height: 4rem;
   }
 }
 
@@ -422,5 +422,73 @@
     width: 100%;
     justify-content: center;
     row-gap: 1.5rem;
+  }
+}
+
+/* Apoio institucional — logos no mesmo quadro visual */
+.v2-apoio-logo-frame {
+  display: flex;
+  height: 88px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 14px 18px;
+}
+
+.v2-apoio-logo {
+  width: auto;
+  max-width: 160px;
+  height: 52px;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+/* Indicadores — atenção suave no ciano (--v2-title) */
+.v2-indicator-value {
+  color: var(--v2-title);
+  animation: v2-indicator-pulse 2.8s ease-in-out infinite;
+}
+
+.v2-indicator-label {
+  color: var(--v2-title);
+  animation: v2-indicator-pulse 2.8s ease-in-out infinite;
+  animation-delay: 0.15s;
+}
+
+.v2-indicator-item:nth-child(2) .v2-indicator-value,
+.v2-indicator-item:nth-child(2) .v2-indicator-label {
+  animation-delay: 0.35s;
+}
+
+.v2-indicator-item:nth-child(3) .v2-indicator-value,
+.v2-indicator-item:nth-child(3) .v2-indicator-label {
+  animation-delay: 0.7s;
+}
+
+@keyframes v2-indicator-pulse {
+  0%,
+  100% {
+    opacity: 0.82;
+    text-shadow: 0 0 0 transparent;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 12px color-mix(in srgb, var(--v2-title) 55%, transparent),
+      0 0 28px color-mix(in srgb, var(--v2-title) 28%, transparent);
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-indicator-value,
+  .v2-indicator-label {
+    animation: none;
+    opacity: 1;
+    text-shadow: none;
+    transform: none;
   }
 }

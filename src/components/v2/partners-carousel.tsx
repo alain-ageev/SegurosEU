@@ -20,11 +20,11 @@ export function PartnersCarousel() {
             src={partner.logo}
             alt={index < partners.length ? partner.name : ""}
             title={partner.name}
-            width={140}
-            height={60}
+            width={200}
+            height={80}
             className="v2-partners-logo"
             loading="lazy"
-            sizes="140px"
+            sizes="200px"
             aria-hidden={index >= partners.length ? true : undefined}
           />
         ))}

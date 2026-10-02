@@ -87,11 +87,14 @@ export default function ConversionHomePage() {
       >
         <div className="v2-container grid gap-3 sm:grid-cols-3">
           {v2TrustIndicators.map((item) => (
-            <div key={item.label} className="px-2 text-center sm:px-4">
-              <p className="text-[40px] font-bold text-[var(--v2-title)] sm:text-[44px]">
+            <div
+              key={item.label}
+              className="v2-indicator-item px-2 text-center sm:px-4"
+            >
+              <p className="v2-indicator-value text-[40px] font-bold sm:text-[44px]">
                 {item.value}
               </p>
-              <p className="mt-1 text-[16px] font-semibold text-[var(--v2-title)]">
+              <p className="v2-indicator-label mt-1 text-[16px] font-semibold">
                 {item.label}
               </p>
             </div>
@@ -167,7 +170,7 @@ export default function ConversionHomePage() {
         className="v2-section v2-section-compact bg-[var(--v2-abyss)] text-white"
       >
         <div className="v2-container">
-          <p className="v2-eyebrow text-white">Como trabalhamos</p>
+          <p className="v2-eyebrow text-[var(--v2-ember)]">Como trabalhamos</p>
           <h2 className="v2-h2 v2-h2-on-blue mt-1">Nossa atuação</h2>
           <ol className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
             {v2Process.map((item) => (
@@ -348,15 +351,15 @@ export default function ConversionHomePage() {
                 key={partner.name}
                 className="flex flex-col items-center gap-3 rounded-[14px] border border-white/15 bg-white/10 px-5 py-5"
               >
-                <div className="flex h-[72px] w-full items-center justify-center rounded-[10px] bg-white px-4 py-3">
+                <div className="v2-apoio-logo-frame">
                   <Image
                     src={partner.logo}
                     alt={`Logo ${partner.name}`}
                     width={240}
                     height={100}
-                    className="h-12 w-full object-contain"
+                    className="v2-apoio-logo"
                     loading="lazy"
-                    sizes="200px"
+                    sizes="160px"
                   />
                 </div>
                 <div className="text-center">
