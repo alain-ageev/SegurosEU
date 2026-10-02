@@ -1,8 +1,8 @@
 /* Site principal (conversão) — branco + azul da paleta, sem cinza/azul claro */
 
 .v2-shell {
-  --v2-ember: #ffc800;
-  --v2-ember-hover: #ffd84a;
+  --v2-ember: #c4b47a;
+  --v2-ember-hover: #d4c89a;
   /* Ciano dos indicadores / H2 em faixa azul — mais vibrante */
   --v2-title: #1ad4f0;
   /* Rodapé — marinho profundo */
@@ -77,6 +77,14 @@
 /* Mobile: evita overflow horizontal */
 .v2-shell {
   overflow-x: clip;
+}
+
+/* Logo antigo com reforço 3D (profundidade + brilho) */
+.v2-brand-logo-3d {
+  filter:
+    drop-shadow(0 1px 0 color-mix(in srgb, var(--v2-abyss) 35%, transparent))
+    drop-shadow(0 2px 0 color-mix(in srgb, var(--v2-abyss) 22%, transparent))
+    drop-shadow(0 4px 8px color-mix(in srgb, var(--v2-abyss) 18%, transparent));
 }
 
 
