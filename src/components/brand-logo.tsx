@@ -32,13 +32,13 @@ export function BrandLogo({
         />
       ) : (
         <Image
-          src="/images/logo-edias-3d.png"
+          src="/images/logo-edias-menu.png"
           alt="E DIAS Corretora de Seguros"
-          width={720}
-          height={240}
-          className="v2-brand-logo-3d h-12 w-auto max-w-[220px] object-contain object-left sm:h-14 sm:max-w-[280px] lg:h-16 lg:max-w-[320px]"
+          width={1115}
+          height={444}
+          className="h-11 w-auto max-w-[200px] object-contain object-left sm:h-12 sm:max-w-[240px] lg:h-[3.25rem] lg:max-w-[280px]"
           priority
-          sizes="(max-width: 640px) 220px, 320px"
+          sizes="(max-width: 640px) 200px, 280px"
         />
       )}
     </Link>
