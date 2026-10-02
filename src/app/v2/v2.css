@@ -425,24 +425,25 @@
   }
 }
 
-/* Apoio institucional — logos no mesmo quadro visual */
+/* Apoio institucional — mesmo quadro visual (referência APES) */
 .v2-apoio-logo-frame {
   display: flex;
-  height: 88px;
+  height: 96px;
   width: 100%;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   background: #ffffff;
-  padding: 14px 18px;
+  padding: 16px 20px;
 }
 
 .v2-apoio-logo {
-  width: auto;
-  max-width: 160px;
-  height: 52px;
-  max-height: 52px;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: 64px;
   object-fit: contain;
+  object-position: center;
 }
 
 /* Indicadores — atenção suave no ciano (--v2-title) */

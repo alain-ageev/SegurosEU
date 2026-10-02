@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SocialLinks } from "@/components/social-links";
 import { odontoHref, siteConfig } from "@/lib/site";
@@ -32,13 +33,19 @@ function FooterLink({
 
 export function V2Footer() {
   return (
-    <footer className="bg-[var(--v2-chrome)] text-white">
-      <div className="v2-container grid gap-10 py-14 lg:grid-cols-4">
+    <footer className="rounded-t-[2.5rem] bg-[var(--v2-chrome)] px-4 pt-4 text-white sm:rounded-t-[4rem] sm:px-6 sm:pt-6">
+      <div className="v2-container grid gap-10 py-12 sm:py-14 lg:grid-cols-4">
         <div>
-          <p className="text-[17px] font-bold">E DIAS</p>
-          <p className="mt-1 text-[12px] font-semibold text-white/70">
-            Corretora de Seguros
-          </p>
+          <Link href="/" aria-label={`${siteConfig.shortName} — início`}>
+            <Image
+              src="/images/logo-edias-footer.png"
+              alt="E DIAS Corretora de Seguros"
+              width={320}
+              height={154}
+              className="h-auto w-44 sm:w-48"
+              priority={false}
+            />
+          </Link>
           <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-white/75">
             Consultoria B2B em proteção empresarial e familiar em Recife.
           </p>

@@ -432,7 +432,7 @@ export const partners = [
 export const institutionalPartners = [
   {
     name: "APES",
-    role: "Associação dos Corretores",
+    role: "Associação Pernambucana de Supermercados",
     logo: "/images/partners/apes.avif",
     href: "https://www.apes.com.br/",
   },
