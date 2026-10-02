@@ -141,6 +141,13 @@ export const v2Solutions = [
     cta: "Cotação de viagem",
   },
   {
+    title: "Seguro incêndio",
+    benefit: "Imóvel, conteúdo e lucros cessantes com análise de risco objetiva.",
+    forWho: "Residências, comércios e indústrias",
+    href: "/incendio",
+    cta: "Cotação de incêndio",
+  },
+  {
     title: "Consultoria de riscos",
     benefit: "Visão integrada: o que manter, ajustar ou eliminar no programa atual.",
     forWho: "Empresas com múltiplas apólices",

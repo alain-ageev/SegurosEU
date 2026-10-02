@@ -97,7 +97,7 @@ export const navItems: NavItem[] = [
       eyebrow: "Soluções",
       title: "Encontre pelo seu cenário",
       description:
-        "Consórcio, vida, viagem, saúde e odonto com orientação consultiva da E DIAS.",
+        "Consórcio, vida, viagem, saúde, odonto e incêndio com orientação consultiva da E DIAS.",
       cta: { label: "Ver soluções", href: "/#solucoes" },
       columns: [
         {
@@ -107,6 +107,7 @@ export const navItems: NavItem[] = [
             { label: "Seguro de vida", href: "/vida" },
             { label: "Seguro viagem", href: "/viagem" },
             { label: "Planos de saúde", href: "/saude" },
+            { label: "Incêndio", href: "/incendio" },
             {
               label: "Odonto",
               href: odontoHref,
@@ -287,6 +288,16 @@ export const services = [
     accent: "Saúde alinhada ao seu perfil",
     image: "/images/home/health.jpg",
     imageAlt: "Cuidado com a saúde e planos adequados",
+  },
+  {
+    slug: "incendio",
+    title: "Seguro Incêndio",
+    href: "/incendio",
+    summary:
+      "Proteção de imóvel, conteúdo e operação contra incêndio e riscos correlatos — residencial, comercial ou industrial.",
+    accent: "Patrimônio e continuidade protegidos",
+    image: "/images/home/incendio.jpg",
+    imageAlt: "Edificação protegida com seguro contra incêndio",
   },
 ] as const;
 

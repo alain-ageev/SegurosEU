@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/vida",
     "/viagem",
     "/saude",
+    "/incendio",
     "/checklist",
     "/contato",
     "/sobre",

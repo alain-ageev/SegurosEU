@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
 type HeroProps = {
-  /** Rótulo curto (eyebrow) — não é logo sobre a imagem */
+  /** Assunto da página (eyebrow). Não usar marca/institucional. */
   brand?: string;
   title: string;
   description: string;
@@ -19,6 +19,16 @@ function isExternal(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
 }
 
+function isInstitutionalLabel(value?: string) {
+  if (!value) return true;
+  const normalized = value.trim().toLowerCase();
+  return (
+    normalized === "e dias" ||
+    normalized.includes("corretora de seguros") ||
+    normalized.includes("edias corretora")
+  );
+}
+
 export function Hero({
   brand,
   title,
@@ -29,8 +39,7 @@ export function Hero({
   imageSrc = "/images/home/meeting.jpg",
   imageAlt = "Consultoria E DIAS em atendimento",
 }: HeroProps) {
-  const eyebrow =
-    brand && brand.trim().toUpperCase() !== "E DIAS" ? brand : "E DIAS · Recife";
+  const eyebrow = isInstitutionalLabel(brand) ? null : brand?.trim() || null;
 
   const primaryExternal = isExternal(primaryCta.href);
   const secondaryExternal = isExternal(secondaryCta.href);
@@ -59,8 +68,14 @@ export function Hero({
           compact ? "pb-12 pt-16 sm:pb-14 sm:pt-20" : "pb-16 pt-20 sm:pb-20 sm:pt-24"
         }`}
       >
-        <p className="v2-eyebrow text-[var(--v2-ember)]">{eyebrow}</p>
-        <h1 className="v2-display mt-2 max-w-3xl text-[clamp(28px,4vw,42px)] text-white">
+        {eyebrow ? (
+          <p className="v2-eyebrow text-[var(--v2-ember)]">{eyebrow}</p>
+        ) : null}
+        <h1
+          className={`v2-display max-w-3xl text-[clamp(28px,4vw,42px)] text-white ${
+            eyebrow ? "mt-2" : ""
+          }`}
+        >
           {title}
         </h1>
         <p className="mt-3 max-w-xl text-[18px] leading-snug text-white/92">
