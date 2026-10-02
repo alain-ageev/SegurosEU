@@ -9,6 +9,8 @@ export default function NotFound() {
       primaryCta={{ label: "Ir para o início", href: "/" }}
       secondaryCta={{ label: "Ver soluções", href: "/#solucoes" }}
       compact
+      imageSrc="/images/home/meeting.jpg"
+      imageAlt="Página não encontrada"
     />
   );
 }

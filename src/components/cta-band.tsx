@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 type CtaBandProps = {
   title: string;
@@ -20,44 +19,23 @@ export function CtaBand({
   secondaryLabel = "Abrir checklist",
 }: CtaBandProps) {
   return (
-    <section className="relative overflow-hidden bg-[var(--edias-navy)] text-white">
-      <div aria-hidden className="absolute inset-0 brand-pattern opacity-45" />
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-70"
-        style={{
-          background:
-            "linear-gradient(120deg, rgba(5,46,68,0.75), rgba(5,46,68,0.45) 50%, rgba(182,165,113,0.2))",
-        }}
-      />
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-14 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:py-16">
+    <section className="bg-[var(--v2-abyss)] text-white">
+      <div className="v2-container flex flex-col gap-6 py-12 sm:py-14 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-2xl">
-          <h2 className="font-heading text-2xl font-semibold tracking-[0.04em] sm:text-3xl">
-            {title}
-          </h2>
-          <p className="font-description mt-3 text-lg leading-relaxed text-white/75">
-            {description}
-          </p>
+          <h2 className="v2-h2 v2-h2-on-blue text-white">{title}</h2>
+          <p className="mt-3 text-[17px] leading-snug text-white/90">{description}</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Button
-            nativeButton={false}
-            render={<Link href={primaryHref} />}
-            size="lg"
-            className="h-11 bg-[var(--edias-gold)] px-5 text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]"
-          >
+          <Link href={primaryHref} className="v2-btn v2-btn-accent">
             {primaryLabel}
-            <ArrowRightIcon />
-          </Button>
-          <Button
-            nativeButton={false}
-            render={<Link href={secondaryHref} />}
-            variant="outline"
-            size="lg"
-            className="h-11 border-white/30 bg-transparent px-5 text-white hover:bg-white/10 hover:text-white"
+            <ArrowRightIcon className="size-4" />
+          </Link>
+          <Link
+            href={secondaryHref}
+            className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
           >
             {secondaryLabel}
-          </Button>
+          </Link>
         </div>
       </div>
     </section>

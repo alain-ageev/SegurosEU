@@ -61,12 +61,14 @@ export default function ConsorcioPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="E DIAS"
+        brand="Consórcio"
         title="Consórcio com parcelas planejadas para o seu sonho"
         description="Grupos Porto Bank para imóvel, veículo, pesados e soluções sustentáveis — com orientação da Edias em cada etapa."
         primaryCta={{ label: "Pedir cotação", href: "/contato" }}
         secondaryCta={{ label: "Ver tabelas", href: "/consorcio/tabelas" }}
         compact
+        imageSrc="/images/home/consorcio.jpg"
+        imageAlt="Família conquistando o imóvel com consórcio"
       />
 
       <section id="tabelas" className="bg-white py-16 sm:py-20">

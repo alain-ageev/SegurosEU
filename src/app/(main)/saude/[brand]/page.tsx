@@ -84,6 +84,8 @@ export default async function SaudeBrandPage({ params }: PageProps) {
         primaryCta={{ label: "Solicitar cotação", href: "/contato" }}
         secondaryCta={{ label: "Voltar às operadoras", href: "/saude" }}
         compact
+        imageSrc="/images/home/health.jpg"
+        imageAlt={`Planos de saúde ${op.name}`}
       />
 
       <section className="bg-[var(--edias-canvas)] py-16">

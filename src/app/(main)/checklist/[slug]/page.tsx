@@ -111,6 +111,8 @@ export default async function ChecklistDetailPage({ params }: PageProps) {
         primaryCta={{ label: "Enviar por e-mail", href: `mailto:${siteConfig.email}?subject=Checklist%20${encodeURIComponent(item.title)}` }}
         secondaryCta={{ label: "Todos os checklists", href: "/checklist" }}
         compact
+        imageSrc="/images/home/finance.jpg"
+        imageAlt={`Checklist ${item.title}`}
       />
 
       <section className="bg-[var(--edias-canvas)] py-16">

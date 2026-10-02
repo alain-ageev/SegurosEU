@@ -57,6 +57,8 @@ export default function ConsorcioDuvidasPage() {
         primaryCta={{ label: "Falar com consultor", href: "/contato" }}
         secondaryCta={{ label: "Ver planos", href: "/consorcio" }}
         compact
+        imageSrc="/images/home/consorcio.jpg"
+        imageAlt="Dúvidas sobre consórcio"
       />
       <section className="bg-[var(--edias-canvas)] py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

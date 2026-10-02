@@ -23,6 +23,8 @@ export default function ChecklistPage() {
         primaryCta={{ label: "Falar com a equipe", href: "/contato" }}
         secondaryCta={{ label: "Cadastro cliente", href: "/contato" }}
         compact
+        imageSrc="/images/home/finance.jpg"
+        imageAlt="Organização de documentos para cotação"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">

@@ -49,6 +49,8 @@ export default function ConsorcioTabelasPage() {
         primaryCta={{ label: "Solicitar tabela", href: "/contato" }}
         secondaryCta={{ label: "Voltar ao consórcio", href: "/consorcio" }}
         compact
+        imageSrc="/images/home/house.jpg"
+        imageAlt="Tabelas de consórcio Porto Bank"
       />
 
       <section className="bg-white py-16">

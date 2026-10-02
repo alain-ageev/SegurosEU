@@ -47,14 +47,14 @@ export default function SobrePage() {
     <>
       <JsonLd data={aboutLd} />
       <Hero
-        brand="E DIAS"
+        brand="Sobre"
         title="Sobre a E DIAS"
         description={v2About.body}
         primaryCta={{ label: "Falar no WhatsApp", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Solicitar diagnóstico", href: "/#contato" }}
         compact
-        imageSrc="/images/home/brand-facade-dark.jpg"
-        imageAlt="Identidade visual E DIAS em fachada institucional"
+        imageSrc="/images/home/meeting.jpg"
+        imageAlt="Equipe E DIAS em consultoria com clientes"
       />
 
       <section id="quem-somos" className="v2-section bg-white">
@@ -79,7 +79,7 @@ export default function SobrePage() {
         className="v2-section v2-section-compact bg-[var(--v2-abyss)] text-white"
       >
         <div className="v2-container">
-          <p className="v2-eyebrow text-white">Propósito</p>
+          <p className="v2-eyebrow text-[var(--v2-ember)]">Propósito</p>
           <h2 className="v2-h2 v2-h2-on-blue mt-1">{v2About.missionTitle}</h2>
           <p className="mt-3 max-w-[760px] text-[18px] font-semibold leading-snug text-[var(--v2-ember)]">
             {v2About.missionLead}

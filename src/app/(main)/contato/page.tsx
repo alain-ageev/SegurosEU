@@ -37,6 +37,8 @@ export default function ContatoPage() {
         primaryCta={{ label: "Ligar agora", href: siteConfig.phoneHref }}
         secondaryCta={{ label: "WhatsApp", href: siteConfig.whatsappHref }}
         compact
+        imageSrc="/images/home/clients.jpg"
+        imageAlt="Atendimento consultivo E DIAS"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16">

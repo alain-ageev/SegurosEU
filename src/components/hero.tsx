@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site";
 
 type HeroProps = {
+  /** Rótulo curto (eyebrow) — não é logo sobre a imagem */
   brand?: string;
   title: string;
   description: string;
@@ -15,20 +15,30 @@ type HeroProps = {
   imageAlt?: string;
 };
 
+function isExternal(href: string) {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
 export function Hero({
-  brand = "E DIAS",
+  brand,
   title,
   description,
   primaryCta = { label: "Falar com especialista", href: "/contato" },
   secondaryCta = { label: "Ver soluções", href: "/#solucoes" },
   compact = false,
-  imageSrc = "/images/home/brand-hero.jpg",
-  imageAlt = "Identidade visual E DIAS Corretora de Seguros",
+  imageSrc = "/images/home/meeting.jpg",
+  imageAlt = "Consultoria E DIAS em atendimento",
 }: HeroProps) {
+  const eyebrow =
+    brand && brand.trim().toUpperCase() !== "E DIAS" ? brand : "E DIAS · Recife";
+
+  const primaryExternal = isExternal(primaryCta.href);
+  const secondaryExternal = isExternal(secondaryCta.href);
+
   return (
     <section
-      className={`relative overflow-hidden bg-[var(--edias-navy)] text-white ${
-        compact ? "min-h-[52vh]" : "min-h-[92vh]"
+      className={`relative overflow-hidden text-white ${
+        compact ? "min-h-[42vh]" : "min-h-[70vh]"
       }`}
     >
       <Image
@@ -41,60 +51,58 @@ export function Hero({
       />
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-[var(--edias-deep)]/94 via-[var(--edias-navy)]/80 to-[var(--edias-navy)]/55"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.35] mix-blend-soft-light brand-pattern"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.2] mix-blend-soft-light hero-grain"
-      />
-      <div
-        aria-hidden
-        className="absolute -right-24 top-1/4 h-[28rem] w-[28rem] rounded-full bg-[var(--edias-gold)]/15 blur-3xl animate-drift"
+        className="absolute inset-0 bg-gradient-to-r from-[var(--v2-abyss)] via-[var(--v2-abyss)]/88 to-[var(--v2-abyss)]/55"
       />
 
       <div
-        className={`relative mx-auto flex max-w-6xl flex-col justify-end px-4 sm:px-6 lg:px-8 ${
-          compact ? "pb-14 pt-16 sm:pb-16 sm:pt-20" : "pb-20 pt-20 sm:pb-24 sm:pt-28"
+        className={`v2-container relative flex flex-col justify-end ${
+          compact ? "pb-12 pt-16 sm:pb-14 sm:pt-20" : "pb-16 pt-20 sm:pb-20 sm:pt-24"
         }`}
       >
-        <p className="animate-rise font-heading text-3xl font-semibold tracking-[0.08em] text-[var(--edias-gold)] uppercase sm:text-4xl md:text-5xl lg:text-6xl">
-          {brand}
-        </p>
-        <p className="animate-rise mt-1 font-heading text-[0.7rem] tracking-[0.28em] text-white/70 uppercase sm:text-xs">
-          Corretora de Seguros
-        </p>
-        <h1 className="animate-rise-delay mt-5 max-w-3xl font-heading text-2xl font-medium leading-tight text-white sm:text-3xl md:text-4xl">
+        <p className="v2-eyebrow text-[var(--v2-ember)]">{eyebrow}</p>
+        <h1 className="v2-display mt-2 max-w-3xl text-[clamp(28px,4vw,42px)] text-white">
           {title}
         </h1>
-        <p className="animate-rise-delay-2 font-description mt-5 max-w-xl text-lg leading-relaxed text-white/80 sm:text-xl">
+        <p className="mt-3 max-w-xl text-[18px] leading-snug text-white/92">
           {description}
         </p>
-        <div className="animate-rise-delay-3 mt-8 flex flex-wrap items-center gap-3">
-          <Button
-            nativeButton={false}
-            render={<Link href={primaryCta.href} />}
-            size="lg"
-            className="h-11 rounded-none bg-[var(--edias-gold)] px-5 text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]"
-          >
-            {primaryCta.label}
-            <ArrowRightIcon />
-          </Button>
-          <Button
-            nativeButton={false}
-            render={<Link href={secondaryCta.href} />}
-            variant="outline"
-            size="lg"
-            className="h-11 rounded-none border-white/30 bg-transparent px-5 text-white hover:bg-white/10 hover:text-white"
-          >
-            {secondaryCta.label}
-          </Button>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          {primaryExternal ? (
+            <a
+              href={primaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="v2-btn v2-btn-accent"
+            >
+              {primaryCta.label}
+              <ArrowRightIcon className="size-4" />
+            </a>
+          ) : (
+            <Link href={primaryCta.href} className="v2-btn v2-btn-accent">
+              {primaryCta.label}
+              <ArrowRightIcon className="size-4" />
+            </Link>
+          )}
+          {secondaryExternal ? (
+            <a
+              href={secondaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
+            >
+              {secondaryCta.label}
+            </a>
+          ) : (
+            <Link
+              href={secondaryCta.href}
+              className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
+            >
+              {secondaryCta.label}
+            </Link>
+          )}
         </div>
         {!compact ? (
-          <p className="mt-10 font-heading text-xs tracking-[0.16em] text-white/45 uppercase">
+          <p className="mt-8 text-[13px] font-medium tracking-[0.08em] text-white/70 uppercase">
             Recife · {siteConfig.phone} · Atendimento consultivo
           </p>
         ) : null}

@@ -52,12 +52,14 @@ export default function ViagemPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="E DIAS"
+        brand="Seguro viagem"
         title="Seguro viagem com tranquilidade onde você estiver"
         description="SulAmérica com contratação rápida, assistência 24h e condições especiais — inclusive opções com desconto e parcelamento."
         primaryCta={{ label: "Simular viagem", href: "/contato" }}
         secondaryCta={{ label: "Ver dúvidas", href: "#duvidas" }}
         compact
+        imageSrc="/images/home/travel.jpg"
+        imageAlt="Viagem protegida com seguro viagem"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16">

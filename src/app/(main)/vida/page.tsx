@@ -42,12 +42,14 @@ export default function VidaPage() {
     <>
       <JsonLd data={faqLd} />
       <Hero
-        brand="E DIAS"
+        brand="Seguro de vida"
         title="Seguro de vida sob medida para você e sua família"
         description="Planos SulAmérica com coberturas de renda, doenças graves e assistências que acompanham a rotina da família."
         primaryCta={{ label: "Simular agora", href: "/contato" }}
         secondaryCta={{ label: "Checklist Vida Flex", href: "/checklist" }}
         compact
+        imageSrc="/images/home/family.jpg"
+        imageAlt="Família protegida com seguro de vida"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
