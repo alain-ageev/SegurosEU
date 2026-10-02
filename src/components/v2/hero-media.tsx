@@ -9,12 +9,12 @@ type HeroMediaProps = {
   alt: string;
 };
 
-/** Vídeo no mesmo slot da imagem principal; cai na imagem se o arquivo faltar. */
+/** Slot da mídia principal — mesmo efeito visual de `.v2-media` em #diferenciais */
 export function HeroMedia({ videoSrc, posterSrc, alt }: HeroMediaProps) {
   const [showVideo, setShowVideo] = useState(Boolean(videoSrc));
 
   return (
-    <div className="v2-hero-media relative aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[var(--v2-abyss)] shadow-[0_20px_50px_rgba(8,58,86,0.22)]">
+    <div className="v2-hero-media relative aspect-[4/3] w-full">
       {showVideo && videoSrc ? (
         <video
           className="absolute inset-0 h-full w-full object-cover"

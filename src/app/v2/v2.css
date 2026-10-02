@@ -305,25 +305,38 @@
   color: var(--v2-steel);
 }
 
-.v2-media {
+.v2-media,
+.v2-hero-media {
   position: relative;
   overflow: hidden;
   border-radius: var(--v2-radius-lg);
   background: color-mix(in srgb, var(--v2-abyss) 8%, white);
 }
 
-.v2-media img {
+.v2-hero-media {
+  border-radius: 20px;
+  background: var(--v2-abyss);
+  box-shadow: 0 20px 50px rgba(8, 58, 86, 0.22);
+}
+
+.v2-media img,
+.v2-hero-media img,
+.v2-hero-media video {
   transition: transform 0.7s ease;
 }
 
-.v2-media:hover img {
+.v2-media:hover img,
+.v2-hero-media:hover img,
+.v2-hero-media:hover video {
   transform: scale(1.06);
 }
 
-.v2-media::after {
+.v2-media::after,
+.v2-hero-media::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     180deg,
     transparent 55%,
