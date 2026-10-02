@@ -40,34 +40,19 @@ export default function ConversionHomePage() {
     <>
       <JsonLd data={ld} />
 
-      {/* Hero — fachadas da marca (vidro + placa) */}
-      <section className="relative overflow-hidden text-white">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/home/brand-facade-glass.jpg"
-            alt="Fachada com a marca E DIAS Corretora de Seguros"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[68%_center]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-[var(--v2-abyss)] via-[var(--v2-abyss)]/88 to-[var(--v2-abyss)]/40"
-          />
-        </div>
-
-        <div className="v2-container relative grid items-center gap-8 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+      {/* Hero — texto + fachada da marca (logo legível) */}
+      <section className="border-b border-[var(--v2-mist)]/35 bg-white">
+        <div className="v2-container grid items-center gap-8 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:py-14">
           <div>
-            <p className="v2-eyebrow text-[var(--v2-ember)]">{v2Hero.eyebrow}</p>
-            <h1 className="v2-display mt-2 text-[clamp(30px,4.5vw,44px)] text-white">
+            <p className="v2-eyebrow">{v2Hero.eyebrow}</p>
+            <h1 className="v2-display mt-2 text-[clamp(30px,4.5vw,44px)]">
               {v2Hero.title}
             </h1>
-            <p className="mt-3 max-w-xl text-[18px] leading-snug text-white/92">
+            <p className="v2-body mt-3 max-w-xl text-[18px]">
               {v2Hero.subtitle}
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-accent">
+              <Link href={v2Hero.primaryCta.href} className="v2-btn v2-btn-primary">
                 {v2Hero.primaryCta.label}
                 <ArrowRightIcon className="size-4" />
               </Link>
@@ -75,24 +60,22 @@ export default function ConversionHomePage() {
                 href={v2Hero.secondaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="v2-btn border border-white/45 bg-white/10 text-white hover:bg-white/18"
+                className="v2-btn v2-btn-outline"
               >
                 {v2Hero.secondaryCta.label}
               </a>
             </div>
-            <p className="mt-6 text-[14px] font-medium text-white/75">
-              {v2Hero.trustLine}
-            </p>
+            <p className="v2-caption mt-6">{v2Hero.trustLine}</p>
           </div>
 
-          <div className="v2-media aspect-square max-w-[420px] justify-self-center shadow-[0_24px_60px_rgba(6,40,70,0.45)] lg:justify-self-end">
+          <div className="v2-hero-media relative aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-[var(--v2-abyss)] shadow-[0_20px_50px_rgba(8,58,86,0.22)]">
             <Image
-              src="/images/home/brand-facade-dark.jpg"
-              alt="Identidade visual E DIAS em fachada institucional"
+              src="/images/home/brand-hero.jpg"
+              alt="Identidade visual E DIAS Corretora de Seguros"
               fill
               priority
-              sizes="(max-width: 1024px) 80vw, 420px"
-              className="object-cover object-[18%_45%]"
+              sizes="(max-width: 1024px) 92vw, 520px"
+              className="object-cover object-center"
             />
           </div>
         </div>

@@ -49,6 +49,17 @@
   padding-inline: 24px;
 }
 
+/* E-mail do rodapé — evita quebra letra a letra */
+.v2-footer-email {
+  display: inline-block;
+  max-width: 100%;
+  font-size: 13px;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
 @media (min-width: 1024px) {
   .v2-container {
     padding-inline: 32px;

@@ -34,7 +34,7 @@ function FooterLink({
 export function V2Footer() {
   return (
     <footer className="rounded-t-[2.5rem] bg-[var(--v2-chrome)] px-4 pt-4 text-white sm:rounded-t-[4rem] sm:px-6 sm:pt-6">
-      <div className="v2-container grid gap-10 py-12 sm:py-14 lg:grid-cols-4">
+      <div className="v2-container grid gap-10 py-12 sm:py-14 lg:grid-cols-[1.15fr_1fr_1fr_1.35fr]">
         <div>
           <Link href="/" aria-label={`${siteConfig.shortName} — início`}>
             <Image
@@ -87,7 +87,7 @@ export function V2Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h2 className="text-[14px] font-bold">Contato</h2>
           <ul className="mt-4 space-y-2 text-[14px] text-white/75">
             <li>
@@ -96,7 +96,10 @@ export function V2Footer() {
               </a>
             </li>
             <li>
-              <a href={`mailto:${siteConfig.email}`} className="break-all hover:text-white">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="v2-footer-email hover:text-white"
+              >
                 {siteConfig.email}
               </a>
             </li>
