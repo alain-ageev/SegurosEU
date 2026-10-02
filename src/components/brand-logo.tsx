@@ -27,19 +27,21 @@ export function BrandLogo({
           alt="E DIAS Corretora de Seguros"
           width={320}
           height={85}
-          className="h-9 w-auto object-contain sm:h-11"
+          className="h-10 w-auto object-contain sm:h-12"
           priority
         />
       ) : (
-        <Image
-          src="/images/logo-edias-3d.png"
-          alt="E DIAS Corretora de Seguros"
-          width={720}
-          height={360}
-          className="h-11 w-auto max-w-[180px] object-contain object-left sm:h-12 sm:max-w-[220px] lg:h-[3.25rem] lg:max-w-[240px]"
-          priority
-          sizes="(max-width: 640px) 180px, 240px"
-        />
+        <span className="v2-brand-logo-shell inline-flex items-center rounded-[12px] px-1.5 py-1 sm:px-2 sm:py-1.5">
+          <Image
+            src="/images/logo-edias-3d.png"
+            alt="E DIAS Corretora de Seguros"
+            width={720}
+            height={360}
+            className="h-14 w-auto max-w-[220px] object-contain object-left sm:h-16 sm:max-w-[280px] lg:h-[4.25rem] lg:max-w-[320px]"
+            priority
+            sizes="(max-width: 640px) 220px, 320px"
+          />
+        </span>
       )}
     </Link>
   );

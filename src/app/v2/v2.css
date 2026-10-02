@@ -1,8 +1,8 @@
 /* Site principal (conversão) — branco + azul da paleta, sem cinza/azul claro */
 
 .v2-shell {
-  --v2-ember: #c4b47a;
-  --v2-ember-hover: #d4c89a;
+  --v2-ember: #ffc800;
+  --v2-ember-hover: #ffd84a;
   /* Ciano dos indicadores / H2 em faixa azul — mais vibrante */
   --v2-title: #1ad4f0;
   /* Rodapé — marinho profundo */
@@ -77,6 +77,21 @@
 /* Mobile: evita overflow horizontal */
 .v2-shell {
   overflow-x: clip;
+}
+
+/* Logo do menu — maior, com toque do azul padrão */
+.v2-brand-logo-shell {
+  background: color-mix(in srgb, var(--v2-abyss) 8%, #ffffff);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--v2-abyss) 22%, transparent),
+    0 6px 18px color-mix(in srgb, var(--v2-abyss) 14%, transparent);
+}
+
+.v2-brand-logo-shell:hover {
+  background: color-mix(in srgb, var(--v2-abyss) 12%, #ffffff);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--v2-abyss) 32%, transparent),
+    0 8px 22px color-mix(in srgb, var(--v2-abyss) 18%, transparent);
 }
 
 @media (min-width: 1024px) {

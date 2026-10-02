@@ -164,7 +164,7 @@ export function V2Header() {
         </div>
 
         <div className="border-b border-[var(--v2-mist)] bg-[#f4f4f4]">
-          <div className="v2-container flex h-14 items-center justify-between gap-3 sm:h-16 sm:gap-4">
+          <div className="v2-container flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] sm:gap-4">
             <div className="min-w-0 shrink">
               <BrandLogo variant="dark" href="/" />
             </div>
