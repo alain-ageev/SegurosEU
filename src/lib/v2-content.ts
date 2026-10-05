@@ -47,7 +47,7 @@ export const v2Hero = {
    * Enquanto estiver vazio/null, a imagem posterSrc permanece.
    */
   videoSrc: null as string | null,
-  posterSrc: "/images/home/brand-facade-dark.jpg",
+  posterSrc: "/images/home/brand-hero-main.jpg",
 };
 
 export const v2TrustIndicators = [
