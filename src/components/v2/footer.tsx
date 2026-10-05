@@ -13,14 +13,19 @@ function FooterLink({
   children: React.ReactNode;
   className?: string;
 }) {
-  const external = href.startsWith("http://") || href.startsWith("https://");
+  const external =
+    href.startsWith("http://") ||
+    href.startsWith("https://") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:");
   const classes = `v2-footer-link ${className}`.trim();
   if (external) {
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(href.startsWith("http")
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
         className={classes}
       >
         {children}
