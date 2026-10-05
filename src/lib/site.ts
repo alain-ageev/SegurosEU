@@ -250,34 +250,14 @@ export const navItems: NavItem[] = [
 
 export const services = [
   {
-    slug: "consorcio",
-    title: "Consórcio",
-    href: "/consorcio",
+    slug: "incendio",
+    title: "Seguro Incêndio",
+    href: "/incendio",
     summary:
-      "Realize o sonho do imóvel, veículo ou equipamento com parcelas planejadas e grupos Porto Bank.",
-    accent: "Planejamento sem juros bancários",
-    image: "/images/home/consorcio.jpg",
-    imageAlt: "Família conquistando o sonho do imóvel com consórcio",
-  },
-  {
-    slug: "vida",
-    title: "Seguro de Vida",
-    href: "/vida",
-    summary:
-      "Proteção sob medida para família e renda, com coberturas de doenças graves e assistências.",
-    accent: "Tranquilidade para quem depende de você",
-    image: "/images/home/family.jpg",
-    imageAlt: "Proteção familiar com seguro de vida",
-  },
-  {
-    slug: "viagem",
-    title: "Seguro Viagem",
-    href: "/viagem",
-    summary:
-      "Cobertura nacional e internacional com contratação rápida e suporte 24h no exterior.",
-    accent: "Viaje com proteção e desconto",
-    image: "/images/home/travel.jpg",
-    imageAlt: "Viagem protegida com seguro viagem",
+      "Proteção de imóvel, conteúdo e operação contra incêndio e riscos correlatos — residencial, comercial ou industrial.",
+    accent: "Patrimônio e continuidade protegidos",
+    image: "/images/home/incendio.jpg",
+    imageAlt: "Edificação protegida com seguro contra incêndio",
   },
   {
     slug: "saude",
@@ -290,14 +270,34 @@ export const services = [
     imageAlt: "Cuidado com a saúde e planos adequados",
   },
   {
-    slug: "incendio",
-    title: "Seguro Incêndio",
-    href: "/incendio",
+    slug: "vida",
+    title: "Seguro de Vida",
+    href: "/vida",
     summary:
-      "Proteção de imóvel, conteúdo e operação contra incêndio e riscos correlatos — residencial, comercial ou industrial.",
-    accent: "Patrimônio e continuidade protegidos",
-    image: "/images/home/incendio.jpg",
-    imageAlt: "Edificação protegida com seguro contra incêndio",
+      "Proteção sob medida para família e renda, com coberturas de doenças graves e assistências.",
+    accent: "Tranquilidade para quem depende de você",
+    image: "/images/home/family.jpg",
+    imageAlt: "Proteção familiar com seguro de vida",
+  },
+  {
+    slug: "consorcio",
+    title: "Consórcio",
+    href: "/consorcio",
+    summary:
+      "Realize o sonho do imóvel, veículo ou equipamento com parcelas planejadas e grupos Porto Bank.",
+    accent: "Planejamento sem juros bancários",
+    image: "/images/home/consorcio.jpg",
+    imageAlt: "Família conquistando o sonho do imóvel com consórcio",
+  },
+  {
+    slug: "viagem",
+    title: "Seguro Viagem",
+    href: "/viagem",
+    summary:
+      "Cobertura nacional e internacional com contratação rápida e suporte 24h no exterior.",
+    accent: "Viaje com proteção e desconto",
+    image: "/images/home/travel.jpg",
+    imageAlt: "Viagem protegida com seguro viagem",
   },
 ] as const;
 

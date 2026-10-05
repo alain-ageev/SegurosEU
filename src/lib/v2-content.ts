@@ -47,7 +47,7 @@ export const v2Hero = {
    * Enquanto estiver vazio/null, a imagem posterSrc permanece.
    */
   videoSrc: null as string | null,
-  posterSrc: "/images/home/brand-hero.jpg",
+  posterSrc: "/images/home/brand-facade-dark.jpg",
 };
 
 export const v2TrustIndicators = [
@@ -60,7 +60,7 @@ export const v2TrustIndicators = [
     label: "Foco em empresas, RH e patrimônio",
   },
   {
-    value: "1 dia",
+    value: "72h",
     label: "Prazo médio de primeiro retorno",
   },
 ] as const;
