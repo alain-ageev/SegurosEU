@@ -55,6 +55,18 @@
   }
 }
 
+/* Links do rodapé — hover dourado */
+.v2-footer-link {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.v2-footer-link:hover,
+.v2-footer-link:focus-visible {
+  color: var(--v2-ember);
+  outline: none;
+}
+
 /* E-mail do rodapé — evita quebra letra a letra */
 .v2-footer-email {
   display: inline-block;

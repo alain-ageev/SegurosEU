@@ -7,25 +7,28 @@ import { v2Nav, v2Solutions } from "@/lib/v2-content";
 function FooterLink({
   href,
   children,
+  className = "",
 }: {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   const external = href.startsWith("http://") || href.startsWith("https://");
+  const classes = `v2-footer-link ${className}`.trim();
   if (external) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-white"
+        className={classes}
       >
         {children}
       </a>
     );
   }
   return (
-    <Link href={href} className="hover:text-white">
+    <Link href={href} className={classes}>
       {children}
     </Link>
   );
@@ -74,15 +77,11 @@ export function V2Footer() {
           <ul className="mt-4 space-y-2 text-[14px] text-white/75">
             {v2Nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-white">
-                  {item.label}
-                </Link>
+                <FooterLink href={item.href}>{item.label}</FooterLink>
               </li>
             ))}
             <li>
-              <Link href="/#parceiros" className="hover:text-white">
-                Parceiros
-              </Link>
+              <FooterLink href="/#parceiros">Parceiros</FooterLink>
             </li>
           </ul>
         </div>
@@ -91,17 +90,15 @@ export function V2Footer() {
           <h2 className="text-[14px] font-bold">Contato</h2>
           <ul className="mt-4 space-y-2 text-[14px] text-white/75">
             <li>
-              <a href={siteConfig.phoneHref} className="hover:text-white">
-                {siteConfig.phone}
-              </a>
+              <FooterLink href={siteConfig.phoneHref}>{siteConfig.phone}</FooterLink>
             </li>
             <li>
-              <a
+              <FooterLink
                 href={`mailto:${siteConfig.email}`}
-                className="v2-footer-email hover:text-white"
+                className="v2-footer-email"
               >
                 {siteConfig.email}
-              </a>
+              </FooterLink>
             </li>
             <li>
               {siteConfig.address.neighborhood}, {siteConfig.address.city}/
