@@ -133,12 +133,22 @@
   color: var(--v2-pewter);
 }
 
+/* Eyebrow dourado (sobrescreve .v2-eyebrow) */
+.v2-eyebrow.v2-eyebrow-ember {
+  color: var(--v2-ember);
+}
+
 .v2-display {
   font-family: var(--v2-font);
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.15;
   color: var(--v2-ink);
+}
+
+/* H1 dourado em heróis de páginas secundárias */
+.v2-display.v2-display-ember {
+  color: var(--v2-ember);
 }
 
 .v2-h2 {

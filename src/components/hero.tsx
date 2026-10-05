@@ -69,10 +69,10 @@ export function Hero({
         }`}
       >
         {eyebrow ? (
-          <p className="v2-eyebrow text-[var(--v2-ember)]">{eyebrow}</p>
+          <p className="v2-eyebrow v2-eyebrow-ember">{eyebrow}</p>
         ) : null}
         <h1
-          className={`v2-display max-w-3xl text-[clamp(28px,4vw,42px)] text-[var(--v2-ember)] ${
+          className={`v2-display v2-display-ember max-w-3xl text-[clamp(28px,4vw,42px)] ${
             eyebrow ? "mt-2" : ""
           }`}
         >
