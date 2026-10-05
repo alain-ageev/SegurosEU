@@ -103,11 +103,11 @@ export const navItems: NavItem[] = [
         {
           title: "Para você",
           links: [
-            { label: "Consórcio", href: "/consorcio" },
-            { label: "Seguro de vida", href: "/vida" },
-            { label: "Seguro viagem", href: "/viagem" },
-            { label: "Planos de saúde", href: "/saude" },
             { label: "Incêndio", href: "/incendio" },
+            { label: "Planos de saúde", href: "/saude" },
+            { label: "Seguro de vida", href: "/vida" },
+            { label: "Consórcio", href: "/consorcio" },
+            { label: "Seguro viagem", href: "/viagem" },
             {
               label: "Odonto",
               href: odontoHref,
