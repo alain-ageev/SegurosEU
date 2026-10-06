@@ -11,6 +11,10 @@ type ConsorcioVideoProps = {
   description?: string;
 };
 
+/**
+ * Vertical reel (9:16) capped by viewport height so it cannot blow out
+ * page width/height on mobile or desktop.
+ */
 export function ConsorcioVideo({
   title = "Lance livre, fixo ou embutido?",
   description = "Emmanuel explica as modalidades de lance no consórcio — para você escolher com clareza antes de dar o próximo passo.",
@@ -20,11 +24,11 @@ export function ConsorcioVideo({
   return (
     <section
       id="video-lances"
-      className="border-t border-[var(--edias-line)] bg-[var(--edias-canvas)] py-16 sm:py-20"
+      className="overflow-x-clip border-t border-[var(--edias-line)] bg-[var(--edias-canvas)] py-12 sm:py-16"
       aria-labelledby="consorcio-video-heading"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:px-8">
-        <div>
+      <div className="mx-auto grid min-w-0 max-w-6xl items-center gap-8 px-4 sm:gap-10 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:px-8">
+        <div className="min-w-0">
           <p className="text-xs font-bold tracking-[0.16em] text-[var(--edias-gold)] uppercase">
             Explicação rápida
           </p>
@@ -39,11 +43,19 @@ export function ConsorcioVideo({
           </p>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[360px] overflow-hidden rounded-[16px] bg-[var(--edias-navy)] shadow-[0_20px_50px_rgba(10,30,60,0.18)]">
-          <div className="relative aspect-[9/16] w-full">
+        <div className="flex min-w-0 justify-center">
+          <div
+            className="relative overflow-hidden rounded-[16px] bg-[var(--edias-navy)] shadow-[0_16px_40px_rgba(10,30,60,0.16)]"
+            style={{
+              // Cap by viewport so 9:16 never becomes a full-page tower
+              height: "min(58vh, 480px)",
+              width: "min(260px, 72vw, calc(min(58vh, 480px) * 9 / 16))",
+              maxWidth: "100%",
+            }}
+          >
             {showVideo ? (
               <video
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-contain"
                 autoPlay
                 muted
                 loop
@@ -61,8 +73,8 @@ export function ConsorcioVideo({
                 src={POSTER_SRC}
                 alt={title}
                 fill
-                sizes="(max-width: 1024px) 90vw, 360px"
-                className="object-cover object-center"
+                sizes="260px"
+                className="object-contain object-center"
               />
             )}
           </div>
