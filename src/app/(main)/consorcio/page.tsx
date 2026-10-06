@@ -72,67 +72,72 @@ export default function ConsorcioPage() {
         imageAlt="Família conquistando o imóvel com consórcio"
       />
 
-      <ConsorcioVideo />
+      <section
+        id="tabelas"
+        className="overflow-x-clip bg-white py-16 sm:py-20"
+      >
+        <div className="mx-auto grid min-w-0 max-w-6xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-12 lg:px-8">
+          <div className="min-w-0">
+            <p className="text-xs font-bold tracking-[0.16em] text-[var(--edias-gold)] uppercase">
+              Tabelas
+            </p>
+            <h2 className="mt-2 font-heading text-3xl font-semibold text-[var(--edias-navy)]">
+              Consulte as tabelas do Consórcio Porto Bank
+            </h2>
+            <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">
+              Como no site anterior: automóvel, imóvel e pesados — com todas as
+              tabelas PF/PJ, solar e bike em um só lugar.
+            </p>
 
-      <section id="tabelas" className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-bold tracking-[0.16em] text-[var(--edias-gold)] uppercase">
-            Tabelas
-          </p>
-          <h2 className="mt-2 font-heading text-3xl font-semibold text-[var(--edias-navy)]">
-            Consulte as tabelas do Consórcio Porto Bank
-          </h2>
-          <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">
-            Como no site anterior: automóvel, imóvel e pesados — com todas as
-            tabelas PF/PJ, solar e bike em um só lugar.
-          </p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {tabelaShortcuts.map((item) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.href}
+                    className="group flex h-full flex-col justify-between rounded-[16px] border border-[var(--edias-line)] bg-white p-6 transition hover:border-[var(--edias-navy)]"
+                  >
+                    <div>
+                      <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                        {item.body}
+                      </p>
+                    </div>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)]">
+                      Ver tabelas
+                      <ArrowRightIcon className="size-4 transition group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-            {tabelaShortcuts.map((item) => (
-              <li key={item.title}>
-                <Link
-                  href={item.href}
-                  className="group flex h-full flex-col justify-between rounded-[16px] border border-[var(--edias-line)] bg-white p-6 transition hover:border-[var(--edias-navy)]"
-                >
-                  <div>
-                    <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                      {item.body}
-                    </p>
-                  </div>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)]">
-                    Ver tabelas
-                    <ArrowRightIcon className="size-4 transition group-hover:translate-x-0.5" />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+            <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[var(--edias-navy)]">
+              {consorcioTables.map((table) => (
+                <li key={table.id}>
+                  <Link
+                    href={`/consorcio/tabelas#${table.id}`}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    {table.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-[var(--edias-navy)]">
-            {consorcioTables.map((table) => (
-              <li key={table.id}>
-                <Link
-                  href={`/consorcio/tabelas#${table.id}`}
-                  className="underline-offset-4 hover:underline"
-                >
-                  {table.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8">
-            <Link
-              href="/consorcio/tabelas"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[var(--edias-navy)] underline-offset-4 hover:underline"
-            >
-              Todas as tabelas de consórcio
-              <ArrowRightIcon className="size-4" />
-            </Link>
+            <div className="mt-8">
+              <Link
+                href="/consorcio/tabelas"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[var(--edias-navy)] underline-offset-4 hover:underline"
+              >
+                Todas as tabelas de consórcio
+                <ArrowRightIcon className="size-4" />
+              </Link>
+            </div>
           </div>
+
+          <ConsorcioVideo />
         </div>
       </section>
 
