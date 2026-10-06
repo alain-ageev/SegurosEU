@@ -256,8 +256,8 @@ export const services = [
     summary:
       "Proteção de imóvel, conteúdo e operação contra incêndio e riscos correlatos — residencial, comercial ou industrial.",
     accent: "Patrimônio e continuidade protegidos",
-    image: "/images/home/incendio.jpg",
-    imageAlt: "Edificação protegida com seguro contra incêndio",
+    image: "/images/home/incendio-ig-limpo.jpg",
+    imageAlt: "Escritório em chamas — proteção contra risco de incêndio",
   },
   {
     slug: "saude",

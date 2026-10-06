@@ -66,8 +66,8 @@ export default function IncendioPage() {
         primaryCta={{ label: "Solicitar cotação", href: "/contato" }}
         secondaryCta={{ label: "Falar no WhatsApp", href: siteConfig.whatsappHref }}
         compact
-        imageSrc="/images/home/incendio.jpg"
-        imageAlt="Edificação protegida com seguro contra incêndio"
+        imageSrc="/images/home/incendio-ig-limpo.jpg"
+        imageAlt="Escritório em chamas — proteção contra risco de incêndio"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
