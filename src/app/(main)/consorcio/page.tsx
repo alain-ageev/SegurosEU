@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
+import { ConsorcioVideo } from "@/components/consorcio-video";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
@@ -70,6 +71,8 @@ export default function ConsorcioPage() {
         imageSrc="/images/home/consorcio.jpg"
         imageAlt="Família conquistando o imóvel com consórcio"
       />
+
+      <ConsorcioVideo />
 
       <section id="tabelas" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
