@@ -76,7 +76,7 @@ export default function ConsorcioPage() {
         id="tabelas"
         className="overflow-x-clip bg-white py-16 sm:py-20"
       >
-        <div className="mx-auto grid min-w-0 max-w-6xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-12 lg:px-8">
+        <div className="mx-auto grid min-w-0 max-w-6xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-12 lg:px-8">
           <div className="min-w-0">
             <p className="text-xs font-bold tracking-[0.16em] text-[var(--edias-gold)] uppercase">
               Tabelas
