@@ -196,7 +196,6 @@ export default function ConsorcioPage() {
       </section>
 
       <CtaBand
-        variant="light"
         title="Quer simular seu consórcio?"
         description="Envie o checklist ou fale com a equipe para receber orientação sobre prazo, crédito e modalidade."
         secondaryHref="/checklist/consorcio"
