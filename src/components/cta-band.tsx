@@ -8,6 +8,8 @@ type CtaBandProps = {
   primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
+  /** navy = faixa azul (padrão); light = fundo branco + dourado */
+  variant?: "navy" | "light";
 };
 
 export function CtaBand({
@@ -17,7 +19,35 @@ export function CtaBand({
   primaryLabel = "Solicitar atendimento",
   secondaryHref = "/checklist",
   secondaryLabel = "Abrir checklist",
+  variant = "navy",
 }: CtaBandProps) {
+  if (variant === "light") {
+    return (
+      <section className="border-t border-[var(--edias-line)] bg-white">
+        <div className="v2-container flex flex-col gap-6 py-12 sm:py-14 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="v2-h2 text-[var(--v2-ember)]">{title}</h2>
+            <p className="mt-3 text-[17px] leading-snug text-[var(--v2-mist)]">
+              {description}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href={primaryHref} className="v2-btn v2-btn-accent">
+              {primaryLabel}
+              <ArrowRightIcon className="size-4" />
+            </Link>
+            <Link
+              href={secondaryHref}
+              className="v2-btn border border-[var(--v2-ember)] text-[var(--v2-ember)] hover:bg-[var(--v2-ember)] hover:text-[var(--v2-ink)]"
+            >
+              {secondaryLabel}
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-[var(--v2-abyss)] text-white">
       <div className="v2-container flex flex-col gap-6 py-12 sm:py-14 lg:flex-row lg:items-end lg:justify-between">

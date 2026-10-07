@@ -167,7 +167,7 @@ export default function ConsorcioPage() {
             {consorcioPlans.map((plan) => (
               <li
                 key={plan.title}
-                className="border-l-2 border-[var(--edias-gold)] bg-[#f4f4f4] p-6"
+                className="rounded-[16px] border-l-2 border-[var(--edias-gold)] bg-[#f4f4f4] p-6"
               >
                 <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
                   {plan.title}
@@ -196,6 +196,7 @@ export default function ConsorcioPage() {
       </section>
 
       <CtaBand
+        variant="light"
         title="Quer simular seu consórcio?"
         description="Envie o checklist ou fale com a equipe para receber orientação sobre prazo, crédito e modalidade."
         secondaryHref="/checklist/consorcio"
