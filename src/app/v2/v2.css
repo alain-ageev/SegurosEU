@@ -1,8 +1,8 @@
 /* Site principal (conversão) — branco + azul da paleta, sem cinza/azul claro */
 
 .v2-shell {
-  --v2-ember: #c4b47a;
-  --v2-ember-hover: #d4c89a;
+  --v2-ember: #c9a91a;
+  --v2-ember-hover: #dbbc2e;
   /* Ciano dos indicadores / H2 em faixa azul — mais vibrante */
   --v2-title: #1ad4f0;
   /* Rodapé — marinho profundo */
