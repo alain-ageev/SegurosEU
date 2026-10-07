@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import { Hero } from "@/components/hero";
@@ -97,87 +98,108 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section id="contatos" className="v2-section bg-white">
+      <section id="contatos" className="v2-section overflow-x-clip bg-white">
         <div className="v2-container">
-          <p className="v2-eyebrow">Fale conosco</p>
-          <h2 className="v2-h2 mt-1">Contatos</h2>
-          <p className="v2-body mt-2 max-w-[640px]">
-            Atendimento consultivo em Recife · Boa Viagem — e remoto para outras praças.
-          </p>
+          <div className="grid min-w-0 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-10">
+            <div className="min-w-0">
+              <p className="v2-eyebrow">Fale conosco</p>
+              <h2 className="v2-h2 mt-1">Contatos</h2>
+              <p className="v2-body mt-2 max-w-[640px]">
+                Atendimento consultivo em Recife · Boa Viagem — e remoto para outras praças.
+              </p>
 
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            <li className="rounded-[14px] bg-[#f4f4f4] p-5">
-              <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
-                <PhoneIcon className="size-4 text-[var(--v2-abyss)]" />
-                Telefone
-              </p>
-              <a
-                href={siteConfig.phoneHref}
-                className="mt-2 block text-[18px] font-bold text-[var(--v2-abyss)] hover:underline"
-              >
-                {siteConfig.phone}
-              </a>
-            </li>
-            <li className="rounded-[14px] bg-[#f4f4f4] p-5">
-              <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
-                <PhoneIcon className="size-4 text-[var(--v2-abyss)]" />
-                WhatsApp
-              </p>
-              <a
-                href={siteConfig.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 block text-[18px] font-bold text-[var(--v2-abyss)] hover:underline"
-              >
-                {siteConfig.phoneSecondary}
-              </a>
-            </li>
-            <li className="rounded-[14px] bg-[#f4f4f4] p-5">
-              <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
-                <MailIcon className="size-4 text-[var(--v2-abyss)]" />
-                E-mail
-              </p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="mt-2 block break-all text-[16px] font-bold text-[var(--v2-abyss)] hover:underline"
-              >
-                {siteConfig.email}
-              </a>
-            </li>
-            <li className="rounded-[14px] bg-[#f4f4f4] p-5">
-              <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
-                <MapPinIcon className="size-4 text-[var(--v2-abyss)]" />
-                Endereço e horário
-              </p>
-              <p className="mt-2 text-[16px] font-semibold leading-snug text-[var(--v2-ink)]">
-                {siteConfig.address.street}
-                <br />
-                {siteConfig.address.neighborhood}, {siteConfig.address.city}/
-                {siteConfig.address.state}
-                <br />
-                CEP {siteConfig.address.postalCode}
-                <br />
-                <span className="mt-2 inline-block">{siteConfig.hours}</span>
-              </p>
-            </li>
-          </ul>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                <li className="rounded-[14px] bg-[#f4f4f4] p-5">
+                  <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
+                    <PhoneIcon className="size-4 text-[var(--v2-abyss)]" />
+                    Telefone
+                  </p>
+                  <a
+                    href={siteConfig.phoneHref}
+                    className="mt-2 block text-[18px] font-bold text-[var(--v2-abyss)] hover:underline"
+                  >
+                    {siteConfig.phone}
+                  </a>
+                </li>
+                <li className="rounded-[14px] bg-[#f4f4f4] p-5">
+                  <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
+                    <PhoneIcon className="size-4 text-[var(--v2-abyss)]" />
+                    WhatsApp
+                  </p>
+                  <a
+                    href={siteConfig.whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 block text-[18px] font-bold text-[var(--v2-abyss)] hover:underline"
+                  >
+                    {siteConfig.phoneSecondary}
+                  </a>
+                </li>
+                <li className="rounded-[14px] bg-[#f4f4f4] p-5">
+                  <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
+                    <MailIcon className="size-4 text-[var(--v2-abyss)]" />
+                    E-mail
+                  </p>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="mt-2 block break-all text-[16px] font-bold text-[var(--v2-abyss)] hover:underline"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </li>
+                <li className="rounded-[14px] bg-[#f4f4f4] p-5">
+                  <p className="flex items-center gap-2 text-[15px] font-bold text-[var(--v2-ink)]">
+                    <MapPinIcon className="size-4 text-[var(--v2-abyss)]" />
+                    Endereço e horário
+                  </p>
+                  <p className="mt-2 text-[16px] font-semibold leading-snug text-[var(--v2-ink)]">
+                    {siteConfig.address.street}
+                    <br />
+                    {siteConfig.address.neighborhood}, {siteConfig.address.city}/
+                    {siteConfig.address.state}
+                    <br />
+                    CEP {siteConfig.address.postalCode}
+                    <br />
+                    <span className="mt-2 inline-block">{siteConfig.hours}</span>
+                  </p>
+                </li>
+              </ul>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href={siteConfig.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="v2-btn v2-btn-primary"
-            >
-              WhatsApp
-              <ArrowRightIcon className="size-4" />
-            </a>
-            <Link href="/contato" className="v2-btn v2-btn-outline">
-              Página de contato
-            </Link>
-            <Link href="/#contato" className="v2-btn v2-btn-ghost">
-              Diagnóstico na home
-            </Link>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={siteConfig.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="v2-btn v2-btn-primary"
+                >
+                  WhatsApp
+                  <ArrowRightIcon className="size-4" />
+                </a>
+                <Link href="/contato" className="v2-btn v2-btn-outline">
+                  Página de contato
+                </Link>
+                <Link href="/#contato" className="v2-btn v2-btn-ghost">
+                  Diagnóstico na home
+                </Link>
+              </div>
+            </div>
+
+            <figure className="min-w-0">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-[#f4f4f4]">
+                <Image
+                  src="/images/home/Revista1.jpg"
+                  alt="Matéria sobre a E DIAS Corretora de Seguros em revista"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 480px"
+                  className="object-cover object-center"
+                />
+              </div>
+              <figcaption className="mt-3 text-[15px] leading-snug text-[var(--v2-ink-muted)]">
+                Na Edias, você garante atendimento completo e preço justo para
+                proteger o que mais importa: sua família. Converse com a gente e
+                veja como é simples começar.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
