@@ -12,41 +12,34 @@ type ConsorcioVideoProps = {
 };
 
 /**
- * Constrained 9:16 reel player for embedding beside Tabelas (or elsewhere).
- * Height/width capped so it cannot blow out the page layout.
+ * Constrained 9:16 reel beside Tabelas.
+ * Uses simple max-width + aspect-ratio (no nested calc) so the frame cannot collapse to 0.
  */
 export function ConsorcioVideo({
   title = "Lance livre, fixo ou embutido?",
   caption = "Emmanuel explica as modalidades de lance no consórcio.",
 }: ConsorcioVideoProps) {
-  const [showVideo, setShowVideo] = useState(true);
+  const [failed, setFailed] = useState(false);
 
   return (
     <aside
       id="video-lances"
-      className="mx-auto flex w-full min-w-0 max-w-[280px] flex-col items-center gap-3 lg:mx-0 lg:sticky lg:top-24"
+      className="mx-auto flex w-full min-w-0 max-w-[260px] shrink-0 flex-col items-center gap-3 lg:mx-0 lg:sticky lg:top-24"
       aria-label={title}
     >
-      <div
-        className="relative overflow-hidden rounded-[16px] bg-[var(--edias-navy)] shadow-[0_16px_40px_rgba(10,30,60,0.16)]"
-        style={{
-          height: "min(52vh, 420px)",
-          width: "min(240px, 72vw, calc(min(52vh, 420px) * 9 / 16))",
-          maxWidth: "100%",
-        }}
-      >
-        {showVideo ? (
+      <div className="relative aspect-[9/16] w-full max-h-[min(52vh,420px)] overflow-hidden rounded-[16px] bg-black shadow-[0_16px_40px_rgba(10,30,60,0.16)]">
+        {!failed ? (
           <video
-            className="absolute inset-0 h-full w-full object-contain"
+            className="absolute inset-0 h-full w-full object-cover"
             autoPlay
             muted
             loop
             playsInline
             controls
-            preload="metadata"
+            preload="auto"
             poster={POSTER_SRC}
             aria-label={title}
-            onError={() => setShowVideo(false)}
+            onError={() => setFailed(true)}
           >
             <source src={VIDEO_SRC} type="video/mp4" />
           </video>
@@ -55,8 +48,9 @@ export function ConsorcioVideo({
             src={POSTER_SRC}
             alt={title}
             fill
-            sizes="240px"
-            className="object-contain object-center"
+            sizes="260px"
+            className="object-cover object-center"
+            unoptimized
           />
         )}
       </div>
