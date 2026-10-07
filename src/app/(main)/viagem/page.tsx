@@ -58,8 +58,8 @@ export default function ViagemPage() {
         primaryCta={{ label: "Simular viagem", href: "/contato" }}
         secondaryCta={{ label: "Ver dúvidas", href: "#duvidas" }}
         compact
-        imageSrc="/images/home/travel.jpg"
-        imageAlt="Viagem protegida com seguro viagem"
+        imageSrc="/images/home/viagem2.jpg"
+        imageAlt="Família no aeroporto pronta para viajar"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16">

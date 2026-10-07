@@ -48,8 +48,8 @@ export default function VidaPage() {
         primaryCta={{ label: "Simular agora", href: "/contato" }}
         secondaryCta={{ label: "Checklist Vida Flex", href: "/checklist" }}
         compact
-        imageSrc="/images/home/family.jpg"
-        imageAlt="Família protegida com seguro de vida"
+        imageSrc="/images/home/familia2.jpg"
+        imageAlt="Família feliz protegida com seguro de vida"
       />
 
       <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">

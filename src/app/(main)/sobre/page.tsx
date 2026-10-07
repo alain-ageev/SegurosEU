@@ -194,10 +194,28 @@ export default function SobrePage() {
                   className="object-cover object-center"
                 />
               </div>
-              <figcaption className="mt-3 text-[15px] leading-snug text-[var(--v2-ink-muted)]">
-                Na Edias, você garante atendimento completo e preço justo para
-                proteger o que mais importa: sua família. Converse com a gente e
-                veja como é simples começar.
+              <figcaption className="relative mt-4">
+                <div
+                  aria-hidden
+                  className="absolute -top-2 left-8 size-4 rotate-45 bg-[#eef4f7]"
+                />
+                <blockquote className="relative rounded-[18px] bg-[#eef4f7] px-5 py-4 text-[15px] leading-snug text-[var(--v2-ink)]">
+                  <span
+                    aria-hidden
+                    className="mr-1 font-heading text-[28px] leading-none text-[var(--v2-abyss)]"
+                  >
+                    “
+                  </span>
+                  Na Edias, você garante atendimento completo e preço justo para
+                  proteger o que mais importa: sua família. Converse com a gente e
+                  veja como é simples começar.
+                  <span
+                    aria-hidden
+                    className="ml-0.5 font-heading text-[28px] leading-none text-[var(--v2-abyss)]"
+                  >
+                    ”
+                  </span>
+                </blockquote>
               </figcaption>
             </figure>
           </div>

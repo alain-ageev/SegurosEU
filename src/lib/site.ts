@@ -276,7 +276,7 @@ export const services = [
     summary:
       "Proteção sob medida para família e renda, com coberturas de doenças graves e assistências.",
     accent: "Tranquilidade para quem depende de você",
-    image: "/images/home/family.jpg",
+    image: "/images/home/familia2.jpg",
     imageAlt: "Proteção familiar com seguro de vida",
   },
   {
@@ -286,8 +286,8 @@ export const services = [
     summary:
       "Realize o sonho do imóvel, veículo ou equipamento com parcelas planejadas e grupos Porto Bank.",
     accent: "Planejamento sem juros bancários",
-    image: "/images/home/consorcio.jpg",
-    imageAlt: "Família conquistando o sonho do imóvel com consórcio",
+    image: "/images/home/viagem3.jpg",
+    imageAlt: "Casal conquistando o carro com consórcio",
   },
   {
     slug: "viagem",
@@ -296,8 +296,8 @@ export const services = [
     summary:
       "Cobertura nacional e internacional com contratação rápida e suporte 24h no exterior.",
     accent: "Viaje com proteção e desconto",
-    image: "/images/home/travel.jpg",
-    imageAlt: "Viagem protegida com seguro viagem",
+    image: "/images/home/viagem2.jpg",
+    imageAlt: "Família no aeroporto pronta para viajar",
   },
 ] as const;
 

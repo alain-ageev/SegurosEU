@@ -68,8 +68,8 @@ export default function ConsorcioPage() {
         primaryCta={{ label: "Pedir cotação", href: "/contato" }}
         secondaryCta={{ label: "Ver tabelas", href: "/consorcio/tabelas" }}
         compact
-        imageSrc="/images/home/consorcio.jpg"
-        imageAlt="Família conquistando o imóvel com consórcio"
+        imageSrc="/images/home/viagem3.jpg"
+        imageAlt="Casal conquistando o carro com consórcio"
       />
 
       <section
