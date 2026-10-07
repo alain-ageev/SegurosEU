@@ -185,10 +185,10 @@ export default function SobrePage() {
             </div>
 
             <figure className="min-w-0">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[16px] bg-[#f4f4f4]">
+              <div className="relative aspect-[21/10] w-full overflow-hidden rounded-[16px] bg-[#f4f4f4] sm:aspect-[2/1]">
                 <Image
-                  src="/images/home/Revista1.jpg"
-                  alt="Matéria sobre a E DIAS Corretora de Seguros em revista"
+                  src="/images/home/fale-conosco.jpg"
+                  alt="Equipe Edias em atendimento consultivo"
                   fill
                   sizes="(max-width: 1024px) 100vw, 480px"
                   className="object-cover object-center"
