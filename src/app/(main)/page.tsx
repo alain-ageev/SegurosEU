@@ -52,6 +52,12 @@ export default function ConversionHomePage() {
             <p className="v2-body mt-3 max-w-xl text-[18px]">
               {v2Hero.subtitle}
             </p>
+            <p className="mt-5 text-[15px] font-bold tracking-[0.08em] text-[var(--v2-abyss)] uppercase">
+              Especialista em projetos para grandes riscos
+            </p>
+            <p className="mt-1 text-[13px] font-semibold tracking-[0.06em] text-[var(--v2-steel)] uppercase">
+              Varejistas, atacadistas, fábricas e indústrias.
+            </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <Link
                 href={v2Hero.primaryCta.href}
@@ -415,7 +421,7 @@ export default function ConversionHomePage() {
             </p>
             <ul className="mt-4 space-y-2">
               {[
-                "Retorno em até 1 dia útil",
+                "Retorno em até 72 horas",
                 "Sem compromisso de contratação",
                 "Dados usados só para atendimento",
               ].map((line) => (

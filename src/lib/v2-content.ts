@@ -40,7 +40,7 @@ export const v2Hero = {
     href: siteConfig.whatsappHref,
   },
   trustLine:
-    "Atendimento consultivo · Parceiros nacionais · Resposta em até 1 dia útil",
+    "Atendimento consultivo · Parceiros nacionais · Resposta em até 72 horas",
   /**
    * Vídeo no slot da imagem principal.
    * Envie o MP4 e coloque em public/videos/hero.mp4 (ou atualize este path).
@@ -284,7 +284,7 @@ export const v2About = {
 export const v2Form = {
   title: "Solicite um diagnóstico",
   description:
-    "Conte o essencial. Retornamos em até 1 dia útil com os próximos passos — sem spam e com privacidade.",
+    "Conte o essencial. Retornamos em até 72 horas com os próximos passos — sem spam e com privacidade.",
   privacy:
     "Usamos seus dados apenas para retorno comercial da E DIAS. Não compartilhamos com terceiros sem necessidade do atendimento.",
 } as const;

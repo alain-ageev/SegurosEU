@@ -266,8 +266,8 @@ export const services = [
     summary:
       "Orientação consultiva entre operadoras para encontrar rede, coparticipação e reembolso ideais.",
     accent: "Saúde alinhada ao seu perfil",
-    image: "/images/home/health.jpg",
-    imageAlt: "Cuidado com a saúde e planos adequados",
+    image: "/images/home/travel.jpg",
+    imageAlt: "Médico com estetoscópio — planos de saúde",
   },
   {
     slug: "vida",
