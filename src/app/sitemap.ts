@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { checklistItems, saudeOperators, siteConfig } from "@/lib/site";
+import { checklistItems, consorcioTables, saudeOperators, siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -18,9 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const saudeRoutes = saudeOperators.map((op) => `/saude/${op.slug}`);
+  const tabelaRoutes = consorcioTables.map((item) => `/consorcio/tabelas/${item.id}`);
   const checklistRoutes = checklistItems.map((item) => `/checklist/${item.slug}`);
 
-  return [...staticRoutes, ...saudeRoutes, ...checklistRoutes].map((path) => ({
+  return [...staticRoutes, ...saudeRoutes, ...tabelaRoutes, ...checklistRoutes].map((path) => ({
     url: `${siteConfig.url}${path}`,
     lastModified: now,
     changeFrequency: path === "" ? "weekly" : "monthly",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { createPageMetadata } from "@/lib/seo";
@@ -32,16 +33,14 @@ const groups = [
 ] as const;
 
 export default function ConsorcioTabelasPage() {
-  const byId = Object.fromEntries(
-    consorcioTables.map((item) => [item.id, item])
-  );
+  const byId = Object.fromEntries(consorcioTables.map((item) => [item.id, item]));
 
   return (
     <>
       <Hero
         brand="Tabelas"
         title="Tabelas Consórcio Porto Bank"
-        description="As mesmas tabelas do site anterior: automóvel PF/PJ, imóvel PF/PJ e pesados PF/PJ."
+        description="Cada modalidade tem a própria página, com as tabelas do site anterior em tamanho original."
         primaryCta={{ label: "Solicitar tabela", href: "/contato" }}
         secondaryCta={{ label: "Voltar ao consórcio", href: "/consorcio" }}
         compact
@@ -61,52 +60,40 @@ export default function ConsorcioTabelasPage() {
                   const item = byId[id];
                   if (!item) return null;
                   return (
-                    <article
+                    <Link
                       key={item.id}
-                      id={item.id}
-                      className="scroll-mt-28 rounded-[20px] border border-[var(--edias-line)] bg-[#f4f4f4] p-6"
+                      href={`/consorcio/tabelas/${item.id}`}
+                      className="group overflow-hidden rounded-[20px] border border-[var(--edias-line)] bg-[#f4f4f4] transition hover:border-[var(--edias-navy)]"
                     >
-                      <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                        {item.body}
-                      </p>
-                      <div className="mt-4 space-y-3">
-                        {item.images.map((src) => (
-                          <Image
-                            key={src}
-                            src={src}
-                            alt={item.title}
-                            width={760}
-                            height={950}
-                            className="h-auto w-full rounded-[12px] bg-white"
-                          />
-                        ))}
+                      <div className="relative aspect-[4/5] bg-white">
+                        <Image
+                          src={item.images[0]}
+                          alt={item.title}
+                          fill
+                          unoptimized
+                          sizes="(max-width: 768px) 100vw, 480px"
+                          className="object-cover object-top"
+                        />
                       </div>
-                      <Link
-                        href="/contato"
-                        className="mt-4 inline-flex text-sm font-bold text-[var(--edias-navy)] underline-offset-4 hover:underline"
-                      >
-                        Solicitar esta tabela
-                      </Link>
-                    </article>
+                      <div className="p-6">
+                        <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                          {item.body}
+                        </p>
+                        <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)]">
+                          Abrir tabela
+                          <ArrowRightIcon className="size-4 transition group-hover:translate-x-0.5" />
+                        </span>
+                      </div>
+                    </Link>
                   );
                 })}
               </div>
             </div>
           ))}
         </div>
-        <p className="mx-auto mt-10 max-w-6xl px-4 text-sm text-[var(--edias-ink-muted)] sm:px-6 lg:px-8">
-          Prefere tirar dúvidas antes? Veja também as{" "}
-          <Link
-            href="/consorcio/duvidas"
-            className="font-medium text-[var(--edias-navy)] underline-offset-4 hover:underline"
-          >
-            perguntas frequentes
-          </Link>
-          .
-        </p>
       </section>
       <CtaBand
         title="Receba a tabela atualizada"

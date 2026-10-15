@@ -40,10 +40,10 @@ export const consorcioTables = [
     title: "Tabela Automóvel PF",
     body: "Planos para pessoa física — carros e motos, nas faixas do Consórcio Porto Bank.",
     images: [
-      "/images/consorcio/tabelas/auto-pf-1.jpg",
-      "/images/consorcio/tabelas/auto-pf-2.jpg",
-      "/images/consorcio/tabelas/auto-pf-3.jpg",
-      "/images/consorcio/tabelas/auto-pf-4.jpg",
+      "/images/consorcio/tabelas/auto-pf-1.webp",
+      "/images/consorcio/tabelas/auto-pf-2.webp",
+      "/images/consorcio/tabelas/auto-pf-3.webp",
+      "/images/consorcio/tabelas/auto-pf-4.webp",
     ],
   },
   {
@@ -51,10 +51,10 @@ export const consorcioTables = [
     title: "Tabela Automóvel PJ",
     body: "Planos para pessoa jurídica — frota e veículos da empresa.",
     images: [
-      "/images/consorcio/tabelas/auto-pj-1.jpg",
-      "/images/consorcio/tabelas/auto-pj-2.jpg",
-      "/images/consorcio/tabelas/auto-pj-3.jpg",
-      "/images/consorcio/tabelas/auto-pj-4.jpg",
+      "/images/consorcio/tabelas/auto-pj-1.webp",
+      "/images/consorcio/tabelas/auto-pj-2.webp",
+      "/images/consorcio/tabelas/auto-pj-3.webp",
+      "/images/consorcio/tabelas/auto-pj-4.webp",
     ],
   },
   {
@@ -62,10 +62,10 @@ export const consorcioTables = [
     title: "Tabela Imóvel PF",
     body: "Faixas de crédito para casa, apartamento, terreno, construção e reforma.",
     images: [
-      "/images/consorcio/tabelas/imovel-pf-1.jpg",
-      "/images/consorcio/tabelas/imovel-pf-2.jpg",
-      "/images/consorcio/tabelas/imovel-pf-3.jpg",
-      "/images/consorcio/tabelas/imovel-pf-4.jpg",
+      "/images/consorcio/tabelas/imovel-pf-1.webp",
+      "/images/consorcio/tabelas/imovel-pf-2.webp",
+      "/images/consorcio/tabelas/imovel-pf-3.webp",
+      "/images/consorcio/tabelas/imovel-pf-4.webp",
     ],
   },
   {
@@ -73,10 +73,10 @@ export const consorcioTables = [
     title: "Tabela Imóvel PJ",
     body: "Crédito imobiliário para pessoa jurídica.",
     images: [
-      "/images/consorcio/tabelas/imovel-pj-1.jpg",
-      "/images/consorcio/tabelas/imovel-pj-2.jpg",
-      "/images/consorcio/tabelas/imovel-pj-3.jpg",
-      "/images/consorcio/tabelas/imovel-pj-4.jpg",
+      "/images/consorcio/tabelas/imovel-pj-1.webp",
+      "/images/consorcio/tabelas/imovel-pj-2.webp",
+      "/images/consorcio/tabelas/imovel-pj-3.webp",
+      "/images/consorcio/tabelas/imovel-pj-4.webp",
     ],
   },
   {
@@ -84,8 +84,8 @@ export const consorcioTables = [
     title: "Tabela Pesados PF",
     body: "Caminhões, ônibus, tratores e equipamentos para pessoa física.",
     images: [
-      "/images/consorcio/tabelas/pesados-pf-1.jpg",
-      "/images/consorcio/tabelas/pesados-pf-2.jpg",
+      "/images/consorcio/tabelas/pesados-pf-1.webp",
+      "/images/consorcio/tabelas/pesados-pf-2.webp",
     ],
   },
   {
@@ -93,8 +93,8 @@ export const consorcioTables = [
     title: "Tabela Pesados PJ",
     body: "Pesados para pessoa jurídica.",
     images: [
-      "/images/consorcio/tabelas/pesados-pj-1.jpg",
-      "/images/consorcio/tabelas/pesados-pj-2.jpg",
+      "/images/consorcio/tabelas/pesados-pj-1.webp",
+      "/images/consorcio/tabelas/pesados-pj-2.webp",
     ],
   },
 ] as const;
@@ -178,12 +178,12 @@ export const navItems: NavItem[] = [
           title: "Tabelas",
           links: [
             { label: "Todas as tabelas", href: "/consorcio/tabelas" },
-            { label: "Automóvel PF", href: "/consorcio/tabelas#auto-pf" },
-            { label: "Automóvel PJ", href: "/consorcio/tabelas#auto-pj" },
-            { label: "Imóvel PF", href: "/consorcio/tabelas#imovel-pf" },
-            { label: "Imóvel PJ", href: "/consorcio/tabelas#imovel-pj" },
-            { label: "Pesados PF", href: "/consorcio/tabelas#pesados-pf" },
-            { label: "Pesados PJ", href: "/consorcio/tabelas#pesados-pj" },
+            { label: "Automóvel PF", href: "/consorcio/tabelas/auto-pf" },
+            { label: "Automóvel PJ", href: "/consorcio/tabelas/auto-pj" },
+            { label: "Imóvel PF", href: "/consorcio/tabelas/imovel-pf" },
+            { label: "Imóvel PJ", href: "/consorcio/tabelas/imovel-pj" },
+            { label: "Pesados PF", href: "/consorcio/tabelas/pesados-pf" },
+            { label: "Pesados PJ", href: "/consorcio/tabelas/pesados-pj" },
           ],
         },
         {
@@ -540,21 +540,21 @@ export const consorcioPlans = [
     title: "Consórcio de Veículos",
     body: "Carros, motos e náuticos com pagamento em até 90 meses. Crédito de R$ 25 mil a R$ 200 mil.",
     image: "/images/consorcio/planos/auto.webp",
-    tablesHref: "/consorcio/tabelas#automovel",
+    tablesHref: "/consorcio/tabelas/auto-pf",
   },
   {
     id: "imovel",
     title: "Consórcio de Imóvel",
     body: "Casa, apartamento, terreno, construção, reforma e quitação de financiamento em até 200 meses. Crédito de R$ 70 mil a R$ 900 mil.",
     image: "/images/consorcio/planos/imovel.webp",
-    tablesHref: "/consorcio/tabelas#imovel",
+    tablesHref: "/consorcio/tabelas/imovel-pf",
   },
   {
     id: "pesados",
     title: "Consórcio de Pesados",
     body: "Caminhões, ônibus, tratores e linha amarela com pagamento em até 120 meses. Crédito de R$ 180 mil a R$ 360 mil.",
     image: "/images/consorcio/planos/pesados.webp",
-    tablesHref: "/consorcio/tabelas#pesados",
+    tablesHref: "/consorcio/tabelas/pesados-pf",
   },
   {
     id: "sustentavel",

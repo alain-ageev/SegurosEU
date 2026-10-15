@@ -21,19 +21,19 @@ const tabelaShortcuts = [
   {
     title: "Automóvel",
     body: "Tabelas PF e PJ para carros, motos e veículos da empresa.",
-    href: "/consorcio/tabelas#automovel",
+    href: "/consorcio/tabelas/auto-pf",
     image: "/images/consorcio/planos/auto.webp",
   },
   {
     title: "Imóvel",
     body: "Tabelas PF e PJ para casa, apartamento, terreno e reforma.",
-    href: "/consorcio/tabelas#imovel",
+    href: "/consorcio/tabelas/imovel-pf",
     image: "/images/consorcio/planos/imovel.webp",
   },
   {
     title: "Pesados",
     body: "Tabelas PF e PJ para caminhões, ônibus, tratores e linha amarela.",
-    href: "/consorcio/tabelas#pesados",
+    href: "/consorcio/tabelas/pesados-pf",
     image: "/images/consorcio/planos/pesados.webp",
   },
 ] as const;
@@ -102,7 +102,7 @@ export default function ConsorcioPage() {
                     <div className="relative aspect-[240/164] w-full bg-[#f4f4f4]">
                       <Image
                         src={item.image}
-                        alt=""
+                        alt={item.title}
                         fill
                         sizes="(max-width: 640px) 100vw, 320px"
                         className="object-cover"
@@ -131,7 +131,7 @@ export default function ConsorcioPage() {
               {consorcioTables.map((table) => (
                 <li key={table.id}>
                   <Link
-                    href={`/consorcio/tabelas#${table.id}`}
+                    href={`/consorcio/tabelas/${table.id}`}
                     className="underline-offset-4 hover:underline"
                   >
                     {table.title}
@@ -187,7 +187,7 @@ export default function ConsorcioPage() {
                 <div className="relative aspect-[240/140] w-full bg-white">
                   <Image
                     src={plan.image}
-                    alt=""
+                    alt={plan.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 480px"
                     className="object-cover"
