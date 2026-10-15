@@ -103,7 +103,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/checklist-consorcio",
-        destination: "/checklist/consorcio",
+        destination: "/checklist",
+        permanent: true,
+      },
+      {
+        source: "/checklist/consorcio",
+        destination: "/checklist",
         permanent: true,
       },
       {

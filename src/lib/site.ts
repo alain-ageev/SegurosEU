@@ -170,7 +170,6 @@ export const navItems: NavItem[] = [
           links: [
             { label: "Página do consórcio", href: "/consorcio" },
             { label: "Dúvidas", href: "/consorcio/duvidas" },
-            { label: "Checklist", href: "/checklist/consorcio" },
           ],
         },
         {
@@ -481,11 +480,6 @@ export const institutionalPartners = [
 ] as const;
 
 export const checklistItems = [
-  {
-    slug: "consorcio",
-    title: "Consórcio",
-    description: "Documentos e dados para cotação e adesão a grupos.",
-  },
   {
     slug: "saude",
     title: "Saúde",

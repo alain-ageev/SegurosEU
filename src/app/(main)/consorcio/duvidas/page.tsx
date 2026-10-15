@@ -225,9 +225,9 @@ export default function ConsorcioDuvidasPage() {
       </section>
       <CtaBand
         title="Ainda tem dúvidas?"
-        description="Envie sua pergunta ou abra o checklist de consórcio para agilizar a análise."
-        secondaryHref="/checklist/consorcio"
-        secondaryLabel="Checklist consórcio"
+        description="Envie sua pergunta ou abra o checklist para agilizar a análise."
+        secondaryHref="/checklist"
+        secondaryLabel="Checklist"
       />
     </>
   );

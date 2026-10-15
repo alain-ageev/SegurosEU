@@ -9,7 +9,7 @@ import { checklistItems } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: "Checklists",
   description:
-    "Checklists Edias para agilizar cotações: consórcio, saúde, veículos, residencial, empresarial, RCG, transporte e mais.",
+    "Checklists Edias para agilizar cotações: saúde, veículos, residencial, empresarial, RCG, transporte e mais.",
   path: "/checklist",
 });
 
