@@ -170,7 +170,6 @@ export const navItems: NavItem[] = [
           links: [
             { label: "Página do consórcio", href: "/consorcio" },
             { label: "Dúvidas", href: "/consorcio/duvidas" },
-            { label: "Calcular parcelas", href: "/consorcio/duvidas#calculo" },
             { label: "Checklist", href: "/checklist/consorcio" },
           ],
         },

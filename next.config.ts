@@ -88,7 +88,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/calculoconsorcio",
-        destination: "/consorcio/duvidas#calculo",
+        destination: "/consorcio/duvidas",
         permanent: true,
       },
       {
