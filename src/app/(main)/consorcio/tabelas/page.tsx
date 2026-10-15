@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
@@ -8,7 +9,7 @@ import { consorcioTables } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: "Tabelas de Consórcio",
   description:
-    "Tabelas de consórcio Porto Bank: automóvel PF/PJ, imóvel PF/PJ, pesados, solar e bike com a E DIAS.",
+    "Tabelas de consórcio Porto Bank: automóvel PF/PJ, imóvel PF/PJ e pesados PF/PJ com a E DIAS.",
   path: "/consorcio/tabelas",
 });
 
@@ -28,11 +29,6 @@ const groups = [
     title: "Pesados",
     ids: ["pesados-pf", "pesados-pj"] as const,
   },
-  {
-    id: "sustentavel",
-    title: "Sustentável e mobilidade",
-    ids: ["solar", "bike"] as const,
-  },
 ] as const;
 
 export default function ConsorcioTabelasPage() {
@@ -45,7 +41,7 @@ export default function ConsorcioTabelasPage() {
       <Hero
         brand="Tabelas"
         title="Tabelas Consórcio Porto Bank"
-        description="Como no site anterior: tabela auto PF/PJ, imóvel PF/PJ, pesados, solar e bike. As faixas variam por grupo — a E DIAS envia a versão vigente."
+        description="As mesmas tabelas do site anterior: automóvel PF/PJ, imóvel PF/PJ e pesados PF/PJ."
         primaryCta={{ label: "Solicitar tabela", href: "/contato" }}
         secondaryCta={{ label: "Voltar ao consórcio", href: "/consorcio" }}
         compact
@@ -76,6 +72,18 @@ export default function ConsorcioTabelasPage() {
                       <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
                         {item.body}
                       </p>
+                      <div className="mt-4 space-y-3">
+                        {item.images.map((src) => (
+                          <Image
+                            key={src}
+                            src={src}
+                            alt={item.title}
+                            width={760}
+                            height={950}
+                            className="h-auto w-full rounded-[12px] bg-white"
+                          />
+                        ))}
+                      </div>
                       <Link
                         href="/contato"
                         className="mt-4 inline-flex text-sm font-bold text-[var(--edias-navy)] underline-offset-4 hover:underline"

@@ -38,42 +38,64 @@ export const consorcioTables = [
   {
     id: "auto-pf",
     title: "Tabela Automóvel PF",
-    body: "Planos para pessoa física — carros e motos com diferentes prazos e créditos. Solicite a tabela atualizada.",
+    body: "Planos para pessoa física — carros e motos, nas faixas do Consórcio Porto Bank.",
+    images: [
+      "/images/consorcio/tabelas/auto-pf-1.jpg",
+      "/images/consorcio/tabelas/auto-pf-2.jpg",
+      "/images/consorcio/tabelas/auto-pf-3.jpg",
+      "/images/consorcio/tabelas/auto-pf-4.jpg",
+    ],
   },
   {
     id: "auto-pj",
     title: "Tabela Automóvel PJ",
-    body: "Planos para pessoa jurídica — frota e veículos da empresa com condições por grupo vigente.",
+    body: "Planos para pessoa jurídica — frota e veículos da empresa.",
+    images: [
+      "/images/consorcio/tabelas/auto-pj-1.jpg",
+      "/images/consorcio/tabelas/auto-pj-2.jpg",
+      "/images/consorcio/tabelas/auto-pj-3.jpg",
+      "/images/consorcio/tabelas/auto-pj-4.jpg",
+    ],
   },
   {
     id: "imovel-pf",
     title: "Tabela Imóvel PF",
-    body: "Faixas de crédito para casa, apartamento, terreno, construção e reforma (pessoa física).",
+    body: "Faixas de crédito para casa, apartamento, terreno, construção e reforma.",
+    images: [
+      "/images/consorcio/tabelas/imovel-pf-1.jpg",
+      "/images/consorcio/tabelas/imovel-pf-2.jpg",
+      "/images/consorcio/tabelas/imovel-pf-3.jpg",
+      "/images/consorcio/tabelas/imovel-pf-4.jpg",
+    ],
   },
   {
     id: "imovel-pj",
     title: "Tabela Imóvel PJ",
-    body: "Crédito imobiliário para pessoa jurídica — campanhas e grupos sob consulta.",
+    body: "Crédito imobiliário para pessoa jurídica.",
+    images: [
+      "/images/consorcio/tabelas/imovel-pj-1.jpg",
+      "/images/consorcio/tabelas/imovel-pj-2.jpg",
+      "/images/consorcio/tabelas/imovel-pj-3.jpg",
+      "/images/consorcio/tabelas/imovel-pj-4.jpg",
+    ],
   },
   {
     id: "pesados-pf",
     title: "Tabela Pesados PF",
-    body: "Caminhões, ônibus, tratores e equipamentos para pessoa física — conforme grupo disponível.",
+    body: "Caminhões, ônibus, tratores e equipamentos para pessoa física.",
+    images: [
+      "/images/consorcio/tabelas/pesados-pf-1.jpg",
+      "/images/consorcio/tabelas/pesados-pf-2.jpg",
+    ],
   },
   {
     id: "pesados-pj",
     title: "Tabela Pesados PJ",
-    body: "Pesados para pessoa jurídica — tabelas sob demanda conforme disponibilidade do grupo.",
-  },
-  {
-    id: "solar",
-    title: "Solar",
-    body: "Consórcio para energia solar e soluções sustentáveis — simulação com o consultor.",
-  },
-  {
-    id: "bike",
-    title: "Bike",
-    body: "Modalidade bike / mobilidade — consulte grupos e valores atualizados.",
+    body: "Pesados para pessoa jurídica.",
+    images: [
+      "/images/consorcio/tabelas/pesados-pj-1.jpg",
+      "/images/consorcio/tabelas/pesados-pj-2.jpg",
+    ],
   },
 ] as const;
 
@@ -144,11 +166,12 @@ export const navItems: NavItem[] = [
       cta: { label: "Ver consórcio", href: "/consorcio" },
       columns: [
         {
-          title: "Comece aqui",
+          title: "Consórcio",
           links: [
-            { label: "Visão geral", href: "/consorcio" },
-            { label: "Dúvidas frequentes", href: "/consorcio/duvidas" },
-            { label: "Checklist consórcio", href: "/checklist/consorcio" },
+            { label: "Página do consórcio", href: "/consorcio" },
+            { label: "Dúvidas", href: "/consorcio/duvidas" },
+            { label: "Calcular parcelas", href: "/consorcio/duvidas#calculo" },
+            { label: "Checklist", href: "/checklist/consorcio" },
           ],
         },
         {
@@ -161,19 +184,16 @@ export const navItems: NavItem[] = [
             { label: "Imóvel PJ", href: "/consorcio/tabelas#imovel-pj" },
             { label: "Pesados PF", href: "/consorcio/tabelas#pesados-pf" },
             { label: "Pesados PJ", href: "/consorcio/tabelas#pesados-pj" },
-            { label: "Solar", href: "/consorcio/tabelas#solar" },
-            { label: "Bike", href: "/consorcio/tabelas#bike" },
           ],
         },
         {
-          title: "Modalidades",
+          title: "Planos",
           links: [
-            { label: "Automóvel", href: "/consorcio" },
-            { label: "Imóvel", href: "/consorcio" },
-            { label: "Pesados", href: "/consorcio" },
-            { label: "Solar", href: "/consorcio" },
-            { label: "Bike", href: "/consorcio" },
-            { label: "Falar com especialista", href: "/contato" },
+            { label: "Veículos", href: "/consorcio#veiculos" },
+            { label: "Imóvel", href: "/consorcio#imovel" },
+            { label: "Pesados", href: "/consorcio#pesados" },
+            { label: "Sustentável", href: "/consorcio#sustentavel" },
+            { label: "Bike", href: "/consorcio#bike" },
           ],
         },
       ],
@@ -516,24 +536,39 @@ export const checklistItems = [
 
 export const consorcioPlans = [
   {
+    id: "veiculos",
     title: "Consórcio de Veículos",
     body: "Carros, motos e náuticos com pagamento em até 90 meses. Crédito de R$ 25 mil a R$ 200 mil.",
+    image: "/images/consorcio/planos/auto.webp",
+    tablesHref: "/consorcio/tabelas#automovel",
   },
   {
+    id: "imovel",
     title: "Consórcio de Imóvel",
     body: "Casa, apartamento, terreno, construção, reforma e quitação de financiamento em até 200 meses. Crédito de R$ 70 mil a R$ 900 mil.",
+    image: "/images/consorcio/planos/imovel.webp",
+    tablesHref: "/consorcio/tabelas#imovel",
   },
   {
+    id: "pesados",
     title: "Consórcio de Pesados",
     body: "Caminhões, ônibus, tratores e linha amarela com pagamento em até 120 meses. Crédito de R$ 180 mil a R$ 360 mil.",
+    image: "/images/consorcio/planos/pesados.webp",
+    tablesHref: "/consorcio/tabelas#pesados",
   },
   {
+    id: "sustentavel",
     title: "Consórcio Sustentável",
     body: "Compra e instalação de placa solar e componentes em até 30 meses. Crédito de R$ 10 mil a R$ 20 mil.",
+    image: "/images/consorcio/planos/sustentavel.webp",
+    tablesHref: "/checklist/placa-solar",
   },
   {
+    id: "bike",
     title: "Consórcio Bike",
     body: "Da urbana à elétrica, planos a partir de R$ 8 mil em até 30 meses, sem juros.",
+    image: "/images/consorcio/planos/bike.webp",
+    tablesHref: "/contato",
   },
 ] as const;
 

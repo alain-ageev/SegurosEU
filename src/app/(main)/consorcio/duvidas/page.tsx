@@ -211,7 +211,12 @@ export default function ConsorcioDuvidasPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Accordion>
             {faqs.map((item, index) => (
-              <AccordionItem key={item.q} value={`item-${index}`}>
+              <AccordionItem
+                key={item.q}
+                value={`item-${index}`}
+                id={index === 0 ? "calculo" : undefined}
+                className="scroll-mt-28"
+              >
                 <AccordionTrigger className="text-left font-heading text-base text-[var(--edias-navy)]">
                   {item.q}
                 </AccordionTrigger>

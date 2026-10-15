@@ -17,6 +17,86 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/campanha-tabela-automóvel-pf",
+        destination: "/consorcio/tabelas#auto-pf",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-automovel-pf",
+        destination: "/consorcio/tabelas#auto-pf",
+        permanent: true,
+      },
+      {
+        source: "/tabela-automovel-pf",
+        destination: "/consorcio/tabelas#auto-pf",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-automóvel-pj",
+        destination: "/consorcio/tabelas#auto-pj",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-automovel-pj",
+        destination: "/consorcio/tabelas#auto-pj",
+        permanent: true,
+      },
+      {
+        source: "/tabela-automovel-pj",
+        destination: "/consorcio/tabelas#auto-pj",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-imovel-pf",
+        destination: "/consorcio/tabelas#imovel-pf",
+        permanent: true,
+      },
+      {
+        source: "/tabela-imovel-pf",
+        destination: "/consorcio/tabelas#imovel-pf",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-imovel-pj",
+        destination: "/consorcio/tabelas#imovel-pj",
+        permanent: true,
+      },
+      {
+        source: "/tabela-imovel-pj",
+        destination: "/consorcio/tabelas#imovel-pj",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-pesados-pf",
+        destination: "/consorcio/tabelas#pesados-pf",
+        permanent: true,
+      },
+      {
+        source: "/tabela-pesados-pf",
+        destination: "/consorcio/tabelas#pesados-pf",
+        permanent: true,
+      },
+      {
+        source: "/campanha-tabela-pesados-pj",
+        destination: "/consorcio/tabelas#pesados-pj",
+        permanent: true,
+      },
+      {
+        source: "/tabela-pesados-pj",
+        destination: "/consorcio/tabelas#pesados-pj",
+        permanent: true,
+      },
+      {
+        source: "/calculoconsorcio",
+        destination: "/consorcio/duvidas#calculo",
+        permanent: true,
+      },
+      {
+        source: "/consorcio-veiculos",
+        destination: "/consorcio#veiculos",
+        permanent: true,
+      },
+      {
         source: "/duvidas-consorcio",
         destination: "/consorcio/duvidas",
         permanent: true,

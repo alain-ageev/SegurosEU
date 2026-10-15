@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 import { ConsorcioVideo } from "@/components/consorcio-video";
@@ -20,17 +21,20 @@ const tabelaShortcuts = [
   {
     title: "Automóvel",
     body: "Tabelas PF e PJ para carros, motos e veículos da empresa.",
-    href: "/consorcio/tabelas#auto-pf",
+    href: "/consorcio/tabelas#automovel",
+    image: "/images/consorcio/planos/auto.webp",
   },
   {
     title: "Imóvel",
     body: "Tabelas PF e PJ para casa, apartamento, terreno e reforma.",
-    href: "/consorcio/tabelas#imovel-pf",
+    href: "/consorcio/tabelas#imovel",
+    image: "/images/consorcio/planos/imovel.webp",
   },
   {
     title: "Pesados",
     body: "Tabelas PF e PJ para caminhões, ônibus, tratores e linha amarela.",
-    href: "/consorcio/tabelas#pesados-pf",
+    href: "/consorcio/tabelas#pesados",
+    image: "/images/consorcio/planos/pesados.webp",
   },
 ] as const;
 
@@ -85,8 +89,7 @@ export default function ConsorcioPage() {
               Consulte as tabelas do Consórcio Porto Bank
             </h2>
             <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">
-              Como no site anterior: automóvel, imóvel e pesados — com todas as
-              tabelas PF/PJ, solar e bike em um só lugar.
+              Como no site anterior: automóvel, imóvel e pesados, com tabelas PF e PJ.
             </p>
 
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
@@ -94,20 +97,31 @@ export default function ConsorcioPage() {
                 <li key={item.title}>
                   <Link
                     href={item.href}
-                    className="group flex h-full flex-col justify-between rounded-[16px] border border-[var(--edias-line)] bg-white p-6 transition hover:border-[var(--edias-navy)]"
+                    className="group flex h-full flex-col justify-between overflow-hidden rounded-[16px] border border-[var(--edias-line)] bg-white transition hover:border-[var(--edias-navy)]"
                   >
-                    <div>
-                      <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                        {item.body}
-                      </p>
+                    <div className="relative aspect-[240/164] w-full bg-[#f4f4f4]">
+                      <Image
+                        src={item.image}
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 100vw, 320px"
+                        className="object-cover"
+                      />
                     </div>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)]">
-                      Ver tabelas
-                      <ArrowRightIcon className="size-4 transition group-hover:translate-x-0.5" />
-                    </span>
+                    <div className="flex flex-1 flex-col justify-between p-5">
+                      <div>
+                        <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                          {item.body}
+                        </p>
+                      </div>
+                      <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)]">
+                        Ver tabelas
+                        <ArrowRightIcon className="size-4 transition group-hover:translate-x-0.5" />
+                      </span>
+                    </div>
                   </Link>
                 </li>
               ))}
@@ -166,15 +180,38 @@ export default function ConsorcioPage() {
           <ul className="mt-10 grid gap-6 md:grid-cols-2">
             {consorcioPlans.map((plan) => (
               <li
-                key={plan.title}
-                className="rounded-[16px] border-l-2 border-[var(--edias-gold)] bg-[#f4f4f4] p-6"
+                key={plan.id}
+                id={plan.id}
+                className="scroll-mt-28 overflow-hidden rounded-[16px] border-l-2 border-[var(--edias-gold)] bg-[#f4f4f4]"
               >
-                <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
-                  {plan.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                  {plan.body}
-                </p>
+                <div className="relative aspect-[240/140] w-full bg-white">
+                  <Image
+                    src={plan.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 480px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-heading text-xl font-semibold text-[var(--edias-navy)]">
+                    {plan.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                    {plan.body}
+                  </p>
+                  <Link
+                    href={plan.tablesHref}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[var(--edias-navy)] underline-offset-4 hover:underline"
+                  >
+                    {plan.id === "sustentavel"
+                      ? "Checklist placa solar"
+                      : plan.id === "bike"
+                        ? "Pedir cotação"
+                        : "Ver tabelas"}
+                    <ArrowRightIcon className="size-4" />
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
