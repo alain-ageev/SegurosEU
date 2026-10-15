@@ -9,6 +9,7 @@ import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
 import { createPageMetadata } from "@/lib/seo";
+import { seguroViagemPortalHref } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Seguro Viagem",
@@ -55,12 +56,44 @@ export default function ViagemPage() {
         brand="Seguro viagem"
         title="Seguro viagem com tranquilidade onde você estiver"
         description="SulAmérica com contratação rápida, assistência 24h e condições especiais — inclusive opções com desconto e parcelamento."
-        primaryCta={{ label: "Simular viagem", href: "/contato" }}
+        primaryCta={{ label: "Simule agora", href: "#simulador" }}
         secondaryCta={{ label: "Ver dúvidas", href: "#duvidas" }}
         compact
         imageSrc="/images/home/viagem2.jpg"
         imageAlt="Família no aeroporto pronta para viajar"
       />
+
+      <section id="simulador" className="scroll-mt-24 border-b border-[var(--edias-line)] bg-white py-10 sm:py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-xl">
+              <p className="font-heading text-xs tracking-[0.18em] text-[var(--edias-gold-deep)] uppercase">
+                SulAmérica
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-semibold text-[var(--edias-navy)] sm:text-4xl">
+                12x sem juros
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                Simule destino, datas e viajantes no portal SulAmérica, aqui na
+                página de viagem.
+              </p>
+            </div>
+            <a
+              href={seguroViagemPortalHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="v2-btn v2-btn-accent w-full justify-center sm:w-auto"
+            >
+              Simule agora
+            </a>
+          </div>
+          <iframe
+            title="Simulador de seguro viagem SulAmérica"
+            src={seguroViagemPortalHref}
+            className="mt-8 h-[920px] w-full border border-[var(--edias-line)] bg-white sm:h-[1100px]"
+          />
+        </div>
+      </section>
 
       <section className="bg-[var(--edias-canvas)] py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

@@ -34,6 +34,10 @@ export type MegaColumn = {
 export const odontoHref =
   "https://sulamericaodonto.com.br/?corretora=emmanueldias";
 
+/** Portal SulAmérica aberto de dentro de /viagem (mesmo papel do botão do site antigo). */
+export const seguroViagemPortalHref =
+  "https://portal.sulamericaseguros.com.br/seguroviagem/?idLink=CTJAZW8";
+
 export const consorcioTables = [
   {
     id: "auto-pf",
