@@ -103,12 +103,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/checklist-consorcio",
-        destination: "/checklist",
+        destination: "/checklist#consorcio",
         permanent: true,
       },
       {
         source: "/checklist/consorcio",
-        destination: "/checklist",
+        destination: "/checklist#consorcio",
         permanent: true,
       },
       {
@@ -156,8 +156,13 @@ const nextConfig: NextConfig = {
         destination: "/checklist/garantia-judicial",
         permanent: true,
       },
-      { source: "/cadastro", destination: "/contato", permanent: false },
-      { source: "/vidaflex", destination: "/vida", permanent: false },
+      { source: "/cadastro", destination: "/checklist/cadastro", permanent: true },
+      { source: "/vidaflex", destination: "/checklist/vida", permanent: true },
+      {
+        source: "/resumoempresarial",
+        destination: "/checklist/empresarial-resumido",
+        permanent: true,
+      },
       { source: "/v2", destination: "/", permanent: false },
       { source: "/v2/:path*", destination: "/:path*", permanent: false },
     ];

@@ -1,106 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CtaBand } from "@/components/cta-band";
+import { ChecklistForm } from "@/components/checklist-form";
 import { Hero } from "@/components/hero";
-import { Button } from "@/components/ui/button";
 import { createPageMetadata } from "@/lib/seo";
-import { checklistItems, siteConfig } from "@/lib/site";
+import { checklistRoutes } from "@/lib/checklist";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const detailHints: Record<string, string[]> = {
-  consorcio: [
-    "Dados pessoais do titular",
-    "Modalidade desejada (imóvel, veículo, pesados, solar, bike)",
-    "Faixa de crédito e prazo preferencial",
-    "Renda e composição para análise de grupo",
-  ],
-  saude: [
-    "Vidas a incluir e datas de nascimento",
-    "Cidade de uso da rede",
-    "Preferência de acomodação",
-    "Operadoras de interesse e plano atual (se houver)",
-  ],
-  veiculos: [
-    "Marca, modelo, ano e placa",
-    "CEP de pernoite",
-    "Dados do principal condutor",
-    "Uso (particular, app, comercial)",
-  ],
-  residencial: [
-    "Endereço e tipo do imóvel",
-    "Valor em risco (continente e conteúdo)",
-    "Sistemas de segurança",
-    "Sinistros anteriores",
-  ],
-  empresarial: [
-    "Atividade e CNAE",
-    "Localização e área construída",
-    "Faturamento e número de colaboradores",
-    "Coberturas desejadas (incêndio, RC, lucros cessantes etc.)",
-  ],
-  rcg: [
-    "Objeto da cobertura",
-    "Limites desejados",
-    "Histórico de sinistros",
-    "Contratos ou editais relacionados",
-  ],
-  transporte: [
-    "Tipo de carga e rotas",
-    "Valores médios e máximos por embarque",
-    "Modal (rodoviário, aéreo, marítimo)",
-    "Frequência de operações",
-  ],
-  "placa-solar": [
-    "Potência do sistema (kWp)",
-    "Local de instalação",
-    "Orçamento ou projeto",
-    "Dados do titular",
-  ],
-  "deposito-recursal": [
-    "Dados do processo",
-    "Valor do depósito",
-    "Tribunal e comarca",
-    "Documentação jurídica solicitada",
-  ],
-  "garantia-judicial": [
-    "Tipo de garantia",
-    "Valor e prazo",
-    "Partes envolvidas",
-    "Peças processuais essenciais",
-  ],
-};
-
 export async function generateStaticParams() {
-  return checklistItems.map((item) => ({ slug: item.slug }));
+  return checklistRoutes.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const item = checklistItems.find((entry) => entry.slug === slug);
+  const item = checklistRoutes.find((entry) => entry.slug === slug);
   if (!item) return {};
   return createPageMetadata({
-    title: `Checklist ${item.title}`,
-    description: `${item.description} Checklist Edias para agilizar sua cotação.`,
+    title: item.title,
+    description: item.description,
     path: `/checklist/${item.slug}`,
   });
 }
 
 export default async function ChecklistDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const item = checklistItems.find((entry) => entry.slug === slug);
+  const item = checklistRoutes.find((entry) => entry.slug === slug);
   if (!item) notFound();
-  const hints = detailHints[slug] ?? [
-    "Dados do titular",
-    "Objetivo da cotação",
-    "Documentos de identificação",
-    "Informações do risco",
-  ];
 
   return (
     <>
@@ -108,59 +38,55 @@ export default async function ChecklistDetailPage({ params }: PageProps) {
         brand="Checklist"
         title={item.title}
         description={item.description}
-        primaryCta={{ label: "Enviar por e-mail", href: `mailto:${siteConfig.email}?subject=Checklist%20${encodeURIComponent(item.title)}` }}
+        primaryCta={{ label: "Preencher formulário", href: "#formulario" }}
         secondaryCta={{ label: "Todos os checklists", href: "/checklist" }}
         compact
         imageSrc="/images/home/finance.jpg"
-        imageAlt={`Checklist ${item.title}`}
+        imageAlt={item.title}
       />
 
-      <section className="bg-[var(--edias-canvas)] py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
-            O que preparar
-          </h2>
-          <p className="mt-3 text-sm text-[var(--edias-ink-muted)]">
-            Esta página organiza o essencial para cotação. No site anterior,
-            vários checklists eram formulários Wix — aqui priorizamos a lista
-            consultiva e o contato direto com a corretora.
-          </p>
-          <ol className="mt-8 space-y-3">
-            {hints.map((hint, index) => (
-              <li
-                key={hint}
-                className="flex gap-3 bg-white p-4 text-sm text-[var(--edias-ink-muted)]"
-              >
-                <span className="font-heading font-semibold text-[var(--edias-gold-deep)]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                {hint}
-              </li>
-            ))}
-          </ol>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              nativeButton={false}
-              render={<a href={`mailto:${siteConfig.email}`} />}
-              className="bg-[var(--edias-navy)] text-white hover:bg-[var(--edias-deep)]"
-            >
-              Enviar informações
-            </Button>
-            <Button
-              nativeButton={false}
-              render={<Link href="/contato" />}
-              variant="outline"
-            >
-              Página de contato
-            </Button>
+      {item.files.length ? (
+        <section className="border-b border-[var(--edias-line)] bg-white py-12">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
+              Arquivos
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {item.files.map((file) => (
+                <li key={file.href}>
+                  <a
+                    href={file.href}
+                    {...(file.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : { download: true })}
+                    className="flex items-center justify-between gap-4 border border-[var(--edias-line)] bg-[var(--edias-canvas)] px-4 py-3 text-sm font-medium text-[var(--edias-navy)] hover:border-[var(--edias-gold)]"
+                  >
+                    {file.label}
+                    <span className="text-xs tracking-wide text-[var(--edias-gold-deep)] uppercase">
+                      {file.external ? "Link" : "PDF"}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
+        </section>
+      ) : null}
+
+      <section id="formulario" className="scroll-mt-24 bg-[var(--edias-canvas)] py-12 sm:py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <ChecklistForm
+            title={item.form.title}
+            description={item.form.description}
+            fields={item.form.fields}
+          />
+          <p className="mt-6 text-sm">
+            <Link href="/checklist" className="text-[var(--edias-navy)] underline-offset-4 hover:underline">
+              Voltar para todos os checklists
+            </Link>
+          </p>
         </div>
       </section>
-
-      <CtaBand
-        title="Precisa de ajuda para preencher?"
-        description="A equipe Edias indica o mínimo indispensável para cada produto e evita idas e vindas."
-      />
     </>
   );
 }

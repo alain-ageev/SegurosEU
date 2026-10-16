@@ -1,3 +1,5 @@
+import { checklistCatalog } from "./checklist";
+
 export const siteConfig = {
   name: "E DIAS Corretora de Seguros",
   legalName: "E Dias Corretora de Seguros",
@@ -238,7 +240,33 @@ export const navItems: NavItem[] = [
     label: "Odonto",
     href: odontoHref,
   },
-  { label: "Checklist", href: "/checklist" },
+  {
+    label: "Checklist",
+    href: "/checklist",
+    mega: {
+      eyebrow: "Checklist",
+      title: "Formulários para cotação",
+      description:
+        "A mesma lista do site anterior: cadastro, consórcio, garantia, empresarial, saúde, vida e os demais.",
+      cta: { label: "Ver todos", href: "/checklist" },
+      columns: [
+        {
+          title: "Formulários",
+          links: checklistCatalog.slice(0, 7).map((item) => ({
+            label: item.menuLabel,
+            href: item.href,
+          })),
+        },
+        {
+          title: "Mais formulários",
+          links: checklistCatalog.slice(7).map((item) => ({
+            label: item.menuLabel,
+            href: item.href,
+          })),
+        },
+      ],
+    },
+  },
   {
     label: "Sobre",
     href: "/sobre",
@@ -480,54 +508,6 @@ export const institutionalPartners = [
     role: "Entidade setorial",
     logo: "/images/partners/apoio-sindvarejista.png",
     href: "http://www.sindvarejista-pe.com.br",
-  },
-] as const;
-
-export const checklistItems = [
-  {
-    slug: "saude",
-    title: "Saúde",
-    description: "Checklist para análise de plano individual ou empresarial.",
-  },
-  {
-    slug: "veiculos",
-    title: "Veículos",
-    description: "Informações do veículo e perfil do condutor.",
-  },
-  {
-    slug: "residencial",
-    title: "Residencial",
-    description: "Dados do imóvel para proteção residencial.",
-  },
-  {
-    slug: "empresarial",
-    title: "Empresarial",
-    description: "Levantamento de riscos e coberturas corporativas.",
-  },
-  {
-    slug: "rcg",
-    title: "Responsabilidade Civil (RCG)",
-    description: "Informações para cotação de RCG.",
-  },
-  {
-    slug: "transporte",
-    title: "Transporte",
-    description: "Checklist para cargas e operações logísticas.",
-  },
-  {
-    slug: "placa-solar",
-    title: "Placa solar",
-    description: "Dados do projeto e instalação fotovoltaica.",
-  },
-  {
-    slug: "deposito-recursal",
-    title: "Depósito recursal",
-    description: "Orientações e formulário para depósito recursal.",
-  },
-  {
-    slug: "garantia-judicial",
-    title: "Garantia judicial",
-    description: "Formulário essencial para obtenção da garantia.",
   },
 ] as const;
 
