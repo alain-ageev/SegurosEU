@@ -9,6 +9,7 @@ import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
 import { createPageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Dúvidas sobre Consórcio",
@@ -200,8 +201,8 @@ export default function ConsorcioDuvidasPage() {
       <Hero
         brand="Dúvidas"
         title="Consórcio sem mistério"
-        description="Respostas objetivas para decidir com segurança — e um consultor Edias quando a pergunta for a sua."
-        primaryCta={{ label: "Falar com consultor", href: "/contato" }}
+        description="Respostas objetivas para decidir com segurança — e um especialista Edias quando a pergunta for a sua."
+        primaryCta={{ label: "Falar com especialista", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Ver planos", href: "/consorcio" }}
         compact
         imageSrc="/images/home/consorcio.jpg"

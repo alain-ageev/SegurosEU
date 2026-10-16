@@ -174,7 +174,7 @@ export const navItems: NavItem[] = [
         {
           title: "Consórcio",
           links: [
-            { label: "Página do consórcio", href: "/consorcio" },
+            { label: "Consórcio", href: "/consorcio" },
             { label: "Dúvidas", href: "/consorcio/duvidas" },
           ],
         },
