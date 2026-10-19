@@ -101,23 +101,6 @@ export default async function ChecklistDetailPage({ params }: PageProps) {
         imageAlt={item.title}
       />
 
-      {item.files.length ? (
-        <section className="border-b border-[var(--edias-line)] bg-white py-12">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
-              Arquivos
-            </h2>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {item.files.map((file) => (
-                <li key={file.href}>
-                  <ChecklistFileCard file={file} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
-
       <section id="formulario" className="scroll-mt-24 bg-[var(--edias-canvas)] py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <ChecklistForm
@@ -125,6 +108,20 @@ export default async function ChecklistDetailPage({ params }: PageProps) {
             description={item.form.description}
             fields={item.form.fields}
           />
+          {item.files.length ? (
+            <div className="mt-10">
+              <h2 className="font-heading text-2xl font-semibold text-[var(--edias-navy)]">
+                Arquivos
+              </h2>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {item.files.map((file) => (
+                  <li key={file.href}>
+                    <ChecklistFileCard file={file} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           <p className="mt-6 text-sm">
             <Link href="/checklist" className="text-[var(--edias-navy)] underline-offset-4 hover:underline">
               Voltar para todos os checklists
