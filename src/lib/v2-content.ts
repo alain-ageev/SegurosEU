@@ -33,7 +33,7 @@ export const v2Hero = {
     "Diagnóstico objetivo de riscos e benefícios para reduzir custo, fechar lacunas de cobertura e dar clareza ao RH e à diretoria.",
   primaryCta: {
     label: "Solicitar diagnóstico gratuito",
-    href: "/#contato",
+    href: siteConfig.whatsappHref,
   },
   secondaryCta: {
     label: "Falar no WhatsApp",
@@ -109,7 +109,7 @@ export const v2Solutions = [
     title: "Seguros empresariais",
     benefit: "Patrimônio, RC, transporte e frota com análise de exposição real.",
     forWho: "Indústria, comércio e serviços",
-    href: "/contato",
+    href: siteConfig.whatsappHref,
     cta: "Falar sobre seguro empresarial",
   },
   {

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { createPageMetadata } from "@/lib/seo";
-import { saudeOperators } from "@/lib/site";
+import { saudeOperators, siteConfig } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ brand: string }>;
@@ -81,7 +81,7 @@ export default async function SaudeBrandPage({ params }: PageProps) {
         brand={op.name}
         title={`Planos ${op.name} com orientação Edias`}
         description={op.summary}
-        primaryCta={{ label: "Solicitar cotação", href: "/contato" }}
+        primaryCta={{ label: "Solicitar cotação", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Voltar às operadoras", href: "/saude" }}
         compact
         imageSrc="/images/home/health.jpg"

@@ -201,7 +201,13 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <Button
               nativeButton={false}
-              render={<Link href="/contato" />}
+              render={
+                <a
+                  href={siteConfig.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
               size="sm"
               className="hidden h-10 rounded-none bg-[var(--edias-navy)] px-4 text-white hover:bg-[var(--edias-deep)] md:inline-flex"
             >
@@ -276,18 +282,22 @@ export function SiteHeader() {
                     : null}
                 </div>
               ))}
-              <Link
-                href="/contato"
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpenMobile(false)}
                 className="mt-2 inline-flex items-center justify-center bg-[var(--edias-navy)] px-5 py-3 text-sm font-bold text-white"
               >
                 Fale com um especialista
-              </Link>
+              </a>
               <a
-                href={siteConfig.phoneHref}
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center border border-[var(--edias-navy)]/20 bg-white px-5 py-3 text-sm font-bold text-[var(--edias-navy)]"
               >
-                {siteConfig.phone}
+                Ligar agora
               </a>
             </nav>
           </div>

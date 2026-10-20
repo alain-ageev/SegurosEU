@@ -59,13 +59,15 @@ export default function ConversionHomePage() {
               Varejistas, atacadistas, fábricas e indústrias.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
+              <a
                 href={v2Hero.primaryCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="v2-btn v2-btn-primary w-full justify-center sm:w-auto"
               >
                 {v2Hero.primaryCta.label}
                 <ArrowRightIcon className="size-4" />
-              </Link>
+              </a>
               <a
                 href={v2Hero.secondaryCta.href}
                 target="_blank"
@@ -440,8 +442,13 @@ export default function ConversionHomePage() {
               >
                 WhatsApp direto
               </a>
-              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-ghost">
-                {siteConfig.phone}
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-ghost"
+              >
+                Ligar agora
               </a>
             </div>
           </div>

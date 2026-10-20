@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { createPageMetadata } from "@/lib/seo";
-import { consorcioTables } from "@/lib/site";
+import { consorcioTables, siteConfig } from "@/lib/site";
 
 type PageProps = {
   params: Promise<{ tipo: string }>;
@@ -39,7 +39,7 @@ export default async function ConsorcioTabelaTipoPage({ params }: PageProps) {
         brand="Tabelas"
         title={item.title}
         description={item.body}
-        primaryCta={{ label: "Solicitar esta tabela", href: "/contato" }}
+        primaryCta={{ label: "Solicitar esta tabela", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Todas as tabelas", href: "/consorcio/tabelas" }}
         compact
         imageSrc="/images/home/house.jpg"

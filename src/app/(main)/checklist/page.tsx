@@ -5,6 +5,7 @@ import { ChecklistForm } from "@/components/checklist-form";
 import { Hero } from "@/components/hero";
 import { createPageMetadata } from "@/lib/seo";
 import { checklistCatalog } from "@/lib/checklist";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Checklists",
@@ -22,7 +23,7 @@ export default function ChecklistPage() {
         brand="Checklist"
         title="Prepare a cotação com os dados certos"
         description="Os mesmos formulários do site anterior, na ordem do menu: cadastro, consórcio, garantia, empresarial, saúde, vida e os demais produtos."
-        primaryCta={{ label: "Falar com a equipe", href: "/contato" }}
+        primaryCta={{ label: "Falar com a equipe", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Consórcio", href: "#consorcio" }}
         compact
         imageSrc="/images/home/finance.jpg"

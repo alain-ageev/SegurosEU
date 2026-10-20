@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { createPageMetadata } from "@/lib/seo";
-import { saudeOperators } from "@/lib/site";
+import { saudeOperators, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Planos de Saúde",
@@ -21,7 +21,7 @@ export default function SaudePage() {
         brand="Planos de saúde"
         title="Planos de saúde: a melhor escolha para a sua necessidade"
         description="Analisamos rede, coparticipação e reembolso para indicar a operadora certa — individual, familiar ou empresarial."
-        primaryCta={{ label: "Pedir análise", href: "/contato" }}
+        primaryCta={{ label: "Pedir análise", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Checklist saúde", href: "/checklist/saude" }}
         compact
         imageSrc="/images/home/health.jpg"

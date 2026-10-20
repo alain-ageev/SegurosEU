@@ -7,7 +7,7 @@ import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
 import { createPageMetadata } from "@/lib/seo";
-import { consorcioPlans, consorcioTables } from "@/lib/site";
+import { consorcioPlans, consorcioTables, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Consórcio",
@@ -69,7 +69,7 @@ export default function ConsorcioPage() {
         brand="Consórcio"
         title="Consórcio com parcelas planejadas para o seu sonho"
         description="Grupos Porto Bank para imóvel, veículo, pesados e soluções sustentáveis — com orientação da Edias em cada etapa."
-        primaryCta={{ label: "Pedir cotação", href: "/contato" }}
+        primaryCta={{ label: "Pedir cotação", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Ver tabelas", href: "/consorcio/tabelas" }}
         compact
         imageSrc="/images/home/viagem3.jpg"

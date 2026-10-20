@@ -63,7 +63,7 @@ export default function IncendioPage() {
         brand="Incêndio"
         title="Seguro contra incêndio para proteger patrimônio e operação"
         description="Imóvel, conteúdo e continuidade do negócio com análise objetiva de risco — residencial, comercial ou industrial."
-        primaryCta={{ label: "Solicitar cotação", href: "/contato" }}
+        primaryCta={{ label: "Solicitar cotação", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Falar no WhatsApp", href: siteConfig.whatsappHref }}
         compact
         imageSrc="/images/home/incendio-ig-limpo.jpg"

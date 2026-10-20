@@ -155,12 +155,14 @@ export function V2Header() {
       <div ref={barRef}>
         <div className="bg-[var(--v2-abyss)] px-3 py-1.5 text-center text-[11px] font-semibold leading-none text-white sm:px-4 sm:text-[12px]">
           <span className="hidden sm:inline">Consultoria B2B em seguros · </span>
-          <Link
-            href="/#contato"
+          <a
+            href={siteConfig.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[var(--v2-ember)] underline-offset-2 hover:underline"
           >
             Solicitar diagnóstico
-          </Link>
+          </a>
         </div>
 
         <div className="border-b border-[var(--v2-mist)] bg-[#f4f4f4]">
@@ -363,8 +365,13 @@ export function V2Header() {
               >
                 Fale com um especialista
               </a>
-              <a href={siteConfig.phoneHref} className="v2-btn v2-btn-menu">
-                {siteConfig.phone}
+              <a
+                href={siteConfig.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="v2-btn v2-btn-menu"
+              >
+                Ligar agora
               </a>
             </nav>
           </div>

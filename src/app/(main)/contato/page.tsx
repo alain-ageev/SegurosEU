@@ -34,7 +34,7 @@ export default function ContatoPage() {
         brand="Contato"
         title="Atendimento consultivo, perto de você"
         description="Segunda a sexta, 08h30 às 17h30. Recife · Boa Viagem — e atendimento remoto para outras praças."
-        primaryCta={{ label: "Ligar agora", href: siteConfig.phoneHref }}
+        primaryCta={{ label: "Ligar agora", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "WhatsApp", href: siteConfig.whatsappHref }}
         compact
         imageSrc="/images/home/clients.jpg"

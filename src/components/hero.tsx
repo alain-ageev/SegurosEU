@@ -33,7 +33,7 @@ export function Hero({
   brand,
   title,
   description,
-  primaryCta = { label: "Falar com especialista", href: "/contato" },
+  primaryCta = { label: "Falar com especialista", href: siteConfig.whatsappHref },
   secondaryCta = { label: "Ver soluções", href: "/#solucoes" },
   compact = false,
   imageSrc = "/images/home/meeting.jpg",

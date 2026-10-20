@@ -5,7 +5,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { createPageMetadata } from "@/lib/seo";
-import { consorcioTables } from "@/lib/site";
+import { consorcioTables, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Tabelas de Consórcio",
@@ -41,7 +41,7 @@ export default function ConsorcioTabelasPage() {
         brand="Tabelas"
         title="Tabelas Consórcio Porto Bank"
         description="Cada modalidade tem a própria página, com as tabelas do site anterior em tamanho original."
-        primaryCta={{ label: "Solicitar tabela", href: "/contato" }}
+        primaryCta={{ label: "Solicitar tabela", href: siteConfig.whatsappHref }}
         secondaryCta={{ label: "Voltar ao consórcio", href: "/consorcio" }}
         compact
         imageSrc="/images/home/house.jpg"

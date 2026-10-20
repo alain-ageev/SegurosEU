@@ -178,9 +178,14 @@ export default function SobrePage() {
                 <Link href="/contato" className="v2-btn v2-btn-outline">
                   Página de contato
                 </Link>
-                <Link href="/#contato" className="v2-btn v2-btn-ghost">
-                  Diagnóstico na home
-                </Link>
+                <a
+                  href={siteConfig.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="v2-btn v2-btn-ghost"
+                >
+                  Falar com a equipe
+                </a>
               </div>
             </div>
 
