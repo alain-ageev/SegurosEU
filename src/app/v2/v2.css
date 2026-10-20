@@ -590,3 +590,41 @@
     transform: none;
   }
 }
+
+/* Atenção — pulso e anel dourado em todos os botões de ação */
+@keyframes edias-btn-attention {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 0 rgba(201, 169, 26, 0.7);
+  }
+  45% {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow:
+      0 0 0 3px rgba(201, 169, 26, 0.7),
+      0 12px 28px rgba(201, 169, 26, 0.5);
+  }
+  75% {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 0 0 12px rgba(201, 169, 26, 0);
+  }
+}
+
+.v2-btn,
+.edias-attention {
+  animation: edias-btn-attention 1.8s ease-in-out infinite;
+}
+
+.v2-btn:hover,
+.v2-btn:focus-visible,
+.edias-attention:hover,
+.edias-attention:focus-visible {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-btn,
+  .edias-attention {
+    animation: none;
+  }
+}

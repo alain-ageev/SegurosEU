@@ -138,7 +138,7 @@ export default function ContatoPage() {
               </div>
               <Button
                 type="submit"
-                className="bg-[var(--edias-gold)] text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]"
+                className="edias-attention h-11 bg-[var(--edias-gold)] px-4 text-base font-bold text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]"
               >
                 Enviar mensagem
               </Button>
