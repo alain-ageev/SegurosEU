@@ -317,19 +317,7 @@ export default function ConversionHomePage() {
             ))}
           </div>
 
-          <div className="mt-4 flex justify-center">
-            <a
-              href={siteConfig.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="v2-btn v2-btn-primary"
-            >
-              Quero esse Atendimento
-              <ArrowRightIcon className="size-4" />
-            </a>
-          </div>
-
-          <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
+          <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
             {v2Authority.map((item) => (
               <Link
                 key={item.href}
