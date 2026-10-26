@@ -549,28 +549,116 @@ export const consorcioPlans = [
   },
 ] as const;
 
+/**
+ * Destino de "Simule agora". String vazia usa o WhatsApp até existir
+ * o link definitivo da simulação de cada produto ou seção.
+ */
+export function vidaSimulateHref(override = "") {
+  return override || siteConfig.whatsappHref;
+}
+
 export const vidaPlans = [
   {
     title: "Contrata Fácil Executivo Prestige",
     range: "Vida de R$ 1 a 4 milhões",
     href: "https://ediasvidaprestige.plataformadeseguros.com.br",
+    image: "/images/vida/planos/prestige.jpg",
+    imageAlt: "Executivo em traje formal, perfil do plano Prestige",
+    simulateHref: "",
   },
   {
     title: "Clássico Especial",
     range: "Vida de R$ 250 a 750 mil",
     href: "https://ediasvidaclassico.plataformadeseguros.com.br/",
+    image: "/images/vida/planos/classico.jpg",
+    imageAlt: "Profissional sorridente, perfil do plano Clássico Especial",
+    simulateHref: "",
   },
   {
     title: "Exato Flex",
     range: "Vida de R$ 50 a 100 mil",
     href: "https://ediasvidaflex.plataformadeseguros.com.br/",
+    image: "/images/vida/planos/flex.jpg",
+    imageAlt: "Mulher confiante de braços cruzados, perfil do plano Exato Flex",
+    simulateHref: "",
   },
   {
     title: "Estagiário",
     range: "Acidentes de R$ 50 a 300 mil",
     href: "https://ediasvidaestagiario.plataformadeseguros.com.br/",
+    image: "/images/vida/planos/estagiario.jpg",
+    imageAlt: "Estudante com cadernos, perfil do plano Estagiário",
+    simulateHref: "",
   },
 ] as const;
+
+export const vidaCoverageSection = {
+  title: "Conheça algumas de nossas coberturas e assistências",
+  intro:
+    "Coberturas que protegem sua renda em casos de doença ou acidente. Simule para conhecer todas as opções de proteção.",
+  simulateHref: "",
+  items: [
+    {
+      title: "Morte qualquer causa",
+      body: "Segurança para seus familiares caso você venha a faltar.",
+      image: "/images/vida/coberturas/morte.png",
+    },
+    {
+      title: "Invalidez por acidente",
+      body: "Proteção para você em caso de uma invalidez causada por acidente.",
+      image: "/images/vida/coberturas/acidente.png",
+    },
+    {
+      title: "Doenças graves",
+      body: "Proteção no diagnóstico de uma doença grave, como câncer, AVC, Parkinson e Alzheimer. São 30 doenças, a maior cobertura do Brasil.",
+      image: "/images/vida/coberturas/doencas-graves.png",
+    },
+    {
+      title: "Invalidez por doença",
+      body: "Proteção para você em caso de uma invalidez causada por doença.",
+      image: "/images/vida/coberturas/invalidez-doenca.png",
+    },
+    {
+      title: "Assistência funeral",
+      body: "Familiares ou amigos acionam o serviço e recebem o auxílio necessário nesse momento.",
+      image: "/images/vida/coberturas/funeral.png",
+    },
+  ],
+} as const;
+
+export const vidaBenefitSection = {
+  title: "Benefícios que facilitam sua vida",
+  intro:
+    "Oferecemos diversos benefícios de acordo com sua proteção, para você usar quando precisar.",
+  simulateHref: "",
+  items: [
+    {
+      title: "Médico na tela",
+      body: "Atendimento médico online sem limite de utilização, 24 horas por dia, 7 dias por semana.",
+      image: "/images/vida/beneficios/medico-na-tela.png",
+    },
+    {
+      title: "Clube de vantagens",
+      body: "Descontos e benefícios exclusivos para cuidar da saúde integral.",
+      image: "/images/vida/beneficios/clube.png",
+    },
+    {
+      title: "Desconto em farmácias",
+      body: "Descontos de até 70% em medicamentos nas maiores redes de farmácias do Brasil.",
+      image: "/images/vida/beneficios/farmacias.png",
+    },
+    {
+      title: "Sorteios mensais",
+      body: "Sorteios de até R$ 15 mil pela loteria federal todo mês.",
+      image: "/images/vida/beneficios/sorteios.png",
+    },
+    {
+      title: "Assistência residencial",
+      body: "Pequenos reparos, como chaveiro e eletricista, além de vigilância e segurança.",
+      image: "/images/vida/beneficios/residencial.png",
+    },
+  ],
+} as const;
 
 export const saudeOperators = [
   {
