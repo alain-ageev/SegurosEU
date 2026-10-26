@@ -4,6 +4,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
+import { VidaCoverageCards } from "@/components/vida-coverage-cards";
 import { createPageMetadata } from "@/lib/seo";
 import {
   siteConfig,
@@ -46,43 +47,61 @@ function InfoCards({
   simulateHref,
   items,
   tone = "white",
+  variant = "stack",
 }: {
   title: string;
   intro: string;
   simulateHref: string;
   items: readonly { title: string; body: string; image: string }[];
   tone?: "white" | "canvas";
+  variant?: "stack" | "legacy";
 }) {
+  const legacy = variant === "legacy";
+
   return (
     <section
       className={`py-16 sm:py-20 ${tone === "canvas" ? "bg-[var(--edias-canvas)]" : "bg-white"}`}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 className="max-w-3xl font-heading text-3xl font-semibold text-[var(--edias-navy)]">
+      <div className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 ${legacy ? "text-center" : ""}`}>
+        <h2
+          className={`font-heading text-3xl font-semibold text-[var(--edias-navy)] ${
+            legacy ? "mx-auto max-w-3xl" : "max-w-3xl"
+          }`}
+        >
           {title}
         </h2>
-        <p className="mt-3 max-w-2xl text-[var(--edias-ink-muted)]">{intro}</p>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {items.map((item) => (
-            <li key={item.title} className="flex flex-col items-center text-center">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={184}
-                height={208}
-                className="h-auto w-[168px]"
-              />
-              <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                {item.body}
-              </p>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-10">
+        <p
+          className={`mt-3 text-[var(--edias-ink-muted)] ${
+            legacy ? "mx-auto max-w-2xl" : "max-w-2xl"
+          }`}
+        >
+          {intro}
+        </p>
+        {legacy ? (
+          <VidaCoverageCards items={items} />
+        ) : (
+          <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {items.map((item) => (
+              <li key={item.title} className="flex flex-col items-center text-center">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={184}
+                  height={208}
+                  className="h-auto w-[168px]"
+                />
+                <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className={`mt-10 ${legacy ? "flex justify-center" : ""}`}>
           <ExternalAction
             href={vidaSimulateHref(simulateHref)}
             label="Simule agora"
-            className={outlineButton}
+            className={legacy ? "v2-btn v2-btn-accent" : outlineButton}
           />
         </div>
       </div>
@@ -158,7 +177,7 @@ export default function VidaPage() {
         </div>
       </section>
 
-      <InfoCards {...vidaCoverageSection} />
+      <InfoCards {...vidaCoverageSection} variant="legacy" />
       <InfoCards {...vidaBenefitSection} tone="canvas" />
 
       <CtaBand

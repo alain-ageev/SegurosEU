@@ -610,7 +610,7 @@ export const vidaCoverageSection = {
     },
     {
       title: "Doenças graves",
-      body: "Proteção no diagnóstico de uma doença grave, como câncer, AVC, Parkinson e Alzheimer. São 30 doenças, a maior cobertura do Brasil.",
+      body: "Proteção para você em caso do diagnóstico de uma doença grave, como câncer, AVC, Parkinson e Alzheimer. São 30 doenças, a maior cobertura do Brasil.",
       image: "/images/vida/coberturas/doencas-graves.png",
     },
     {
@@ -620,7 +620,7 @@ export const vidaCoverageSection = {
     },
     {
       title: "Assistência funeral",
-      body: "Familiares ou amigos acionam o serviço e recebem o auxílio necessário nesse momento.",
+      body: "Caso você venha a faltar, seus familiares ou amigos podem acionar o serviço e recebem o auxílio necessário nesse momento.",
       image: "/images/vida/coberturas/funeral.png",
     },
   ],
