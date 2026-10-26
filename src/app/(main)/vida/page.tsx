@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ArrowRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
@@ -20,8 +21,6 @@ export const metadata: Metadata = createPageMetadata({
   keywords: ["seguro de vida Recife", "SulAmérica vida", "doenças graves", "telemedicina"],
 });
 
-const solidButton =
-  "inline-flex h-11 items-center justify-center bg-[var(--edias-gold)] px-5 text-sm font-medium text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]";
 const outlineButton =
   "inline-flex h-11 items-center justify-center border border-[var(--edias-navy)] px-5 text-sm font-medium text-[var(--edias-navy)] hover:bg-[var(--edias-navy)] hover:text-white";
 
@@ -141,13 +140,16 @@ export default function VidaPage() {
                     {plan.title}
                   </h3>
                   <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">{plan.range}</p>
-                  <div className="mt-auto flex flex-col gap-3 pt-5">
-                    <ExternalAction href={plan.href} label="Acesse aqui" className={solidButton} />
-                    <ExternalAction
-                      href={vidaSimulateHref(plan.simulateHref)}
-                      label="Simule agora"
-                      className={outlineButton}
-                    />
+                  <div className="mt-auto pt-5">
+                    <a
+                      href={plan.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="v2-btn v2-btn-accent w-full"
+                    >
+                      Acesse Aqui
+                      <ArrowRightIcon className="size-4" />
+                    </a>
                   </div>
                 </div>
               </li>
