@@ -184,13 +184,13 @@ export default function ConsorcioPage() {
                 id={plan.id}
                 className="scroll-mt-28 overflow-hidden rounded-[16px] border-l-2 border-[var(--edias-gold)] bg-[#f4f4f4]"
               >
-                <div className="relative aspect-[240/140] w-full bg-white">
+                <div className="bg-white p-6 pb-0">
                   <Image
                     src={plan.image}
                     alt={plan.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 480px"
-                    className="object-cover"
+                    width={288}
+                    height={197}
+                    className="aspect-[288/197] w-[288px] max-w-full object-cover"
                   />
                 </div>
                 <div className="p-6">

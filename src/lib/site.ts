@@ -553,18 +553,22 @@ export const vidaPlans = [
   {
     title: "Contrata Fácil Executivo Prestige",
     range: "Vida de R$ 1 a 4 milhões",
+    href: "https://ediasvidaprestige.plataformadeseguros.com.br",
   },
   {
     title: "Clássico Especial",
     range: "Vida de R$ 250 a 750 mil",
+    href: "https://ediasvidaclassico.plataformadeseguros.com.br/",
   },
   {
     title: "Exato Flex",
     range: "Vida de R$ 50 a 100 mil",
+    href: "https://ediasvidaflex.plataformadeseguros.com.br/",
   },
   {
     title: "Estagiário",
     range: "Acidentes de R$ 50 a 300 mil",
+    href: "https://ediasvidaestagiario.plataformadeseguros.com.br/",
   },
 ] as const;
 

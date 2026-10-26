@@ -59,13 +59,21 @@ export default function VidaPage() {
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {vidaPlans.map((plan) => (
-              <li key={plan.title} className="bg-white p-6">
+              <li key={plan.title} className="flex flex-col bg-white p-6">
                 <h3 className="font-heading text-lg font-semibold text-[var(--edias-navy)]">
                   {plan.title}
                 </h3>
                 <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">
                   {plan.range}
                 </p>
+                <a
+                  href={plan.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="mt-5 inline-flex h-11 w-fit items-center justify-center bg-[var(--edias-gold)] px-5 text-sm font-medium text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]"
+                >
+                  Acesse aqui
+                </a>
               </li>
             ))}
           </ul>
