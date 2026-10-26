@@ -22,9 +22,6 @@ export const metadata: Metadata = createPageMetadata({
   keywords: ["seguro de vida Recife", "SulAmérica vida", "doenças graves", "telemedicina"],
 });
 
-const outlineButton =
-  "inline-flex h-11 items-center justify-center border border-[var(--edias-navy)] px-5 text-sm font-medium text-[var(--edias-navy)] hover:bg-[var(--edias-navy)] hover:text-white";
-
 function ExternalAction({
   href,
   label,
@@ -101,7 +98,7 @@ function InfoCards({
           <ExternalAction
             href={vidaSimulateHref(simulateHref)}
             label="Simule agora"
-            className={legacy ? "v2-btn v2-btn-accent" : outlineButton}
+            className="v2-btn v2-btn-accent"
           />
         </div>
       </div>
