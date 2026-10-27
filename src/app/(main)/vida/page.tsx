@@ -4,6 +4,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { CtaBand } from "@/components/cta-band";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
+import { VidaCoverageCards } from "@/components/vida-coverage-cards";
 import { createPageMetadata } from "@/lib/seo";
 import {
   siteConfig,
@@ -20,9 +21,6 @@ export const metadata: Metadata = createPageMetadata({
   path: "/vida",
   keywords: ["seguro de vida Recife", "SulAmérica vida", "doenças graves", "telemedicina"],
 });
-
-const outlineButton =
-  "inline-flex h-11 items-center justify-center border border-[var(--edias-navy)] px-5 text-sm font-medium text-[var(--edias-navy)] hover:bg-[var(--edias-navy)] hover:text-white";
 
 function ExternalAction({
   href,
@@ -76,45 +74,31 @@ function InfoCards({
         >
           {intro}
         </p>
-        <ul
-          className={`mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 ${
-            legacy ? "justify-items-center gap-x-5 gap-y-6 sm:gap-x-6" : ""
-          }`}
-        >
-          {items.map((item) => (
-            <li key={item.title} className={legacy ? "w-full max-w-[210px]" : "flex flex-col items-center text-center"}>
-              {legacy ? (
-                <div className="overflow-hidden rounded-[14px] bg-white shadow-[0_10px_28px_rgba(5,46,68,0.14)] transition duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_18px_40px_rgba(5,46,68,0.2)]">
-                  <Image
-                    src={item.image}
-                    alt={`${item.title}. ${item.body}`}
-                    width={420}
-                    height={504}
-                    className="h-auto w-full"
-                  />
-                </div>
-              ) : (
-                <>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={184}
-                    height={208}
-                    className="h-auto w-[168px]"
-                  />
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
-                    {item.body}
-                  </p>
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
+        {legacy ? (
+          <VidaCoverageCards items={items} />
+        ) : (
+          <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {items.map((item) => (
+              <li key={item.title} className="flex flex-col items-center text-center">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={184}
+                  height={208}
+                  className="h-auto w-[168px]"
+                />
+                <p className="mt-3 text-sm leading-relaxed text-[var(--edias-ink-muted)]">
+                  {item.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
         <div className={`mt-10 ${legacy ? "flex justify-center" : ""}`}>
           <ExternalAction
             href={vidaSimulateHref(simulateHref)}
             label="Simule agora"
-            className={legacy ? "v2-btn v2-btn-accent" : outlineButton}
+            className="v2-btn v2-btn-accent"
           />
         </div>
       </div>
