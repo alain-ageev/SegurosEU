@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { ContatoForm } from "@/components/contato-form";
 import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -92,57 +91,9 @@ export default function ContatoPage() {
               Mensagem rápida
             </h2>
             <p className="mt-2 text-sm text-[var(--edias-ink-muted)]">
-              Este formulário abre seu cliente de e-mail com os dados preenchidos
-              — sem backend nesta fatia.
+              A mensagem vai para a equipe e uma cópia segue para o e-mail que você informar.
             </p>
-            <form
-              className="mt-6 space-y-4"
-              action={`mailto:${siteConfig.email}`}
-              method="post"
-              encType="text/plain"
-            >
-              <div>
-                <label htmlFor="nome" className="text-sm font-medium text-[var(--edias-navy)]">
-                  Nome
-                </label>
-                <Input id="nome" name="nome" required className="mt-1.5" />
-              </div>
-              <div>
-                <label htmlFor="telefone" className="text-sm font-medium text-[var(--edias-navy)]">
-                  Telefone
-                </label>
-                <Input id="telefone" name="telefone" required className="mt-1.5" />
-              </div>
-              <div>
-                <label htmlFor="assunto" className="text-sm font-medium text-[var(--edias-navy)]">
-                  Assunto
-                </label>
-                <Input
-                  id="assunto"
-                  name="assunto"
-                  placeholder="Consórcio, vida, viagem, saúde…"
-                  className="mt-1.5"
-                />
-              </div>
-              <div>
-                <label htmlFor="mensagem" className="text-sm font-medium text-[var(--edias-navy)]">
-                  Mensagem
-                </label>
-                <textarea
-                  id="mensagem"
-                  name="mensagem"
-                  required
-                  rows={4}
-                  className="mt-1.5 w-full rounded-lg border border-input bg-transparent px-2.5 py-2 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
-                />
-              </div>
-              <Button
-                type="submit"
-                className="edias-attention h-11 bg-[var(--edias-gold)] px-4 text-base font-bold text-[var(--edias-navy)] hover:bg-[var(--edias-gold-soft)]"
-              >
-                Enviar mensagem
-              </Button>
-            </form>
+            <ContatoForm />
           </div>
         </div>
       </section>

@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Input } from "@/components/ui/input";
 import type { ChecklistField } from "@/lib/checklist";
+import { enviarFormulario } from "@/lib/enviar-formulario";
 import { siteConfig } from "@/lib/site";
 
 const controlClass =
@@ -21,10 +22,10 @@ export function ChecklistForm({
   description: string;
   fields: ChecklistField[];
 }) {
-  const [draft, setDraft] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "sending" | "enviado" | "cliente">("idle");
   const [error, setError] = useState<string | null>(null);
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const missing = fields.filter((field) => {
@@ -33,24 +34,24 @@ export function ChecklistForm({
     });
     if (missing.length) {
       setError("Preencha os campos obrigatórios antes de enviar.");
-      setDraft(null);
+      setStatus("idle");
       return;
     }
-    const lines = fields.flatMap((field) => {
+    const campos = fields.flatMap((field) => {
       const values = data
         .getAll(field.name)
         .map((value) => String(value).trim())
         .filter(Boolean);
       if (!values.length) return [];
-      return [`${field.label}: ${values.join(", ")}`];
+      return [{ label: field.label, value: values.join(", ") }];
     });
-    const body = lines.join("\n");
-    const mailto = `mailto:${siteConfig.email}?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+    const emailField = fields.find((field) => field.type === "email");
+    const email = emailField ? String(data.get(emailField.name) || "").trim() : "";
     setError(null);
-    setDraft(body);
-    if (mailto.length < 1900) {
-      window.location.href = mailto;
-    }
+    setStatus("sending");
+    const result = await enviarFormulario({ formulario: title, email, campos });
+    setStatus(result);
+    if (result === "enviado") event.currentTarget.reset();
   }
 
   return (
@@ -117,29 +118,28 @@ export function ChecklistForm({
           ) : null}
           {isAttachment(field.label) ? (
             <p className="mt-1 text-xs text-[var(--edias-ink-muted)]">
-              Anexe o arquivo na mensagem para {siteConfig.email}.
+              Se precisar anexar um arquivo, responda o e-mail de confirmação ou envie para {siteConfig.email}.
             </p>
           ) : null}
         </div>
       ))}
       {error ? <p className="text-sm text-red-700">{error}</p> : null}
-      <button type="submit" className="v2-btn v2-btn-accent">
-        Enviar
+      {status === "enviado" ? (
+        <p className="text-sm text-[var(--edias-navy)]" role="status">
+          Mensagem enviada. Uma cópia segue para o e-mail informado no formulário.
+        </p>
+      ) : null}
+      {status === "cliente" ? (
+        <p className="text-sm text-[var(--edias-navy)]" role="status">
+          Abrimos seu e-mail para concluir o envio, com cópia para o endereço informado.
+        </p>
+      ) : null}
+      <button type="submit" className="v2-btn v2-btn-accent" disabled={status === "sending"}>
+        {status === "sending" ? "Enviando…" : "Enviar"}
       </button>
       <p className="text-xs leading-relaxed text-[var(--edias-ink-muted)]">
-        O envio abre o e-mail com as respostas para a equipe Edias, no mesmo
-        destino dos formulários do site anterior.
+        A equipe recebe o formulário e, quando o e-mail está preenchido, você também recebe uma cópia.
       </p>
-      {draft ? (
-        <div className="border border-[var(--edias-line)] bg-[var(--edias-canvas)] p-4">
-          <p className="text-sm font-medium text-[var(--edias-navy)]">
-            Respostas prontas para envio
-          </p>
-          <pre className="mt-2 max-h-64 overflow-auto whitespace-pre-wrap text-xs text-[var(--edias-ink-muted)]">
-            {draft}
-          </pre>
-        </div>
-      ) : null}
     </form>
   );
 }
