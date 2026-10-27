@@ -615,6 +615,43 @@
   animation: edias-btn-attention 1.8s ease-in-out infinite;
 }
 
+.v2-btn:not(.v2-btn-menu),
+.edias-attention {
+  position: relative;
+  overflow: hidden;
+}
+
+.v2-btn:not(.v2-btn-menu)::after,
+.edias-attention::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  bottom: -40%;
+  left: -70%;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0.15) 65%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  animation: edias-btn-gleam 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes edias-btn-gleam {
+  0% {
+    left: -70%;
+  }
+  55%,
+  100% {
+    left: 140%;
+  }
+}
+
 .v2-btn:hover,
 .v2-btn:focus-visible,
 .edias-attention:hover,
@@ -622,9 +659,25 @@
   animation: none;
 }
 
+.v2-btn:hover::after,
+.v2-btn:focus-visible::after,
+.v2-btn:disabled::after,
+.edias-attention:hover::after,
+.edias-attention:focus-visible::after,
+.edias-attention:disabled::after {
+  animation: none;
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .v2-btn,
   .edias-attention {
     animation: none;
+  }
+
+  .v2-btn::after,
+  .edias-attention::after {
+    animation: none;
+    opacity: 0;
   }
 }

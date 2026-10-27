@@ -45,6 +45,9 @@ function InfoCards({
   items,
   tone = "white",
   variant = "stack",
+  accent = "#9631fa",
+  imageWidth = 420,
+  imageHeight = 504,
 }: {
   title: string;
   intro: string;
@@ -52,12 +55,15 @@ function InfoCards({
   items: readonly { title: string; body: string; image: string }[];
   tone?: "white" | "canvas";
   variant?: "stack" | "legacy";
+  accent?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }) {
   const legacy = variant === "legacy";
 
   return (
     <section
-      className={`py-16 sm:py-20 ${tone === "canvas" ? "bg-[var(--edias-canvas)]" : "bg-white"}`}
+      className={`py-8 sm:py-10 ${tone === "canvas" ? "bg-[var(--edias-canvas)]" : "bg-white"}`}
     >
       <div className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 ${legacy ? "text-center" : ""}`}>
         <h2
@@ -75,7 +81,12 @@ function InfoCards({
           {intro}
         </p>
         {legacy ? (
-          <VidaCoverageCards items={items} />
+          <VidaCoverageCards
+            items={items}
+            accent={accent}
+            imageWidth={imageWidth}
+            imageHeight={imageHeight}
+          />
         ) : (
           <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {items.map((item) => (
@@ -94,7 +105,7 @@ function InfoCards({
             ))}
           </ul>
         )}
-        <div className={`mt-10 ${legacy ? "flex justify-center" : ""}`}>
+        <div className={`mt-6 ${legacy ? "flex justify-center" : ""}`}>
           <ExternalAction
             href={vidaSimulateHref(simulateHref)}
             label="Simule agora"
@@ -136,12 +147,12 @@ export default function VidaPage() {
         imageAlt="Família feliz protegida com seguro de vida"
       />
 
-      <section className="bg-[var(--edias-canvas)] py-16 sm:py-20">
+      <section className="bg-[var(--edias-canvas)] py-8 sm:py-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-semibold text-[var(--edias-navy)]">
             Linhas de produto
           </h2>
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <ul className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {vidaPlans.map((plan) => (
               <li key={plan.title} className="flex flex-col bg-white">
                 <Image
@@ -175,9 +186,17 @@ export default function VidaPage() {
       </section>
 
       <InfoCards {...vidaCoverageSection} variant="legacy" />
-      <InfoCards {...vidaBenefitSection} tone="canvas" />
+      <InfoCards
+        {...vidaBenefitSection}
+        variant="legacy"
+        tone="canvas"
+        accent="#0a62f2"
+        imageWidth={361}
+        imageHeight={409}
+      />
 
       <CtaBand
+        compact
         title="Monte a proteção da sua família"
         description="A Edias ajuda a escolher capital, coberturas e assistências sem excesso nem lacuna."
       />

@@ -11,6 +11,7 @@ type CtaBandProps = {
   secondaryLabel?: string;
   /** light = fundo branco + dourado (padrão); navy = faixa azul */
   variant?: "navy" | "light";
+  compact?: boolean;
 };
 
 export function CtaBand({
@@ -21,7 +22,9 @@ export function CtaBand({
   secondaryHref = "/checklist",
   secondaryLabel = "Abrir checklist",
   variant = "light",
+  compact = false,
 }: CtaBandProps) {
+  const bandPadding = compact ? "py-6 sm:py-8" : "py-12 sm:py-14";
   const primaryExternal = primaryHref.startsWith("http");
   const secondaryExternal = secondaryHref.startsWith("http");
   const primaryClass = "v2-btn v2-btn-accent";
@@ -54,7 +57,7 @@ export function CtaBand({
   if (variant === "navy") {
     return (
       <section className="bg-[var(--v2-abyss)] text-white">
-        <div className="v2-container flex flex-col gap-6 py-12 sm:py-14 lg:flex-row lg:items-end lg:justify-between">
+        <div className={`v2-container flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between ${bandPadding}`}>
           <div className="max-w-2xl">
             <h2 className="v2-h2 v2-h2-on-blue text-white">{title}</h2>
             <p className="mt-3 text-[17px] leading-snug text-white/90">{description}</p>
@@ -70,7 +73,7 @@ export function CtaBand({
 
   return (
     <section className="border-t border-[var(--edias-line)] bg-white">
-      <div className="v2-container flex flex-col gap-6 py-12 sm:py-14 lg:flex-row lg:items-end lg:justify-between">
+      <div className={`v2-container flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between ${bandPadding}`}>
         <div className="max-w-2xl">
           <h2 className="v2-h2 text-[var(--v2-ember)]">{title}</h2>
           <p className="mt-3 text-[17px] leading-snug text-[var(--v2-mist)]">
