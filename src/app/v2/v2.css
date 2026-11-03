@@ -616,8 +616,12 @@
 }
 
 .v2-btn:not(.v2-btn-menu),
-.edias-attention {
+.edias-attention:not(.fixed) {
   position: relative;
+  overflow: hidden;
+}
+
+.edias-attention.fixed {
   overflow: hidden;
 }
 
